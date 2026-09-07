@@ -1,1 +1,0 @@
-import{_ as e,o as t,c as a}from"./chunks/framework.Bt0SrEfo.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"未命名.md","filePath":"未命名.md","lastUpdated":1788613730000}'),r={name:"未命名.md"};function o(s,c,n,_,d,p){return t(),a("div")}const f=e(r,[["render",o]]);export{m as __pageData,f as default};
