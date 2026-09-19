@@ -1,0 +1,34 @@
+import{_ as s,o as n,c as t,a5 as e}from"./chunks/framework.Bt0SrEfo.js";const g=JSON.parse('{"title":"📙 项目 C · 第一步：系统设计与技术选型","description":"","frontmatter":{"title":"📙 项目 C · 第一步：系统设计与技术选型","tags":["项目C","第一步","系统设计与技术选型"]},"headers":[],"relativePath":"agent/学习计划/项目C-端到端应用/01-系统设计与技术选型.md","filePath":"agent/学习计划/项目C-端到端应用/01-系统设计与技术选型.md","lastUpdated":1789788214000}'),p={name:"agent/学习计划/项目C-端到端应用/01-系统设计与技术选型.md"};function l(i,a,r,o,d,c){return n(),t("div",null,[...a[0]||(a[0]=[e(`<h2 id="📍-当前进度" tabindex="-1">📍 当前进度 <a class="header-anchor" href="#📍-当前进度" aria-label="Permalink to &quot;📍 当前进度&quot;">​</a></h2><p><strong>项目 C · 第一步 / 共 9 步</strong></p><p><a href="./../index">← 上一步</a> · <a href="./../index">📋 项目首页</a> · <a href="./02-数据库设计与迁移">下一步 →</a></p><hr><hr><h2 id="🎯-下一步预告" tabindex="-1">🎯 下一步预告 <a class="header-anchor" href="#🎯-下一步预告" aria-label="Permalink to &quot;🎯 下一步预告&quot;">​</a></h2><p><strong>第二步：数据库设计与迁移</strong></p><p><a href="./02-数据库设计与迁移">继续学习 →</a></p><h1 id="第一步-系统设计与技术选型" tabindex="-1">第一步：系统设计与技术选型 <a class="header-anchor" href="#第一步-系统设计与技术选型" aria-label="Permalink to &quot;第一步：系统设计与技术选型&quot;">​</a></h1><h2 id="_1-1-需求拆解" tabindex="-1">1.1 需求拆解 <a class="header-anchor" href="#_1-1-需求拆解" aria-label="Permalink to &quot;1.1 需求拆解&quot;">​</a></h2><p><strong>核心需求</strong>（MVP）：</p><ol><li>用户注册 / 登录</li><li>用户与 AI 多轮对话</li><li>对话支持 RAG（上传文档 → 自动索引）</li><li>对话支持 Agent（可选：调用工具）</li><li>历史会话管理</li></ol><p><strong>非功能需求</strong>：</p><ul><li>性能：首 token 延迟 &lt; 1s</li><li>可靠性：API 可用性 99.5%</li><li>安全性：API Key 不能泄露、用户数据隔离</li><li>可观测性：日志、监控、告警</li></ul><h2 id="_1-2-架构设计" tabindex="-1">1.2 架构设计 <a class="header-anchor" href="#_1-2-架构设计" aria-label="Permalink to &quot;1.2 架构设计&quot;">​</a></h2><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>┌──────────────────────────────────────────────────┐</span></span>
+<span class="line"><span>│  用户浏览器                                        │</span></span>
+<span class="line"><span>└─────────────────────┬────────────────────────────┘</span></span>
+<span class="line"><span>                      │ HTTPS</span></span>
+<span class="line"><span>                      ↓</span></span>
+<span class="line"><span>┌──────────────────────────────────────────────────┐</span></span>
+<span class="line"><span>│  Next.js 前端（CDN 加速）                          │</span></span>
+<span class="line"><span>│  - React 组件（对话 UI、文档上传）                 │</span></span>
+<span class="line"><span>│  - API 路由（可选）                                │</span></span>
+<span class="line"><span>└─────────────────────┬────────────────────────────┘</span></span>
+<span class="line"><span>                      │ HTTPS / WebSocket</span></span>
+<span class="line"><span>                      ↓</span></span>
+<span class="line"><span>┌──────────────────────────────────────────────────┐</span></span>
+<span class="line"><span>│  FastAPI 后端                                      │</span></span>
+<span class="line"><span>│  ┌──────────┐  ┌──────────┐  ┌──────────┐        │</span></span>
+<span class="line"><span>│  │  Auth    │  │   RAG    │  │  Agent   │        │</span></span>
+<span class="line"><span>│  │  (JWT)   │  │  Chain   │  │ Executor │        │</span></span>
+<span class="line"><span>│  └────┬─────┘  └────┬─────┘  └────┬─────┘        │</span></span>
+<span class="line"><span>│       │             │              │               │</span></span>
+<span class="line"><span>│       └─────────────┼──────────────┘               │</span></span>
+<span class="line"><span>│                     ↓                              │</span></span>
+<span class="line"><span>│         ┌──────────────────────┐                  │</span></span>
+<span class="line"><span>│         │  SQLAlchemy 2.0 ORM  │                  │</span></span>
+<span class="line"><span>│         └──────────┬───────────┘                  │</span></span>
+<span class="line"><span>└────────────────────┼─────────────────────────────┘</span></span>
+<span class="line"><span>                     ↓</span></span>
+<span class="line"><span>       ┌─────────────┼─────────────┐</span></span>
+<span class="line"><span>       ↓             ↓             ↓</span></span>
+<span class="line"><span>┌──────────┐  ┌──────────┐  ┌──────────┐</span></span>
+<span class="line"><span>│PostgreSQL│  │  Redis   │  │   LLM    │</span></span>
+<span class="line"><span>│ + pgvector│  │ (缓存)   │  │ MiniMax  │</span></span>
+<span class="line"><span>└──────────┘  └──────────┘  └──────────┘</span></span></code></pre></div><h2 id="_1-3-技术选型对比" tabindex="-1">1.3 技术选型对比 <a class="header-anchor" href="#_1-3-技术选型对比" aria-label="Permalink to &quot;1.3 技术选型对比&quot;">​</a></h2><table tabindex="0"><thead><tr><th>组件</th><th>选项</th><th>选择</th><th>理由</th></tr></thead><tbody><tr><td>后端框架</td><td>FastAPI / Flask / Django</td><td><strong>FastAPI</strong></td><td>异步、性能强、自动文档</td></tr><tr><td>ORM</td><td>SQLAlchemy / Tortoise / Piccolo</td><td><strong>SQLAlchemy 2.0</strong></td><td>生态最全、支持异步</td></tr><tr><td>数据库</td><td>PG / MySQL / MongoDB</td><td><strong>PostgreSQL + pgvector</strong></td><td>事务 + 向量一体化</td></tr><tr><td>缓存</td><td>Redis / Memcached</td><td><strong>Redis</strong></td><td>还能做会话、限流</td></tr><tr><td>前端</td><td>Next.js / Nuxt / SvelteKit</td><td><strong>Next.js</strong></td><td>你最熟（复用 ai_chat）</td></tr><tr><td>部署</td><td>Docker + K8s / Serverless</td><td><strong>Docker Compose</strong></td><td>学习期够用</td></tr></tbody></table><h2 id="_1-4-数据库设计-er-图" tabindex="-1">1.4 数据库设计（ER 图） <a class="header-anchor" href="#_1-4-数据库设计-er-图" aria-label="Permalink to &quot;1.4 数据库设计（ER 图）&quot;">​</a></h2><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>users ──┬── conversations ── messages</span></span>
+<span class="line"><span>        │</span></span>
+<span class="line"><span>        └── documents</span></span></code></pre></div><p><strong>users</strong>：用户表 <strong>conversations</strong>：会话表（一个用户多个会话） <strong>messages</strong>：消息表（一个会话多条消息） <strong>documents</strong>：文档表（用户上传的文档，含 pgvector embedding）</p><h2 id="_1-5-任务清单" tabindex="-1">1.5 任务清单 <a class="header-anchor" href="#_1-5-任务清单" aria-label="Permalink to &quot;1.5 任务清单&quot;">​</a></h2><ul><li>[ ] 画出系统架构图（draw.io / excalidraw）</li><li>[ ] 列出 MVP 功能清单</li><li>[ ] 评估每个组件的工作量</li><li>[ ] 确定优先级</li></ul><hr><h2 id="🎯-下一步预告-1" tabindex="-1">🎯 下一步预告 <a class="header-anchor" href="#🎯-下一步预告-1" aria-label="Permalink to &quot;🎯 下一步预告&quot;">​</a></h2><p><strong>第二步：数据库设计与迁移</strong></p><p><a href="./02-数据库设计与迁移">继续学习 →</a></p>`,27)])])}const u=s(p,[["render",l]]);export{g as __pageData,u as default};
