@@ -1,0 +1,34 @@
+import{_ as s,o as a,c as p,a5 as e}from"./chunks/framework.Bt0SrEfo.js";const _=JSON.parse('{"title":"🧰 技术栈全景图","description":"","frontmatter":{},"headers":[],"relativePath":"agent/学习计划/6-tech-stack.md","filePath":"agent/学习计划/6-tech-stack.md","lastUpdated":1789979447000}'),l={name:"agent/学习计划/6-tech-stack.md"};function t(i,n,c,o,r,d){return a(),p("div",null,[...n[0]||(n[0]=[e(`<h1 id="🧰-技术栈全景图" tabindex="-1">🧰 技术栈全景图 <a class="header-anchor" href="#🧰-技术栈全景图" aria-label="Permalink to &quot;🧰 技术栈全景图&quot;">​</a></h1><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>┌─────────────────────────────────────────────┐</span></span>
+<span class="line"><span>│  🐍 Python 进阶                              │</span></span>
+<span class="line"><span>│  - 类型提示 / dataclass / asyncio / uv      │</span></span>
+<span class="line"><span>└─────────────────────────────────────────────┘</span></span>
+<span class="line"><span>                    ↓</span></span>
+<span class="line"><span>┌─────────────────────────────────────────────┐</span></span>
+<span class="line"><span>│  🤖 LLM 基础                                 │</span></span>
+<span class="line"><span>│  - Token / Prompt / Function Calling        │</span></span>
+<span class="line"><span>│  - MiniMax / DeepSeek / OpenAI               │</span></span>
+<span class="line"><span>└─────────────────────────────────────────────┘</span></span>
+<span class="line"><span>                    ↓</span></span>
+<span class="line"><span>┌─────────────────────────────────────────────┐</span></span>
+<span class="line"><span>│  📚 RAG 体系                                 │</span></span>
+<span class="line"><span>│  - Embedding / 向量库 / 分块 / Reranking     │</span></span>
+<span class="line"><span>│  - ChromaDB → pgvector                       │</span></span>
+<span class="line"><span>└─────────────────────────────────────────────┘</span></span>
+<span class="line"><span>                    ↓</span></span>
+<span class="line"><span>┌─────────────────────────────────────────────┐</span></span>
+<span class="line"><span>│  🔗 LangChain + LangGraph                    │</span></span>
+<span class="line"><span>│  - LCEL / Output Parser / Memory / Agent     │</span></span>
+<span class="line"><span>│  - StateGraph / Conditional Edge / Checkpoint│</span></span>
+<span class="line"><span>└─────────────────────────────────────────────┘</span></span>
+<span class="line"><span>                    ↓</span></span>
+<span class="line"><span>┌─────────────────────────────────────────────┐</span></span>
+<span class="line"><span>│  🛠️ Agent 设计模式                           │</span></span>
+<span class="line"><span>│  - ReAct / Plan-Execute / Reflection         │</span></span>
+<span class="line"><span>│  - Multi-Agent / MCP 协议                    │</span></span>
+<span class="line"><span>└─────────────────────────────────────────────┘</span></span>
+<span class="line"><span>                    ↓</span></span>
+<span class="line"><span>┌─────────────────────────────────────────────┐</span></span>
+<span class="line"><span>│  🚀 工程化交付                               │</span></span>
+<span class="line"><span>│  - FastAPI / Next.js / PostgreSQL            │</span></span>
+<span class="line"><span>│  - Docker / GitHub Actions / 监控            │</span></span>
+<span class="line"><span>└─────────────────────────────────────────────┘</span></span></code></pre></div>`,2)])])}const g=s(l,[["render",t]]);export{_ as __pageData,g as default};
