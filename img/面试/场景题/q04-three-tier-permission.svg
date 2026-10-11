@@ -1,0 +1,84 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .layer-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1.5; }
+    .layer-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
+    .layer-name { font-size: 18px; font-weight: 700; fill: var(--c-text); }
+    .layer-desc { font-size: 14px; fill: var(--c-text); }
+    .item { font-size: 13px; fill: var(--c-text); }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 13px; fill: var(--c-text); }
+    .center-box { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+    .center-title { font-size: 16px; font-weight: 700; fill: var(--c-text); }
+    .center-text { font-size: 13px; fill: var(--c-text); }
+    .connector { stroke: var(--c-border); stroke-width: 2; fill: none; stroke-dasharray: 4 3; }
+  </style>
+
+  <text x="40" y="40" class="title">三层权限统一管理架构</text>
+  <text x="40" y="62" class="subtitle">菜单级 / 按钮级 / 接口级 统一从权限中心拉取</text>
+
+  <!-- 中心：权限中心 -->
+  <rect x="320" y="100" width="240" height="90" class="center-box" rx="8"/>
+  <text x="440" y="135" class="center-title" text-anchor="middle">权限中心</text>
+  <text x="440" y="160" class="center-text" text-anchor="middle">PERMISSIONS 常量 + 角色映射</text>
+  <text x="440" y="180" class="code" text-anchor="middle">PERMISSIONS.USER_CREATE = 'user:create'</text>
+
+  <!-- 三层：菜单级 -->
+  <g>
+    <rect x="40" y="250" width="240" height="180" class="layer-brand" rx="6"/>
+    <text x="60" y="280" class="layer-name">① 菜单级</text>
+    <text x="60" y="305" class="layer-desc">路由守卫，配置 meta.permission</text>
+    <line x1="180" y1="190" x2="180" y2="250" class="connector"/>
+    <line x1="180" y1="190" x2="160" y2="250" class="connector"/>
+
+    <text x="60" y="335" class="item">路由配置：</text>
+    <text x="60" y="355" class="code">{ path: '/users',</text>
+    <text x="68" y="373" class="code">  meta: { permission: 'user:view' } }</text>
+    <text x="60" y="398" class="item">router.beforeEach 检查 → 跳 403</text>
+    <text x="60" y="416" class="item">无权限菜单直接不渲染</text>
+  </g>
+
+  <!-- 三层：按钮级 -->
+  <g>
+    <rect x="320" y="250" width="240" height="180" class="layer-brand" rx="6"/>
+    <text x="340" y="280" class="layer-name">② 按钮级</text>
+    <text x="340" y="305" class="layer-desc">自定义 AuthBtn 组件</text>
+    <line x1="440" y1="190" x2="440" y2="250" class="connector"/>
+
+    <text x="340" y="335" class="item">用法：</text>
+    <text x="340" y="355" class="code">&lt;AuthBtn permission="user:create"&gt;</text>
+    <text x="348" y="373" class="code">  &lt;Button&gt;新建&lt;/Button&gt;</text>
+    <text x="340" y="391" class="code">&lt;/AuthBtn&gt;</text>
+    <text x="340" y="416" class="item">用 v-if 而非 v-show 避免闪烁</text>
+  </g>
+
+  <!-- 三层：接口级 -->
+  <g>
+    <rect x="600" y="250" width="240" height="180" class="layer-brand" rx="6"/>
+    <text x="620" y="280" class="layer-name">③ 接口级</text>
+    <text x="620" y="305" class="layer-desc">Axios 请求拦截器</text>
+    <line x1="700" y1="190" x2="700" y2="250" class="connector"/>
+    <line x1="700" y1="190" x2="720" y2="250" class="connector"/>
+
+    <text x="620" y="335" class="item">自动带上：</text>
+    <text x="620" y="355" class="code">headers['X-Permissions'] =</text>
+    <text x="628" y="373" class="code">  perms.join(',')</text>
+    <text x="620" y="398" class="item">后端拦截器二次校验</text>
+    <text x="620" y="416" class="item">前端可绕过，必须服务端兜底</text>
+  </g>
+
+  <text x="40" y="465" class="subtitle">统一从 PERMISSIONS 中心拉取，新增权限改一处即可</text>
+</svg>

@@ -1,0 +1,143 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+      --c-danger: #ef4444; --c-danger-soft: #fee2e2;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+        --c-danger: #f87171; --c-danger-soft: #7f1d1d;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .timeline { stroke: var(--c-border); stroke-width: 2; fill: none; }
+    .stage-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .stage-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
+    .stage-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    .stage-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
+    .stage-danger { fill: var(--c-danger-soft); stroke: var(--c-danger); stroke-width: 1.5; }
+    .stage-title { font-size: 14px; font-weight: 700; fill: var(--c-text); }
+    .stage-text { font-size: 12px; fill: var(--c-text); }
+    .stage-metric { font-size: 12px; font-weight: 700; fill: var(--c-brand); }
+    .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    .arrow-brand { stroke: var(--c-brand); stroke-width: 2; fill: none; }
+    .metric-bg { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .metric-text { font-size: 13px; fill: var(--c-text); font-weight: 700; text-anchor: middle; }
+    .metric-sub { font-size: 11px; fill: var(--c-text-soft); text-anchor: middle; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .step { opacity: 0; animation: fadeUp 0.4s ease-out forwards; }
+    .step-1 { animation-delay: 0.2s; }
+    .step-2 { animation-delay: 1.0s; }
+    .step-3 { animation-delay: 2.0s; }
+    .step-4 { animation-delay: 3.0s; }
+    .step-5 { animation-delay: 4.0s; }
+    @media (prefers-reduced-motion: reduce) {
+      .step { opacity: 1; animation: none; }
+    }
+  </style>
+  <defs>
+    <marker id="ax-q29" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">浏览器首屏加载流水线</text>
+  <text x="40" y="62" class="subtitle">从 URL 输入到页面可交互的完整链路 + 关键指标</text>
+
+  <!-- 时间轴 -->
+  <line x1="50" y1="100" x2="830" y2="100" class="timeline"/>
+
+  <!-- 阶段 1: DNS 解析 -->
+  <g class="step step-1">
+    <rect x="50" y="115" width="120" height="80" class="stage-box" rx="6"/>
+    <text x="110" y="138" class="stage-title" text-anchor="middle">DNS 解析</text>
+    <text x="110" y="160" class="stage-text" text-anchor="middle">域名 → IP</text>
+    <text x="110" y="180" class="metric-bg" rx="3" style="display:none"/>
+  </g>
+  <rect x="60" y="200" width="100" height="35" class="metric-bg" rx="3"/>
+  <text x="110" y="217" class="metric-text">~50ms</text>
+  <text x="110" y="230" class="metric-sub">DNS 缓存</text>
+
+  <!-- 阶段 2: TCP / TLS -->
+  <g class="step step-2">
+    <rect x="190" y="115" width="120" height="80" class="stage-box" rx="6"/>
+    <text x="250" y="138" class="stage-title" text-anchor="middle">TCP + TLS</text>
+    <text x="250" y="160" class="stage-text" text-anchor="middle">握手 / HTTPS 证书</text>
+  </g>
+  <rect x="200" y="200" width="100" height="35" class="metric-bg" rx="3"/>
+  <text x="250" y="217" class="metric-text">~200ms</text>
+  <text x="250" y="230" class="metric-sub">HTTP/2 多路复用</text>
+
+  <!-- 阶段 3: 加载 HTML/CSS/JS -->
+  <g class="step step-3">
+    <rect x="330" y="115" width="160" height="80" class="stage-warning" rx="6"/>
+    <text x="410" y="138" class="stage-title" text-anchor="middle">下载资源</text>
+    <text x="410" y="160" class="stage-text" text-anchor="middle">HTML + CSS + JS</text>
+  </g>
+  <rect x="340" y="200" width="140" height="35" class="metric-bg" rx="3"/>
+  <text x="410" y="217" class="metric-text">~500ms</text>
+  <text x="410" y="230" class="metric-sub">代码分割 / CDN</text>
+
+  <!-- 阶段 4: 解析 + 渲染 -->
+  <g class="step step-4">
+    <rect x="510" y="115" width="140" height="80" class="stage-brand" rx="6"/>
+    <text x="580" y="138" class="stage-title" text-anchor="middle">解析渲染</text>
+    <text x="580" y="160" class="stage-text" text-anchor="middle">DOM / CSSOM / Layout</text>
+  </g>
+  <rect x="520" y="200" width="120" height="35" class="metric-bg" rx="3"/>
+  <text x="580" y="217" class="metric-text" style="fill: var(--c-brand);">LCP</text>
+  <text x="580" y="230" class="metric-sub">&lt; 2.5s 良好</text>
+
+  <!-- 阶段 5: JS 执行 -->
+  <g class="step step-5">
+    <rect x="670" y="115" width="160" height="80" class="stage-success" rx="6"/>
+    <text x="750" y="138" class="stage-title" text-anchor="middle">JS 执行 + Hydrate</text>
+    <text x="750" y="160" class="stage-text" text-anchor="middle">绑定事件 + 可交互</text>
+  </g>
+  <rect x="680" y="200" width="140" height="35" class="metric-bg" rx="3"/>
+  <text x="750" y="217" class="metric-text" style="fill: var(--c-success);">INP</text>
+  <text x="750" y="230" class="metric-sub">&lt; 200ms 良好</text>
+
+  <!-- 箭头 -->
+  <line x1="170" y1="150" x2="190" y2="150" class="arrow" marker-end="url(#ax-q29)"/>
+  <line x1="310" y1="150" x2="330" y2="150" class="arrow" marker-end="url(#ax-q29)"/>
+  <line x1="490" y1="150" x2="510" y2="150" class="arrow" marker-end="url(#ax-q29)"/>
+  <line x1="650" y1="150" x2="670" y2="150" class="arrow" marker-end="url(#ax-q29)"/>
+
+  <!-- 白屏/优化说明 -->
+  <g>
+    <rect x="40" y="270" width="400" height="200" class="stage-danger" rx="6"/>
+    <text x="60" y="297" class="stage-title" style="fill: var(--c-danger);">⚠ 白屏原因</text>
+    <text x="60" y="325" class="stage-text">• JS 包太大（下载慢）</text>
+    <text x="60" y="345" class="stage-text">• 同步阻塞（&lt;script&gt; 无 defer）</text>
+    <text x="60" y="365" class="stage-text">• 字体没优化（FOIT）</text>
+    <text x="60" y="385" class="stage-text">• 第三方脚本未延迟</text>
+    <text x="60" y="405" class="stage-text">• 接口慢（关键数据未到达）</text>
+    <text x="60" y="425" class="stage-text">• 长任务（Long Task &gt; 50ms）</text>
+    <text x="60" y="450" class="stage-text" style="fill: var(--c-danger); font-weight: 700;">用户体验：白屏 3s = 53% 用户离开</text>
+  </g>
+
+  <g>
+    <rect x="460" y="270" width="380" height="200" class="stage-success" rx="6"/>
+    <text x="480" y="297" class="stage-title" style="fill: var(--c-success);">✓ 优化策略</text>
+    <text x="480" y="325" class="stage-text">• 骨架屏（立即有结构）</text>
+    <text x="480" y="345" class="stage-text">• 路由懒加载 + 代码分割</text>
+    <text x="480" y="365" class="stage-text">• 关键 CSS 内联</text>
+    <text x="480" y="385" class="stage-text">• font-display: swap</text>
+    <text x="480" y="405" class="stage-text">• &lt;script defer&gt; 异步加载</text>
+    <text x="480" y="425" class="stage-text">• SSR/SSG（首屏直出 HTML）</text>
+    <text x="480" y="450" class="stage-text" style="fill: var(--c-success); font-weight: 700;">目标：LCP &lt; 2.5s + INP &lt; 200ms</text>
+  </g>
+</svg>

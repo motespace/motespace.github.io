@@ -1,0 +1,142 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .stage-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .stage-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
+    .stage-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    .stage-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
+    .stage-title { font-size: 13px; font-weight: 700; fill: var(--c-text); }
+    .stage-text { font-size: 11px; fill: var(--c-text); }
+    .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    .arrow-brand { stroke: var(--c-brand); stroke-width: 2; fill: none; }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 11px; fill: var(--c-text); }
+    .pipeline-bg { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1.5; stroke-dasharray: 5 4; }
+  </style>
+  <defs>
+    <marker id="ax-q61" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">RAG 应用流水线（检索增强生成）</text>
+  <text x="40" y="62" class="subtitle">文档加载 → 切片 → Embedding → 检索 → Prompt → LLM 生成</text>
+
+  <!-- 流水线背景 -->
+  <rect x="40" y="100" width="800" height="270" class="pipeline-bg" rx="8"/>
+
+  <!-- Stage 1: 文档加载 -->
+  <g>
+    <rect x="60" y="125" width="130" height="80" class="stage-box" rx="6"/>
+    <text x="125" y="148" class="stage-title" text-anchor="middle">① 文档加载</text>
+    <text x="125" y="167" class="stage-text" text-anchor="middle">PDF / Word / MD</text>
+    <text x="125" y="185" class="code" text-anchor="middle">PDFLoader</text>
+  </g>
+
+  <!-- Stage 2: 切片 -->
+  <g>
+    <rect x="210" y="125" width="130" height="80" class="stage-brand" rx="6"/>
+    <text x="275" y="148" class="stage-title" text-anchor="middle">② 切片</text>
+    <text x="275" y="167" class="stage-text" text-anchor="middle">500 字符/片</text>
+    <text x="275" y="185" class="code" text-anchor="middle">chunkOverlap=50</text>
+  </g>
+
+  <!-- Stage 3: Embedding -->
+  <g>
+    <rect x="360" y="125" width="140" height="80" class="stage-brand" rx="6"/>
+    <text x="430" y="148" class="stage-title" text-anchor="middle">③ Embedding</text>
+    <text x="430" y="167" class="stage-text" text-anchor="middle">文本 → 向量</text>
+    <text x="430" y="185" class="code" text-anchor="middle">OpenAI / bge-m3</text>
+  </g>
+
+  <!-- Stage 4: 向量数据库 -->
+  <g>
+    <rect x="520" y="125" width="140" height="80" class="stage-success" rx="6"/>
+    <text x="590" y="148" class="stage-title" text-anchor="middle">④ 存入向量库</text>
+    <text x="590" y="167" class="stage-text" text-anchor="middle">Pinecone / Chroma</text>
+    <text x="590" y="185" class="code" text-anchor="middle">Milvus / pgvector</text>
+  </g>
+
+  <!-- Stage 5: 用户问题 -->
+  <g>
+    <rect x="680" y="125" width="140" height="80" class="stage-warning" rx="6"/>
+    <text x="750" y="148" class="stage-title" text-anchor="middle">⑤ 用户问题</text>
+    <text x="750" y="167" class="stage-text" text-anchor="middle">自然语言查询</text>
+    <text x="750" y="185" class="code" text-anchor="middle">"退款规则?"</text>
+  </g>
+
+  <!-- 箭头（水平） -->
+  <line x1="190" y1="165" x2="208" y2="165" class="arrow" marker-end="url(#ax-q61)"/>
+  <line x1="340" y1="165" x2="358" y2="165" class="arrow-brand" marker-end="url(#ax-q61)"/>
+  <line x1="500" y1="165" x2="518" y2="165" class="arrow-brand" marker-end="url(#ax-q61)"/>
+
+  <!-- Stage 6: 检索 Top K -->
+  <g>
+    <rect x="60" y="260" width="160" height="80" class="stage-brand" rx="6"/>
+    <text x="140" y="283" class="stage-title" text-anchor="middle">⑥ 相似度检索</text>
+    <text x="140" y="302" class="stage-text" text-anchor="middle">Top 5 相似文档</text>
+    <text x="140" y="320" class="code" text-anchor="middle">cosine similarity</text>
+  </g>
+
+  <!-- Stage 7: Prompt 拼接 -->
+  <g>
+    <rect x="240" y="260" width="220" height="80" class="stage-warning" rx="6"/>
+    <text x="350" y="283" class="stage-title" text-anchor="middle">⑦ 拼接到 Prompt</text>
+    <text x="350" y="302" class="stage-text" text-anchor="middle">"基于以下文档回答..."</text>
+    <text x="350" y="320" class="code" text-anchor="middle">+ context + question</text>
+  </g>
+
+  <!-- Stage 8: LLM -->
+  <g>
+    <rect x="480" y="260" width="140" height="80" class="stage-brand" rx="6"/>
+    <text x="550" y="283" class="stage-title" text-anchor="middle">⑧ LLM 生成</text>
+    <text x="550" y="302" class="stage-text" text-anchor="middle">GPT-4 / Claude</text>
+    <text x="550" y="320" class="code" text-anchor="middle">stream=true</text>
+  </g>
+
+  <!-- Stage 9: 答案 -->
+  <g>
+    <rect x="640" y="260" width="180" height="80" class="stage-success" rx="6"/>
+    <text x="730" y="283" class="stage-title" text-anchor="middle">⑨ 最终答案</text>
+    <text x="730" y="302" class="stage-text" text-anchor="middle">带原文引用 [1][2]</text>
+    <text x="730" y="320" class="code" text-anchor="middle">不确定时说我不知道</text>
+  </g>
+
+  <!-- 检索→Prompt 箭头 -->
+  <line x1="220" y1="300" x2="238" y2="300" class="arrow" marker-end="url(#ax-q61)"/>
+  <line x1="460" y1="300" x2="478" y2="300" class="arrow" marker-end="url(#ax-q61)"/>
+  <line x1="620" y1="300" x2="638" y2="300" class="arrow" marker-end="url(#ax-q61)"/>
+
+  <!-- 用户问题→检索 弧线 -->
+  <path d="M 750,205 Q 140,290 140,260" class="arrow-brand" fill="none" marker-end="url(#ax-q61)"/>
+  <text x="500" y="245" class="code" text-anchor="middle" style="fill: var(--c-brand);">用户问题也做 Embedding，向量比对检索</text>
+
+  <!-- 底部优化建议 -->
+  <g>
+    <rect x="40" y="390" width="800" height="130" style="fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5;" rx="6"/>
+    <text x="60" y="415" class="stage-title" style="fill: var(--c-brand); font-size: 14px;">💡 优化策略</text>
+    <text x="60" y="440" class="stage-text" style="font-size: 13px;">• Hybrid Search（向量 + 关键词）提高召回率</text>
+    <text x="60" y="460" class="stage-text" style="font-size: 13px;">• Re-ranking（用更强的模型重排序 Top K）</text>
+    <text x="60" y="480" class="stage-text" style="font-size: 13px;">• 父子 Chunk（粗粒度检索 + 细粒度返回）</text>
+    <text x="60" y="500" class="stage-text" style="font-size: 13px;">• Prompt 强制"不知道就说不知道"防幻觉</text>
+    <text x="450" y="440" class="stage-text" style="font-size: 13px;">• 引用文档来源，让答案可查证</text>
+    <text x="450" y="460" class="stage-text" style="font-size: 13px;">• Chunk Size 经验值：500-1000 字符 + 10% 重叠</text>
+    <text x="450" y="480" class="stage-text" style="font-size: 13px;">• 向量库选型：&lt;100万 Chroma / 大规模 Pinecone</text>
+    <text x="450" y="500" class="stage-text" style="font-size: 13px;">• 评估：召回率 + 准确率 + 人工 spot check</text>
+  </g>
+</svg>

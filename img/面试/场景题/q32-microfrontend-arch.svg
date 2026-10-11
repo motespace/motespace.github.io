@@ -1,0 +1,80 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .main-box { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .sub-box { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    .nav-bg { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .footer-bg { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1; }
+    .label { font-size: 14px; font-weight: 700; fill: var(--c-text); }
+    .sub-label { font-size: 13px; fill: var(--c-text); }
+    .tech-tag { font-size: 11px; fill: var(--c-text-soft); font-style: italic; }
+    .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+  </style>
+
+  <text x="40" y="40" class="title">微前端架构图（qiankun / micro-app）</text>
+  <text x="40" y="62" class="subtitle">主应用 + 3 个独立子应用，独立部署、技术栈异</text>
+
+  <!-- 浏览器外壳 -->
+  <rect x="40" y="100" width="800" height="280" class="nav-bg" rx="10"/>
+  <text x="60" y="125" class="label">浏览器（localhost:8080）</text>
+
+  <!-- 顶部导航栏 -->
+  <rect x="60" y="135" width="760" height="40" class="nav-bg" rx="4"/>
+  <text x="80" y="160" class="sub-label" style="font-weight: 700;">主导航</text>
+  <text x="180" y="160" class="sub-label">商户管理</text>
+  <text x="280" y="160" class="sub-label">订单中心</text>
+  <text x="380" y="160" class="sub-label">风控引擎</text>
+
+  <!-- 主应用层（Base） -->
+  <rect x="60" y="185" width="760" height="40" class="main-box" rx="4"/>
+  <text x="80" y="210" class="label" style="fill: var(--c-brand);">主应用（基座）</text>
+  <text x="200" y="210" class="tech-tag">Vue 3 + qiankun / React 18 + micro-app</text>
+  <text x="600" y="210" class="tech-tag">registerMicroApps() + start()</text>
+
+  <!-- 子应用容器（路由激活时挂载） -->
+  <rect x="60" y="240" width="760" height="130" class="nav-bg" rx="4" style="fill: var(--c-bg-soft); stroke: var(--c-text-soft); stroke-dasharray: 4 3;"/>
+  <text x="80" y="260" class="tech-tag" style="font-weight: 700;">#subContainer（路由激活时挂载对应子应用）</text>
+
+  <!-- 3 个子应用 -->
+  <rect x="80" y="275" width="220" height="80" class="sub-box" rx="4"/>
+  <text x="100" y="298" class="label" style="fill: var(--c-success);">📦 商户子应用</text>
+  <text x="100" y="318" class="sub-label">merchant-team</text>
+  <text x="100" y="335" class="tech-tag">localhost:7001</text>
+  <text x="100" y="351" class="tech-tag">React 18 + UMD</text>
+
+  <rect x="320" y="275" width="220" height="80" class="sub-box" rx="4"/>
+  <text x="340" y="298" class="label" style="fill: var(--c-success);">📦 订单子应用</text>
+  <text x="340" y="318" class="sub-label">order-team</text>
+  <text x="340" y="335" class="tech-tag">localhost:7002</text>
+  <text x="340" y="351" class="tech-tag">Vue 3 + Vite</text>
+
+  <rect x="560" y="275" width="240" height="80" class="sub-box" rx="4"/>
+  <text x="580" y="298" class="label" style="fill: var(--c-success);">📦 风控子应用</text>
+  <text x="580" y="318" class="sub-label">risk-team</text>
+  <text x="580" y="335" class="tech-tag">localhost:7003</text>
+  <text x="580" y="351" class="tech-tag">Angular 16 + Module Federation</text>
+
+  <!-- 底部说明：核心能力 -->
+  <rect x="40" y="400" width="800" height="80" class="footer-bg" rx="6"/>
+  <text x="60" y="425" class="label">核心能力</text>
+  <text x="60" y="450" class="sub-label">• 独立部署（3 个 CI 流水线，互不阻塞）</text>
+  <text x="60" y="468" class="sub-label">• 技术栈异构（Vue / React / Angular 共存）</text>
+  <text x="450" y="450" class="sub-label">• JS / CSS 沙箱隔离（防止全局污染）</text>
+  <text x="450" y="468" class="sub-label">• props 传值 + 全局事件总线 + 共享 store 通信</text>
+</svg>

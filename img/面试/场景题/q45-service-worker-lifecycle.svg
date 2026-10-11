@@ -1,0 +1,111 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .state-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1.5; }
+    .state-active { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .state-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 2; }
+    .state-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+    .state-title { font-size: 15px; font-weight: 700; fill: var(--c-text); }
+    .state-text { font-size: 12px; fill: var(--c-text); }
+    .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    .arrow-brand { stroke: var(--c-brand); stroke-width: 2; fill: none; }
+    .arrow-warning { stroke: var(--c-warning); stroke-width: 2; fill: none; }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 12px; fill: var(--c-text); }
+  </style>
+  <defs>
+    <marker id="ax-q45" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">Service Worker 生命周期与缓存策略</text>
+  <text x="40" y="62" class="subtitle">从注册到激活 + 三种缓存策略</text>
+
+  <!-- 生命周期横向流 -->
+  <g>
+    <rect x="40" y="100" width="160" height="60" class="state-box" rx="6"/>
+    <text x="120" y="125" class="state-title" text-anchor="middle">① Parsed</text>
+    <text x="120" y="145" class="state-text" text-anchor="middle">下载 + 解析 sw.js</text>
+
+    <line x1="200" y1="130" x2="240" y2="130" class="arrow" marker-end="url(#ax-q45)"/>
+
+    <rect x="240" y="100" width="160" height="60" class="state-active" rx="6"/>
+    <text x="320" y="125" class="state-title" text-anchor="middle">② Installing</text>
+    <text x="320" y="145" class="state-text" text-anchor="middle">install 事件 + 预缓存</text>
+
+    <line x1="400" y1="130" x2="440" y2="130" class="arrow" marker-end="url(#ax-q45)"/>
+
+    <rect x="440" y="100" width="160" height="60" class="state-warning" rx="6"/>
+    <text x="520" y="125" class="state-title" text-anchor="middle">③ Waiting</text>
+    <text x="520" y="145" class="state-text" text-anchor="middle">等待旧 SW 失效</text>
+
+    <line x1="600" y1="130" x2="640" y2="130" class="arrow" marker-end="url(#ax-q45)"/>
+
+    <rect x="640" y="100" width="200" height="60" class="state-success" rx="6"/>
+    <text x="740" y="125" class="state-title" text-anchor="middle">④ Activated</text>
+    <text x="740" y="145" class="state-text" text-anchor="middle">activate + 清理旧缓存</text>
+
+    <line x1="840" y1="130" x2="860" y2="130" class="arrow-warning"/>
+    <text x="845" y="118" class="state-text" style="font-weight: 700;">控制页面</text>
+  </g>
+
+  <!-- 三种缓存策略（下方） -->
+  <g transform="translate(40, 200)">
+    <text x="0" y="20" class="subtitle" style="font-weight: 700; fill: var(--c-text);">三种缓存策略（fetch 事件）</text>
+
+    <!-- CacheFirst -->
+    <rect x="0" y="40" width="240" height="160" class="state-active" rx="6"/>
+    <text x="20" y="65" class="state-title">CacheFirst（缓存优先）</text>
+    <text x="20" y="88" class="code">caches.match(req) || fetch()</text>
+    <text x="20" y="115" class="state-text" style="font-weight: 700;">适用：静态资源</text>
+    <text x="20" y="135" class="state-text">JS / CSS / 图片 / 字体</text>
+    <text x="20" y="155" class="state-text" style="font-size: 11px;">✓ 速度最快</text>
+    <text x="20" y="173" class="state-text" style="font-size: 11px;">✗ 更新不及时</text>
+
+    <!-- NetworkFirst -->
+    <rect x="280" y="40" width="240" height="160" class="state-success" rx="6"/>
+    <text x="300" y="65" class="state-title">NetworkFirst（网络优先）</text>
+    <text x="300" y="88" class="code">fetch() || caches.match()</text>
+    <text x="300" y="115" class="state-text" style="font-weight: 700;">适用：HTML / API</text>
+    <text x="300" y="135" class="state-text">保证新鲜度</text>
+    <text x="300" y="155" class="state-text" style="font-size: 11px;">✓ 始终最新</text>
+    <text x="300" y="173" class="state-text" style="font-size: 11px;">✓ 离线兜底</text>
+
+    <!-- StaleWhileRevalidate -->
+    <rect x="560" y="40" width="240" height="160" class="state-warning" rx="6"/>
+    <text x="580" y="65" class="state-title">StaleWhileRevalidate</text>
+    <text x="580" y="88" class="code">先缓存 + 后台更新</text>
+    <text x="580" y="115" class="state-text" style="font-weight: 700;">适用：半静态</text>
+    <text x="580" y="135" class="state-text">用户列表 / 商品列表</text>
+    <text x="580" y="155" class="state-text" style="font-size: 11px;">✓ 速度 + 新鲜度平衡</text>
+    <text x="580" y="173" class="state-text" style="font-size: 11px;">✓ 用户无感知更新</text>
+  </g>
+
+  <!-- 注意事项 -->
+  <g>
+    <rect x="40" y="420" width="800" height="100" style="fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5;" rx="6"/>
+    <text x="60" y="445" class="state-title" style="fill: var(--c-warning);">⚠ 关键注意事项</text>
+    <text x="60" y="468" class="state-text">• 必须 HTTPS（localhost 例外）</text>
+    <text x="60" y="488" class="state-text">• 缓存版本管理：CACHE_NAME = 'app-v1' → 激活时清理旧版本</text>
+    <text x="60" y="508" class="state-text">• self.skipWaiting() + clients.claim() 强制立即接管</text>
+    <text x="450" y="468" class="state-text">• 容量约 6% 硬盘，超限自动 LRU 清理</text>
+    <text x="450" y="488" class="state-text">• 推荐用 Workbox（Google 库）简化 SW 开发</text>
+    <text x="450" y="508" class="state-text">• 调试：Chrome DevTools → Application → Service Workers</text>
+  </g>
+</svg>

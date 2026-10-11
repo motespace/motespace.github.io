@@ -1,0 +1,125 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .lane-bg { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .lane-label { font-size: 15px; font-weight: 700; fill: var(--c-text); }
+    .lifeline { stroke: var(--c-border); stroke-width: 1.5; stroke-dasharray: 4 4; }
+    .doc-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .msg-line { stroke-width: 1.8; fill: none; }
+    .msg-brand { stroke: var(--c-brand); }
+    .msg-success { stroke: var(--c-success); }
+    .msg-label { font-size: 13px; fill: var(--c-text); }
+    .msg-label-bg { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 0.5; }
+    .step-num { font-size: 15px; font-weight: 700; fill: var(--c-brand); }
+    .step-text { font-size: 13px; fill: var(--c-text); }
+    .doc-text { font-size: 13px; fill: var(--c-text); font-family: Consolas, Monaco, monospace; }
+    .merge-box { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .step { opacity: 0; animation: fadeUp 0.4s ease-out forwards; }
+    .step-1 { animation-delay: 0.2s; }
+    .step-2 { animation-delay: 1.0s; }
+    .step-3 { animation-delay: 2.0s; }
+    .step-4 { animation-delay: 3.0s; }
+    .step-5 { animation-delay: 4.0s; }
+    .step-6 { animation-delay: 5.0s; }
+    @media (prefers-reduced-motion: reduce) {
+      .step { opacity: 1; animation: none; }
+    }
+  </style>
+  <defs>
+    <marker id="ax-q10-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3451b2"/>
+    </marker>
+    <marker id="ax-q10-s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">CRDT 多端协同编辑时序图</text>
+  <text x="40" y="62" class="subtitle">A、B 同时编辑同一文档 → 自动无冲突合并</text>
+
+  <!-- 三泳道：用户 A / 用户 B / 共享文档 -->
+  <g>
+    <rect x="40" y="90" width="220" height="380" class="lane-bg" rx="6"/>
+    <text x="150" y="115" class="lane-label" text-anchor="middle">用户 A（编辑器）</text>
+
+    <rect x="290" y="90" width="220" height="380" class="lane-bg" rx="6"/>
+    <text x="400" y="115" class="lane-label" text-anchor="middle">WebSocket 服务</text>
+
+    <rect x="540" y="90" width="220" height="380" class="lane-bg" rx="6"/>
+    <text x="650" y="115" class="lane-label" text-anchor="middle">用户 B（编辑器）</text>
+  </g>
+
+  <line x1="150" y1="130" x2="150" y2="460" class="lifeline"/>
+  <line x1="400" y1="130" x2="400" y2="460" class="lifeline"/>
+  <line x1="650" y1="130" x2="650" y2="460" class="lifeline"/>
+
+  <!-- Step 1: A 插入 Hello -->
+  <g class="step step-1">
+    <text x="55" y="155" class="step-num">①</text>
+    <text x="80" y="155" class="step-text">A 在位置 0 插入 "Hello"</text>
+    <line x1="150" y1="165" x2="390" y2="165" class="msg-line msg-brand" marker-end="url(#ax-q10-b)"/>
+    <rect x="175" y="150" width="200" height="20" class="msg-label-bg" rx="3"/>
+    <text x="185" y="165" class="msg-label">Yjs update ① (YText insert)</text>
+  </g>
+
+  <!-- Step 2: 推送给 B -->
+  <g class="step step-2">
+    <line x1="400" y1="190" x2="640" y2="190" class="msg-line msg-brand" marker-end="url(#ax-q10-b)"/>
+    <rect x="420" y="175" width="200" height="20" class="msg-label-bg" rx="3"/>
+    <text x="430" y="190" class="msg-label">broadcast: update ①</text>
+  </g>
+
+  <!-- Step 3: B 同时插入 World -->
+  <g class="step step-3">
+    <text x="555" y="225" class="step-num">②</text>
+    <text x="580" y="225" class="step-text">B 在位置 0 插入 "World"</text>
+    <line x1="650" y1="235" x2="410" y2="235" class="msg-line msg-brand" marker-end="url(#ax-q10-b)"/>
+    <rect x="425" y="220" width="200" height="20" class="msg-label-bg" rx="3"/>
+    <text x="435" y="235" class="msg-label">Yjs update ② (YText insert)</text>
+  </g>
+
+  <!-- Step 4: CRDT 合并 -->
+  <g class="step step-4">
+    <text x="305" y="275" class="step-num">③</text>
+    <text x="330" y="275" class="step-text">CRDT 自动合并</text>
+    <rect x="305" y="285" width="190" height="80" class="merge-box" rx="4"/>
+    <text x="315" y="305" class="step-text" style="font-weight: 700; fill: var(--c-success);">合并结果：</text>
+    <text x="315" y="325" class="doc-text">"WorldHello"</text>
+    <text x="315" y="345" class="doc-text">或 "HelloWorld"</text>
+    <text x="315" y="361" class="step-text" style="font-size: 12px;">（由算法决定，保证两端一致）</text>
+  </g>
+
+  <!-- Step 5: 推送给 A -->
+  <g class="step step-5">
+    <line x1="400" y1="385" x2="160" y2="385" class="msg-line msg-success" marker-end="url(#ax-q10-s)"/>
+    <rect x="180" y="370" width="200" height="20" class="msg-label-bg" rx="3"/>
+    <text x="190" y="385" class="msg-label">broadcast: update ②</text>
+  </g>
+
+  <!-- Step 6: 最终一致 -->
+  <g class="step step-6">
+    <text x="55" y="425" class="step-num">④</text>
+    <text x="555" y="425" class="step-num">⑤</text>
+    <text x="80" y="425" class="step-text">A 看到一致结果</text>
+    <text x="580" y="425" class="step-text">B 看到一致结果</text>
+    <text x="80" y="448" class="step-text" style="fill: var(--c-success);">✓ A 和 B 文档完全一致</text>
+  </g>
+</svg>

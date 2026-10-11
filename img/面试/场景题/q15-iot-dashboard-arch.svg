@@ -1,0 +1,125 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .layer-title { font-size: 14px; font-weight: 700; fill: var(--c-text-soft); }
+    .device-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .device-active { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
+    .server-box { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
+    .client-box { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    .arrow-brand { stroke: var(--c-brand); stroke-width: 2; fill: none; }
+    .arrow-success { stroke: var(--c-success); stroke-width: 2; fill: none; }
+    .arrow-label { font-size: 13px; fill: var(--c-text); }
+    .arrow-label-bg { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 0.5; }
+    .device-text { font-size: 13px; fill: var(--c-text); text-anchor: middle; }
+    .device-num { font-size: 12px; fill: var(--c-text-soft); text-anchor: middle; }
+    .layer-bg { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; stroke-dasharray: 4 3; }
+  </style>
+  <defs>
+    <marker id="ax-q15-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3451b2"/>
+    </marker>
+    <marker id="ax-q15-s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">IoT 大屏架构（1000 个传感器点位）</text>
+  <text x="40" y="62" class="subtitle">设备 → 后端聚合 → WebSocket 推送 → 大屏渲染</text>
+
+  <!-- 设备层（1000 个传感器） -->
+  <g>
+    <text x="40" y="105" class="layer-title">设备层</text>
+    <rect x="40" y="115" width="800" height="80" class="layer-bg" rx="6"/>
+
+    <!-- 6x3 网格 -->
+    <g transform="translate(60, 130)">
+      <g class="device-active"><rect x="0" y="0" width="50" height="50" rx="4"/></g>
+      <text x="25" y="22" class="device-text">📡</text>
+      <text x="25" y="38" class="device-num">S001</text>
+
+      <g class="device-box"><rect x="60" y="0" width="50" height="50" rx="4"/></g>
+      <text x="85" y="22" class="device-text">📡</text>
+      <text x="85" y="38" class="device-num">S002</text>
+
+      <g class="device-box"><rect x="120" y="0" width="50" height="50" rx="4"/></g>
+      <text x="145" y="22" class="device-text">📡</text>
+      <text x="145" y="38" class="device-num">S003</text>
+
+      <g class="device-box"><rect x="180" y="0" width="50" height="50" rx="4"/></g>
+      <text x="205" y="22" class="device-text">📡</text>
+      <text x="205" y="38" class="device-num">S004</text>
+
+      <g class="device-box"><rect x="240" y="0" width="50" height="50" rx="4"/></g>
+      <text x="265" y="22" class="device-text">📡</text>
+      <text x="265" y="38" class="device-num">S005</text>
+
+      <g class="device-active"><rect x="300" y="0" width="50" height="50" rx="4"/></g>
+      <text x="325" y="22" class="device-text">⚠</text>
+      <text x="325" y="38" class="device-num">S006</text>
+
+      <text x="370" y="30" class="device-text" style="font-weight: 700; fill: var(--c-text-soft);">... × 1000</text>
+    </g>
+  </g>
+
+  <!-- 后端聚合层 -->
+  <g>
+    <text x="40" y="225" class="layer-title">后端聚合层</text>
+    <rect x="40" y="235" width="800" height="100" class="layer-bg" rx="6"/>
+
+    <rect x="80" y="255" width="160" height="60" class="server-box" rx="6"/>
+    <text x="160" y="280" class="device-text" style="font-weight: 700;">MQTT / CoAP</text>
+    <text x="160" y="300" class="device-num">设备协议接入</text>
+
+    <rect x="280" y="255" width="160" height="60" class="server-box" rx="6"/>
+    <text x="360" y="280" class="device-text" style="font-weight: 700;">聚合服务</text>
+    <text x="360" y="300" class="device-num">按区域/类型聚合</text>
+
+    <rect x="480" y="255" width="160" height="60" class="server-box" rx="6"/>
+    <text x="560" y="280" class="device-text" style="font-weight: 700;">变化检测</text>
+    <text x="560" y="300" class="device-num">只推变化点（diff）</text>
+
+    <rect x="680" y="255" width="120" height="60" class="server-box" rx="6"/>
+    <text x="740" y="280" class="device-text" style="font-weight: 700;">Redis</text>
+    <text x="740" y="300" class="device-num">最新状态缓存</text>
+  </g>
+
+  <!-- WebSocket 推送 -->
+  <line x1="440" y1="340" x2="440" y2="370" class="arrow-brand" marker-end="url(#ax-q15-b)"/>
+  <rect x="340" y="345" width="200" height="20" class="arrow-label-bg" rx="3"/>
+  <text x="440" y="360" class="arrow-label" text-anchor="middle">WebSocket 推送（增量）</text>
+
+  <!-- 大屏渲染层 -->
+  <g>
+    <text x="40" y="390" class="layer-title">大屏渲染层</text>
+    <rect x="40" y="400" width="800" height="80" class="layer-bg" rx="6"/>
+
+    <rect x="80" y="420" width="180" height="40" class="client-box" rx="6"/>
+    <text x="170" y="445" class="device-text" style="font-weight: 700;">WebSocket 客户端</text>
+
+    <rect x="300" y="420" width="180" height="40" class="client-box" rx="6"/>
+    <text x="390" y="445" class="device-text" style="font-weight: 700;">数据聚合 (Worker)</text>
+
+    <rect x="520" y="420" width="180" height="40" class="client-box" rx="6"/>
+    <text x="610" y="445" class="device-text" style="font-weight: 700;">ECharts / L7 渲染</text>
+  </g>
+
+  <!-- 关键优化 -->
+  <text x="40" y="498" class="subtitle" style="fill: var(--c-warning);">⚠ 关键：后端只推变化点（diff）+ 客户端按帧率节流（30fps 足够）</text>
+</svg>

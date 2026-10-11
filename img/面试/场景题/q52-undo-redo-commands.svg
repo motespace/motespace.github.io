@@ -1,0 +1,110 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .stack-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .stack-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1; }
+    .stack-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1; }
+    .stack-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1; }
+    .stack-title { font-size: 14px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+    .stack-text { font-size: 11px; fill: var(--c-text); text-anchor: middle; }
+    .state-text { font-size: 14px; fill: var(--c-text); font-weight: 700; }
+    .pointer { font-size: 13px; font-weight: 700; fill: var(--c-warning); }
+    .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    .arrow-success { stroke: var(--c-success); stroke-width: 2; fill: none; }
+    .arrow-warning { stroke: var(--c-warning); stroke-width: 2; fill: none; }
+  </style>
+  <defs>
+    <marker id="ax-q52" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+    <marker id="ax-q52-s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+    <marker id="ax-q52-w" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">撤销 / 重做实现（命令模式 vs 快照模式）</text>
+  <text x="40" y="62" class="subtitle">两个栈：undoStack + redoStack</text>
+
+  <!-- undo 栈（左侧） -->
+  <g transform="translate(60, 100)">
+    <rect x="0" y="0" width="280" height="300" class="stack-box" rx="6"/>
+    <text x="140" y="25" class="state-text" text-anchor="middle" style="fill: var(--c-success);">撤销栈（undoStack）</text>
+    <text x="140" y="45" class="subtitle" text-anchor="middle" style="font-size: 12px;">顶部 = 当前状态</text>
+
+    <!-- 栈元素（从下往上） -->
+    <rect x="20" y="240" width="240" height="40" class="stack-box" rx="3"/>
+    <text x="140" y="265" class="stack-text">操作 1：插入 "Hello"</text>
+
+    <rect x="20" y="190" width="240" height="40" class="stack-box" rx="3"/>
+    <text x="140" y="215" class="stack-text">操作 2：插入 "World"</text>
+
+    <rect x="20" y="140" width="240" height="40" class="stack-warning" rx="3"/>
+    <text x="140" y="165" class="stack-text">操作 3：删除 "World" ⬅ 指针</text>
+
+    <rect x="20" y="90" width="240" height="40" class="stack-success" rx="3"/>
+    <text x="140" y="115" class="stack-text">操作 4：粗体 ⬅ 当前</text>
+
+    <text x="120" y="75" class="pointer" text-anchor="middle">👆 currentIndex</text>
+  </g>
+
+  <!-- redo 栈（右侧） -->
+  <g transform="translate(380, 100)">
+    <rect x="0" y="0" width="280" height="300" class="stack-box" rx="6"/>
+    <text x="140" y="25" class="state-text" text-anchor="middle" style="fill: var(--c-warning);">重做栈（redoStack）</text>
+    <text x="140" y="45" class="subtitle" text-anchor="middle" style="font-size: 12px;">执行新操作时清空</text>
+
+    <rect x="20" y="240" width="240" height="40" class="stack-warning" rx="3"/>
+    <text x="140" y="265" class="stack-text">操作 5：斜体</text>
+
+    <rect x="20" y="190" width="240" height="40" class="stack-warning" rx="3"/>
+    <text x="140" y="215" class="stack-text">操作 6：插入图片</text>
+
+    <rect x="20" y="140" width="240" height="60" class="stack-box" rx="3" style="stroke-dasharray: 4 3; fill: none;"/>
+    <text x="140" y="175" class="stack-text" style="fill: var(--c-text-soft);">— 暂为空 —</text>
+  </g>
+
+  <!-- 操作流程（右侧栏） -->
+  <g transform="translate(700, 100)">
+    <rect x="0" y="0" width="140" height="300" class="stack-box" rx="6"/>
+    <text x="70" y="25" class="state-text" text-anchor="middle">操作</text>
+
+    <rect x="15" y="50" width="110" height="40" class="stack-brand" rx="3"/>
+    <text x="70" y="75" class="stack-title">执行操作</text>
+    <text x="70" y="92" class="stack-text" style="font-size: 10px;">push undo</text>
+
+    <rect x="15" y="105" width="110" height="40" class="stack-success" rx="3"/>
+    <text x="70" y="130" class="stack-title">Ctrl+Z</text>
+    <text x="70" y="147" class="stack-text" style="font-size: 10px;">undo → redo</text>
+
+    <rect x="15" y="160" width="110" height="40" class="stack-warning" rx="3"/>
+    <text x="70" y="185" class="stack-title">Ctrl+Y</text>
+    <text x="70" y="202" class="stack-text" style="font-size: 10px;">redo → undo</text>
+  </g>
+
+  <!-- 底部说明 -->
+  <g>
+    <rect x="40" y="420" width="800" height="60" style="fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5;" rx="6"/>
+    <text x="60" y="445" class="state-text" style="fill: var(--c-brand); font-size: 14px;">💡 实现方式</text>
+    <text x="60" y="465" class="subtitle" style="font-size: 12px;">• 命令模式（内存小，实现复杂）/ 快照模式（实现简单，内存大）</text>
+    <text x="60" y="481" class="subtitle" style="font-size: 12px;">• 性能优化：节流快照（1 秒合并）+ 结构共享（immer）+ 限制栈深度（50 步）</text>
+  </g>
+</svg>

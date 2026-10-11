@@ -1,0 +1,137 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-danger: #ef4444; --c-danger-soft: #fee2e2;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-danger: #f87171; --c-danger-soft: #7f1d1d;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .lane-bg { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .lane-label { font-size: 14px; font-weight: 700; fill: var(--c-text); }
+    .lifeline { stroke: var(--c-border); stroke-width: 1.5; stroke-dasharray: 4 4; }
+    .call-box { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1; }
+    .shared-box { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+    .danger-box { fill: var(--c-danger-soft); stroke: var(--c-danger); stroke-width: 1; stroke-dasharray: 3 2; }
+    .msg-line { stroke-width: 1.8; fill: none; }
+    .msg-brand { stroke: var(--c-brand); }
+    .msg-success { stroke: var(--c-success); }
+    .msg-danger { stroke: var(--c-danger); stroke-dasharray: 4 3; }
+    .msg-label { font-size: 13px; fill: var(--c-text); }
+    .msg-label-bg { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 0.5; }
+    .step-text { font-size: 13px; fill: var(--c-text); }
+    .step-num { font-size: 15px; font-weight: 700; fill: var(--c-brand); }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 12px; fill: var(--c-text); }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .step { opacity: 0; animation: fadeUp 0.4s ease-out forwards; }
+    .step-1 { animation-delay: 0.2s; }
+    .step-2 { animation-delay: 1.0s; }
+    .step-3 { animation-delay: 2.0s; }
+    .step-4 { animation-delay: 3.0s; }
+    @media (prefers-reduced-motion: reduce) {
+      .step { opacity: 1; animation: none; }
+    }
+  </style>
+  <defs>
+    <marker id="ax-q22-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3451b2"/>
+    </marker>
+    <marker id="ax-q22-s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+    <marker id="ax-q22-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">Single-Flight：同一接口并发合并</text>
+  <text x="40" y="62" class="subtitle">用户点 5 次刷新 → 实际只发 1 个请求 → 5 个调用共享结果</text>
+
+  <!-- 两泳道 -->
+  <g>
+    <rect x="40" y="90" width="320" height="380" class="lane-bg" rx="6"/>
+    <text x="200" y="115" class="lane-label" text-anchor="middle">5 个调用方</text>
+
+    <rect x="380" y="90" width="240" height="380" class="lane-bg" rx="6"/>
+    <text x="500" y="115" class="lane-label" text-anchor="middle">请求池（Map&lt;key, Promise&gt;）</text>
+
+    <rect x="640" y="90" width="200" height="380" class="lane-bg" rx="6"/>
+    <text x="740" y="115" class="lane-label" text-anchor="middle">后端接口</text>
+  </g>
+
+  <line x1="200" y1="130" x2="200" y2="460" class="lifeline"/>
+  <line x1="500" y1="130" x2="500" y2="460" class="lifeline"/>
+  <line x1="740" y1="130" x2="740" y2="460" class="lifeline"/>
+
+  <!-- Step 1: 5 个调用方并发 -->
+  <g class="step step-1">
+    <text x="55" y="155" class="step-num">①</text>
+    <text x="80" y="155" class="step-text">5 个组件同时调用 getUserInfo("user-123")</text>
+
+    <!-- 5 个调用箭头合 1 -->
+    <line x1="200" y1="170" x2="490" y2="170" class="msg-line msg-brand" marker-end="url(#ax-q22-b)"/>
+    <rect x="220" y="155" width="170" height="20" class="msg-label-bg" rx="3"/>
+    <text x="230" y="170" class="msg-label">5 个并发调用（key=user-123）</text>
+  </g>
+
+  <!-- Step 2: 请求池检查缓存 -->
+  <g class="step step-2">
+    <text x="395" y="200" class="step-num">②</text>
+    <text x="420" y="200" class="step-text">Map 中已有 pending Promise</text>
+
+    <!-- pendingRequests 框 -->
+    <rect x="395" y="210" width="210" height="60" class="shared-box" rx="4"/>
+    <text x="410" y="230" class="step-text" style="font-weight: 700; fill: var(--c-success);">pendingRequests</text>
+    <text x="410" y="248" class="code">"user-123" → ⏳ Promise</text>
+    <text x="410" y="262" class="code" style="font-size: 11px;">（已存在，直接共享）</text>
+  </g>
+
+  <!-- Step 3: 第一个调用发请求，其他共享 -->
+  <g class="step step-3">
+    <text x="395" y="290" class="step-num">③</text>
+    <text x="420" y="290" class="step-text">第 1 个调用发起 HTTP，其余共享</text>
+    <line x1="500" y1="305" x2="730" y2="305" class="msg-line msg-brand" marker-end="url(#ax-q22-b)"/>
+    <rect x="540" y="290" width="160" height="20" class="msg-label-bg" rx="3"/>
+    <text x="550" y="305" class="msg-label">GET /api/user/123</text>
+
+    <!-- 其他 4 个共享 -->
+    <line x1="200" y1="340" x2="490" y2="340" class="msg-line msg-success" marker-end="url(#ax-q22-s)" stroke-dasharray="4 3"/>
+    <rect x="220" y="325" width="270" height="20" class="msg-label-bg" rx="3"/>
+    <text x="230" y="340" class="msg-label">后 4 个 await 同一个 Promise</text>
+  </g>
+
+  <!-- Step 4: 后端返回 + 清理 -->
+  <g class="step step-4">
+    <text x="395" y="370" class="step-num">④</text>
+    <text x="420" y="370" class="step-text">后端返回，5 个调用同时 resolve</text>
+    <line x1="740" y1="385" x2="510" y2="385" class="msg-line msg-success" marker-end="url(#ax-q22-s)"/>
+    <rect x="540" y="370" width="160" height="20" class="msg-label-bg" rx="3"/>
+    <text x="550" y="385" class="msg-label">200 { user }</text>
+
+    <!-- 清理 Map -->
+    <line x1="500" y1="420" x2="210" y2="420" class="msg-line msg-success" marker-end="url(#ax-q22-s)"/>
+    <rect x="220" y="405" width="270" height="20" class="msg-label-bg" rx="3"/>
+    <text x="230" y="420" class="msg-label">5 个调用同时拿到数据</text>
+    <text x="220" y="445" class="code" style="fill: var(--c-success);">finally: pendingRequests.delete(key)</text>
+  </g>
+
+  <!-- 对比 -->
+  <g>
+    <rect x="40" y="470" width="400" height="0" fill="none"/>
+    <text x="40" y="490" class="step-text" style="fill: var(--c-danger);">❌ 没做合并：5 个请求，浪费 4 个</text>
+    <text x="450" y="490" class="step-text" style="fill: var(--c-success);">✅ single-flight：5 个调用，1 个请求</text>
+  </g>
+</svg>

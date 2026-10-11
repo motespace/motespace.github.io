@@ -1,0 +1,137 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+      --c-danger: #ef4444; --c-danger-soft: #fee2e2;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+        --c-danger: #f87171; --c-danger-soft: #7f1d1d;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .state-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1.5; }
+    .state-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 2; }
+    .state-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .state-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+    .state-danger { fill: var(--c-danger-soft); stroke: var(--c-danger); stroke-width: 2; }
+    .state-title { font-size: 13px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+    .state-text { font-size: 11px; fill: var(--c-text); text-anchor: middle; }
+    .edge-text { font-size: 12px; fill: var(--c-text); font-weight: 600; }
+    .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    .arrow-success { stroke: var(--c-success); stroke-width: 2; fill: none; }
+    .arrow-danger { stroke: var(--c-danger); stroke-width: 2; fill: none; }
+    .final-marker { fill: var(--c-success); }
+  </style>
+  <defs>
+    <marker id="ax-q51-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+    <marker id="ax-q51-s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+    <marker id="ax-q51-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">订单状态机（9 种状态 + 流转关系）</text>
+  <text x="40" y="62" class="subtitle">XState 建模，前端展示依据，服务端是 SSOT</text>
+
+  <!-- 第一行：pending → paying → paid → shipped → completed -->
+  <g>
+    <ellipse cx="90" cy="140" rx="60" ry="30" class="state-warning"/>
+    <text x="90" y="135" class="state-title">pending</text>
+    <text x="90" y="152" class="state-text">待付款</text>
+
+    <ellipse cx="220" cy="140" rx="60" ry="30" class="state-brand"/>
+    <text x="220" y="135" class="state-title">paying</text>
+    <text x="220" y="152" class="state-text">支付中</text>
+
+    <ellipse cx="350" cy="140" rx="60" ry="30" class="state-success"/>
+    <text x="350" y="135" class="state-title">paid</text>
+    <text x="350" y="152" class="state-text">已付款</text>
+
+    <ellipse cx="490" cy="140" rx="65" ry="30" class="state-success"/>
+    <text x="490" y="135" class="state-title">shipped</text>
+    <text x="490" y="152" class="state-text">已发货</text>
+
+    <ellipse cx="630" cy="140" rx="80" ry="30" class="state-success"/>
+    <text x="630" y="135" class="state-title">completed</text>
+    <text x="630" y="152" class="state-text">已完成 ✓</text>
+  </g>
+
+  <!-- 箭头 -->
+  <line x1="150" y1="140" x2="160" y2="140" class="arrow" marker-end="url(#ax-q51-g)"/>
+  <line x1="280" y1="140" x2="290" y2="140" class="arrow-success" marker-end="url(#ax-q51-s)"/>
+  <line x1="410" y1="140" x2="425" y2="140" class="arrow-success" marker-end="url(#ax-q51-s)"/>
+  <line x1="555" y1="140" x2="550" y2="140" class="arrow-success" marker-end="url(#ax-q51-s)"/>
+
+  <text x="155" y="130" class="edge-text" style="font-size: 10px;">PAY</text>
+  <text x="285" y="130" class="edge-text" style="font-size: 10px; fill: var(--c-success);">✓</text>
+  <text x="417" y="130" class="edge-text" style="font-size: 10px;">SHIP</text>
+  <text x="552" y="130" class="edge-text" style="font-size: 10px;">CONFIRM</text>
+
+  <!-- 第二行：失败态 + 退款态 -->
+  <g>
+    <ellipse cx="90" cy="280" rx="60" ry="30" class="state-danger"/>
+    <text x="90" y="275" class="state-title">failed</text>
+    <text x="90" y="292" class="state-text">支付失败</text>
+
+    <ellipse cx="220" cy="280" rx="65" ry="30" class="state-danger"/>
+    <text x="220" y="275" class="state-title">cancelled</text>
+    <text x="220" y="292" class="state-text">已取消 ✗</text>
+
+    <ellipse cx="350" cy="280" rx="60" ry="30" class="state-danger"/>
+    <text x="350" y="275" class="state-title">expired</text>
+    <text x="350" y="292" class="state-text">已过期 ✗</text>
+
+    <ellipse cx="490" cy="280" rx="80" ry="30" class="state-warning"/>
+    <text x="490" y="275" class="state-title">refunding</text>
+    <text x="490" y="292" class="state-text">退款中</text>
+
+    <ellipse cx="630" cy="280" rx="80" ry="30" class="state-box"/>
+    <text x="630" y="275" class="state-title">refunded</text>
+    <text x="630" y="292" class="state-text">已退款 ✗</text>
+  </g>
+
+  <!-- pending → failed/cancelled/expired -->
+  <path d="M 90,170 Q 90,210 90,250" class="arrow-danger" fill="none" marker-end="url(#ax-q51-d)"/>
+  <path d="M 130,160 Q 200,220 220,250" class="arrow-danger" fill="none" marker-end="url(#ax-q51-d)"/>
+  <path d="M 140,160 Q 280,220 350,250" class="arrow-danger" fill="none" marker-end="url(#ax-q51-d)"/>
+
+  <text x="100" y="200" class="edge-text" style="font-size: 10px; fill: var(--c-danger);">PAY_FAIL</text>
+  <text x="170" y="210" class="edge-text" style="font-size: 10px; fill: var(--c-danger);">CANCEL</text>
+  <text x="260" y="220" class="edge-text" style="font-size: 10px; fill: var(--c-danger);">EXPIRE</text>
+
+  <!-- paid/shipped → refunding -->
+  <path d="M 380,170 Q 480,210 490,250" class="arrow" fill="none" marker-end="url(#ax-q51-g)"/>
+  <path d="M 520,170 Q 520,210 500,250" class="arrow" fill="none" marker-end="url(#ax-q51-g)"/>
+  <text x="430" y="200" class="edge-text" style="font-size: 10px;">REFUND</text>
+  <text x="525" y="200" class="edge-text" style="font-size: 10px;">REFUND</text>
+
+  <!-- refunding → refunded -->
+  <line x1="570" y1="280" x2="550" y2="280" class="arrow-success" marker-end="url(#ax-q51-s)"/>
+  <text x="560" y="270" class="edge-text" style="font-size: 10px; fill: var(--c-success);">REFUND_OK</text>
+
+  <!-- 底部说明 -->
+  <g>
+    <rect x="40" y="350" width="800" height="170" style="fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5;" rx="6"/>
+    <text x="60" y="378" class="edge-text" style="fill: var(--c-brand); font-weight: 700; font-size: 14px;">💡 关键设计原则</text>
+    <text x="60" y="402" class="state-text" text-anchor="start" style="font-size: 13px;">• 前端只是展示，服务端是 SSOT（Single Source of Truth）</text>
+    <text x="60" y="424" class="state-text" text-anchor="start" style="font-size: 13px;">• 所有状态变更由服务端触发，前端通过 WebSocket / 轮询同步</text>
+    <text x="60" y="446" class="state-text" text-anchor="start" style="font-size: 13px;">• canTransition(from, to) 防止前端非法跳转</text>
+    <text x="60" y="468" class="state-text" text-anchor="start" style="font-size: 13px;">• 状态标签 + 颜色统一管理（orderStatusMap）</text>
+    <text x="60" y="490" class="state-text" text-anchor="start" style="font-size: 13px;">• 复杂场景：拆单（订单 → 子订单）、部分退款、嵌套子状态</text>
+    <text x="60" y="510" class="state-text" text-anchor="start" style="font-size: 13px;">• 推荐用 XState（嵌套、历史、可视化调试）</text>
+  </g>
+</svg>

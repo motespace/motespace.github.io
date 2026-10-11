@@ -1,0 +1,96 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+      --c-danger: #ef4444; --c-danger-soft: #fee2e2;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+        --c-danger: #f87171; --c-danger-soft: #7f1d1d;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .layer-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .layer-danger { fill: var(--c-danger-soft); stroke: var(--c-danger); stroke-width: 1.5; }
+    .layer-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
+    .layer-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    .layer-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
+    .layer-title { font-size: 16px; font-weight: 700; fill: var(--c-text); }
+    .layer-sub { font-size: 13px; fill: var(--c-text); }
+    .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    .arrow-brand { stroke: var(--c-brand); stroke-width: 2; fill: none; }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 12px; fill: var(--c-text); }
+    .center-box { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .center-text { font-size: 15px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+  </style>
+
+  <text x="40" y="40" class="title">前端监控告警体系（三类监控 + 上报策略）</text>
+  <text x="40" y="62" class="subtitle">错误 / 性能 / 行为 → 上报 → 告警</text>
+
+  <!-- 中心：APM 后端 -->
+  <rect x="320" y="190" width="240" height="120" class="center-box" rx="8"/>
+  <text x="440" y="215" class="center-text">APM 平台</text>
+  <text x="440" y="240" class="code" text-anchor="middle">Sentry / ARMS / Datadog</text>
+  <text x="440" y="262" class="code" text-anchor="middle">告警规则引擎</text>
+  <text x="440" y="285" class="code" text-anchor="middle" style="font-size: 11px;">错误率&gt;1% / LCP P95&gt;4s / 接口成功率&lt;99%</text>
+
+  <!-- 三层监控（左侧） -->
+  <g transform="translate(40, 100)">
+    <rect x="0" y="0" width="240" height="80" class="layer-danger" rx="6"/>
+    <text x="20" y="25" class="layer-title">🔴 错误监控</text>
+    <text x="20" y="45" class="layer-sub">JS Error / Promise 异常</text>
+    <text x="20" y="65" class="code">addEventListener('error'/'unhandledrejection')</text>
+  </g>
+
+  <g transform="translate(40, 200)">
+    <rect x="0" y="0" width="240" height="80" class="layer-warning" rx="6"/>
+    <text x="20" y="25" class="layer-title">🟡 性能监控</text>
+    <text x="20" y="45" class="layer-sub">Web Vitals + 自定义</text>
+    <text x="20" y="65" class="code">onLCP / onINP / onCLS (web-vitals)</text>
+  </g>
+
+  <g transform="translate(40, 300)">
+    <rect x="0" y="0" width="240" height="80" class="layer-success" rx="6"/>
+    <text x="20" y="25" class="layer-title">🟢 行为监控</text>
+    <text x="20" y="45" class="layer-sub">PV / UV / 关键路径</text>
+    <text x="20" y="65" class="code">路由变化 / 按钮点击 / 接口成功率</text>
+  </g>
+
+  <!-- 上报策略（右侧） -->
+  <g transform="translate(600, 100)">
+    <rect x="0" y="0" width="240" height="280" class="layer-brand" rx="6"/>
+    <text x="20" y="25" class="layer-title">📤 上报策略</text>
+    <text x="20" y="55" class="layer-sub" style="font-weight: 700;">① 采样（防 QPS 爆炸）</text>
+    <text x="20" y="73" class="code">生产 10% / 关键 100%</text>
+
+    <text x="20" y="105" class="layer-sub" style="font-weight: 700;">② 批量（1s 或 10 条合并）</text>
+    <text x="20" y="123" class="code">navigator.sendBeacon()</text>
+
+    <text x="20" y="155" class="layer-sub" style="font-weight: 700;">③ 失败重试</text>
+    <text x="20" y="173" class="code">IndexedDB 缓存 + 下次补发</text>
+
+    <text x="20" y="205" class="layer-sub" style="font-weight: 700;">④ 隐私脱敏</text>
+    <text x="20" y="223" class="code">beforeSend 过滤敏感字段</text>
+
+    <text x="20" y="255" class="layer-sub" style="font-weight: 700;">⑤ Source Map 还原</text>
+    <text x="20" y="273" class="code">CI 上传，生产隐藏</text>
+  </g>
+
+  <!-- 箭头 -->
+  <line x1="280" y1="140" x2="320" y2="220" class="arrow"/>
+  <line x1="280" y1="240" x2="320" y2="250" class="arrow"/>
+  <line x1="280" y1="340" x2="320" y2="280" class="arrow"/>
+  <line x1="560" y1="250" x2="600" y2="240" class="arrow-brand"/>
+
+  <!-- 底部 -->
+  <text x="40" y="475" class="subtitle">⚠ 三类监控缺一不可：错误定位、性能量化、行为洞察</text>
+</svg>

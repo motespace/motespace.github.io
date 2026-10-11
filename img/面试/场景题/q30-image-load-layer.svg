@@ -1,0 +1,85 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .layer-bg { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .layer-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
+    .layer-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    .layer-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
+    .layer-title { font-size: 16px; font-weight: 700; fill: var(--c-text); }
+    .layer-text { font-size: 13px; fill: var(--c-text); }
+    .layer-metric { font-size: 12px; fill: var(--c-text-soft); font-style: italic; }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 12px; fill: var(--c-text); }
+    .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+  </style>
+
+  <text x="40" y="40" class="title">图片优化分层策略（5MB → 200KB）</text>
+  <text x="40" y="62" class="subtitle">从源文件到浏览器渲染的完整优化链路</text>
+
+  <!-- 5 层优化（自上而下） -->
+  <g transform="translate(40, 90)">
+    <!-- Layer 1: 原图 -->
+    <rect x="0" y="0" width="800" height="60" class="layer-warning" rx="6"/>
+    <text x="20" y="25" class="layer-title">① 原始图片</text>
+    <text x="20" y="45" class="code">photo.jpg / 500KB / 4K 分辨率</text>
+    <text x="650" y="35" class="layer-text" style="font-weight: 700;">500KB</text>
+  </g>
+
+  <line x1="440" y1="150" x2="440" y2="170" class="arrow"/>
+
+  <g transform="translate(40, 170)">
+    <!-- Layer 2: 格式转换 -->
+    <rect x="0" y="0" width="800" height="60" class="layer-brand" rx="6"/>
+    <text x="20" y="25" class="layer-title">② 格式转换</text>
+    <text x="20" y="45" class="code">JPG → WebP（-30%）→ AVIF（-50%）</text>
+    <text x="650" y="35" class="layer-text" style="font-weight: 700;">~250KB ↓ 50%</text>
+  </g>
+
+  <line x1="440" y1="230" x2="440" y2="250" class="arrow"/>
+
+  <g transform="translate(40, 250)">
+    <!-- Layer 3: CDN 实时压缩 -->
+    <rect x="0" y="0" width="800" height="60" class="layer-brand" rx="6"/>
+    <text x="20" y="25" class="layer-title">③ CDN 图片处理</text>
+    <text x="20" y="45" class="code">?imageView2/2/w/300/q/75（实时压缩）</text>
+    <text x="650" y="35" class="layer-text" style="font-weight: 700;">~80KB ↓ 68%</text>
+  </g>
+
+  <line x1="440" y1="310" x2="440" y2="330" class="arrow"/>
+
+  <g transform="translate(40, 330)">
+    <!-- Layer 4: 响应式 + 懒加载 -->
+    <rect x="0" y="0" width="800" height="60" class="layer-success" rx="6"/>
+    <text x="20" y="25" class="layer-title">④ 响应式 + 懒加载</text>
+    <text x="20" y="45" class="code">srcset 1x/2x/3x + loading="lazy" + IntersectionObserver</text>
+    <text x="650" y="35" class="layer-text" style="font-weight: 700;">按需加载 ↓ 90%</text>
+  </g>
+
+  <line x1="440" y1="390" x2="440" y2="410" class="arrow"/>
+
+  <g transform="translate(40, 410)">
+    <!-- Layer 5: LQIP 渐进式 -->
+    <rect x="0" y="0" width="800" height="60" class="layer-success" rx="6"/>
+    <text x="20" y="25" class="layer-title">⑤ LQIP 渐进式（感知优化）</text>
+    <text x="20" y="45" class="code">先低质量模糊缩略图（5KB）→ 加载完替换高清</text>
+    <text x="650" y="35" class="layer-text" style="font-weight: 700;">感知秒开</text>
+  </g>
+
+  <!-- 总览 -->
+  <text x="40" y="495" class="subtitle">💡 最终效果：首屏图片从 5MB 降到 ~80KB，CLS 保持稳定（aspect-ratio 预设）</text>
+</svg>

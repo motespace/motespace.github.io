@@ -1,0 +1,150 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-danger: #ef4444; --c-danger-soft: #fee2e2;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-danger: #f87171; --c-danger-soft: #7f1d1d;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .timeline-line { stroke: var(--c-border); stroke-width: 2; fill: none; }
+    .retry-bar { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
+    .retry-bar-max { fill: var(--c-danger-soft); stroke: var(--c-danger); stroke-width: 1.5; }
+    .success-bar { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    .bar-text { font-size: 13px; fill: var(--c-text); text-anchor: middle; }
+    .bar-num { font-size: 14px; font-weight: 700; fill: var(--c-warning); text-anchor: middle; }
+    .bar-num-max { font-size: 14px; font-weight: 700; fill: var(--c-danger); text-anchor: middle; }
+    .bar-num-success { font-size: 14px; font-weight: 700; fill: var(--c-success); text-anchor: middle; }
+    .time-label { font-size: 13px; fill: var(--c-text-soft); text-anchor: middle; }
+    .legend-text { font-size: 13px; fill: var(--c-text); }
+    .note { font-size: 13px; fill: var(--c-text-soft); }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 12px; fill: var(--c-text); }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .step { opacity: 0; animation: fadeUp 0.4s ease-out forwards; }
+    .step-1 { animation-delay: 0.2s; }
+    .step-2 { animation-delay: 1.0s; }
+    .step-3 { animation-delay: 2.0s; }
+    .step-4 { animation-delay: 3.0s; }
+    .step-5 { animation-delay: 4.0s; }
+    @media (prefers-reduced-motion: reduce) {
+      .step { opacity: 1; animation: none; }
+    }
+  </style>
+
+  <text x="40" y="40" class="title">WebSocket 指数退避重连时间线</text>
+  <text x="40" y="62" class="subtitle">断开后按 1s → 2s → 4s → 8s → 16s → 30s（封顶）重连</text>
+
+  <!-- 时间轴基线 -->
+  <line x1="60" y1="140" x2="820" y2="140" class="timeline-line"/>
+
+  <!-- 时间刻度 -->
+  <g>
+    <line x1="60" y1="135" x2="60" y2="145" class="timeline-line"/>
+    <text x="60" y="165" class="time-label">0s</text>
+
+    <line x1="180" y1="135" x2="180" y2="145" class="timeline-line"/>
+    <text x="180" y="165" class="time-label">~1s</text>
+
+    <line x1="290" y1="135" x2="290" y2="145" class="timeline-line"/>
+    <text x="290" y="165" class="time-label">~3s</text>
+
+    <line x1="410" y1="135" x2="410" y2="145" class="timeline-line"/>
+    <text x="410" y="165" class="time-label">~7s</text>
+
+    <line x1="540" y1="135" x2="540" y2="145" class="timeline-line"/>
+    <text x="540" y="165" class="time-label">~15s</text>
+
+    <line x1="680" y1="135" x2="680" y2="145" class="timeline-line"/>
+    <text x="680" y="165" class="time-label">~31s</text>
+
+    <line x1="820" y1="135" x2="820" y2="145" class="timeline-line"/>
+    <text x="820" y="165" class="time-label">~61s</text>
+  </g>
+
+  <!-- 断开提示 -->
+  <g class="step step-1">
+    <rect x="40" y="105" width="120" height="30" class="retry-bar-max" rx="4"/>
+    <text x="100" y="125" class="bar-num-max">🔴 断开</text>
+  </g>
+
+  <!-- 第 1 次重试 -->
+  <g class="step step-2">
+    <rect x="100" y="190" width="140" height="40" class="retry-bar" rx="4"/>
+    <text x="170" y="180" class="bar-num">第 1 次重试</text>
+    <text x="170" y="208" class="bar-text">等待 1s</text>
+    <text x="170" y="225" class="bar-text" style="font-size: 11px;">连接失败</text>
+  </g>
+
+  <!-- 第 2 次重试 -->
+  <g class="step step-3">
+    <rect x="220" y="190" width="140" height="40" class="retry-bar" rx="4"/>
+    <text x="290" y="180" class="bar-num">第 2 次重试</text>
+    <text x="290" y="208" class="bar-text">等待 2s</text>
+    <text x="290" y="225" class="bar-text" style="font-size: 11px;">连接失败</text>
+  </g>
+
+  <!-- 第 3 次重试 -->
+  <g class="step step-4">
+    <rect x="340" y="190" width="140" height="40" class="retry-bar" rx="4"/>
+    <text x="410" y="180" class="bar-num">第 3 次重试</text>
+    <text x="410" y="208" class="bar-text">等待 4s</text>
+    <text x="410" y="225" class="bar-text" style="font-size: 11px;">连接失败</text>
+  </g>
+
+  <!-- 第 4 次重试 -->
+  <g class="step step-4">
+    <rect x="470" y="190" width="140" height="40" class="retry-bar" rx="4"/>
+    <text x="540" y="180" class="bar-num">第 4 次重试</text>
+    <text x="540" y="208" class="bar-text">等待 8s</text>
+    <text x="540" y="225" class="bar-text" style="font-size: 11px;">连接失败</text>
+  </g>
+
+  <!-- 第 5 次重试（封顶 30s） -->
+  <g class="step step-5">
+    <rect x="600" y="190" width="160" height="40" class="retry-bar" rx="4"/>
+    <text x="680" y="180" class="bar-num">第 5 次重试</text>
+    <text x="680" y="208" class="bar-text">等待 16s</text>
+    <text x="680" y="225" class="bar-text" style="font-size: 11px;">连接成功 ✓</text>
+  </g>
+
+  <!-- 成功提示 -->
+  <g class="step step-5">
+    <rect x="760" y="190" width="80" height="40" class="success-bar" rx="4"/>
+    <text x="800" y="180" class="bar-num-success">重置</text>
+    <text x="800" y="208" class="bar-text" style="font-size: 11px;">attempts=0</text>
+    <text x="800" y="225" class="bar-text" style="font-size: 11px;">正常通信</text>
+  </g>
+
+  <!-- 公式说明 -->
+  <g>
+    <rect x="40" y="270" width="800" height="80" class="retry-bar" rx="6"/>
+    <text x="60" y="295" class="legend-text" style="font-weight: 700;">退避公式（核心）</text>
+    <text x="60" y="320" class="code">delay = Math.min(baseDelay * 2 ** (attempts - 1), MAX_DELAY)</text>
+    <text x="60" y="340" class="note">baseDelay = 1000ms, MAX_DELAY = 30000ms，再加 ±500ms 随机抖动（防雪崩）</text>
+  </g>
+
+  <!-- 心跳检测 -->
+  <g>
+    <rect x="40" y="370" width="800" height="80" class="retry-bar" rx="6"/>
+    <text x="60" y="395" class="legend-text" style="font-weight: 700;">心跳保活（30s 一次）</text>
+    <text x="60" y="418" class="code">每 30s 发 ping → 10s 内未响应 → 主动断开 → 触发重连</text>
+    <text x="60" y="438" class="note">比 TCP keepalive 更可控，能识别"假连接"（NAT 超时 / 代理断流）</text>
+  </g>
+
+  <text x="40" y="478" class="note">⚠ 上限：maxAttempts = 10，达到后报错 + 通知用户（不是无限重试）</text>
+</svg>

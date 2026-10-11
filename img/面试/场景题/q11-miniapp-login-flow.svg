@@ -1,0 +1,129 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .lane-bg { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .lane-label { font-size: 14px; font-weight: 700; fill: var(--c-text); }
+    .lifeline { stroke: var(--c-border); stroke-width: 1.5; stroke-dasharray: 4 4; }
+    .msg-line { stroke-width: 1.8; fill: none; }
+    .msg-brand { stroke: var(--c-brand); }
+    .msg-success { stroke: var(--c-success); }
+    .msg-label { font-size: 13px; fill: var(--c-text); }
+    .msg-label-bg { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 0.5; }
+    .step-num { font-size: 15px; font-weight: 700; fill: var(--c-brand); }
+    .step-text { font-size: 13px; fill: var(--c-text); }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 12px; fill: var(--c-text); }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .step { opacity: 0; animation: fadeUp 0.4s ease-out forwards; }
+    .step-1 { animation-delay: 0.2s; }
+    .step-2 { animation-delay: 1.0s; }
+    .step-3 { animation-delay: 2.0s; }
+    .step-4 { animation-delay: 3.0s; }
+    .step-5 { animation-delay: 4.0s; }
+    @media (prefers-reduced-motion: reduce) {
+      .step { opacity: 1; animation: none; }
+    }
+  </style>
+  <defs>
+    <marker id="ax-q11-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3451b2"/>
+    </marker>
+    <marker id="ax-q11-s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">小程序登录完整时序</text>
+  <text x="40" y="62" class="subtitle">wx.login → 后端 → 微信服务器 → 自定义 token</text>
+
+  <!-- 四泳道 -->
+  <g>
+    <rect x="40" y="90" width="180" height="420" class="lane-bg" rx="6"/>
+    <text x="130" y="115" class="lane-label" text-anchor="middle">小程序端</text>
+
+    <rect x="240" y="90" width="180" height="420" class="lane-bg" rx="6"/>
+    <text x="330" y="115" class="lane-label" text-anchor="middle">业务后端</text>
+
+    <rect x="440" y="90" width="180" height="420" class="lane-bg" rx="6"/>
+    <text x="530" y="115" class="lane-label" text-anchor="middle">微信服务器</text>
+
+    <rect x="640" y="90" width="180" height="420" class="lane-bg" rx="6"/>
+    <text x="730" y="115" class="lane-label" text-anchor="middle">业务 DB</text>
+  </g>
+
+  <line x1="130" y1="130" x2="130" y2="500" class="lifeline"/>
+  <line x1="330" y1="130" x2="330" y2="500" class="lifeline"/>
+  <line x1="530" y1="130" x2="530" y2="500" class="lifeline"/>
+  <line x1="730" y1="130" x2="730" y2="500" class="lifeline"/>
+
+  <!-- Step 1: wx.login 拿 code -->
+  <g class="step step-1">
+    <text x="50" y="155" class="step-num">①</text>
+    <text x="75" y="155" class="step-text">小程序调用 wx.login</text>
+    <line x1="130" y1="165" x2="520" y2="165" class="msg-line msg-brand" marker-end="url(#ax-q11-b)"/>
+    <rect x="155" y="150" width="170" height="20" class="msg-label-bg" rx="3"/>
+    <text x="165" y="165" class="msg-label">→ wx.login()</text>
+    <rect x="350" y="180" width="180" height="50" class="msg-label-bg" rx="3" style="fill: var(--c-brand-soft);"/>
+    <text x="360" y="198" class="step-text" style="font-weight: 700;">微信返回</text>
+    <text x="360" y="216" class="code">code: "081x..."</text>
+    <text x="360" y="228" class="code">（5 分钟有效）</text>
+  </g>
+
+  <!-- Step 2: 发给后端 -->
+  <g class="step step-2">
+    <text x="50" y="255" class="step-num">②</text>
+    <text x="75" y="255" class="step-text">code 发给业务后端</text>
+    <line x1="130" y1="265" x2="320" y2="265" class="msg-line msg-brand" marker-end="url(#ax-q11-b)"/>
+    <rect x="155" y="250" width="160" height="20" class="msg-label-bg" rx="3"/>
+    <text x="165" y="265" class="msg-label">POST /api/login</text>
+  </g>
+
+  <!-- Step 3: 后端调微信换 openid -->
+  <g class="step step-3">
+    <text x="50" y="300" class="step-num">③</text>
+    <text x="75" y="300" class="step-text">后端用 code 换 openid</text>
+    <line x1="330" y1="310" x2="520" y2="310" class="msg-line msg-brand" marker-end="url(#ax-q11-b)"/>
+    <rect x="355" y="295" width="170" height="20" class="msg-label-bg" rx="3"/>
+    <text x="365" y="310" class="msg-label">/sns/jscode2session</text>
+    <line x1="520" y1="335" x2="340" y2="335" class="msg-line msg-success" marker-end="url(#ax-q11-s)"/>
+    <rect x="355" y="345" width="170" height="20" class="msg-label-bg" rx="3"/>
+    <text x="365" y="360" class="msg-label">{ openid, session_key }</text>
+  </g>
+
+  <!-- Step 4: 后端查 DB + 生成 token -->
+  <g class="step step-4">
+    <text x="50" y="395" class="step-num">④</text>
+    <text x="75" y="395" class="step-text">查询/创建用户 + 签发 JWT</text>
+    <line x1="330" y1="405" x2="720" y2="405" class="msg-line msg-brand" marker-end="url(#ax-q11-b)"/>
+    <rect x="360" y="390" width="170" height="20" class="msg-label-bg" rx="3"/>
+    <text x="370" y="405" class="msg-label">SELECT / INSERT user</text>
+    <line x1="720" y1="425" x2="340" y2="425" class="msg-line msg-success" marker-end="url(#ax-q11-s)"/>
+  </g>
+
+  <!-- Step 5: 返回 token -->
+  <g class="step step-5">
+    <text x="50" y="460" class="step-num">⑤</text>
+    <text x="75" y="460" class="step-text">后端把 token 返回给小程序</text>
+    <line x1="330" y1="470" x2="140" y2="470" class="msg-line msg-success" marker-end="url(#ax-q11-s)"/>
+    <rect x="155" y="455" width="160" height="20" class="msg-label-bg" rx="3"/>
+    <text x="165" y="470" class="msg-label">{ token: "eyJ..." }</text>
+  </g>
+
+  <text x="40" y="530" class="subtitle">小程序存 token 到 storage，后续每次请求带 Authorization</text>
+</svg>

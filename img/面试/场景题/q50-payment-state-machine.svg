@@ -1,0 +1,120 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+      --c-danger: #ef4444; --c-danger-soft: #fee2e2;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+        --c-danger: #f87171; --c-danger-soft: #7f1d1d;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .state-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1.5; }
+    .state-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 2; }
+    .state-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .state-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+    .state-danger { fill: var(--c-danger-soft); stroke: var(--c-danger); stroke-width: 2; }
+    .state-title { font-size: 15px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+    .state-text { font-size: 12px; fill: var(--c-text); text-anchor: middle; }
+    .edge-text { font-size: 12px; fill: var(--c-text); font-weight: 600; }
+    .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    .arrow-success { stroke: var(--c-success); stroke-width: 2; fill: none; }
+    .arrow-danger { stroke: var(--c-danger); stroke-width: 2; fill: none; }
+  </style>
+  <defs>
+    <marker id="ax-q50-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+    <marker id="ax-q50-s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+    <marker id="ax-q50-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">支付流程状态机（防重 + 回调 + 幂等）</text>
+  <text x="40" y="62" class="subtitle">从下单到支付完成的全流程状态流转</text>
+
+  <!-- 状态：pending -->
+  <g>
+    <ellipse cx="140" cy="180" rx="80" ry="40" class="state-warning"/>
+    <text x="140" y="175" class="state-title">pending</text>
+    <text x="140" y="195" class="state-text">待付款</text>
+  </g>
+
+  <!-- 状态：paying -->
+  <g>
+    <ellipse cx="380" cy="180" rx="80" ry="40" class="state-brand"/>
+    <text x="380" y="175" class="state-title">paying</text>
+    <text x="380" y="195" class="state-text">支付中</text>
+  </g>
+
+  <!-- 状态：paid -->
+  <g>
+    <ellipse cx="620" cy="180" rx="80" ry="40" class="state-success"/>
+    <text x="620" y="175" class="state-title">paid</text>
+    <text x="620" y="195" class="state-text">已付款</text>
+  </g>
+
+  <!-- 状态：failed -->
+  <g>
+    <ellipse cx="140" cy="320" rx="80" ry="40" class="state-danger"/>
+    <text x="140" y="315" class="state-title">failed</text>
+    <text x="140" y="335" class="state-text">支付失败</text>
+  </g>
+
+  <!-- 状态：refunding -->
+  <g>
+    <ellipse cx="620" cy="320" rx="90" ry="40" class="state-warning"/>
+    <text x="620" y="315" class="state-title">refunding</text>
+    <text x="620" y="335" class="state-text">退款中</text>
+  </g>
+
+  <!-- 状态：refunded -->
+  <g>
+    <ellipse cx="800" cy="320" rx="80" ry="40" class="state-box"/>
+    <text x="800" y="315" class="state-title">refunded</text>
+    <text x="800" y="335" class="state-text">已退款</text>
+  </g>
+
+  <!-- 边 -->
+  <line x1="220" y1="180" x2="300" y2="180" class="arrow" marker-end="url(#ax-q50-g)"/>
+  <text x="260" y="170" class="edge-text" text-anchor="middle">PAY</text>
+
+  <line x1="460" y1="180" x2="540" y2="180" class="arrow-success" marker-end="url(#ax-q50-s)"/>
+  <text x="500" y="170" class="edge-text" text-anchor="middle" style="fill: var(--c-success);">PAY_SUCCESS</text>
+
+  <line x1="380" y1="220" x2="140" y2="280" class="arrow-danger" marker-end="url(#ax-q50-d)"/>
+  <text x="260" y="245" class="edge-text" text-anchor="middle" style="fill: var(--c-danger);">PAY_FAIL（失败回到 pending）</text>
+
+  <line x1="620" y1="220" x2="620" y2="280" class="arrow" marker-end="url(#ax-q50-g)"/>
+  <text x="640" y="255" class="edge-text">REFUND</text>
+
+  <line x1="710" y1="320" x2="720" y2="320" class="arrow-success" marker-end="url(#ax-q50-s)"/>
+  <text x="755" y="310" class="edge-text" text-anchor="middle" style="fill: var(--c-success);">REFUND_OK</text>
+
+  <!-- 失败 → pending -->
+  <path d="M 60,320 Q 60,260 80,220" class="arrow" fill="none" marker-end="url(#ax-q50-g)"/>
+  <text x="40" y="270" class="edge-text" style="font-size: 11px;">RETRY</text>
+
+  <!-- 异常处理说明 -->
+  <g>
+    <rect x="40" y="400" width="800" height="120" class="state-warning" rx="6"/>
+    <text x="60" y="425" class="state-title" text-anchor="start" style="fill: var(--c-warning);">⚠ 异常处理</text>
+    <text x="60" y="450" class="state-text" text-anchor="start">• 防重复支付：按钮节流 + 后端幂等键（idempotencyKey）</text>
+    <text x="60" y="470" class="state-text" text-anchor="start">• 跳转失败：URL 携带 orderId，回来时主动查订单状态</text>
+    <text x="60" y="490" class="state-text" text-anchor="start">• 回调失败：重试机制（指数退避）+ 死信队列 + 人工对账</text>
+    <text x="60" y="508" class="state-text" text-anchor="start">• 扣款未发货：每日定时任务对比第三方账单</text>
+  </g>
+</svg>

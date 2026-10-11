@@ -1,0 +1,135 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .stage-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .stage-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
+    .stage-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    .stage-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
+    .stage-title { font-size: 14px; font-weight: 700; fill: var(--c-text); }
+    .stage-text { font-size: 12px; fill: var(--c-text); }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 12px; fill: var(--c-text); }
+    .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    .arrow-brand { stroke: var(--c-brand); stroke-width: 2; fill: none; }
+    .arrow-success { stroke: var(--c-success); stroke-width: 2; fill: none; }
+  </style>
+  <defs>
+    <marker id="ax-q62" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+    <marker id="ax-q62-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3451b2"/>
+    </marker>
+    <marker id="ax-q62-s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">IoT 大屏 + LLM 智能交互架构</text>
+  <text x="40" y="62" class="subtitle">用户自然语言 → LLM 理解 → 生成查询 → 大屏可视化</text>
+
+  <!-- Step 1: 用户语音/文字输入 -->
+  <g>
+    <rect x="40" y="100" width="180" height="70" class="stage-warning" rx="6"/>
+    <text x="130" y="125" class="stage-title" text-anchor="middle">① 用户输入</text>
+    <text x="130" y="148" class="stage-text" text-anchor="middle">"上周异常设备"</text>
+    <text x="130" y="163" class="stage-text" text-anchor="middle" style="font-size: 10px;">语音 / 文字</text>
+  </g>
+
+  <!-- 箭头 -->
+  <line x1="220" y1="135" x2="260" y2="135" class="arrow" marker-end="url(#ax-q62)"/>
+
+  <!-- Step 2: Whisper（语音转文字） -->
+  <g>
+    <rect x="265" y="100" width="140" height="70" class="stage-box" rx="6"/>
+    <text x="335" y="125" class="stage-title" text-anchor="middle">② Whisper</text>
+    <text x="335" y="148" class="stage-text" text-anchor="middle">语音 → 文字</text>
+    <text x="335" y="163" class="code" text-anchor="middle" style="font-size: 10px;">（可选）</text>
+  </g>
+
+  <line x1="405" y1="135" x2="445" y2="135" class="arrow-brand" marker-end="url(#ax-q62-b)"/>
+
+  <!-- Step 3: LLM 提取意图 -->
+  <g>
+    <rect x="450" y="100" width="200" height="70" class="stage-brand" rx="6"/>
+    <text x="550" y="125" class="stage-title" text-anchor="middle">③ LLM 提取意图</text>
+    <text x="550" y="148" class="stage-text" text-anchor="middle">Function Calling</text>
+    <text x="550" y="163" class="code" text-anchor="middle" style="font-size: 10px;">tools: [queryDevices]</text>
+  </g>
+
+  <line x1="650" y1="135" x2="690" y2="135" class="arrow-brand" marker-end="url(#ax-q62-b)"/>
+
+  <!-- Step 4: 结构化参数 -->
+  <g>
+    <rect x="695" y="100" width="145" height="70" class="stage-warning" rx="6"/>
+    <text x="767" y="125" class="stage-title" text-anchor="middle">④ 结构化参数</text>
+    <text x="767" y="148" class="stage-text" text-anchor="middle">{ status: '异常',</text>
+    <text x="767" y="163" class="stage-text" text-anchor="middle">  timeRange: '上周' }</text>
+  </g>
+
+  <!-- 箭头下 -->
+  <line x1="767" y1="170" x2="767" y2="200" class="arrow-success" marker-end="url(#ax-q62-s)"/>
+
+  <!-- Step 5: 后端执行 -->
+  <g>
+    <rect x="40" y="205" width="350" height="70" class="stage-success" rx="6"/>
+    <text x="215" y="230" class="stage-title" text-anchor="middle">⑤ 后端执行查询</text>
+    <text x="60" y="252" class="code">SELECT * FROM devices</text>
+    <text x="60" y="268" class="code">WHERE status='abnormal' AND time &gt; DATE_SUB(NOW(), INTERVAL 7 DAY)</text>
+  </g>
+
+  <line x1="390" y1="240" x2="430" y2="240" class="arrow-success" marker-end="url(#ax-q62-s)"/>
+
+  <!-- Step 6: 大屏渲染 -->
+  <g>
+    <rect x="430" y="205" width="220" height="70" class="stage-brand" rx="6"/>
+    <text x="540" y="230" class="stage-title" text-anchor="middle">⑥ 大屏渲染</text>
+    <text x="540" y="252" class="stage-text" text-anchor="middle">ECharts 地图标点</text>
+    <text x="540" y="268" class="stage-text" text-anchor="middle">+ 列表 + 数据汇总</text>
+  </g>
+
+  <line x1="650" y1="240" x2="690" y2="240" class="arrow-success" marker-end="url(#ax-q62-s)"/>
+
+  <!-- Step 7: TTS 语音播报 -->
+  <g>
+    <rect x="695" y="205" width="145" height="70" class="stage-box" rx="6"/>
+    <text x="767" y="230" class="stage-title" text-anchor="middle">⑦ TTS 播报</text>
+    <text x="767" y="252" class="stage-text" text-anchor="middle">"共找到 5 台</text>
+    <text x="767" y="268" class="stage-text" text-anchor="middle">异常设备"</text>
+  </g>
+
+  <!-- LLM 二次理解 -->
+  <path d="M 540,275 Q 540,310 540,330" class="arrow" fill="none" marker-end="url(#ax-q62)"/>
+  <rect x="430" y="330" width="220" height="50" class="stage-warning" rx="4"/>
+  <text x="540" y="352" class="stage-title" text-anchor="middle" style="font-size: 13px;">流式输出（边生成边展示）</text>
+  <text x="540" y="370" class="code" text-anchor="middle" style="font-size: 11px;">stream: true + SSE / WebSocket</text>
+
+  <!-- 关键注意事项 -->
+  <g>
+    <rect x="40" y="400" width="800" height="120" style="fill: var(--c-danger-soft); stroke: var(--c-danger); stroke-width: 1.5;" rx="6"/>
+    <text x="60" y="425" class="stage-title" style="fill: var(--c-danger);">⚠ 关键注意事项</text>
+    <text x="60" y="450" class="stage-text">• SQL 注入防护：参数化查询 + 只读账号 + 字段白名单</text>
+    <text x="60" y="470" class="stage-text">• 数据权限：用户只能查询自己有权限的数据（行级过滤）</text>
+    <text x="60" y="490" class="stage-text">• 性能：流式输出 + 常见问题缓存 + 并行检索</text>
+    <text x="60" y="510" class="stage-text">• 幻觉防护：校验查询结果 + 不确定时让用户确认</text>
+    <text x="450" y="450" class="stage-text">• 审计日志：所有 AI 查询记录（合规 + 追溯）</text>
+    <text x="450" y="470" class="stage-text">• 复杂场景：多轮对话上下文（滑动窗口 + 摘要压缩）</text>
+    <text x="450" y="490" class="stage-text">• 多模态：图表配置生成 / 语音交互 / 报告自动生成</text>
+    <text x="450" y="510" class="stage-text">• 降级策略：LLM 超时 → 显示传统查询界面</text>
+  </g>
+</svg>

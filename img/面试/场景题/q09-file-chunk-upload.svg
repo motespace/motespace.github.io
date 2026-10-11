@@ -1,0 +1,145 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .stage-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .stage-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
+    .stage-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    .stage-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
+    .stage-num { font-size: 22px; font-weight: 700; fill: var(--c-brand); }
+    .stage-title { font-size: 15px; font-weight: 700; fill: var(--c-text); }
+    .stage-text { font-size: 13px; fill: var(--c-text); }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 12px; fill: var(--c-text); }
+    .chunk { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1; }
+    .chunk-uploaded { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1; }
+    .chunk-pending { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; stroke-dasharray: 3 2; }
+    .chunk-label { font-size: 11px; fill: var(--c-text); text-anchor: middle; }
+    .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .step { opacity: 0; animation: fadeUp 0.4s ease-out forwards; }
+    .step-1 { animation-delay: 0.2s; }
+    .step-2 { animation-delay: 1.0s; }
+    .step-3 { animation-delay: 2.0s; }
+    .step-4 { animation-delay: 3.0s; }
+    .step-5 { animation-delay: 4.0s; }
+    @media (prefers-reduced-motion: reduce) {
+      .step { opacity: 1; animation: none; }
+    }
+  </style>
+  <defs>
+    <marker id="ax-q9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">大文件分片上传 + 断点续传</text>
+  <text x="40" y="62" class="subtitle">1GB 文件 → 5MB/片 → 后端按 hash 校验 → 只传缺失分片</text>
+
+  <!-- 步骤 1: 文件分片 -->
+  <g class="step step-1">
+    <rect x="40" y="100" width="200" height="80" class="stage-brand" rx="6"/>
+    <text x="55" y="125" class="stage-num">1</text>
+    <text x="80" y="122" class="stage-title">文件分片</text>
+    <text x="55" y="148" class="stage-text">每片 5MB</text>
+    <text x="55" y="167" class="code">Math.ceil(size / 5MB)</text>
+
+    <!-- 5 个分片可视化 -->
+    <g transform="translate(40, 195)">
+      <rect x="0" y="0" width="36" height="20" class="chunk"/>
+      <text x="18" y="14" class="chunk-label">1</text>
+      <rect x="42" y="0" width="36" height="20" class="chunk"/>
+      <text x="60" y="14" class="chunk-label">2</text>
+      <rect x="84" y="0" width="36" height="20" class="chunk"/>
+      <text x="102" y="14" class="chunk-label">3</text>
+      <rect x="126" y="0" width="36" height="20" class="chunk"/>
+      <text x="144" y="14" class="chunk-label">4</text>
+      <rect x="168" y="0" width="36" height="20" class="chunk"/>
+      <text x="186" y="14" class="chunk-label">5</text>
+    </g>
+  </g>
+
+  <!-- 箭头 -->
+  <line x1="240" y1="140" x2="290" y2="140" class="arrow" marker-end="url(#ax-q9)"/>
+
+  <!-- 步骤 2: 计算 hash -->
+  <g class="step step-2">
+    <rect x="295" y="100" width="200" height="80" class="stage-brand" rx="6"/>
+    <text x="310" y="125" class="stage-num">2</text>
+    <text x="335" y="122" class="stage-title">计算文件 hash</text>
+    <text x="310" y="148" class="stage-text">用于秒传 + 校验</text>
+    <text x="310" y="167" class="code">MD5 / SHA256</text>
+    <text x="310" y="184" class="code" style="fill: var(--c-text-soft);">Web Worker 增量 hash</text>
+  </g>
+
+  <line x1="495" y1="140" x2="545" y2="140" class="arrow" marker-end="url(#ax-q9)"/>
+
+  <!-- 步骤 3: 校验已上传分片 -->
+  <g class="step step-3">
+    <rect x="550" y="100" width="290" height="80" class="stage-brand" rx="6"/>
+    <text x="565" y="125" class="stage-num">3</text>
+    <text x="590" y="122" class="stage-title">后端校验已上传分片</text>
+    <text x="565" y="148" class="stage-text">GET /checkFile?hash=xxx → { uploaded: [0, 1, 3] }</text>
+    <text x="565" y="167" class="code">只上传缺失分片（2、4、5）</text>
+  </g>
+
+  <!-- 步骤 4: 分片上传状态 -->
+  <g class="step step-4">
+    <rect x="40" y="240" width="800" height="120" class="stage-warning" rx="6"/>
+    <text x="55" y="265" class="stage-num">4</text>
+    <text x="80" y="262" class="stage-title">分片上传状态</text>
+
+    <g transform="translate(55, 285)">
+      <rect x="0" y="0" width="60" height="50" class="chunk-uploaded"/>
+      <text x="30" y="20" class="chunk-label">片 1</text>
+      <text x="30" y="36" class="chunk-label" style="fill: var(--c-success);">✓ 已传</text>
+
+      <rect x="70" y="0" width="60" height="50" class="chunk-pending"/>
+      <text x="100" y="20" class="chunk-label">片 2</text>
+      <text x="100" y="36" class="chunk-label" style="fill: var(--c-warning);">⏳ 上传中</text>
+
+      <rect x="140" y="0" width="60" height="50" class="chunk-uploaded"/>
+      <text x="170" y="20" class="chunk-label">片 3</text>
+      <text x="170" y="36" class="chunk-label" style="fill: var(--c-success);">✓ 已传</text>
+
+      <rect x="210" y="0" width="60" height="50" class="chunk-pending"/>
+      <text x="240" y="20" class="chunk-label">片 4</text>
+      <text x="240" y="36" class="chunk-label" style="fill: var(--c-warning);">⏳ 待传</text>
+
+      <rect x="280" y="0" width="60" height="50" class="chunk-pending"/>
+      <text x="310" y="20" class="chunk-label">片 5</text>
+      <text x="310" y="36" class="chunk-label" style="fill: var(--c-warning);">⏳ 待传</text>
+
+      <text x="360" y="20" class="stage-text">断网/暂停：记住已传分片</text>
+      <text x="360" y="40" class="stage-text">恢复后只传 2、4、5</text>
+      <text x="360" y="60" class="code">retry with exp backoff</text>
+    </g>
+  </g>
+
+  <!-- 步骤 5: 合并 -->
+  <g class="step step-5">
+    <rect x="40" y="380" width="800" height="80" class="stage-success" rx="6"/>
+    <text x="55" y="405" class="stage-num">5</text>
+    <text x="80" y="402" class="stage-title">通知后端合并分片</text>
+    <text x="55" y="430" class="stage-text">所有分片上传完成 → POST /mergeFile(hash, totalChunks)</text>
+    <text x="55" y="450" class="code">后端合并 → 返回最终 fileId</text>
+    <text x="450" y="450" class="stage-text" style="fill: var(--c-success);">✓ 完成（支持断点续传 + 秒传）</text>
+  </g>
+</svg>

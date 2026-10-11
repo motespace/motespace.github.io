@@ -1,0 +1,125 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-danger: #ef4444; --c-danger-soft: #fee2e2;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-danger: #f87171; --c-danger-soft: #7f1d1d;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .stage-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .stage-danger { fill: var(--c-danger-soft); stroke: var(--c-danger); stroke-width: 1.5; }
+    .stage-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    .stage-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
+    .stage-title { font-size: 15px; font-weight: 700; fill: var(--c-text); }
+    .stage-text { font-size: 13px; fill: var(--c-text); }
+    .stage-num { font-size: 22px; font-weight: 700; }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 13px; fill: var(--c-text); }
+    .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    .arrow-danger { stroke: var(--c-danger); stroke-width: 2; fill: none; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .step { opacity: 0; animation: fadeUp 0.4s ease-out forwards; }
+    .step-1 { animation-delay: 0.2s; }
+    .step-2 { animation-delay: 1.0s; }
+    .step-3 { animation-delay: 2.0s; }
+    .step-4 { animation-delay: 3.0s; }
+    .step-5 { animation-delay: 4.0s; }
+    @media (prefers-reduced-motion: reduce) {
+      .step { opacity: 1; animation: none; }
+    }
+  </style>
+  <defs>
+    <marker id="ax-danger" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ef4444"/>
+    </marker>
+    <marker id="ax-soft" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">XSS 攻击链路与防护层级</text>
+  <text x="40" y="62" class="subtitle">从恶意输入到脚本执行的完整流程</text>
+
+  <!-- Stage 1: 输入 -->
+  <g class="step step-1">
+    <rect x="40" y="100" width="200" height="120" class="stage-danger" rx="6"/>
+    <text x="60" y="135" class="stage-num" style="fill: var(--c-danger);">1</text>
+    <text x="85" y="130" class="stage-title">输入</text>
+    <text x="85" y="150" class="stage-text">用户粘贴恶意脚本</text>
+    <rect x="55" y="165" width="170" height="40" class="stage-box" rx="3"/>
+    <text x="62" y="182" class="code">&lt;script&gt;</text>
+    <text x="62" y="198" class="code">  alert(document.cookie)</text>
+  </g>
+
+  <!-- Stage 2: 存储 -->
+  <g class="step step-2">
+    <line x1="240" y1="160" x2="290" y2="160" class="arrow-danger" marker-end="url(#ax-danger)"/>
+    <text x="245" y="150" class="stage-text" style="fill: var(--c-danger);">原样入库</text>
+
+    <rect x="295" y="100" width="200" height="120" class="stage-danger" rx="6"/>
+    <text x="315" y="135" class="stage-num" style="fill: var(--c-danger);">2</text>
+    <text x="340" y="130" class="stage-title">存储</text>
+    <text x="340" y="150" class="stage-text">后端未清洗存 DB</text>
+    <rect x="310" y="165" width="170" height="40" class="stage-box" rx="3"/>
+    <text x="317" y="182" class="code">DB.content = dirty</text>
+    <text x="317" y="198" class="code" style="fill: var(--c-danger);">⚠ 危险！</text>
+  </g>
+
+  <!-- Stage 3: 渲染 -->
+  <g class="step step-3">
+    <line x1="495" y1="160" x2="545" y2="160" class="arrow-danger" marker-end="url(#ax-danger)"/>
+    <text x="500" y="150" class="stage-text" style="fill: var(--c-danger);">直接渲染</text>
+
+    <rect x="550" y="100" width="200" height="120" class="stage-danger" rx="6"/>
+    <text x="570" y="135" class="stage-num" style="fill: var(--c-danger);">3</text>
+    <text x="595" y="130" class="stage-title">渲染</text>
+    <text x="595" y="150" class="stage-text">innerHTML 触发脚本</text>
+    <rect x="565" y="165" width="170" height="40" class="stage-box" rx="3"/>
+    <text x="572" y="182" class="code">innerHTML = html</text>
+    <text x="572" y="198" class="code" style="fill: var(--c-danger);">⚠ 脚本执行！</text>
+  </g>
+
+  <!-- Stage 4: 执行 -->
+  <g class="step step-4">
+    <line x1="750" y1="160" x2="800" y2="160" class="arrow-danger" marker-end="url(#ax-danger)"/>
+
+    <rect x="800" y="100" width="80" height="120" class="stage-danger" rx="6"/>
+    <text x="840" y="135" class="stage-num" style="fill: var(--c-danger); text-anchor: middle;">4</text>
+    <text x="840" y="170" class="stage-title" text-anchor="middle">执行</text>
+    <text x="840" y="190" class="stage-text" text-anchor="middle">窃取 cookie</text>
+  </g>
+
+  <!-- 防护层：三层 -->
+  <g class="step step-5">
+    <rect x="40" y="270" width="840" height="50" class="stage-success" rx="6"/>
+    <text x="55" y="302" class="stage-title" style="fill: var(--c-success);">✓ 防护 1：服务端 DOMPurify 清洗</text>
+    <text x="320" y="302" class="stage-text">白名单标签 + 属性</text>
+  </g>
+
+  <g class="step step-5">
+    <rect x="40" y="325" width="840" height="50" class="stage-success" rx="6"/>
+    <text x="55" y="357" class="stage-title" style="fill: var(--c-success);">✓ 防护 2：前端渲染再清洗</text>
+    <text x="320" y="357" class="stage-text">双重保险，防止绕过</text>
+  </g>
+
+  <g class="step step-5">
+    <rect x="40" y="380" width="840" height="50" class="stage-success" rx="6"/>
+    <text x="55" y="412" class="stage-title" style="fill: var(--c-success);">✓ 防护 3：CSP 响应头</text>
+    <text x="320" y="412" class="stage-text">default-src 'self' 限制脚本源</text>
+  </g>
+
+  <text x="40" y="465" class="subtitle" style="fill: var(--c-text-soft);">⚠ 单一防护都不够，三层叠加才能彻底防 XSS</text>
+</svg>

@@ -1,0 +1,99 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+      --c-danger: #ef4444; --c-danger-soft: #fee2e2;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+        --c-danger: #f87171; --c-danger-soft: #7f1d1d;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .box-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .box-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+    .box-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 2; }
+    .box-danger { fill: var(--c-danger-soft); stroke: var(--c-danger); stroke-width: 1; stroke-dasharray: 3 2; }
+    .label { font-size: 15px; font-weight: 700; fill: var(--c-text); }
+    .sub-label { font-size: 13px; fill: var(--c-text); }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 12px; fill: var(--c-text); }
+    .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    .arrow-success { stroke: var(--c-success); stroke-width: 2; fill: none; }
+    .arrow-warning { stroke: var(--c-warning); stroke-width: 2; fill: none; }
+  </style>
+  <defs>
+    <marker id="ax-q44" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">HTTP 缓存决策流程</text>
+  <text x="40" y="62" class="subtitle">浏览器请求资源时的缓存路径</text>
+
+  <!-- 开始 -->
+  <rect x="340" y="100" width="200" height="40" class="box-brand" rx="6"/>
+  <text x="440" y="125" class="label" text-anchor="middle">浏览器发起请求</text>
+
+  <line x1="440" y1="140" x2="440" y2="170" class="arrow" marker-end="url(#ax-q44)"/>
+
+  <!-- 分支 1: 强缓存 -->
+  <rect x="60" y="170" width="340" height="80" class="box-success" rx="6"/>
+  <text x="80" y="198" class="label" style="fill: var(--c-success);">✓ 强缓存命中</text>
+  <text x="80" y="220" class="code">Cache-Control: max-age=N  未过期</text>
+  <text x="80" y="238" class="sub-label" style="font-size: 11px;">→ 直接读本地磁盘缓存，0 网络请求</text>
+
+  <!-- 分支 2: 协商缓存 -->
+  <rect x="460" y="170" width="380" height="80" class="box-warning" rx="6"/>
+  <text x="480" y="198" class="label" style="fill: var(--c-warning);">⚠ 强缓存过期</text>
+  <text x="480" y="220" class="code">max-age 过期 → 协商缓存</text>
+  <text x="480" y="238" class="sub-label" style="font-size: 11px;">→ 带 ETag / If-Modified-Since 请求</text>
+
+  <!-- 强缓存命中：直接返回 -->
+  <line x1="230" y1="250" x2="230" y2="290" class="arrow-success"/>
+  <rect x="60" y="290" width="340" height="60" class="box-success" rx="6"/>
+  <text x="80" y="315" class="label" style="fill: var(--c-success);">直接返回缓存</text>
+  <text x="80" y="335" class="sub-label" style="font-size: 12px;">200 from disk cache（极快，0ms）</text>
+
+  <!-- 协商缓存分支 -->
+  <line x1="650" y1="250" x2="650" y2="290" class="arrow-warning"/>
+  <rect x="460" y="290" width="380" height="60" class="box-warning" rx="6"/>
+  <text x="480" y="315" class="label" style="fill: var(--c-warning);">服务器判断</text>
+  <text x="480" y="335" class="sub-label" style="font-size: 12px;">对比 ETag / Last-Modified</text>
+
+  <!-- 304 分支 -->
+  <line x1="550" y1="350" x2="550" y2="380" class="arrow-success"/>
+  <rect x="380" y="380" width="200" height="50" class="box-success" rx="6"/>
+  <text x="400" y="402" class="label" style="fill: var(--c-success);">304 Not Modified</text>
+  <text x="400" y="420" class="sub-label" style="font-size: 11px;">读缓存，无 body</text>
+
+  <!-- 200 分支 -->
+  <line x1="750" y1="350" x2="750" y2="380" class="arrow-warning"/>
+  <rect x="620" y="380" width="200" height="50" class="box-danger" rx="6"/>
+  <text x="640" y="402" class="label" style="fill: var(--c-danger);">200 + 新资源</text>
+  <text x="640" y="420" class="sub-label" style="font-size: 11px;">返回新内容 + 新 ETag</text>
+
+  <!-- 资源类型推荐 -->
+  <g>
+    <rect x="40" y="450" width="400" height="80" class="box-success" rx="6"/>
+    <text x="60" y="475" class="label" style="fill: var(--c-success);">✓ 带 hash 文件名（JS/CSS）</text>
+    <text x="60" y="495" class="code">max-age=1y + 永久缓存（immutable）</text>
+    <text x="60" y="513" class="sub-label" style="font-size: 11px;">文件指纹变化 → 重新请求新 URL</text>
+  </g>
+
+  <g>
+    <rect x="460" y="450" width="380" height="80" class="box-warning" rx="6"/>
+    <text x="480" y="475" class="label" style="fill: var(--c-warning);">⚠ HTML 入口</text>
+    <text x="480" y="495" class="code">Cache-Control: no-cache</text>
+    <text x="480" y="513" class="sub-label" style="font-size: 11px;">每次协商缓存，确保拿到最新版本</text>
+  </g>
+</svg>

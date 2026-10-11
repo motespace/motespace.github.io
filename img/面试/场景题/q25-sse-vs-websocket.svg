@@ -1,0 +1,94 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .col-bg { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .col-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .col-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+    .col-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 2; }
+    .col-title { font-size: 18px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+    .col-tag { font-size: 12px; fill: var(--c-text-soft); text-anchor: middle; }
+    .row-label { font-size: 14px; font-weight: 700; fill: var(--c-text-soft); }
+    .cell-text { font-size: 13px; fill: var(--c-text); }
+    .cell-success { font-size: 14px; fill: var(--c-success); font-weight: 700; }
+    .cell-warning { font-size: 14px; fill: var(--c-warning); font-weight: 700; }
+    .cell-brand { font-size: 14px; fill: var(--c-brand); font-weight: 700; }
+  </style>
+
+  <text x="40" y="40" class="title">SSE / WebSocket / 长轮询 三种方案对比</text>
+  <text x="40" y="62" class="subtitle">按方向、协议、复杂度选型</text>
+
+  <!-- 三列：SSE / WebSocket / 长轮询 -->
+  <rect x="40" y="100" width="260" height="380" class="col-brand" rx="8"/>
+  <text x="170" y="135" class="col-title">SSE</text>
+  <text x="170" y="155" class="col-tag">Server-Sent Events</text>
+
+  <rect x="320" y="100" width="260" height="380" class="col-success" rx="8"/>
+  <text x="450" y="135" class="col-title">WebSocket</text>
+  <text x="450" y="155" class="col-tag">双向通信</text>
+
+  <rect x="600" y="100" width="240" height="380" class="col-warning" rx="8"/>
+  <text x="720" y="135" class="col-title">长轮询</text>
+  <text x="720" y="155" class="col-tag">Long Polling</text>
+
+  <!-- 行 1: 方向 -->
+  <text x="40" y="200" class="row-label">方向</text>
+  <text x="170" y="200" class="cell-warning" text-anchor="middle">单向（服务器→客户端）</text>
+  <text x="450" y="200" class="cell-success" text-anchor="middle">双向</text>
+  <text x="720" y="200" class="cell-warning" text-anchor="middle">单向（客户端轮询）</text>
+
+  <!-- 行 2: 协议 -->
+  <text x="40" y="240" class="row-label">协议</text>
+  <text x="170" y="240" class="cell-text" text-anchor="middle">HTTP（text/event-stream）</text>
+  <text x="450" y="240" class="cell-text" text-anchor="middle">独立 WS 协议</text>
+  <text x="720" y="240" class="cell-text" text-anchor="middle">HTTP（轮询）</text>
+
+  <!-- 行 3: 自动重连 -->
+  <text x="40" y="280" class="row-label">自动重连</text>
+  <text x="170" y="280" class="cell-success" text-anchor="middle">✓ 浏览器原生</text>
+  <text x="450" y="280" class="cell-warning" text-anchor="middle">✗ 自己实现</text>
+  <text x="720" y="280" class="cell-warning" text-anchor="middle">✗ 自己实现</text>
+
+  <!-- 行 4: 复杂度 -->
+  <text x="40" y="320" class="row-label">复杂度</text>
+  <text x="170" y="320" class="cell-success" text-anchor="middle">低</text>
+  <text x="450" y="320" class="cell-warning" text-anchor="middle">中</text>
+  <text x="720" y="320" class="cell-warning" text-anchor="middle">中（服务器压力）</text>
+
+  <!-- 行 5: 移动端兼容 -->
+  <text x="40" y="360" class="row-label">移动端兼容</text>
+  <text x="170" y="360" class="cell-warning" text-anchor="middle">WebView 兼容性差</text>
+  <text x="450" y="360" class="cell-success" text-anchor="middle">好</text>
+  <text x="720" y="360" class="cell-success" text-anchor="middle">好</text>
+
+  <!-- 行 6: 适用场景 -->
+  <text x="40" y="400" class="row-label">适用场景</text>
+  <text x="170" y="400" class="cell-text" text-anchor="middle">股票 / 新闻 / 通知</text>
+  <text x="450" y="400" class="cell-text" text-anchor="middle">聊天 / 游戏 / 协同</text>
+  <text x="720" y="400" class="cell-text" text-anchor="middle">简单通知（已过时）</text>
+
+  <!-- 行 7: 服务器压力 -->
+  <text x="40" y="440" class="row-label">服务器压力</text>
+  <text x="170" y="440" class="cell-success" text-anchor="middle">低（长连接）</text>
+  <text x="450" y="440" class="cell-success" text-anchor="middle">低</text>
+  <text x="720" y="440" class="cell-warning" text-anchor="middle">高（频繁请求）</text>
+
+  <!-- 选型建议 -->
+  <rect x="40" y="490" width="800" height="40" class="col-success" rx="6"/>
+  <text x="60" y="515" class="cell-text" style="font-weight: 700;">💡 选型：只需服务器推送 → SSE；需要双向 → WebSocket；老 IE 兼容 → 长轮询（兜底）</text>
+</svg>

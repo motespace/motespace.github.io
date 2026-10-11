@@ -1,0 +1,136 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-danger: #ef4444; --c-danger-soft: #fee2e2;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-danger: #f87171; --c-danger-soft: #7f1d1d;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .timeline { stroke: var(--c-border); stroke-width: 2; fill: none; }
+    .retry-block { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
+    .success-block { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    .wait-block { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1.5; stroke-dasharray: 3 2; }
+    .bar-label { font-size: 13px; fill: var(--c-text); text-anchor: middle; font-weight: 600; }
+    .bar-sub { font-size: 11px; fill: var(--c-text-soft); text-anchor: middle; }
+    .time-tick { font-size: 13px; fill: var(--c-text-soft); text-anchor: middle; }
+    .time-axis { stroke: var(--c-text-soft); stroke-width: 1; }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 13px; fill: var(--c-text); }
+    .note { font-size: 13px; fill: var(--c-text-soft); }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .step { opacity: 0; animation: fadeUp 0.4s ease-out forwards; }
+    .step-1 { animation-delay: 0.2s; }
+    .step-2 { animation-delay: 1.0s; }
+    .step-3 { animation-delay: 2.0s; }
+    .step-4 { animation-delay: 3.0s; }
+    .step-5 { animation-delay: 4.0s; }
+    @media (prefers-reduced-motion: reduce) {
+      .step { opacity: 1; animation: none; }
+    }
+  </style>
+
+  <text x="40" y="40" class="title">请求重试 + 指数退避时间线</text>
+  <text x="40" y="62" class="subtitle">1s → 2s → 4s（含随机抖动，避免雪崩）</text>
+
+  <!-- 时间轴 -->
+  <line x1="60" y1="130" x2="820" y2="130" class="time-axis"/>
+  <g>
+    <line x1="60" y1="125" x2="60" y2="135" class="time-axis"/>
+    <text x="60" y="150" class="time-tick">0s</text>
+
+    <line x1="160" y1="125" x2="160" y2="135" class="time-axis"/>
+    <text x="160" y="150" class="time-tick">~2s</text>
+
+    <line x1="310" y1="125" x2="310" y2="135" class="time-axis"/>
+    <text x="310" y="150" class="time-tick">~5s</text>
+
+    <line x1="500" y1="125" x2="500" y2="135" class="time-axis"/>
+    <text x="500" y="150" class="time-tick">~10s</text>
+
+    <line x1="820" y1="125" x2="820" y2="135" class="time-axis"/>
+    <text x="820" y="150" class="time-tick">~15s</text>
+  </g>
+
+  <!-- 第一次请求 -->
+  <g class="step step-1">
+    <rect x="60" y="180" width="80" height="60" class="retry-block" rx="4"/>
+    <text x="100" y="200" class="bar-label">尝试 1</text>
+    <text x="100" y="218" class="bar-sub">500 错误</text>
+    <text x="100" y="232" class="bar-sub" style="fill: var(--c-danger);">❌ 失败</text>
+  </g>
+
+  <!-- 等待 1s -->
+  <g class="step step-2">
+    <rect x="148" y="180" width="80" height="60" class="wait-block" rx="4"/>
+    <text x="188" y="200" class="bar-label" style="fill: var(--c-text-soft);">等待 1s</text>
+    <text x="188" y="218" class="bar-sub">± 抖动</text>
+    <text x="188" y="232" class="bar-sub" style="fill: var(--c-warning);">+ 0~1s</text>
+  </g>
+
+  <!-- 第二次请求 -->
+  <g class="step step-3">
+    <rect x="236" y="180" width="80" height="60" class="retry-block" rx="4"/>
+    <text x="276" y="200" class="bar-label">尝试 2</text>
+    <text x="276" y="218" class="bar-sub">500 错误</text>
+    <text x="276" y="232" class="bar-sub" style="fill: var(--c-danger);">❌ 失败</text>
+  </g>
+
+  <!-- 等待 2s -->
+  <g class="step step-4">
+    <rect x="324" y="180" width="100" height="60" class="wait-block" rx="4"/>
+    <text x="374" y="200" class="bar-label" style="fill: var(--c-text-soft);">等待 2s</text>
+    <text x="374" y="218" class="bar-sub">± 抖动</text>
+    <text x="374" y="232" class="bar-sub" style="fill: var(--c-warning);">+ 0~1s</text>
+  </g>
+
+  <!-- 第三次请求 -->
+  <g class="step step-5">
+    <rect x="432" y="180" width="80" height="60" class="success-block" rx="4"/>
+    <text x="472" y="200" class="bar-label" style="fill: var(--c-success);">尝试 3</text>
+    <text x="472" y="218" class="bar-sub">200 OK</text>
+    <text x="472" y="232" class="bar-sub" style="fill: var(--c-success);">✓ 成功</text>
+  </g>
+
+  <!-- 公式 -->
+  <g>
+    <rect x="40" y="270" width="800" height="60" class="retry-block" rx="6"/>
+    <text x="60" y="295" class="code" style="font-weight: 700;">delay = min(baseDelay × 2^(attempt - 1), MAX_DELAY) + random(0, 1000)</text>
+    <text x="60" y="318" class="note">baseDelay = 1000ms, MAX_DELAY = 30000ms。attempt = 1/2/3 → 1s/2s/4s，加上 0~1s 随机抖动防雪崩</text>
+  </g>
+
+  <!-- 重试规则 -->
+  <g>
+    <rect x="40" y="345" width="380" height="120" class="success-block" rx="6"/>
+    <text x="60" y="370" class="bar-label" text-anchor="start" style="fill: var(--c-success); font-weight: 700;">✓ 应该重试</text>
+    <text x="60" y="395" class="code">• 5xx 服务器错误</text>
+    <text x="60" y="415" class="code">• 网络错误（ECONNRESET）</text>
+    <text x="60" y="435" class="code">• 请求超时（timeout）</text>
+    <text x="60" y="455" class="code">• GET 请求（幂等）</text>
+  </g>
+
+  <g>
+    <rect x="450" y="345" width="390" height="120" style="fill: var(--c-danger-soft); stroke: var(--c-danger); stroke-width: 1.5;" rx="6"/>
+    <text x="470" y="370" class="bar-label" text-anchor="start" style="fill: var(--c-danger); font-weight: 700;">✗ 不要重试</text>
+    <text x="470" y="395" class="code">• 4xx 业务错误（如 401/403）</text>
+    <text x="470" y="415" class="code">• POST 非幂等（可能重复扣款）</text>
+    <text x="470" y="435" class="code">• 用户主动取消（AbortError）</text>
+    <text x="470" y="455" class="code">• 超过 maxAttempts（默认 3 次）</text>
+  </g>
+
+  <text x="40" y="490" class="note">⚠ 配合熔断器：连续失败 N 次直接拒绝，避免雪崩</text>
+</svg>
