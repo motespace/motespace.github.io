@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 440" width="880" height="440" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937;
+      --c-text-2: #374151;
+      --c-text-soft: #6b7280;
+      --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb;
+      --c-brand-soft: #eef2ff;
+      --c-brand: #3451b2;
+      --c-success: #10b981;
+      --c-success-soft: #d1fae5;
+      --c-success-2: #059669;
+      --c-warning: #f59e0b;
+      --c-warning-soft: #fffbeb;
+      --c-warning-2: #d97706;
+      --c-danger: #ef4444;
+      --c-danger-soft: #fee2e2;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6;
+        --c-text-2: #d1d5db;
+        --c-text-soft: #9ca3af;
+        --c-border: #4b5563;
+        --c-bg-soft: #1f2937;
+        --c-brand-soft: #312e81;
+        --c-brand: #818cf8;
+        --c-success: #34d399;
+        --c-success-soft: #064e3b;
+        --c-success-2: #34d399;
+        --c-warning: #fbbf24;
+        --c-warning-soft: #451a03;
+        --c-warning-2: #fbbf24;
+        --c-danger: #f87171;
+        --c-danger-soft: #7f1d1d;
+      }
+    }
+
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 15px; fill: var(--c-text-soft); }
+    .step-num { font-size: 22px; font-weight: 700; fill: #ffffff; }
+    .step-title { font-size: 15px; font-weight: 700; fill: var(--c-text); }
+    .code-text { font-family: 'Consolas', 'Monaco', monospace; font-size: 12px; fill: var(--c-text-2); }
+    .code-key { font-family: 'Consolas', 'Monaco', monospace; font-size: 12px; font-weight: 700; fill: var(--c-brand); }
+    .step-circle-1 { fill: var(--c-brand); }
+    .step-circle-2 { fill: var(--c-warning-2); }
+    .step-circle-3 { fill: var(--c-success-2); }
+    .step-circle-4 { fill: var(--c-danger); }
+    .box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .box-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1; }
+    .box-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1; }
+    .box-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1; }
+    .actor-label { font-size: 14px; font-weight: 700; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .phase { opacity: 0; animation: fadeUp 0.4s ease-out forwards; }
+    .phase-1 { animation-delay: 0.2s; }
+    .phase-2 { animation-delay: 0.8s; }
+    .phase-3 { animation-delay: 1.4s; }
+    .phase-4 { animation-delay: 2.0s; }
+    @media (prefers-reduced-motion: reduce) { .phase { opacity: 1; animation: none; } }
+  </style>
+
+  <!-- 标题 -->
+  <text x="40" y="40" class="title">Cookie 生命周期</text>
+  <text x="40" y="62" class="subtitle">从服务端 Set-Cookie 到浏览器自动带上 · 4 个阶段</text>
+
+  <!-- 浏览器 / 服务端 顶部标识 -->
+  <g transform="translate(60, 90)">
+    <rect x="0" y="0" width="120" height="28" rx="4" class="box-brand"/>
+    <text x="60" y="20" class="actor-label" text-anchor="middle" fill="var(--c-brand)">浏览器</text>
+  </g>
+  <g transform="translate(700, 90)">
+    <rect x="0" y="0" width="120" height="28" rx="4" class="box-success"/>
+    <text x="60" y="20" class="actor-label" text-anchor="middle" fill="var(--c-success-2)">服务端</text>
+  </g>
+
+  <!-- 阶段 1:首次请求 -->
+  <g transform="translate(0, 135)">
+    <g class="phase phase-1">
+      <circle cx="60" cy="30" r="16" class="step-circle-1"/>
+      <text x="60" y="37" class="step-num" text-anchor="middle">1</text>
+      <rect x="100" y="0" width="680" height="60" rx="6" class="box"/>
+      <text x="120" y="24" class="step-title">首次请求 — 用户登录或访问受保护资源</text>
+      <text x="120" y="46" class="code-text">浏览器 → 服务端:GET /login  (请求中没有 Cookie)</text>
+    </g>
+  </g>
+
+  <!-- 阶段 2:服务端 Set-Cookie -->
+  <g transform="translate(0, 205)">
+    <g class="phase phase-2">
+      <circle cx="60" cy="30" r="16" class="step-circle-2"/>
+      <text x="60" y="37" class="step-num" text-anchor="middle">2</text>
+      <rect x="100" y="0" width="680" height="60" rx="6" class="box"/>
+      <text x="120" y="24" class="step-title">服务端生成 Session,响应 Set-Cookie 头</text>
+      <text x="120" y="46" class="code-key">Set-Cookie: session=abc123; HttpOnly; Secure; SameSite=Lax</text>
+    </g>
+  </g>
+
+  <!-- 阶段 3:浏览器存储 + 自动带上 -->
+  <g transform="translate(0, 275)">
+    <g class="phase phase-3">
+      <circle cx="60" cy="30" r="16" class="step-circle-3"/>
+      <text x="60" y="37" class="step-num" text-anchor="middle">3</text>
+      <rect x="100" y="0" width="680" height="60" rx="6" class="box-success"/>
+      <text x="120" y="24" class="step-title" fill="var(--c-success-2)">浏览器存储 Cookie,后续请求自动带上</text>
+      <text x="120" y="46" class="code-text">下次请求:浏览器 → 服务端,自动附带 Cookie: session=abc123</text>
+    </g>
+  </g>
+
+  <!-- 阶段 4:过期/删除 -->
+  <g transform="translate(0, 345)">
+    <g class="phase phase-4">
+      <circle cx="60" cy="30" r="16" class="step-circle-4"/>
+      <text x="60" y="37" class="step-num" text-anchor="middle">4</text>
+      <rect x="100" y="0" width="680" height="60" rx="6" class="box-warning"/>
+      <text x="120" y="24" class="step-title" fill="var(--c-warning-2)">Cookie 到期或被主动删除</text>
+      <text x="120" y="46" class="code-text">· 达到 Max-Age / Expires  · 服务端 Set-Cookie 带 Max-Age=0  · 用户清空浏览器</text>
+    </g>
+  </g>
+</svg>

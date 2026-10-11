@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937;
+      --c-text-2: #374151;
+      --c-text-soft: #6b7280;
+      --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb;
+      --c-brand-soft: #eef2ff;
+      --c-brand: #3451b2;
+      --c-success: #10b981;
+      --c-success-soft: #f0fdf4;
+      --c-success-2: #059669;
+      --c-warning: #f59e0b;
+      --c-warning-soft: #fffbeb;
+      --c-warning-2: #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6;
+        --c-text-2: #d1d5db;
+        --c-text-soft: #9ca3af;
+        --c-border: #4b5563;
+        --c-bg-soft: #1f2937;
+        --c-brand-soft: #312e81;
+        --c-brand: #818cf8;
+        --c-success: #34d399;
+        --c-success-soft: #064e3b;
+        --c-success-2: #34d399;
+        --c-warning: #fbbf24;
+        --c-warning-soft: #451a03;
+        --c-warning-2: #fbbf24;
+      }
+    }
+
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 15px; fill: var(--c-text-soft); }
+    .col-title { font-size: 16px; font-weight: 700; fill: #ffffff; }
+    .actor { font-size: 15px; font-weight: 700; fill: var(--c-text); }
+    .actor-bg-old { fill: var(--c-warning-soft); stroke: var(--c-warning-2); stroke-width: 1.5; }
+    .actor-bg-new { fill: var(--c-success-soft); stroke: var(--c-success-2); stroke-width: 1.5; }
+    .lifeline-old { stroke: var(--c-border); stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+    .lifeline-new { stroke: var(--c-border); stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+    .msg-old { stroke: var(--c-warning-2); stroke-width: 2; fill: none; marker-end: url(#arrow-old); }
+    .msg-new { stroke: var(--c-success-2); stroke-width: 2; fill: none; marker-end: url(#arrow-new); }
+    .msg-label { font-size: 14px; font-weight: 600; fill: var(--c-text); }
+    .rtt-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .rtt-text { font-size: 14px; font-weight: 700; fill: var(--c-text-2); }
+    .panel-12 { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1; }
+    .panel-13 { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1; }
+
+    @keyframes drawIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+    .msg { opacity: 0; animation: drawIn 0.35s ease-out forwards; }
+    .msg-1 { animation-delay: 0.3s; }
+    .msg-2 { animation-delay: 0.9s; }
+    .msg-3 { animation-delay: 1.5s; }
+    .msg-4 { animation-delay: 2.1s; }
+    .msg-5 { animation-delay: 2.7s; }
+    .msg-6 { animation-delay: 3.3s; }
+    @media (prefers-reduced-motion: reduce) {
+      .msg { opacity: 1; animation: none; }
+    }
+  </style>
+
+  <defs>
+    <marker id="arrow-old" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-warning-2)"/>
+    </marker>
+    <marker id="arrow-new" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-success-2)"/>
+    </marker>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="40" y="40" class="title">TLS 1.2 vs TLS 1.3 握手对比</text>
+  <text x="40" y="62" class="subtitle">TLS 1.3 把 2-RTT 压到 1-RTT,且默认前向保密</text>
+
+  <!-- ===== TLS 1.2 面板 ===== -->
+  <g>
+    <rect x="40" y="85" width="800" height="220" rx="8" class="panel-12"/>
+    <rect x="40" y="85" width="800" height="32" rx="8" fill="var(--c-warning)"/>
+    <text x="440" y="106" class="col-title" text-anchor="middle">TLS 1.2 · 2-RTT(传统方式)</text>
+
+    <g transform="translate(140, 145)">
+      <rect x="-50" y="0" width="100" height="28" rx="14" class="actor-bg-old"/>
+      <text x="0" y="18" class="actor" text-anchor="middle">客户端</text>
+    </g>
+    <g transform="translate(720, 145)">
+      <rect x="-50" y="0" width="100" height="28" rx="14" class="actor-bg-old"/>
+      <text x="0" y="18" class="actor" text-anchor="middle">服务端</text>
+    </g>
+    <line x1="140" y1="178" x2="140" y2="290" class="lifeline-old"/>
+    <line x1="720" y1="178" x2="720" y2="290" class="lifeline-old"/>
+
+    <g class="msg msg-1">
+      <line x1="140" y1="195" x2="720" y2="195" class="msg-old"/>
+      <text x="150" y="190" class="msg-label">① Client Hello · 支持的密码套件</text>
+    </g>
+    <g class="msg msg-2">
+      <line x1="720" y1="225" x2="140" y2="225" class="msg-old"/>
+      <text x="380" y="220" class="msg-label" text-anchor="middle">② Server Hello · Certificate · ServerHelloDone</text>
+    </g>
+    <g class="msg msg-3">
+      <line x1="140" y1="255" x2="720" y2="255" class="msg-old"/>
+      <text x="150" y="250" class="msg-label">③ ClientKeyExchange · ChangeCipherSpec · Finished</text>
+    </g>
+
+    <rect x="600" y="280" width="80" height="20" rx="4" class="rtt-box"/>
+    <text x="640" y="295" class="rtt-text" text-anchor="middle">2-RTT</text>
+  </g>
+
+  <!-- ===== TLS 1.3 面板 ===== -->
+  <g transform="translate(0, 240)">
+    <rect x="40" y="85" width="800" height="200" rx="8" class="panel-13"/>
+    <rect x="40" y="85" width="800" height="32" rx="8" fill="var(--c-success)"/>
+    <text x="440" y="106" class="col-title" text-anchor="middle">TLS 1.3 · 1-RTT(更快、更安全)</text>
+
+    <g transform="translate(140, 145)">
+      <rect x="-50" y="0" width="100" height="28" rx="14" class="actor-bg-new"/>
+      <text x="0" y="18" class="actor" text-anchor="middle">客户端</text>
+    </g>
+    <g transform="translate(720, 145)">
+      <rect x="-50" y="0" width="100" height="28" rx="14" class="actor-bg-new"/>
+      <text x="0" y="18" class="actor" text-anchor="middle">服务端</text>
+    </g>
+    <line x1="140" y1="178" x2="140" y2="270" class="lifeline-new"/>
+    <line x1="720" y1="178" x2="720" y2="270" class="lifeline-new"/>
+
+    <g class="msg msg-4">
+      <line x1="140" y1="200" x2="720" y2="200" class="msg-new"/>
+      <text x="150" y="195" class="msg-label">① Client Hello + key share(假设密钥)</text>
+    </g>
+    <g class="msg msg-5">
+      <line x1="720" y1="235" x2="140" y2="235" class="msg-new"/>
+      <text x="430" y="230" class="msg-label" text-anchor="middle">② Server Hello + Certificate + Finished</text>
+    </g>
+    <g class="msg msg-6">
+      <line x1="140" y1="262" x2="720" y2="262" class="msg-new"/>
+      <text x="150" y="257" class="msg-label">③ Client Finished(确认)</text>
+    </g>
+
+    <rect x="600" y="232" width="80" height="20" rx="4" class="rtt-box"/>
+    <text x="640" y="247" class="rtt-text" text-anchor="middle">1-RTT</text>
+  </g>
+</svg>

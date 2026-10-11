@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937;
+      --c-text-2: #374151;
+      --c-text-soft: #6b7280;
+      --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb;
+      --c-brand-soft: #eef2ff;
+      --c-brand: #3451b2;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6;
+        --c-text-2: #d1d5db;
+        --c-text-soft: #9ca3af;
+        --c-border: #4b5563;
+        --c-bg-soft: #1f2937;
+        --c-brand-soft: #312e81;
+        --c-brand: #818cf8;
+      }
+    }
+
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 15px; fill: var(--c-text-soft); }
+    .layer-num { font-size: 22px; font-weight: 700; fill: var(--c-brand); }
+    .layer-name { font-size: 16px; font-weight: 600; fill: var(--c-text); }
+    .layer-en { font-size: 13px; fill: var(--c-text-soft); }
+    .layer-role { font-size: 14px; fill: var(--c-text-2); }
+    .layer-proto { font-size: 13px; fill: var(--c-brand); font-weight: 500; }
+    .conn { stroke: var(--c-border); stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+    .stack { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .stack-focus { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
+  </style>
+
+  <!-- 标题 -->
+  <text x="40" y="40" class="title">OSI 七层模型</text>
+  <text x="40" y="62" class="subtitle">ISO 1984 年提出的理论参考模型</text>
+
+  <!-- 七层堆叠:从上到下 7→1 -->
+  <g transform="translate(40, 90)">
+    <!-- L7 应用层 -->
+    <rect x="0" y="0" width="320" height="56" rx="6" class="stack-focus"/>
+    <text x="20" y="28" class="layer-num">7</text>
+    <text x="56" y="24" class="layer-name">应用层</text>
+    <text x="56" y="42" class="layer-en">Application</text>
+    <text x="180" y="24" class="layer-role">用户接口 / 网络服务</text>
+    <text x="180" y="44" class="layer-proto">HTTP · HTTPS · DNS · FTP · SMTP</text>
+
+    <!-- L6 表示层 -->
+    <rect x="0" y="62" width="320" height="56" rx="6" class="stack"/>
+    <text x="20" y="90" class="layer-num">6</text>
+    <text x="56" y="86" class="layer-name">表示层</text>
+    <text x="56" y="104" class="layer-en">Presentation</text>
+    <text x="180" y="86" class="layer-role">数据格式 / 加密 / 压缩</text>
+    <text x="180" y="106" class="layer-proto">SSL/TLS · JPEG · ASCII</text>
+
+    <!-- L5 会话层 -->
+    <rect x="0" y="124" width="320" height="56" rx="6" class="stack"/>
+    <text x="20" y="152" class="layer-num">5</text>
+    <text x="56" y="148" class="layer-name">会话层</text>
+    <text x="56" y="166" class="layer-en">Session</text>
+    <text x="180" y="148" class="layer-role">会话管理 / 同步</text>
+    <text x="180" y="168" class="layer-proto">RPC · NetBIOS</text>
+
+    <!-- L4 传输层 -->
+    <rect x="0" y="186" width="320" height="56" rx="6" class="stack-focus"/>
+    <text x="20" y="214" class="layer-num">4</text>
+    <text x="56" y="210" class="layer-name">传输层</text>
+    <text x="56" y="228" class="layer-en">Transport</text>
+    <text x="180" y="210" class="layer-role">端到端传输 / 可靠性</text>
+    <text x="180" y="230" class="layer-proto">TCP · UDP</text>
+
+    <!-- L3 网络层 -->
+    <rect x="0" y="248" width="320" height="56" rx="6" class="stack"/>
+    <text x="20" y="276" class="layer-num">3</text>
+    <text x="56" y="272" class="layer-name">网络层</text>
+    <text x="56" y="290" class="layer-en">Network</text>
+    <text x="180" y="272" class="layer-role">路由 / 寻址</text>
+    <text x="180" y="292" class="layer-proto">IP · ARP · ICMP · OSPF</text>
+
+    <!-- L2 数据链路层 -->
+    <rect x="0" y="310" width="320" height="56" rx="6" class="stack"/>
+    <text x="20" y="338" class="layer-num">2</text>
+    <text x="56" y="334" class="layer-name">数据链路层</text>
+    <text x="56" y="352" class="layer-en">Data Link</text>
+    <text x="180" y="334" class="layer-role">帧传输 / 差错控制</text>
+    <text x="180" y="354" class="layer-proto">Ethernet · Wi-Fi · PPP</text>
+
+    <!-- L1 物理层 -->
+    <rect x="0" y="372" width="320" height="56" rx="6" class="stack"/>
+    <text x="20" y="400" class="layer-num">1</text>
+    <text x="56" y="396" class="layer-name">物理层</text>
+    <text x="56" y="414" class="layer-en">Physical</text>
+    <text x="180" y="396" class="layer-role">比特流 / 物理介质</text>
+    <text x="180" y="416" class="layer-proto">光纤 · 双绞线 · 无线电</text>
+  </g>
+
+  <!-- 右侧标注:前端关注 -->
+  <g transform="translate(400, 90)">
+    <text x="0" y="0" class="subtitle" font-weight="600" fill="var(--c-text)">前端重点关注</text>
+
+    <rect x="0" y="14" width="420" height="56" rx="6" fill="var(--c-brand-soft)" stroke="var(--c-brand)" stroke-width="1.5"/>
+    <text x="14" y="38" class="layer-name" fill="var(--c-brand)">第 7 层 · 应用层</text>
+    <text x="14" y="58" class="layer-role">HTTP/HTTPS · DNS · WebSocket · gRPC</text>
+
+    <rect x="0" y="200" width="420" height="56" rx="6" fill="var(--c-brand-soft)" stroke="var(--c-brand)" stroke-width="1.5"/>
+    <text x="14" y="224" class="layer-name" fill="var(--c-brand)">第 4 层 · 传输层</text>
+    <text x="14" y="244" class="layer-role">TCP vs UDP · 连接复用 · QUIC</text>
+
+    <!-- 虚线连接:从左侧层到右侧标注 -->
+    <line x1="-15" y1="28" x2="-2" y2="28" class="conn"/>
+    <line x1="-15" y1="214" x2="-2" y2="214" class="conn"/>
+  </g>
+</svg>

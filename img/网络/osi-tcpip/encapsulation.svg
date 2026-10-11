@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 490" width="880" height="490" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937;
+      --c-text-2: #374151;
+      --c-text-soft: #6b7280;
+      --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb;
+      --c-gray-100: #f3f4f6;
+      --c-brand-soft: #eef2ff;
+      --c-brand: #3451b2;
+      --c-brand-alt: #6366f1;
+      --c-success: #10b981;
+      --c-warning: #f59e0b;
+      --c-slate: #64748b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6;
+        --c-text-2: #d1d5db;
+        --c-text-soft: #9ca3af;
+        --c-border: #4b5563;
+        --c-bg-soft: #1f2937;
+        --c-gray-100: #1f2937;
+        --c-brand-soft: #312e81;
+        --c-brand: #818cf8;
+        --c-brand-alt: #a5b4fc;
+        --c-success: #34d399;
+        --c-warning: #fbbf24;
+        --c-slate: #94a3b8;
+      }
+    }
+
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 15px; fill: var(--c-text-soft); }
+    .header-text { font-size: 13px; font-weight: 700; fill: #ffffff; }
+    .payload-text { font-size: 13px; font-weight: 600; fill: var(--c-text-2); }
+    .layer-label { font-size: 15px; font-weight: 700; fill: var(--c-text); }
+    .layer-en { font-size: 13px; fill: var(--c-text-soft); }
+    .layer-desc { font-size: 13px; fill: var(--c-text-soft); }
+    .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    .seg-line { stroke: var(--c-border); stroke-width: 1.5; }
+    .pdu { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .pdu-focus { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
+    .head { fill: var(--c-brand); stroke: var(--c-brand); stroke-width: 1; }
+    .head-alt { fill: var(--c-brand-alt); stroke: var(--c-brand-alt); stroke-width: 1; }
+    .head-emerald { fill: var(--c-success); stroke: var(--c-success); stroke-width: 1; }
+    .head-amber { fill: var(--c-warning); stroke: var(--c-warning); stroke-width: 1; }
+    .head-slate { fill: var(--c-slate); stroke: var(--c-slate); stroke-width: 1; }
+    .note-em { font-size: 13px; fill: var(--c-brand); font-weight: 600; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+    .layer-row { opacity: 0; animation: fadeUp 0.5s ease-out forwards; }
+    .layer-row-7 { animation-delay: 0.2s; }
+    .layer-row-4 { animation-delay: 0.9s; }
+    .layer-row-3 { animation-delay: 1.6s; }
+    .layer-row-2 { animation-delay: 2.3s; }
+    .layer-row-1 { animation-delay: 3.0s; }
+    .layer-arrow { opacity: 0; animation: fadeUp 0.4s ease-out forwards; }
+    .layer-arrow-4 { animation-delay: 0.7s; }
+    .layer-arrow-3 { animation-delay: 1.4s; }
+    .layer-arrow-2 { animation-delay: 2.1s; }
+    .layer-arrow-1 { animation-delay: 2.8s; }
+    @media (prefers-reduced-motion: reduce) {
+      .layer-row, .layer-arrow { opacity: 1; animation: none; }
+    }
+  </style>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-text-soft)"/>
+    </marker>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="40" y="40" class="title">数据包封装:从 HTTP 报文到比特流</text>
+  <text x="40" y="62" class="subtitle">发送方自顶向下逐层加头 · 每层只处理自己的协议头</text>
+
+  <!-- 左侧层标签 -->
+  <g>
+    <text x="40" y="120" class="layer-label">应用层</text>
+    <text x="40" y="138" class="layer-en">HTTP</text>
+    <text x="40" y="156" class="layer-desc">明文 HTTP 请求</text>
+
+    <text x="40" y="200" class="layer-label">传输层</text>
+    <text x="40" y="218" class="layer-en">TCP / UDP</text>
+    <text x="40" y="236" class="layer-desc">加端口、序号</text>
+
+    <text x="40" y="280" class="layer-label">网络层</text>
+    <text x="40" y="298" class="layer-en">IP</text>
+    <text x="40" y="316" class="layer-desc">加 IP 地址</text>
+
+    <text x="40" y="360" class="layer-label">数据链路层</text>
+    <text x="40" y="378" class="layer-en">Ethernet</text>
+    <text x="40" y="396" class="layer-desc">加 MAC 地址</text>
+
+    <text x="40" y="440" class="layer-label">物理层</text>
+    <text x="40" y="458" class="layer-en">Physical</text>
+    <text x="40" y="476" class="layer-desc">转为电/光信号</text>
+  </g>
+
+  <!-- 左侧层标签 → 行的连接短线(只跨越间隙,不穿过 row) -->
+  <g class="seg-line" stroke-dasharray="3 3">
+    <line x1="160" y1="125" x2="218" y2="125"/>
+    <line x1="160" y1="205" x2="218" y2="205"/>
+    <line x1="160" y1="285" x2="218" y2="285"/>
+    <line x1="160" y1="365" x2="218" y2="365"/>
+    <line x1="160" y1="445" x2="218" y2="445"/>
+  </g>
+
+  <!-- 封装过程:从顶层到底层,逐层加头 -->
+  <g transform="translate(220, 100)">
+    <g class="layer-row layer-row-7">
+      <rect x="0" y="0" width="600" height="50" rx="4" class="pdu-focus"/>
+      <rect x="0" y="0" width="180" height="50" class="head-emerald"/>
+      <text x="20" y="22" class="header-text">HTTP 报文</text>
+      <text x="20" y="40" class="header-text">GET / HTTP/1.1</text>
+      <text x="200" y="22" class="payload-text">数据载荷</text>
+      <text x="200" y="40" class="payload-text" fill="var(--c-text-soft)">HTML / JSON / 文件...</text>
+    </g>
+  </g>
+
+  <g class="layer-arrow layer-arrow-4">
+    <path d="M 520 155 L 520 180" class="arrow"/>
+    <text x="540" y="172" class="note-em">+ TCP 头</text>
+  </g>
+
+  <g transform="translate(220, 180)">
+    <g class="layer-row layer-row-4">
+      <rect x="0" y="0" width="600" height="50" rx="4" class="pdu-focus"/>
+      <rect x="0" y="0" width="180" height="50" class="head-amber"/>
+      <text x="14" y="22" class="header-text">TCP 头</text>
+      <text x="14" y="40" class="header-text">src/dst port</text>
+      <rect x="180" y="0" width="420" height="50" class="head-emerald"/>
+      <text x="200" y="22" class="header-text">HTTP 报文</text>
+      <text x="200" y="40" class="header-text">GET / HTTP/1.1</text>
+    </g>
+  </g>
+
+  <g class="layer-arrow layer-arrow-3">
+    <path d="M 520 235 L 520 260" class="arrow"/>
+    <text x="540" y="252" class="note-em">+ IP 头</text>
+  </g>
+
+  <g transform="translate(220, 260)">
+    <g class="layer-row layer-row-3">
+      <rect x="0" y="0" width="600" height="50" rx="4" class="pdu-focus"/>
+      <rect x="0" y="0" width="180" height="50" class="head-alt"/>
+      <text x="14" y="22" class="header-text">IP 头</text>
+      <text x="14" y="40" class="header-text">src/dst IP</text>
+      <rect x="180" y="0" width="120" height="50" class="head-amber"/>
+      <text x="195" y="22" class="header-text">TCP 头</text>
+      <text x="195" y="40" class="header-text">port</text>
+      <rect x="300" y="0" width="300" height="50" class="head-emerald"/>
+      <text x="320" y="22" class="header-text">HTTP 报文</text>
+      <text x="320" y="40" class="header-text">GET /</text>
+    </g>
+  </g>
+
+  <g class="layer-arrow layer-arrow-2">
+    <path d="M 520 315 L 520 340" class="arrow"/>
+    <text x="540" y="332" class="note-em">+ MAC 头</text>
+  </g>
+
+  <g transform="translate(220, 340)">
+    <g class="layer-row layer-row-2">
+      <rect x="0" y="0" width="600" height="50" rx="4" class="pdu-focus"/>
+      <rect x="0" y="0" width="180" height="50" class="head-slate"/>
+      <text x="14" y="22" class="header-text">MAC 头</text>
+      <text x="14" y="40" class="header-text">src/dst MAC</text>
+      <rect x="180" y="0" width="120" height="50" class="head-alt"/>
+      <text x="195" y="22" class="header-text">IP 头</text>
+      <rect x="300" y="0" width="120" height="50" class="head-amber"/>
+      <text x="315" y="22" class="header-text">TCP 头</text>
+      <rect x="420" y="0" width="180" height="50" class="head-emerald"/>
+      <text x="440" y="22" class="header-text">HTTP 报文</text>
+      <text x="440" y="40" class="header-text">data</text>
+    </g>
+  </g>
+
+  <g class="layer-arrow layer-arrow-1">
+    <path d="M 520 395 L 520 420" class="arrow"/>
+    <text x="540" y="412" class="note-em">→ 信号</text>
+  </g>
+
+  <g transform="translate(220, 420)">
+    <g class="layer-row layer-row-1">
+      <rect x="0" y="0" width="600" height="50" rx="4" fill="var(--c-gray-100)" stroke="var(--c-text-soft)" stroke-width="1" stroke-dasharray="6 3"/>
+      <text x="14" y="22" class="payload-text">10110010 11001011 00101110 11010001 01100101</text>
+      <text x="14" y="40" class="payload-text" fill="var(--c-text-soft)">00101011 11001010 01011010 ...比特流沿网线/光纤传输</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" width="880" height="400" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937;
+      --c-text-2: #374151;
+      --c-text-soft: #6b7280;
+      --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb;
+      --c-brand-soft: #eef2ff;
+      --c-brand: #3451b2;
+      --c-success: #10b981;
+      --c-success-soft: #d1fae5;
+      --c-success-2: #059669;
+      --c-warning: #f59e0b;
+      --c-warning-soft: #fffbeb;
+      --c-warning-2: #d97706;
+      --c-danger: #ef4444;
+      --c-danger-soft: #fee2e2;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6;
+        --c-text-2: #d1d5db;
+        --c-text-soft: #9ca3af;
+        --c-border: #4b5563;
+        --c-bg-soft: #1f2937;
+        --c-brand-soft: #312e81;
+        --c-brand: #818cf8;
+        --c-success: #34d399;
+        --c-success-soft: #064e3b;
+        --c-success-2: #34d399;
+        --c-warning: #fbbf24;
+        --c-warning-soft: #451a03;
+        --c-warning-2: #fbbf24;
+        --c-danger: #f87171;
+        --c-danger-soft: #7f1d1d;
+      }
+    }
+
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 15px; fill: var(--c-text-soft); }
+    .col-title { font-size: 16px; font-weight: 700; fill: #ffffff; }
+    .label { font-size: 14px; font-weight: 600; fill: var(--c-text); }
+    .sublabel { font-size: 13px; fill: var(--c-text-soft); }
+    .check { font-size: 18px; font-weight: 700; }
+    .check-yes { fill: var(--c-success-2); }
+    .check-no { fill: var(--c-danger); }
+    .col-bg-strict { fill: var(--c-danger-soft); stroke: var(--c-danger); stroke-width: 1.5; }
+    .col-bg-lax { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
+    .col-bg-none { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    .header-strict { fill: var(--c-danger); }
+    .header-lax { fill: var(--c-warning-2); }
+    .header-none { fill: var(--c-success-2); }
+  </style>
+
+  <!-- 标题 -->
+  <text x="40" y="40" class="title">SameSite 三种模式 · 跨站请求带 Cookie 行为</text>
+  <text x="40" y="62" class="subtitle">默认 Lax(平衡安全与体验) · 严格场景用 Strict · 跨站嵌入必须 None + Secure</text>
+
+  <!-- ===== 表头 ===== -->
+  <g transform="translate(280, 95)">
+    <rect x="0" y="0" width="180" height="40" rx="6" class="header-strict"/>
+    <text x="90" y="26" class="col-title" text-anchor="middle">Strict · 严格</text>
+  </g>
+  <g transform="translate(470, 95)">
+    <rect x="0" y="0" width="180" height="40" rx="6" class="header-lax"/>
+    <text x="90" y="26" class="col-title" text-anchor="middle">Lax · 默认</text>
+  </g>
+  <g transform="translate(660, 95)">
+    <rect x="0" y="0" width="180" height="40" rx="6" class="header-none"/>
+    <text x="90" y="26" class="col-title" text-anchor="middle">None + Secure</text>
+  </g>
+
+  <!-- ===== 行 1:跨站链接 GET ===== -->
+  <g transform="translate(40, 150)">
+    <text x="0" y="20" class="label">用户点击</text>
+    <text x="0" y="36" class="sublabel">跨站链接(GET)</text>
+    <text x="0" y="52" class="sublabel">如:从 example.com 点到 bank.com</text>
+
+    <rect x="240" y="0" width="180" height="64" rx="4" class="col-bg-strict"/>
+    <text x="330" y="38" class="check check-no" text-anchor="middle">✗ 不带</text>
+
+    <rect x="430" y="0" width="180" height="64" rx="4" class="col-bg-lax"/>
+    <text x="520" y="38" class="check check-yes" text-anchor="middle">✓ 带</text>
+
+    <rect x="620" y="0" width="180" height="64" rx="4" class="col-bg-none"/>
+    <text x="710" y="38" class="check check-yes" text-anchor="middle">✓ 带</text>
+  </g>
+
+  <!-- ===== 行 2:跨站表单 POST ===== -->
+  <g transform="translate(40, 230)">
+    <text x="0" y="20" class="label">表单提交</text>
+    <text x="0" y="36" class="sublabel">跨站 POST 表单</text>
+    <text x="0" y="52" class="sublabel">如:CSRF 攻击场景</text>
+
+    <rect x="240" y="0" width="180" height="64" rx="4" class="col-bg-strict"/>
+    <text x="330" y="38" class="check check-no" text-anchor="middle">✗ 不带</text>
+
+    <rect x="430" y="0" width="180" height="64" rx="4" class="col-bg-lax"/>
+    <text x="520" y="38" class="check check-no" text-anchor="middle">✗ 不带</text>
+
+    <rect x="620" y="0" width="180" height="64" rx="4" class="col-bg-none"/>
+    <text x="710" y="38" class="check check-yes" text-anchor="middle">✓ 带</text>
+  </g>
+
+  <!-- ===== 行 3:跨站 AJAX ===== -->
+  <g transform="translate(40, 310)">
+    <text x="0" y="20" class="label">AJAX 请求</text>
+    <text x="0" y="36" class="sublabel">fetch / xhr 跨域</text>
+    <text x="0" y="52" class="sublabel">如:第三方嵌入 iframe</text>
+
+    <rect x="240" y="0" width="180" height="64" rx="4" class="col-bg-strict"/>
+    <text x="330" y="38" class="check check-no" text-anchor="middle">✗ 不带</text>
+
+    <rect x="430" y="0" width="180" height="64" rx="4" class="col-bg-lax"/>
+    <text x="520" y="38" class="check check-no" text-anchor="middle">✗ 不带</text>
+
+    <rect x="620" y="0" width="180" height="64" rx="4" class="col-bg-none"/>
+    <text x="710" y="38" class="check check-yes" text-anchor="middle">✓ 带</text>
+  </g>
+</svg>

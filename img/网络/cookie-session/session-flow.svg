@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 620" width="880" height="620" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937;
+      --c-text-2: #374151;
+      --c-text-soft: #6b7280;
+      --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb;
+      --c-brand-soft: #eef2ff;
+      --c-brand: #3451b2;
+      --c-success: #10b981;
+      --c-success-soft: #d1fae5;
+      --c-success-2: #059669;
+      --c-warning: #f59e0b;
+      --c-warning-soft: #fffbeb;
+      --c-warning-2: #d97706;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6;
+        --c-text-2: #d1d5db;
+        --c-text-soft: #9ca3af;
+        --c-border: #4b5563;
+        --c-bg-soft: #1f2937;
+        --c-brand-soft: #312e81;
+        --c-brand: #818cf8;
+        --c-success: #34d399;
+        --c-success-soft: #064e3b;
+        --c-success-2: #34d399;
+        --c-warning: #fbbf24;
+        --c-warning-soft: #451a03;
+        --c-warning-2: #fbbf24;
+      }
+    }
+
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 15px; fill: var(--c-text-soft); }
+    .section-title { font-size: 16px; font-weight: 700; fill: var(--c-text); }
+    .actor { font-size: 15px; font-weight: 700; fill: var(--c-text); }
+    .actor-bg { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
+    .lifeline { stroke: var(--c-border); stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+    .msg { stroke: var(--c-brand); stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    .msg-back { stroke: var(--c-success-2); stroke-width: 2; fill: none; marker-end: url(#arrow-g); }
+    .self-arrow { stroke: var(--c-warning-2); stroke-width: 2; fill: none; marker-end: url(#arrow-w); }
+    .msg-label { font-size: 14px; font-weight: 600; fill: var(--c-text); }
+    .msg-detail { font-size: 12px; fill: var(--c-text-soft); font-family: 'Consolas', 'Monaco', monospace; }
+    .store-box { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    .store-title { font-size: 12px; font-weight: 700; fill: var(--c-success-2); }
+    .store-row { font-size: 12px; fill: var(--c-text); font-family: 'Consolas', 'Monaco', monospace; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .step { opacity: 0; animation: fadeUp 0.4s ease-out forwards; }
+    .step-1 { animation-delay: 0.2s; }
+    .step-2 { animation-delay: 0.9s; }
+    .step-3 { animation-delay: 1.6s; }
+    .step-4 { animation-delay: 2.3s; }
+    .step-5 { animation-delay: 3.0s; }
+    @media (prefers-reduced-motion: reduce) { .step { opacity: 1; animation: none; } }
+  </style>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-brand)"/>
+    </marker>
+    <marker id="arrow-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-success-2)"/>
+    </marker>
+    <marker id="arrow-w" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-warning-2)"/>
+    </marker>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="40" y="40" class="title">Session 鉴权流程</text>
+  <text x="40" y="62" class="subtitle">登录后服务端记住"你是谁" — Cookie 只存 ID,真实数据在服务端</text>
+
+  <!-- 客户端 -->
+  <g transform="translate(120, 95)">
+    <rect x="-50" y="0" width="100" height="32" rx="16" class="actor-bg"/>
+    <text x="0" y="20" class="actor" text-anchor="middle">浏览器</text>
+  </g>
+
+  <!-- 服务端 -->
+  <g transform="translate(440, 95)">
+    <rect x="-50" y="0" width="100" height="32" rx="16" class="actor-bg"/>
+    <text x="0" y="20" class="actor" text-anchor="middle">应用服务器</text>
+  </g>
+
+  <!-- Session Store -->
+  <g transform="translate(740, 95)">
+    <rect x="-60" y="0" width="120" height="32" rx="6" class="store-box"/>
+    <text x="0" y="20" class="store-title" text-anchor="middle">Session Store</text>
+  </g>
+
+  <!-- lifelines:从 y=135 一直延伸到 y=590,贯穿所有步骤 -->
+  <line x1="120" y1="135" x2="120" y2="590" class="lifeline"/>
+  <line x1="440" y1="135" x2="440" y2="590" class="lifeline"/>
+  <line x1="740" y1="135" x2="740" y2="590" class="lifeline"/>
+
+  <!-- 步骤 1:登录请求 -->
+  <g class="step step-1">
+    <line x1="120" y1="160" x2="440" y2="160" class="msg"/>
+    <text x="135" y="155" class="msg-label">① 登录请求</text>
+    <text x="135" y="172" class="msg-detail">POST /login  body={user, password}</text>
+  </g>
+
+  <!-- 步骤 2:验证 + 生成 session ID -->
+  <g class="step step-2">
+    <path d="M 440 195 Q 480 215 440 230" class="self-arrow"/>
+    <text x="490" y="210" class="msg-label" fill="var(--c-warning-2)">② 验证账号密码</text>
+    <text x="490" y="225" class="msg-detail">查数据库 → 通过</text>
+    <text x="490" y="240" class="msg-detail">生成 session ID = uuid()</text>
+  </g>
+
+  <!-- 步骤 3:存到 Session Store -->
+  <g class="step step-3">
+    <line x1="440" y1="280" x2="740" y2="280" class="msg"/>
+    <text x="455" y="275" class="msg-label">③ 存储 session</text>
+    <text x="455" y="293" class="msg-detail">SET session:abc123 {userId: 1001, exp: 3600s}</text>
+
+    <!-- Session Store 内容显示(增高到 76px,4 行全在框内) -->
+    <g transform="translate(680, 305)">
+      <rect x="0" y="0" width="120" height="76" rx="4" class="store-box"/>
+      <text x="10" y="18" class="store-title" font-size="11">Redis 存储:</text>
+      <text x="10" y="36" class="store-row">abc123 →</text>
+      <text x="10" y="52" class="store-row">  {uid: 1001,</text>
+      <text x="10" y="68" class="store-row">  exp: 3600s}</text>
+    </g>
+  </g>
+
+  <!-- 步骤 4:返回 Set-Cookie -->
+  <g class="step step-4">
+    <line x1="440" y1="410" x2="120" y2="410" class="msg-back"/>
+    <text x="135" y="405" class="msg-label" fill="var(--c-success-2)">④ Set-Cookie: session=abc123</text>
+    <text x="135" y="423" class="msg-detail">HttpOnly; Secure; SameSite=Lax</text>
+  </g>
+
+  <!-- 分段标题:后续请求 -->
+  <g transform="translate(40, 460)">
+    <text x="0" y="20" class="section-title">后续请求(无需重新登录)</text>
+  </g>
+
+  <!-- 步骤 5:浏览器自动带 Cookie -->
+  <g class="step step-5">
+    <line x1="120" y1="510" x2="440" y2="510" class="msg"/>
+    <text x="135" y="505" class="msg-label">⑤ GET /dashboard</text>
+    <text x="135" y="522" class="msg-detail">Cookie: session=abc123   ← 自动</text>
+
+    <line x1="440" y1="555" x2="740" y2="555" class="msg"/>
+    <text x="455" y="550" class="msg-label">⑥ GET session:abc123</text>
+    <text x="455" y="567" class="msg-detail">查 Redis → 拿到 userId=1001</text>
+
+    <line x1="740" y1="590" x2="440" y2="590" class="msg-back"/>
+    <text x="595" y="585" class="msg-label" text-anchor="middle" fill="var(--c-success-2)">→ user data</text>
+  </g>
+</svg>

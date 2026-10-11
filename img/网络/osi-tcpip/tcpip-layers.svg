@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 450" width="1000" height="450" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937;
+      --c-text-2: #374151;
+      --c-text-soft: #6b7280;
+      --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb;
+      --c-brand-soft: #eef2ff;
+      --c-brand: #3451b2;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6;
+        --c-text-2: #d1d5db;
+        --c-text-soft: #9ca3af;
+        --c-border: #4b5563;
+        --c-bg-soft: #1f2937;
+        --c-brand-soft: #312e81;
+        --c-brand: #818cf8;
+      }
+    }
+
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 15px; fill: var(--c-text-soft); }
+    .layer-num { font-size: 22px; font-weight: 700; fill: var(--c-brand); }
+    .layer-name { font-size: 16px; font-weight: 600; fill: var(--c-text); }
+    .layer-en { font-size: 13px; fill: var(--c-text-soft); }
+    .layer-role { font-size: 14px; fill: var(--c-text-2); }
+    .layer-proto { font-size: 13px; fill: var(--c-brand); font-weight: 500; }
+    .stack { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .stack-focus { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
+    .badge { font-size: 12px; fill: var(--c-text-soft); font-weight: 500; }
+  </style>
+
+  <!-- 标题 -->
+  <text x="40" y="40" class="title">TCP/IP 四层模型</text>
+  <text x="40" y="62" class="subtitle">实际互联网使用的协议栈 · 业界事实标准</text>
+
+  <!-- TCP/IP 四层 -->
+  <g transform="translate(40, 90)">
+    <!-- L4 应用层 -->
+    <rect x="0" y="0" width="340" height="78" rx="6" class="stack-focus"/>
+    <text x="20" y="32" class="layer-num">4</text>
+    <text x="56" y="28" class="layer-name">应用层</text>
+    <text x="56" y="46" class="layer-en">Application</text>
+    <text x="190" y="28" class="layer-role">HTTP/HTTPS · DNS</text>
+    <text x="190" y="46" class="layer-role">FTP · SMTP · SSH</text>
+    <text x="190" y="66" class="badge">对应 OSI 7 + 6 + 5</text>
+
+    <!-- L3 传输层 -->
+    <rect x="0" y="86" width="340" height="78" rx="6" class="stack-focus"/>
+    <text x="20" y="118" class="layer-num">3</text>
+    <text x="56" y="114" class="layer-name">传输层</text>
+    <text x="56" y="132" class="layer-en">Transport</text>
+    <text x="190" y="114" class="layer-role">TCP · UDP · QUIC</text>
+    <text x="190" y="134" class="layer-role">端到端连接 · 可靠性保障</text>
+    <text x="190" y="154" class="badge">对应 OSI 4</text>
+
+    <!-- L2 网络层 -->
+    <rect x="0" y="172" width="340" height="78" rx="6" class="stack"/>
+    <text x="20" y="204" class="layer-num">2</text>
+    <text x="56" y="200" class="layer-name">网络层</text>
+    <text x="56" y="218" class="layer-en">Internet</text>
+    <text x="190" y="200" class="layer-role">IP · ICMP · IGMP</text>
+    <text x="190" y="220" class="layer-role">路由寻址 · 分片重组</text>
+    <text x="190" y="240" class="badge">对应 OSI 3</text>
+
+    <!-- L1 网络接口层 -->
+    <rect x="0" y="258" width="340" height="78" rx="6" class="stack"/>
+    <text x="20" y="290" class="layer-num">1</text>
+    <text x="56" y="286" class="layer-name">网络接口层</text>
+    <text x="56" y="304" class="layer-en">Network Access</text>
+    <text x="190" y="286" class="layer-role">Ethernet · Wi-Fi · PPP</text>
+    <text x="190" y="306" class="layer-role">帧传输 · 物理介质</text>
+    <text x="190" y="326" class="badge">对应 OSI 2 + 1</text>
+  </g>
+
+  <!-- 右侧简短说明 -->
+  <g transform="translate(440, 90)">
+    <text x="0" y="0" class="subtitle" font-weight="600" fill="var(--c-text)">前端主战场</text>
+    <rect x="0" y="14" width="500" height="60" rx="6" fill="var(--c-brand-soft)" stroke="var(--c-brand)" stroke-width="1.5"/>
+    <text x="20" y="38" class="layer-name" fill="var(--c-brand)">应用层 + 传输层</text>
+    <text x="20" y="58" class="layer-role">协议选择 · 性能调优 · 跨域 · 缓存</text>
+  </g>
+</svg>

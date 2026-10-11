@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 430" width="880" height="430" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937;
+      --c-text-2: #374151;
+      --c-text-soft: #6b7280;
+      --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb;
+      --c-brand-soft: #eef2ff;
+      --c-brand: #3451b2;
+      --c-success: #10b981;
+      --c-success-soft: #d1fae5;
+      --c-success-text: #065f46;
+      --c-warning: #f59e0b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6;
+        --c-text-2: #d1d5db;
+        --c-text-soft: #9ca3af;
+        --c-border: #4b5563;
+        --c-bg-soft: #1f2937;
+        --c-brand-soft: #312e81;
+        --c-brand: #818cf8;
+        --c-success: #34d399;
+        --c-success-soft: #064e3b;
+        --c-success-text: #a7f3d0;
+        --c-warning: #fbbf24;
+      }
+    }
+
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 15px; fill: var(--c-text-soft); }
+    .actor { font-size: 16px; font-weight: 700; fill: var(--c-text); }
+    .actor-bg { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
+    .lifeline { stroke: var(--c-border); stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+    .msg-arrow { stroke: var(--c-brand); stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    .msg-arrow-back { stroke: var(--c-warning); stroke-width: 2; fill: none; marker-end: url(#arrow-orange); }
+    .msg-label { font-size: 15px; font-weight: 600; fill: var(--c-text); }
+    .msg-detail { font-size: 13px; fill: var(--c-text-soft); }
+    .state-label { font-size: 13px; fill: var(--c-text-soft); font-style: italic; }
+
+    @keyframes drawIn { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes drawInR { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: translateX(0); } }
+    .step { opacity: 0; }
+    .step-1 { animation: drawIn 0.4s ease-out 0.2s forwards; }
+    .step-2 { animation: drawInR 0.4s ease-out 1.4s forwards; }
+    .step-3 { animation: drawIn 0.4s ease-out 2.6s forwards; }
+    .step-final { opacity: 0; animation: fadeIn 0.5s ease-out 3.6s forwards; }
+    @keyframes fadeIn { to { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) {
+      .step, .step-final { opacity: 1; animation: none; }
+    }
+  </style>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-brand)"/>
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-warning)"/>
+    </marker>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="40" y="40" class="title">TCP 三次握手</text>
+  <text x="40" y="62" class="subtitle">建立可靠连接 · 双方各确认一次收发能力</text>
+
+  <!-- 客户端 -->
+  <g transform="translate(120, 95)">
+    <rect x="-60" y="0" width="120" height="36" rx="18" class="actor-bg"/>
+    <text x="0" y="22" class="actor" text-anchor="middle">客户端</text>
+    <text x="0" y="56" class="state-label" text-anchor="middle">CLOSED</text>
+  </g>
+
+  <!-- 服务端 -->
+  <g transform="translate(720, 95)">
+    <rect x="-60" y="0" width="120" height="36" rx="18" class="actor-bg"/>
+    <text x="0" y="22" class="actor" text-anchor="middle">服务端</text>
+    <text x="0" y="56" class="state-label" text-anchor="middle">LISTEN</text>
+  </g>
+
+  <!-- lifelines -->
+  <line x1="120" y1="155" x2="120" y2="320" class="lifeline"/>
+  <line x1="720" y1="155" x2="720" y2="320" class="lifeline"/>
+
+  <!-- 第一次握手 -->
+  <g transform="translate(0, 175)">
+    <g class="step step-1">
+      <text x="130" y="0" class="msg-label">① SYN</text>
+      <text x="130" y="18" class="msg-detail">seq = x(随机)</text>
+      <line x1="120" y1="6" x2="720" y2="6" class="msg-arrow"/>
+      <text x="130" y="40" class="state-label">SYN_SENT</text>
+    </g>
+  </g>
+
+  <!-- 第二次握手 -->
+  <g transform="translate(0, 225)">
+    <g class="step step-2">
+      <text x="130" y="0" class="msg-label" fill="var(--c-warning)">② SYN + ACK</text>
+      <text x="130" y="18" class="msg-detail">seq = y(随机) · ack = x+1</text>
+      <line x1="720" y1="6" x2="120" y2="6" class="msg-arrow-back"/>
+      <text x="730" y="40" class="state-label">SYN_RECEIVED</text>
+    </g>
+  </g>
+
+  <!-- 第三次握手 -->
+  <g transform="translate(0, 275)">
+    <g class="step step-3">
+      <text x="130" y="0" class="msg-label">③ ACK</text>
+      <text x="130" y="18" class="msg-detail">seq = x+1 · ack = y+1</text>
+      <line x1="120" y1="6" x2="720" y2="6" class="msg-arrow"/>
+      <text x="130" y="40" class="state-label">ESTABLISHED</text>
+      <text x="730" y="40" class="state-label">ESTABLISHED</text>
+    </g>
+  </g>
+
+  <!-- 连接建立完成提示 -->
+  <g transform="translate(0, 335)">
+    <g class="step-final">
+      <rect x="120" y="0" width="600" height="40" rx="6" fill="var(--c-success-soft)" stroke="var(--c-success)" stroke-width="1.5"/>
+      <text x="420" y="25" class="actor" text-anchor="middle" fill="var(--c-success-text)">✓ 连接建立 · 双方可互发数据</text>
+    </g>
+  </g>
+</svg>
