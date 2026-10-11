@@ -1,0 +1,75 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; --c-warning: #f59e0b; --c-warning-soft: #fffbeb; --c-danger: #ef4444; --c-danger-soft: #fee2e2; }
+    @media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; --c-warning: #fbbf24; --c-warning-soft: #451a03; --c-danger: #f87171; --c-danger-soft: #7f1d1d; } }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .stage-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .stage-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    .label { font-size: 13px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 11px; fill: var(--c-text); text-anchor: middle; }
+    .item { font-size: 12px; fill: var(--c-text); }
+    .section-title { font-size: 14px; font-weight: 700; fill: var(--c-text); }
+  </style>
+  <defs>
+    <marker id="ax-r6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">React Hooks 原理：链表 + 闭包</text>
+  <text x="40" y="62" class="subtitle">每个 Fiber 节点维护一个 Hook 链表，按顺序匹配</text>
+
+  <rect x="40" y="100" width="800" height="180" class="stage-brand" rx="6"/>
+  <text x="60" y="125" class="section-title" text-anchor="start" style="fill: var(--c-brand);">Hook 链表（每个组件实例独立）</text>
+
+  <g>
+    <rect x="60" y="155" width="120" height="50" class="stage-box" rx="4"/>
+    <text x="120" y="180" class="label">memoizedState</text>
+    <text x="120" y="197" class="code">useState(0)</text>
+    <line x1="180" y1="180" x2="200" y2="180" class="arrow" marker-end="url(#ax-r6)"/>
+  </g>
+
+  <g>
+    <rect x="200" y="155" width="120" height="50" class="stage-box" rx="4"/>
+    <text x="260" y="180" class="label">next: {...}</text>
+    <text x="260" y="197" class="code">useState('')</text>
+    <line x1="320" y1="180" x2="340" y2="180" class="arrow" marker-end="url(#ax-r6)"/>
+  </g>
+
+  <g>
+    <rect x="340" y="155" width="120" height="50" class="stage-box" rx="4"/>
+    <text x="400" y="180" class="label">next: {...}</text>
+    <text x="400" y="197" class="code">useEffect()</text>
+    <line x1="460" y1="180" x2="480" y2="180" class="arrow" marker-end="url(#ax-r6)"/>
+  </g>
+
+  <g>
+    <rect x="480" y="155" width="120" height="50" class="stage-box" rx="4"/>
+    <text x="540" y="180" class="label">next: {...}</text>
+    <text x="540" y="197" class="code">useRef()</text>
+    <line x1="600" y1="180" x2="620" y2="180" class="arrow" marker-end="url(#ax-r6)"/>
+  </g>
+
+  <g>
+    <rect x="620" y="155" width="180" height="50" class="stage-box" rx="4"/>
+    <text x="710" y="180" class="label" style="font-size: 11px;">next: null（链表尾）</text>
+  </g>
+
+  <text x="60" y="240" class="code" text-anchor="start">// React 内部：每个 Hook 对象结构：</text>
+  <text x="60" y="258" class="code" text-anchor="start">// { memoizedState, baseState, baseQueue, next, deps? }</text>
+
+  <rect x="40" y="295" width="800" height="80" class="stage-box" rx="6"/>
+  <text x="60" y="320" class="section-title" text-anchor="start" style="fill: var(--c-danger);">⚠ 关键限制：hooks 必须在函数顶层调用</text>
+  <text x="60" y="343" class="item">• 不能写在 if / for 内（顺序必须稳定，否则链表错位）</text>
+  <text x="60" y="363" class="item">• 不能写在事件处理函数 / setTimeout 回调里（不再是渲染期调用）</text>
+  <text x="60" y="383" class="item">• ESLint 插件 react-hooks/rules-of-hooks 检测</text>
+
+  <rect x="40" y="385" width="800" height="100" class="stage-brand" rx="6"/>
+  <text x="60" y="410" class="section-title" text-anchor="start" style="fill: var(--c-brand);">setState 是怎么触发更新的？</text>
+  <text x="60" y="435" class="code" text-anchor="start">const [count, setCount] = useState(0)</text>
+  <text x="60" y="453" class="code" text-anchor="start">setCount(1) → dispatchAction → scheduleUpdate → 重新执行函数 → 对匹配做 diff</text>
+  <text x="60" y="473" class="item">⚡ 闭包陷阱：useEffect 闭包的是渲染时的 state（不会自动拿到最新）</text>
+</svg>

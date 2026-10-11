@@ -1,0 +1,56 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+<style>
+:root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; --c-danger: #ef4444; --c-danger-soft: #fee2e2; }
+@media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; --c-danger: #f87171; --c-danger-soft: #7f1d1d; } }
+.title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+.subtitle { font-size: 14px; fill: var(--c-text-soft); }
+.stage-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+.stage-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+.stage-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+.label { font-size: 14px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+.code { font-family: Consolas, Monaco, monospace; font-size: 11px; fill: var(--c-text); text-anchor: middle; }
+.item { font-size: 12px; fill: var(--c-text); }
+.section-title { font-size: 14px; font-weight: 700; fill: var(--c-text); }
+</style>
+<defs>
+<marker id="ax-p1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+</marker>
+</defs>
+<text x="40" y="40" class="title">浏览器渲染流水线</text>
+<text x="40" y="62" class="subtitle">HTML → DOM / CSS → CSSOM → Render Tree → Layout → Paint → Composite</text>
+<rect x="40" y="100" width="800" height="200" class="stage-box" rx="6"/>
+<text x="60" y="125" class="section-title">渲染流水线（5 个阶段）</text>
+<rect x="60" y="150" width="140" height="50" class="stage-brand" rx="4"/>
+<text x="130" y="175" class="label">① DOM 树</text>
+<text x="130" y="192" class="code">HTML 解析</text>
+<rect x="220" y="150" width="140" height="50" class="stage-brand" rx="4"/>
+<text x="290" y="175" class="label">② CSSOM 树</text>
+<text x="290" y="192" class="code">CSS 解析</text>
+<rect x="380" y="150" width="140" height="50" class="stage-brand" rx="4"/>
+<text x="450" y="175" class="label">③ Render Tree</text>
+<text x="450" y="192" class="code">DOM + CSSOM</text>
+<rect x="540" y="150" width="140" height="50" class="stage-success" rx="4"/>
+<text x="610" y="175" class="label">④ Layout</text>
+<text x="610" y="192" class="code">reflow / 计算几何</text>
+<rect x="700" y="150" width="120" height="50" class="stage-success" rx="4"/>
+<text x="760" y="175" class="label">⑤ Paint</text>
+<text x="760" y="192" class="code">绘制像素</text>
+<text x="40" y="320" class="section-title" style="fill: var(--c-brand);">⚡ 关键概念：reflow vs repaint</text>
+<rect x="40" y="345" width="380" height="170" style="fill: var(--c-danger-soft); stroke: var(--c-danger); stroke-width: 1;" rx="6"/>
+<text x="60" y="370" class="label" text-anchor="start" style="fill: var(--c-danger);">Reflow（重排）</text>
+<text x="60" y="392" class="item">• 几何属性变化（width / height）</text>
+<text x="60" y="412" class="item">• 触发 Layout 阶段（重计算）</text>
+<text x="60" y="432" class="item">• 整棵树重新计算，性能差</text>
+<text x="60" y="455" class="item" style="font-weight: 700;">⚠ DOM 结构变化、resize、读取 offsetWidth</text>
+<text x="60" y="478" class="item" style="font-weight: 700;">都会触发 reflow</text>
+<text x="60" y="498" class="item">优化：批量修改 + transform 替代</text>
+<rect x="460" y="345" width="380" height="170" class="stage-success" style="stroke: var(--c-success); stroke-width: 1;" rx="6"/>
+<text x="480" y="370" class="label" text-anchor="start" style="fill: var(--c-success);">Repaint（重绘）</text>
+<text x="480" y="392" class="item">• 外观属性变化（color / bg）</text>
+<text x="480" y="412" class="item">• 跳过 Layout 阶段</text>
+<text x="480" y="432" class="item">• 性能开销小</text>
+<text x="480" y="458" class="item" style="font-weight: 700;">⚠ 不触发 layout 但仍要 paint</text>
+<text x="480" y="481" class="item">优化：will-change / contain</text>
+<text x="480" y="503" class="item">最佳：直接用 transform（GPU 加速）</text>
+</svg>

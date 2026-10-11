@@ -1,0 +1,47 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+<style>
+:root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; --c-danger: #ef4444; --c-danger-soft: #fee2e2; }
+@media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; --c-danger: #f87171; --c-danger-soft: #7f1d1d; } }
+.title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+.subtitle { font-size: 14px; fill: var(--c-text-soft); }
+.task-danger { fill: var(--c-danger-soft); stroke: var(--c-danger); stroke-width: 2; }
+.task-good { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+.label { font-size: 12px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+.section-title { font-size: 14px; font-weight: 700; fill: var(--c-text); }
+.item { font-size: 12px; fill: var(--c-text); }
+.time-tick { font-size: 11px; fill: var(--c-text-soft); text-anchor: middle; }
+</style>
+<text x="40" y="40" class="title">长任务拆分：避免主线程阻塞</text>
+<text x="40" y="62" class="subtitle">单个任务 &gt; 50ms 即"长任务"，会阻塞用户交互</text>
+<text x="40" y="105" class="section-title" style="fill: var(--c-danger);">❌ 拆分前：1 个 200ms 长任务（卡顿）</text>
+<line x1="60" y1="140" x2="820" y2="140" stroke="#d1d5db" stroke-width="1.5"/>
+<line x1="60" y1="135" x2="60" y2="145" stroke="#6b7280" stroke-width="1.5"/>
+<text x="60" y="160" class="time-tick">0ms</text>
+<line x1="260" y1="135" x2="260" y2="145" stroke="#6b7280" stroke-width="1.5"/>
+<text x="260" y="160" class="time-tick">50ms</text>
+<line x1="820" y1="135" x2="820" y2="145" stroke="#6b7280" stroke-width="1.5"/>
+<text x="820" y="160" class="time-tick">200ms</text>
+<rect x="60" y="175" width="760" height="40" class="task-danger" rx="4"/>
+<text x="440" y="200" class="label">同步任务（200ms）— 阻塞用户交互</text>
+<text x="60" y="245" class="item" style="fill: var(--c-danger);">⚠ 用户在 0~200ms 内的任何点击 / 输入都被阻塞</text>
+<text x="40" y="285" class="section-title" style="fill: var(--c-success);">✓ 拆分后：4 个 50ms 任务 + 让出主线程（流畅）</text>
+<line x1="60" y1="320" x2="820" y2="320" stroke="#d1d5db" stroke-width="1.5"/>
+<line x1="60" y1="315" x2="60" y2="325" stroke="#6b7280" stroke-width="1.5"/>
+<text x="60" y="340" class="time-tick">0ms</text>
+<line x1="260" y1="315" x2="260" y2="325" stroke="#6b7280" stroke-width="1.5"/>
+<text x="260" y="340" class="time-tick">50ms</text>
+<line x1="460" y1="315" x2="460" y2="325" stroke="#6b7280" stroke-width="1.5"/>
+<text x="460" y="340" class="time-tick">100ms</text>
+<rect x="60" y="355" width="180" height="36" class="task-good" rx="4"/>
+<text x="150" y="378" class="label" style="font-size: 11px;">任务 1（50ms）</text>
+<rect x="260" y="355" width="180" height="36" class="task-good" rx="4"/>
+<text x="350" y="378" class="label" style="font-size: 11px;">任务 2（50ms）</text>
+<rect x="460" y="355" width="180" height="36" class="task-good" rx="4"/>
+<text x="550" y="378" class="label" style="font-size: 11px;">任务 3（50ms）</text>
+<rect x="660" y="355" width="140" height="36" class="task-good" rx="4"/>
+<text x="730" y="378" class="label" style="font-size: 11px;">任务 4</text>
+<text x="60" y="425" class="item" style="fill: var(--c-success);">⚡ 每任务结束后通过 scheduler.yield() 让出主线程</text>
+<text x="60" y="448" class="item">用户点击 / 输入可在任务间隙响应，体验提升明显</text>
+<rect x="40" y="465" width="800" height="30" style="fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1;" rx="4"/>
+<text x="440" y="485" class="label">⚡ 浏览器 60Hz 意味着每帧 16.67ms，长任务必须 &lt; 50ms 才不卡</text>
+</svg>

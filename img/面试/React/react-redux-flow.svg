@@ -1,0 +1,62 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; --c-warning: #f59e0b; --c-warning-soft: #fffbeb; }
+    @media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; --c-warning: #fbbf24; --c-warning-soft: #451a03; } }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .stage-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .stage-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .stage-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+    .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    .label { font-size: 13px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 11px; fill: var(--c-text); }
+    .section-title { font-size: 14px; font-weight: 700; fill: var(--c-text); }
+    .item { font-size: 12px; fill: var(--c-text); }
+  </style>
+  <defs>
+    <marker id="ax-r7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3451b2"/>
+    </marker>
+    <marker id="ax-r7-s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">Redux 三大原则 + 单向数据流</text>
+  <text x="40" y="62" class="subtitle">State 是只读的，唯一改变方式：dispatch action → reducer</text>
+
+  <rect x="60" y="100" width="120" height="70" class="stage-box" rx="6"/>
+  <text x="120" y="125" class="label">View</text>
+  <text x="120" y="148" class="code" text-anchor="middle">React 组件</text>
+
+  <line x1="180" y1="135" x2="260" y2="135" class="arrow" marker-end="url(#ax-r7)"/>
+  <text x="220" y="125" class="item" text-anchor="middle">dispatch(action)</text>
+
+  <rect x="260" y="100" width="160" height="70" class="stage-brand" rx="6"/>
+  <text x="340" y="125" class="label">Action</text>
+  <text x="340" y="148" class="code" text-anchor="middle">{ type: 'ADD', payload }</text>
+
+  <line x1="420" y1="135" x2="500" y2="135" class="arrow" marker-end="url(#ax-r7)"/>
+
+  <rect x="500" y="100" width="160" height="70" class="stage-success" rx="6"/>
+  <text x="580" y="125" class="label">Reducer</text>
+  <text x="580" y="148" class="code" text-anchor="middle">(state, action) =&gt; newState</text>
+
+  <line x1="660" y1="135" x2="740" y2="135" class="arrow" marker-end="url(#ax-r7-s)"/>
+
+  <rect x="740" y="100" width="120" height="70" class="stage-box" rx="6"/>
+  <text x="800" y="125" class="label">Store</text>
+  <text x="800" y="148" class="code" text-anchor="middle">新 state</text>
+
+  <path d="M 800,170 Q 800,260 120,260 Q 120,170 60,170" class="arrow" stroke="#10b981" fill="none" marker-end="url(#ax-r7-s)"/>
+  <text x="430" y="290" class="item" text-anchor="middle">subscribe → View 重渲染</text>
+
+  <rect x="40" y="320" width="800" height="160" style="fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5;" rx="6"/>
+  <text x="60" y="348" class="section-title" style="fill: var(--c-warning);">三大原则</text>
+  <text x="60" y="373" class="item">① 单一数据源（single source of truth）：整个 app 一个 store</text>
+  <text x="60" y="395" class="item">② State 只读：不能直接改，必须通过 dispatch action</text>
+  <text x="60" y="417" class="item">③ 纯函数修改：reducer 是 (state, action) =&gt; newState 的纯函数</text>
+  <text x="60" y="450" class="item" style="font-weight: 700;">⚡ 中间件机制：redux-thunk / redux-saga 处理异步 action</text>
+  <text x="60" y="470" class="item" style="font-weight: 700;">⚡ Redux Toolkit（推荐）：内置 immer（直接改 state）、createSlice、createAsyncThunk</text>
+</svg>

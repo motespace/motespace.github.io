@@ -1,0 +1,73 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; }
+    @media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; } }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .vdom-box { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .real-box { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+    .node-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .node-text { font-size: 12px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+    .node-sub { font-size: 10px; fill: var(--c-text-soft); text-anchor: middle; }
+    .vdom-text { font-size: 11px; font-family: Consolas, Monaco, monospace; fill: var(--c-text); }
+    .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    .section-title { font-size: 14px; font-weight: 700; fill: var(--c-text); }
+    .item-text { font-size: 12px; fill: var(--c-text); }
+  </style>
+  <defs>
+    <marker id="ax-v5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">虚拟 DOM：JS 对象描述真实 DOM</text>
+  <text x="40" y="62" class="subtitle">用 JS 对象结构描述 DOM 树，再通过 diff 算法最小化 DOM 操作</text>
+
+  <rect x="40" y="100" width="400" height="220" class="vdom-box" rx="8"/>
+  <text x="240" y="125" class="section-title" text-anchor="middle" style="fill: var(--c-brand);">虚拟 DOM（JS 对象）</text>
+
+  <rect x="60" y="145" width="120" height="40" class="node-box" rx="3"/>
+  <text x="120" y="160" class="node-text">div</text>
+  <text x="120" y="178" class="node-sub">{ tag, props, children }</text>
+
+  <line x1="120" y1="185" x2="120" y2="200" class="arrow"/>
+
+  <rect x="20" y="205" width="100" height="32" class="node-box" rx="3"/>
+  <text x="70" y="225" class="node-text">h1</text>
+
+  <rect x="140" y="205" width="100" height="32" class="node-box" rx="3"/>
+  <text x="190" y="225" class="node-text">p</text>
+
+  <rect x="260" y="205" width="160" height="32" class="node-box" rx="3"/>
+  <text x="340" y="225" class="node-text">ul</text>
+
+  <line x1="180" y1="237" x2="180" y2="260" class="arrow"/>
+
+  <rect x="40" y="265" width="200" height="40" class="node-box" rx="3"/>
+  <text x="60" y="282" class="vdom-text">{ tag: 'ul', children: [...] }</text>
+  <text x="60" y="297" class="vdom-text">{ tag: 'li', text: '...' }</text>
+
+  <text x="60" y="315" class="vdom-text">// Vue h() / createVNode()</text>
+
+  <rect x="460" y="100" width="380" height="220" class="real-box" rx="8"/>
+  <text x="650" y="125" class="section-title" text-anchor="middle" style="fill: var(--c-success);">真实 DOM</text>
+
+  <rect x="480" y="155" width="340" height="140" class="node-box" rx="3"/>
+  <text x="650" y="170" class="node-text">div</text>
+  <text x="500" y="195" class="node-text" text-anchor="start">├ h1: "Hello"</text>
+  <text x="500" y="215" class="node-text" text-anchor="start">├ p: "World"</text>
+  <text x="500" y="235" class="node-text" text-anchor="start">└ ul</text>
+  <text x="530" y="253" class="node-text" text-anchor="start">├ li: "Item 1"</text>
+  <text x="530" y="273" class="node-text" text-anchor="start">└ li: "Item 2"</text>
+
+  <line x1="440" y1="210" x2="460" y2="210" class="arrow" marker-end="url(#ax-v5)"/>
+  <text x="450" y="200" class="item-text" text-anchor="middle">patch()</text>
+
+  <text x="40" y="365" class="section-title">⚡ 虚拟 DOM 的好处</text>
+  <text x="40" y="390" class="item-text">• 跨平台：一套 vnode 可以渲染到不同平台（DOM / 小程序 / Canvas）</text>
+  <text x="40" y="410" class="item-text">• 性能：diff 算法最小化 DOM 操作（直接操作 DOM 性能差）</text>
+  <text x="40" y="430" class="item-text">• 抽象：开发者只写 render 函数，不用直接操作 DOM</text>
+
+  <text x="40" y="465" class="subtitle" style="fill: var(--c-warning);">⚠ 不是所有场景都适合：静态页面直接 innerHTML 可能更快</text>
+</svg>

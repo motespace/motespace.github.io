@@ -1,0 +1,79 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+<style>
+:root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; --c-warning: #f59e0b; --c-warning-soft: #fffbeb; }
+@media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; --c-warning: #fbbf24; --c-warning-soft: #451a03; } }
+.title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+.subtitle { font-size: 14px; fill: var(--c-text-soft); }
+.lane-bg { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+.hook-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1; }
+.hook-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1; }
+.hook-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1; }
+.label { font-size: 12px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+.sub { font-size: 10px; fill: var(--c-text-soft); text-anchor: middle; }
+.col-title { font-size: 14px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+</style>
+<text x="40" y="40" class="title">小程序生命周期：App / Page / Component</text>
+<text x="40" y="62" class="subtitle">三种组件的生命周期钩子对比</text>
+<text x="120" y="115" class="col-title" style="fill: var(--c-brand);">App（应用级）</text>
+<text x="430" y="115" class="col-title" style="fill: var(--c-success);">Page（页面级）</text>
+<text x="730" y="115" class="col-title" style="fill: var(--c-warning);">Component（组件级）</text>
+<rect x="40" y="135" width="240" height="380" class="lane-bg" rx="6"/>
+<rect x="60" y="155" width="200" height="32" class="hook-brand" rx="3"/>
+<text x="160" y="175" class="label">onLaunch</text>
+<text x="160" y="187" class="sub">首次启动 / 全局初始化</text>
+<rect x="60" y="200" width="200" height="32" class="hook-brand" rx="3"/>
+<text x="160" y="220" class="label">onShow</text>
+<text x="160" y="232" class="sub">前台显示</text>
+<rect x="60" y="245" width="200" height="32" class="hook-brand" rx="3"/>
+<text x="160" y="265" class="label">onHide</text>
+<text x="160" y="277" class="sub">切入后台</text>
+<rect x="60" y="290" width="200" height="32" class="hook-brand" rx="3"/>
+<text x="160" y="310" class="label">onError</text>
+<text x="160" y="322" class="sub">全局错误捕获</text>
+<rect x="60" y="335" width="200" height="32" class="hook-brand" rx="3"/>
+<text x="160" y="355" class="label">onPageNotFound</text>
+<text x="160" y="367" class="sub">页面不存在</text>
+<rect x="60" y="380" width="200" height="32" class="hook-brand" rx="3"/>
+<text x="160" y="400" class="label">onUnhandledRejection</text>
+<text x="160" y="412" class="sub">未捕获 Promise 异常</text>
+<rect x="320" y="135" width="240" height="380" class="lane-bg" rx="6"/>
+<rect x="340" y="155" width="200" height="32" class="hook-success" rx="3"/>
+<text x="440" y="175" class="label">onLoad</text>
+<text x="440" y="187" class="sub">页面加载（可拿参数）</text>
+<rect x="340" y="200" width="200" height="32" class="hook-success" rx="3"/>
+<text x="440" y="220" class="label">onShow</text>
+<text x="440" y="232" class="sub">页面显示</text>
+<rect x="340" y="245" width="200" height="32" class="hook-success" rx="3"/>
+<text x="440" y="265" class="label">onReady</text>
+<text x="440" y="277" class="sub">首次渲染完成</text>
+<rect x="340" y="290" width="200" height="32" class="hook-success" rx="3"/>
+<text x="440" y="310" class="label">onHide</text>
+<text x="440" y="322" class="sub">页面隐藏</text>
+<rect x="340" y="335" width="200" height="32" class="hook-success" rx="3"/>
+<text x="440" y="355" class="label">onUnload</text>
+<text x="440" y="367" class="sub">页面卸载</text>
+<rect x="340" y="380" width="200" height="32" class="hook-success" rx="3"/>
+<text x="440" y="400" class="label">onPullDownRefresh</text>
+<text x="440" y="412" class="sub">下拉刷新</text>
+<rect x="600" y="135" width="240" height="380" class="lane-bg" rx="6"/>
+<rect x="620" y="155" width="200" height="32" class="hook-warning" rx="3"/>
+<text x="720" y="175" class="label">created</text>
+<text x="720" y="187" class="sub">组件创建</text>
+<rect x="620" y="200" width="200" height="32" class="hook-warning" rx="3"/>
+<text x="720" y="220" class="label">attached</text>
+<text x="720" y="232" class="sub">进入页面树</text>
+<rect x="620" y="245" width="200" height="32" class="hook-warning" rx="3"/>
+<text x="720" y="265" class="label">ready</text>
+<text x="720" y="277" class="sub">渲染完成</text>
+<rect x="620" y="290" width="200" height="32" class="hook-warning" rx="3"/>
+<text x="720" y="310" class="label">moved</text>
+<text x="720" y="322" class="sub">位置移动</text>
+<rect x="620" y="335" width="200" height="32" class="hook-warning" rx="3"/>
+<text x="720" y="355" class="label">detached</text>
+<text x="720" y="367" class="sub">离开页面树</text>
+<rect x="620" y="380" width="200" height="32" class="hook-warning" rx="3"/>
+<text x="720" y="400" class="label">error</text>
+<text x="720" y="412" class="sub">组件错误</text>
+<rect x="40" y="475" width="800" height="50" style="fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1;" rx="4"/>
+<text x="440" y="498" class="label" style="font-size: 13px;">⚡ App onLaunch 只一次 / Page onLoad 都触发 / Component 生命周期是 page 的拆分版</text>
+</svg>

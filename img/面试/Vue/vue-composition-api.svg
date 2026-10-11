@@ -1,0 +1,65 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; --c-warning: #f59e0b; --c-warning-soft: #fffbeb; }
+    @media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; --c-warning: #fbbf24; --c-warning-soft: #451a03; } }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .col-bg { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .col-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .col-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+    .col-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 2; }
+    .col-title { font-size: 16px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 11px; fill: var(--c-text); }
+    .item { font-size: 12px; fill: var(--c-text); }
+    .section-title { font-size: 14px; font-weight: 700; fill: var(--c-text); }
+  </style>
+
+  <text x="40" y="40" class="title">Vue 3 Composition API 核心概念</text>
+  <text x="40" y="62" class="subtitle">setup / &lt;script setup&gt; / ref / reactive 选择与对比</text>
+
+  <rect x="40" y="90" width="260" height="220" class="col-warning" rx="6"/>
+  <text x="170" y="115" class="col-title">setup 函数</text>
+  <text x="170" y="132" class="subtitle" text-anchor="middle">需 return + 显式注册</text>
+
+  <text x="55" y="160" class="code">&lt;script&gt;</text>
+  <text x="55" y="178" class="code">export default {</text>
+  <text x="63" y="195" class="code">setup() {</text>
+  <text x="71" y="212" class="code">const count = ref(0)</text>
+  <text x="71" y="229" class="code">const inc = () =&gt; count.value++</text>
+  <text x="71" y="246" class="code">return { count, inc }</text>
+  <text x="63" y="263" class="code">}</text>
+  <text x="55" y="280" class="code">}</text>
+  <text x="55" y="297" class="code">&lt;/script&gt;</text>
+
+  <rect x="320" y="90" width="260" height="220" class="col-success" rx="6"/>
+  <text x="450" y="115" class="col-title">&lt;script setup&gt;</text>
+  <text x="450" y="132" class="subtitle" text-anchor="middle">自动注册（推荐）</text>
+
+  <text x="335" y="160" class="code">&lt;script setup&gt;</text>
+  <text x="335" y="178" class="code">import { ref } from 'vue'</text>
+  <text x="335" y="195" class="code">const count = ref(0)</text>
+  <text x="335" y="212" class="code">const inc = () =&gt; count.value++</text>
+  <text x="335" y="240" class="code">&lt;/script&gt;</text>
+  <text x="335" y="270" class="item" style="font-weight: 700; fill: var(--c-success);">⚡ 顶层变量自动暴露给模板</text>
+  <text x="335" y="287" class="item" style="fill: var(--c-success);">无需 return</text>
+
+  <text x="600" y="115" class="section-title">何时用哪个？</text>
+  <text x="600" y="140" class="item">✓ 默认用 &lt;script setup&gt;</text>
+  <text x="600" y="160" class="item">（编译期优化、tree-shaking、TS 友好）</text>
+  <text x="600" y="195" class="item">⚠ 仅在以下场景用 setup：</text>
+  <text x="600" y="215" class="item">• 动态组件（&lt;component :is&gt;）</text>
+  <text x="600" y="235" class="item">• 需要继承 options（provide/inject）</text>
+  <text x="600" y="255" class="item">• 在同一文件混合 Options + Composition</text>
+
+  <rect x="40" y="330" width="800" height="190" class="col-brand" rx="6"/>
+  <text x="60" y="358" class="section-title" style="fill: var(--c-brand);">ref vs reactive 怎么选？</text>
+
+  <text x="60" y="385" class="code">const count = ref(0)        // 基本类型 → 用 ref</text>
+  <text x="60" y="405" class="code">const state = reactive({}) // 对象类型 → reactive</text>
+  <text x="60" y="425" class="code">const list = ref([])       // 数组也可以 ref</text>
+
+  <text x="60" y="458" class="item">• ref 在 template 自动解包（count.value → count）</text>
+  <text x="60" y="478" class="item">• reactive 在 reactive 对象里访问任意属性都自动追踪</text>
+  <text x="60" y="498" class="item" style="font-weight: 700; fill: var(--c-brand);">⚡ 经验法则：基本类型 ref / 对象类型 reactive / 复杂状态用 Pinia store</text>
+</svg>

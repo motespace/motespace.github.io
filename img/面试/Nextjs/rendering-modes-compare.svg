@@ -1,0 +1,65 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+<style>
+:root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; --c-warning: #f59e0b; --c-warning-soft: #fffbeb; }
+@media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; --c-warning: #fbbf24; --c-warning-soft: #451a03; } }
+.title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+.subtitle { font-size: 14px; fill: var(--c-text-soft); }
+.col-bg { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+.col-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+.col-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+.col-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 2; }
+.col-title { font-size: 18px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+.row-label { font-size: 13px; font-weight: 700; fill: var(--c-text-soft); }
+.cell-text { font-size: 13px; fill: var(--c-text); }
+.code { font-family: Consolas, Monaco, monospace; font-size: 11px; fill: var(--c-text); }
+</style>
+<text x="40" y="40" class="title">Next.js 渲染模式对比（SSG / SSR / ISR / CSR）</text>
+<text x="40" y="62" class="subtitle">不同场景选不同方案</text>
+<rect x="40" y="90" width="200" height="420" class="col-bg" rx="6"/>
+<text x="140" y="125" class="col-title" style="font-size: 14px;">对比维度</text>
+<text x="140" y="160" class="row-label">渲染时机</text>
+<text x="140" y="195" class="row-label">SEO</text>
+<text x="140" y="230" class="row-label">服务器压力</text>
+<text x="140" y="265" class="row-label">首屏速度</text>
+<text x="140" y="300" class="row-label">内容新鲜度</text>
+<text x="140" y="335" class="row-label">适用场景</text>
+<text x="140" y="375" class="row-label">Next.js API</text>
+<text x="140" y="415" class="row-label">示例</text>
+<text x="140" y="460" class="row-label">适用度</text>
+<rect x="250" y="90" width="200" height="420" class="col-success" rx="6"/>
+<text x="350" y="125" class="col-title">SSG</text>
+<text x="350" y="142" class="subtitle" text-anchor="middle">Static Generation</text>
+<text x="350" y="160" class="cell-text" text-anchor="middle">构建时</text>
+<text x="350" y="195" class="cell-text" text-anchor="middle" style="fill: var(--c-success); font-weight: 700;">★★★★★</text>
+<text x="350" y="230" class="cell-text" text-anchor="middle" style="fill: var(--c-success); font-weight: 700;">极低</text>
+<text x="350" y="265" class="cell-text" text-anchor="middle" style="fill: var(--c-success); font-weight: 700;">极快</text>
+<text x="350" y="300" class="cell-text" text-anchor="middle" style="fill: var(--c-warning);">需重新构建</text>
+<text x="350" y="335" class="cell-text" text-anchor="middle" style="font-size: 11px;">博客 / 营销页</text>
+<text x="350" y="375" class="code" text-anchor="middle">getStaticProps</text>
+<text x="350" y="415" class="code" text-anchor="middle">/docs/intro</text>
+<text x="350" y="460" class="cell-text" text-anchor="middle" style="fill: var(--c-success); font-weight: 700;">静态内容</text>
+<rect x="460" y="90" width="200" height="420" class="col-brand" rx="6"/>
+<text x="560" y="125" class="col-title">SSR</text>
+<text x="560" y="142" class="subtitle" text-anchor="middle">Server-Side Render</text>
+<text x="560" y="160" class="cell-text" text-anchor="middle">每次请求</text>
+<text x="560" y="195" class="cell-text" text-anchor="middle" style="fill: var(--c-success); font-weight: 700;">★★★★★</text>
+<text x="560" y="230" class="cell-text" text-anchor="middle" style="fill: var(--c-warning); font-weight: 700;">高</text>
+<text x="560" y="265" class="cell-text" text-anchor="middle" style="fill: var(--c-success);">快</text>
+<text x="560" y="300" class="cell-text" text-anchor="middle" style="fill: var(--c-success); font-weight: 700;">实时</text>
+<text x="560" y="335" class="cell-text" text-anchor="middle" style="font-size: 11px;">用户个性化页</text>
+<text x="560" y="375" class="code" text-anchor="middle">getServerSideProps</text>
+<text x="560" y="415" class="code" text-anchor="middle">/user/profile</text>
+<text x="560" y="460" class="cell-text" text-anchor="middle" style="fill: var(--c-success); font-weight: 700;">强个性化</text>
+<rect x="670" y="90" width="170" height="420" class="col-warning" rx="6"/>
+<text x="755" y="125" class="col-title">ISR</text>
+<text x="755" y="142" class="subtitle" text-anchor="middle">Incremental</text>
+<text x="755" y="160" class="cell-text" text-anchor="middle">后台重建</text>
+<text x="755" y="195" class="cell-text" text-anchor="middle" style="fill: var(--c-success); font-weight: 700;">★★★★★</text>
+<text x="755" y="230" class="cell-text" text-anchor="middle">中</text>
+<text x="755" y="265" class="cell-text" text-anchor="middle" style="fill: var(--c-success); font-weight: 700;">快</text>
+<text x="755" y="300" class="cell-text" text-anchor="middle">延迟更新</text>
+<text x="755" y="335" class="cell-text" text-anchor="middle" style="font-size: 11px;">商品页 / 文章</text>
+<text x="755" y="375" class="code" text-anchor="middle">revalidate: 60</text>
+<text x="755" y="415" class="code" text-anchor="middle">/products/[id]</text>
+<text x="755" y="460" class="cell-text" text-anchor="middle" style="fill: var(--c-success); font-weight: 700;">推荐</text>
+</svg>

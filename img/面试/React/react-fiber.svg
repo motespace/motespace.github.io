@@ -1,0 +1,54 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; --c-warning: #f59e0b; --c-warning-soft: #fffbeb; }
+    @media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; --c-warning: #fbbf24; --c-warning-soft: #451a03; } }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .layer-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .layer-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .layer-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+    .layer-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 2; }
+    .layer-name { font-size: 14px; font-weight: 700; fill: var(--c-text); }
+    .layer-desc { font-size: 12px; fill: var(--c-text); }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 11px; fill: var(--c-text); }
+    .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+  </style>
+  <defs>
+    <marker id="ax-r1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">React Fiber 架构（React 16+）</text>
+  <text x="40" y="62" class="subtitle">可中断的协调器 + 优先级调度 + 双缓冲</text>
+
+  <rect x="40" y="100" width="800" height="180" class="layer-warning" rx="6"/>
+  <text x="60" y="125" class="layer-name">Scheduler（调度器）</text>
+  <text x="60" y="148" class="layer-desc">按优先级调度任务：ImmediateUserBlocking / Normal / Low / Idle</text>
+  <text x="60" y="168" class="code">时间分片（5ms）→ 检查浏览器是否需要让出主线程（requestIdleCallback）</text>
+  <text x="60" y="186" class="code">如需让出：保存当前进度，下次继续（这就是"可中断"）</text>
+  <text x="60" y="206" class="code">关键 API：MessageChannel / requestIdleCallback（polyfill）</text>
+  <text x="60" y="226" class="code">优先级：用户输入（高）> 数据更新（中）> 动画（低）> 离线渲染（最低）</text>
+
+  <rect x="40" y="295" width="380" height="180" class="layer-brand" rx="6"/>
+  <text x="60" y="320" class="layer-name" style="fill: var(--c-brand);">Reconciler（协调器）</text>
+  <text x="60" y="343" class="layer-desc">diff 算法找出变化</text>
+  <text x="60" y="365" class="code">current tree（已渲染）</text>
+  <text x="60" y="383" class="code">        ↓</text>
+  <text x="60" y="401" class="code">workInProgress tree（构建中）</text>
+  <text x="60" y="419" class="code">        ↓</text>
+  <text x="60" y="437" class="code">diff 完成 → 切换到新树</text>
+  <text x="60" y="458" class="code" style="fill: var(--c-success); font-weight: 700;">双缓冲：构建时不影响用户看到的树</text>
+
+  <rect x="440" y="295" width="400" height="180" class="layer-success" rx="6"/>
+  <text x="460" y="320" class="layer-name" style="fill: var(--c-success);">Renderer（渲染器）</text>
+  <text x="460" y="343" class="layer-desc">将变更应用到 DOM</text>
+  <text x="460" y="365" class="code">React DOM：渲染到浏览器</text>
+  <text x="460" y="383" class="code">React Native：渲染到原生组件</text>
+  <text x="460" y="401" class="code">React Three：渲染到 WebGL</text>
+  <text x="460" y="437" class="code" style="font-weight: 700;">⚡ Fiber Node：每个 React 元素对应一个</text>
+  <text x="460" y="455" class="code" style="font-size: 10px;">type / stateNode / return / child / sibling / alternate</text>
+
+  <text x="40" y="500" class="subtitle" style="fill: var(--c-brand);">⚡ Fiber 解决了：旧版同步递归 stack reconciler 一旦开始不能中断，长任务会阻塞主线程（掉帧）</text>
+</svg>

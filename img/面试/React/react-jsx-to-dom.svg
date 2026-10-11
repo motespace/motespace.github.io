@@ -1,0 +1,65 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; }
+    @media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; } }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .stage-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .stage-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .stage-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+    .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    .label { font-size: 14px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 11px; fill: var(--c-text); }
+  </style>
+  <defs>
+    <marker id="ax-r3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">JSX → 真实 DOM 渲染流程</text>
+  <text x="40" y="62" class="subtitle">Babel 编译 JSX → React.createElement → vnode → patch → DOM</text>
+
+  <rect x="40" y="100" width="180" height="70" class="stage-box" rx="6"/>
+  <text x="130" y="125" class="label">① JSX 源码</text>
+  <text x="130" y="148" class="code">&lt;div className="a"&gt;</text>
+  <text x="130" y="163" class="code">  &lt;span&gt;hi&lt;/span&gt;</text>
+
+  <line x1="220" y1="135" x2="260" y2="135" class="arrow" marker-end="url(#ax-r3)"/>
+  <text x="240" y="125" class="code" text-anchor="middle" style="font-size: 10px;">Babel</text>
+
+  <rect x="260" y="100" width="180" height="70" class="stage-brand" rx="6"/>
+  <text x="350" y="125" class="label">② 编译后 JS</text>
+  <text x="350" y="148" class="code">createElement(</text>
+  <text x="350" y="163" class="code">'div', ...)</text>
+
+  <line x1="440" y1="135" x2="480" y2="135" class="arrow" marker-end="url(#ax-r3)"/>
+
+  <rect x="480" y="100" width="200" height="70" class="stage-brand" rx="6"/>
+  <text x="580" y="125" class="label">③ Virtual DOM</text>
+  <text x="580" y="148" class="code">{ type: 'div',</text>
+  <text x="580" y="163" class="code">  props: { className: 'a' } }</text>
+
+  <line x1="680" y1="135" x2="720" y2="135" class="arrow" marker-end="url(#ax-r3)"/>
+
+  <rect x="720" y="100" width="120" height="70" class="stage-success" rx="6"/>
+  <text x="780" y="125" class="label">④ DOM</text>
+  <text x="780" y="148" class="code">&lt;div class="a"&gt;</text>
+  <text x="780" y="163" class="code">  &lt;span&gt;hi&lt;/span&gt;</text>
+
+  <text x="40" y="220" class="subtitle">详细流程：</text>
+
+  <rect x="40" y="245" width="800" height="230" class="stage-box" rx="6"/>
+  <text x="60" y="275" class="label" text-anchor="start" style="font-weight: 700;">① JSX 编译（构建期）</text>
+  <text x="60" y="298" class="code">@babel/preset-react 把 JSX 转换为 React.createElement 调用</text>
+
+  <text x="60" y="335" class="label" text-anchor="start" style="font-weight: 700;">② createElement 返回 vnode（运行时）</text>
+  <text x="60" y="358" class="code">React.createElement(type, props, ...children) → { type, props, children, key, ref }</text>
+
+  <text x="60" y="395" class="label" text-anchor="start" style="font-weight: 700;">③ Reconciler diff（更新时）</text>
+  <text x="60" y="418" class="code">新 vnode vs 旧 vnode → diff 算法找出差异 → 生成 patch 列表</text>
+
+  <text x="60" y="455" class="label" text-anchor="start" style="font-weight: 700;">④ 提交阶段（commit phase）</text>
+  <text x="60" y="478" class="code">patch 应用到真实 DOM（一次提交，避免中途状态不一致）</text>
+</svg>

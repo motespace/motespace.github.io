@@ -1,0 +1,76 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; }
+    @media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; } }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .stage-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .stage-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .stage-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+    .stage-num { font-size: 26px; font-weight: 700; fill: var(--c-brand); text-anchor: middle; }
+    .stage-title { font-size: 15px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+    .stage-text { font-size: 12px; fill: var(--c-text); text-anchor: middle; }
+    .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 12px; fill: var(--c-text); text-anchor: middle; }
+  </style>
+  <defs>
+    <marker id="ax-v3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">Vue 模板编译流程</text>
+  <text x="40" y="62" class="subtitle">template → AST → render 函数（v-if/v-for 编译期优化）</text>
+
+  <g>
+    <rect x="40" y="100" width="160" height="100" class="stage-box" rx="6"/>
+    <text x="120" y="125" class="stage-num">①</text>
+    <text x="120" y="155" class="stage-title">template</text>
+    <text x="120" y="180" class="code">&lt;div&gt;{{msg}}&lt;/div&gt;</text>
+    <text x="120" y="195" class="code">&lt;p v-if="ok"&gt;hi&lt;/p&gt;</text>
+  </g>
+
+  <line x1="200" y1="150" x2="240" y2="150" class="arrow" marker-end="url(#ax-v3)"/>
+
+  <g>
+    <rect x="240" y="100" width="160" height="100" class="stage-brand" rx="6"/>
+    <text x="320" y="125" class="stage-num">②</text>
+    <text x="320" y="148" class="stage-title">parse</text>
+    <text x="320" y="168" class="stage-text">HTML parser</text>
+    <text x="320" y="185" class="stage-text" style="font-size: 11px;">解析为 AST（抽象语法树）</text>
+  </g>
+
+  <line x1="400" y1="150" x2="440" y2="150" class="arrow" marker-end="url(#ax-v3)"/>
+
+  <g>
+    <rect x="440" y="100" width="160" height="100" class="stage-brand" rx="6"/>
+    <text x="520" y="125" class="stage-num">③</text>
+    <text x="520" y="148" class="stage-title">optimize</text>
+    <text x="520" y="168" class="stage-text">静态节点标记</text>
+    <text x="520" y="185" class="stage-text" style="font-size: 11px;">标记静态节点，diff 跳过</text>
+  </g>
+
+  <line x1="600" y1="150" x2="640" y2="150" class="arrow" marker-end="url(#ax-v3)"/>
+
+  <g>
+    <rect x="640" y="100" width="200" height="100" class="stage-success" rx="6"/>
+    <text x="740" y="125" class="stage-num">④</text>
+    <text x="740" y="148" class="stage-title">codegen</text>
+    <text x="740" y="168" class="stage-text">AST → render function</text>
+    <text x="740" y="190" class="code">_c('div', [_v(msg)])</text>
+  </g>
+
+  <text x="40" y="260" class="subtitle">运行时：render() → vnode → patch → DOM</text>
+
+  <g>
+    <rect x="40" y="290" width="800" height="180" class="stage-brand" rx="6"/>
+    <text x="60" y="318" class="stage-title" text-anchor="start" style="fill: var(--c-brand);">编译期优化（关键）</text>
+    <text x="60" y="345" class="stage-text" text-anchor="start">• 静态节点提升：避免重复创建 vnode</text>
+    <text x="60" y="365" class="stage-text" text-anchor="start">• 静态属性提升：class / style 不会变的部分跳过</text>
+    <text x="60" y="385" class="stage-text" text-anchor="start">• v-once：编译为静态节点，re-render 不更新</text>
+    <text x="60" y="405" class="stage-text" text-anchor="start">• v-pre：跳过该节点编译，原样输出</text>
+    <text x="60" y="425" class="stage-text" text-anchor="start">• 缓存事件处理函数（patch 阶段检测）</text>
+    <text x="60" y="450" class="stage-text" text-anchor="start" style="fill: var(--c-brand); font-weight: 700;">⚡ 运行时只关心动态节点，静态部分 patch 时直接跳过</text>
+  </g>
+</svg>

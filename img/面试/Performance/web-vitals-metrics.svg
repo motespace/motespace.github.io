@@ -1,0 +1,52 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+<style>
+:root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; --c-warning: #f59e0b; --c-warning-soft: #fffbeb; --c-danger: #ef4444; --c-danger-soft: #fee2e2; }
+@media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; --c-warning: #fbbf24; --c-warning-soft: #451a03; --c-danger: #f87171; --c-danger-soft: #7f1d1d; } }
+.title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+.subtitle { font-size: 14px; fill: var(--c-text-soft); }
+.metric-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+.metric-good { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+.label { font-size: 16px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+.sub { font-size: 12px; fill: var(--c-text-soft); text-anchor: middle; }
+.threshold { font-size: 11px; fill: var(--c-text); text-anchor: middle; }
+.item { font-size: 12px; fill: var(--c-text); }
+</style>
+<text x="40" y="40" class="title">Web Vitals 核心指标</text>
+<text x="40" y="62" class="subtitle">Google 官方推荐的用户体验衡量标准</text>
+<rect x="40" y="100" width="260" height="160" class="metric-good" rx="8"/>
+<text x="170" y="130" class="label">LCP</text>
+<text x="170" y="148" class="sub">Largest Contentful Paint</text>
+<text x="170" y="170" class="threshold">最大内容绘制</text>
+<text x="170" y="195" class="threshold" style="font-weight: 700; fill: var(--c-success);">≤ 2.5s 良好</text>
+<text x="170" y="215" class="threshold" style="fill: var(--c-warning);">≤ 4.0s 需改进</text>
+<text x="170" y="232" class="threshold" style="fill: var(--c-danger);">&gt; 4.0s 差</text>
+<rect x="320" y="100" width="260" height="160" class="metric-good" rx="8"/>
+<text x="450" y="130" class="label">INP</text>
+<text x="450" y="148" class="sub">Interaction to Next Paint</text>
+<text x="450" y="170" class="threshold">交互响应时间</text>
+<text x="450" y="195" class="threshold" style="font-weight: 700; fill: var(--c-success);">≤ 200ms 良好</text>
+<text x="450" y="215" class="threshold" style="fill: var(--c-warning);">≤ 500ms 需改进</text>
+<text x="450" y="232" class="threshold" style="fill: var(--c-danger);">&gt; 500ms 差</text>
+<rect x="600" y="100" width="240" height="160" class="metric-good" rx="8"/>
+<text x="720" y="130" class="label">CLS</text>
+<text x="720" y="148" class="sub">Cumulative Layout Shift</text>
+<text x="720" y="170" class="threshold">累计布局偏移</text>
+<text x="720" y="195" class="threshold" style="font-weight: 700; fill: var(--c-success);">≤ 0.1 良好</text>
+<text x="720" y="215" class="threshold" style="fill: var(--c-warning);">≤ 0.25 需改进</text>
+<text x="720" y="232" class="threshold" style="fill: var(--c-danger);">&gt; 0.25 差</text>
+<rect x="40" y="290" width="380" height="190" style="fill: var(--c-bg-soft); stroke: var(--c-warning); stroke-width: 1.5;" rx="6"/>
+<text x="60" y="318" class="label" text-anchor="start" style="fill: var(--c-warning); font-size: 14px;">辅助指标</text>
+<text x="60" y="343" class="item">• FCP（First Contentful Paint）&lt; 1.8s</text>
+<text x="60" y="363" class="item">• TTFB（Time to First Byte）&lt; 800ms</text>
+<text x="60" y="383" class="item">• TTI（Time to Interactive）&lt; 3.8s</text>
+<text x="60" y="403" class="item">• TBT（Total Blocking Time）&lt; 200ms</text>
+<text x="60" y="423" class="item">• FID（已被 INP 取代）</text>
+<rect x="460" y="290" width="380" height="190" style="fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5;" rx="6"/>
+<text x="480" y="318" class="label" text-anchor="start" style="fill: var(--c-brand); font-size: 14px;">测量工具</text>
+<text x="480" y="343" class="item">• Lighthouse（Chrome DevTools）</text>
+<text x="480" y="363" class="item">• web-vitals npm 包（前端上报）</text>
+<text x="480" y="383" class="item">• Chrome User Experience Report</text>
+<text x="480" y="403" class="item">• PerformanceObserver API</text>
+<text x="480" y="423" class="item">• PageSpeed Insights</text>
+<text x="480" y="443" class="item" style="font-weight: 700;">⚡ 真实用户监控（RUM）才能反映真实体验</text>
+</svg>

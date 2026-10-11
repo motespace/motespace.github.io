@@ -1,0 +1,76 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; --c-warning: #f59e0b; --c-warning-soft: #fffbeb; }
+    @media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; --c-warning: #fbbf24; --c-warning-soft: #451a03; } }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .server-box { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .client-box { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+    .stage-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    .label { font-size: 14px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 11px; fill: var(--c-text); text-anchor: middle; }
+    .item { font-size: 12px; fill: var(--c-text); }
+    .section-title { font-size: 14px; font-weight: 700; fill: var(--c-text); }
+  </style>
+  <defs>
+    <marker id="ax-v12" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">Vue SSR 渲染流程</text>
+  <text x="40" y="62" class="subtitle">服务端：renderToString → 客户端：hydrate</text>
+
+  <rect x="40" y="100" width="380" height="320" class="server-box" rx="8"/>
+  <text x="230" y="130" class="label" style="fill: var(--c-brand); font-size: 16px;">服务端（Node.js）</text>
+
+  <rect x="60" y="155" width="340" height="50" class="stage-box" rx="4"/>
+  <text x="230" y="178" class="label">createApp() 初始化</text>
+  <text x="230" y="195" class="code">new Vue({ ... })</text>
+
+  <line x1="230" y1="205" x2="230" y2="225" class="arrow" marker-end="url(#ax-v12)"/>
+
+  <rect x="60" y="225" width="340" height="50" class="stage-box" rx="4"/>
+  <text x="230" y="248" class="label">renderToString(app)</text>
+  <text x="230" y="265" class="code">组件 → vnode → HTML 字符串</text>
+
+  <line x1="230" y1="275" x2="230" y2="295" class="arrow" marker-end="url(#ax-v12)"/>
+
+  <rect x="60" y="295" width="340" height="50" class="stage-box" rx="4"/>
+  <text x="230" y="318" class="label">注入 HTML + __NUXT__</text>
+  <text x="230" y="335" class="code">客户端状态序列化</text>
+
+  <rect x="440" y="100" width="400" height="320" class="client-box" rx="8"/>
+  <text x="640" y="130" class="label" style="fill: var(--c-success); font-size: 16px;">客户端（浏览器）</text>
+
+  <rect x="460" y="155" width="360" height="50" class="stage-box" rx="4"/>
+  <text x="640" y="178" class="label">接收 HTML 字符串</text>
+  <text x="640" y="195" class="code">浏览器立即渲染首屏</text>
+
+  <line x1="640" y1="205" x2="640" y2="225" class="arrow" marker-end="url(#ax-v12)"/>
+
+  <rect x="460" y="225" width="360" height="50" class="stage-box" rx="4"/>
+  <text x="640" y="248" class="label">app.mount('#app')</text>
+  <text x="640" y="265" class="code">在已有 DOM 上激活（不重建）</text>
+
+  <line x1="640" y1="275" x2="640" y2="295" class="arrow" marker-end="url(#ax-v12)"/>
+
+  <rect x="460" y="295" width="360" height="50" class="stage-box" rx="4"/>
+  <text x="640" y="318" class="label">接管响应式</text>
+  <text x="640" y="335" class="code">hydrate 完成 → SPA 模式</text>
+
+  <line x1="420" y1="320" x2="440" y2="195" class="arrow" marker-end="url(#ax-v12)"/>
+  <text x="430" y="240" class="code" style="font-size: 10px;">HTTP 响应</text>
+
+  <text x="40" y="450" class="section-title" style="fill: var(--c-success);">✓ SSR 优势</text>
+  <text x="40" y="470" class="item">• 首屏直出（HTML 含内容，SEO 友好）</text>
+  <text x="40" y="488" class="item">• FCP 显著提升（无需等待 JS 执行）</text>
+  <text x="40" y="506" class="item">• 移动端弱网体验更好</text>
+
+  <text x="450" y="450" class="section-title" style="fill: var(--c-warning);">⚠ SSR 挑战</text>
+  <text x="450" y="470" class="item">• 服务端 Node 进程开销</text>
+  <text x="450" y="488" class="item">• 不能用 window / document</text>
+  <text x="450" y="506" class="item">• hydration 不一致会警告</text>
+</svg>

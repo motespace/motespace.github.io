@@ -1,0 +1,43 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" width="880" height="480" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+<style>
+:root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; --c-danger: #ef4444; --c-danger-soft: #fee2e2; }
+@media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; --c-danger: #f87171; --c-danger-soft: #7f1d1d; } }
+.title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+.subtitle { font-size: 14px; fill: var(--c-text-soft); }
+.thread-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+.thread-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+.thread-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+.arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+.label { font-size: 14px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+.code { font-family: Consolas, Monaco, monospace; font-size: 11px; fill: var(--c-text); text-anchor: middle; }
+.item { font-size: 12px; fill: var(--c-text); }
+</style>
+<text x="40" y="40" class="title">setData 原理：跨线程数据传递</text>
+<text x="40" y="62" class="subtitle">逻辑层 → JSBridge → 视图层（数据需序列化）</text>
+<rect x="40" y="100" width="380" height="260" class="thread-brand" rx="8"/>
+<text x="230" y="125" class="label" style="fill: var(--c-brand);">逻辑层</text>
+<rect x="60" y="145" width="340" height="50" class="thread-box" rx="4"/>
+<text x="230" y="170" class="label">this.setData({ list: [...] })</text>
+<text x="230" y="187" class="code">开发者调用</text>
+<rect x="60" y="205" width="340" height="50" class="thread-box" rx="4"/>
+<text x="230" y="230" class="label">JSON.stringify(data)</text>
+<text x="230" y="247" class="code">跨线程格式</text>
+<rect x="60" y="265" width="340" height="50" class="thread-box" rx="4"/>
+<text x="230" y="290" class="label">evaluateJavascript</text>
+<text x="230" y="307" class="code">JSBridge 传递</text>
+<rect x="460" y="100" width="380" height="260" class="thread-success" rx="8"/>
+<text x="650" y="125" class="label" style="fill: var(--c-success);">视图层</text>
+<rect x="480" y="145" width="340" height="50" class="thread-box" rx="4"/>
+<text x="650" y="170" class="label">接收数据</text>
+<text x="650" y="187" class="code">JSON.parse → data</text>
+<rect x="480" y="205" width="340" height="50" class="thread-box" rx="4"/>
+<text x="650" y="230" class="label">对比 Virtual DOM</text>
+<text x="650" y="247" class="code">diff 算法</text>
+<rect x="480" y="265" width="340" height="50" class="thread-box" rx="4"/>
+<text x="650" y="290" class="label">更新真实 DOM</text>
+<text x="650" y="307" class="code">仅渲染变化</text>
+<rect x="40" y="380" width="800" height="80" style="fill: var(--c-danger-soft); stroke: var(--c-danger); stroke-width: 1.5;" rx="6"/>
+<text x="60" y="405" class="label" text-anchor="start" style="fill: var(--c-danger);">⚠ setData 性能坑</text>
+<text x="60" y="428" class="item">• 单次数据不能超过 1MB（setData 上限）</text>
+<text x="60" y="450" class="item">• 频繁调用阻塞线程 → 合并 + 节流</text>
+</svg>

@@ -1,0 +1,75 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+      --c-danger: #ef4444; --c-danger-soft: #fee2e2;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+        --c-danger: #f87171; --c-danger-soft: #7f1d1d;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .col-title { font-size: 18px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+    .col-bg { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .col-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 2; }
+    .col-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+    .item-text { font-size: 13px; fill: var(--c-text); }
+    .check { font-size: 16px; font-weight: 700; fill: var(--c-success); }
+    .cross { font-size: 16px; font-weight: 700; fill: var(--c-danger); }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 12px; fill: var(--c-text); }
+    .label { font-size: 13px; font-weight: 700; fill: var(--c-text); }
+  </style>
+
+  <text x="40" y="40" class="title">Vue 2 vs Vue 3 响应式原理对比</text>
+  <text x="40" y="62" class="subtitle">defineProperty 劫持属性 vs Proxy 代理整个对象</text>
+
+  <rect x="40" y="100" width="400" height="380" class="col-warning" rx="8"/>
+  <text x="240" y="135" class="col-title">Vue 2</text>
+  <text x="240" y="155" class="subtitle" text-anchor="middle">Object.defineProperty</text>
+
+  <rect x="440" y="100" width="400" height="380" class="col-success" rx="8"/>
+  <text x="640" y="135" class="col-title">Vue 3</text>
+  <text x="640" y="155" class="subtitle" text-anchor="middle">Proxy</text>
+
+  <text x="60" y="195" class="label">核心机制</text>
+  <text x="60" y="215" class="item-text">遍历每个 key 单独劫持</text>
+  <text x="60" y="235" class="code">Object.defineProperty(obj, key, {</text>
+  <text x="68" y="253" class="code">  get() { dep.depend() },</text>
+  <text x="68" y="271" class="code">  set() { dep.notify() }</text>
+  <text x="60" y="289" class="code">})</text>
+
+  <text x="460" y="195" class="label">核心机制</text>
+  <text x="460" y="215" class="item-text">代理整个对象</text>
+  <text x="460" y="235" class="code">new Proxy(obj, {</text>
+  <text x="468" y="253" class="code">  get() { track() },</text>
+  <text x="468" y="271" class="code">  set() { trigger() }</text>
+  <text x="460" y="289" class="code">})</text>
+
+  <text x="60" y="325" class="label">能力对比</text>
+  <text x="60" y="350" class="cross">✗</text><text x="80" y="350" class="item-text">需要遍历所有属性</text>
+  <text x="60" y="372" class="cross">✗</text><text x="80" y="372" class="item-text">新增/删除属性需要 Vue.set</text>
+  <text x="60" y="394" class="cross">✗</text><text x="80" y="394" class="item-text">数组需要特殊处理（重写 7 个方法）</text>
+  <text x="60" y="416" class="cross">✗</text><text x="80" y="416" class="item-text">嵌套对象需要递归遍历</text>
+
+  <text x="460" y="325" class="label">能力对比</text>
+  <text x="460" y="350" class="check">✓</text><text x="480" y="350" class="item-text">代理整个对象，无需遍历</text>
+  <text x="460" y="372" class="check">✓</text><text x="480" y="372" class="item-text">自动监听新增/删除属性</text>
+  <text x="460" y="394" class="check">✓</text><text x="480" y="394" class="item-text">原生支持数组</text>
+  <text x="460" y="416" class="check">✓</text><text x="480" y="416" class="item-text">惰性代理（懒递归）</text>
+
+  <rect x="40" y="445" width="400" height="30" class="col-warning" rx="4"/>
+  <text x="240" y="465" class="item-text" text-anchor="middle" style="font-weight: 700;">性能：递归遍历慢</text>
+
+  <rect x="440" y="445" width="400" height="30" class="col-success" rx="4"/>
+  <text x="640" y="465" class="item-text" text-anchor="middle" style="font-weight: 700;">性能：惰性代理快</text>
+</svg>

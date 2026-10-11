@@ -1,0 +1,77 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; }
+    @media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; } }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .col-bg { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .col-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+    .col-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .col-title { font-size: 18px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+    .row-label { font-size: 13px; font-weight: 700; fill: var(--c-text-soft); }
+    .cell-text { font-size: 13px; fill: var(--c-text); }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 12px; fill: var(--c-text); }
+  </style>
+
+  <text x="40" y="40" class="title">computed vs watch vs methods 对比</text>
+  <text x="40" y="62" class="subtitle">三者都能响应数据变化，但适用场景完全不同</text>
+
+  <rect x="40" y="100" width="260" height="380" class="col-success" rx="6"/>
+  <text x="170" y="135" class="col-title">computed</text>
+  <text x="170" y="152" class="subtitle" text-anchor="middle">计算属性（有缓存）</text>
+
+  <text x="60" y="185" class="row-label">用途</text>
+  <text x="60" y="205" class="cell-text">从已有数据派生出新值</text>
+  <text x="60" y="225" class="code">const fullName =</text>
+  <text x="68" y="243" class="code">computed(() =&gt;</text>
+  <text x="76" y="261" class="code">first + ' ' + last)</text>
+
+  <text x="60" y="295" class="row-label">缓存</text>
+  <text x="60" y="315" class="cell-text" style="fill: var(--c-success); font-weight: 700;">✓ 依赖不变则不重算</text>
+
+  <text x="60" y="350" class="row-label">返回值</text>
+  <text x="60" y="370" class="cell-text">return 值</text>
+
+  <text x="60" y="405" class="row-label">异步</text>
+  <text x="60" y="425" class="cell-text" style="fill: var(--c-danger);">✗ 不支持（必须同步）</text>
+
+  <rect x="320" y="100" width="260" height="380" class="col-brand" rx="6"/>
+  <text x="450" y="135" class="col-title">watch</text>
+  <text x="450" y="152" class="subtitle" text-anchor="middle">侦听器（执行业务）</text>
+
+  <text x="340" y="185" class="row-label">用途</text>
+  <text x="340" y="205" class="cell-text">数据变化时执行副作用</text>
+  <text x="340" y="225" class="code">watch(count, (n, o) =&gt; {</text>
+  <text x="348" y="243" class="code">  api.sync(n)</text>
+  <text x="340" y="261" class="code">})</text>
+
+  <text x="340" y="295" class="row-label">缓存</text>
+  <text x="340" y="315" class="cell-text" style="fill: var(--c-warning);">无缓存（每次触发执行）</text>
+
+  <text x="340" y="350" class="row-label">返回值</text>
+  <text x="340" y="370" class="cell-text">无返回值（执行业务）</text>
+
+  <text x="340" y="405" class="row-label">异步</text>
+  <text x="340" y="425" class="cell-text" style="fill: var(--c-success); font-weight: 700;">✓ 支持（在回调内 await）</text>
+
+  <rect x="600" y="100" width="240" height="380" class="col-bg" rx="6"/>
+  <text x="720" y="135" class="col-title">methods</text>
+  <text x="720" y="152" class="subtitle" text-anchor="middle">普通方法</text>
+
+  <text x="620" y="185" class="row-label">用途</text>
+  <text x="620" y="205" class="cell-text">事件处理 / 主动调用</text>
+  <text x="620" y="225" class="code">const handleClick =</text>
+  <text x="628" y="243" class="code">() =&gt; {</text>
+  <text x="636" y="261" class="code">count.value++</text>
+  <text x="628" y="279" class="code">}</text>
+
+  <text x="620" y="320" class="row-label">缓存</text>
+  <text x="620" y="340" class="cell-text" style="fill: var(--c-warning);">无缓存（每次调用执行）</text>
+
+  <text x="620" y="380" class="row-label">触发方式</text>
+  <text x="620" y="400" class="cell-text">手动调用（无依赖追踪）</text>
+
+  <rect x="40" y="500" width="800" height="30" class="col-success" rx="4"/>
+  <text x="440" y="520" class="cell-text" text-anchor="middle" style="font-weight: 700;">⚡ 经验法则：要派生值 → computed / 要执行副作用 → watch / 普通逻辑 → methods</text>
+</svg>
