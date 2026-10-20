@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+      --c-danger: #ef4444; --c-danger-soft: #fee2e2;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+        --c-danger: #f87171; --c-danger-soft: #7f1d1d;
+      }
+    }
+    .title { fill: var(--c-text); font-size: 20px; font-weight: 700; }
+    .subtitle { fill: var(--c-text-soft); font-size: 13px; }
+    .label { fill: var(--c-text); font-size: 13px; font-weight: 600; }
+    .label-soft { fill: var(--c-text-soft); font-size: 12px; }
+    .code { font-family: 'SFMono-Regular', Consolas, monospace; fill: var(--c-text); font-size: 12px; }
+    .exporter { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
+    .prom { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .grafana { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+    .alert { fill: var(--c-danger-soft); stroke: var(--c-danger); stroke-width: 2; }
+    .line { stroke: var(--c-border); stroke-width: 1; fill: none; }
+    .line-arrow { stroke-width: 2; fill: none; }
+  </style>
+  <defs>
+    <marker id="pg-arrow-1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="pg-arrow-2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3451b2"/>
+    </marker>
+    <marker id="pg-arrow-3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+    <marker id="pg-arrow-4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">Prometheus + Grafana + Alertmanager 架构</text>
+  <text x="40" y="62" class="subtitle">Pull 模型 + 告警解耦的现代监控标准</text>
+
+  <text x="40" y="100" class="label">被监控目标(应用 + 中间件 + 服务器)</text>
+
+  <rect x="40" y="120" width="130" height="80" rx="6" class="exporter"/>
+  <text x="105" y="148" class="label" text-anchor="middle">应用</text>
+  <text x="105" y="166" class="code" text-anchor="middle">/metrics</text>
+  <text x="105" y="184" class="label-soft" text-anchor="middle">业务指标</text>
+
+  <rect x="190" y="120" width="130" height="80" rx="6" class="exporter"/>
+  <text x="255" y="148" class="label" text-anchor="middle">MySQL</text>
+  <text x="255" y="166" class="code" text-anchor="middle">mysqld_exporter</text>
+  <text x="255" y="184" class="label-soft" text-anchor="middle">QPS · 锁等待</text>
+
+  <rect x="340" y="120" width="130" height="80" rx="6" class="exporter"/>
+  <text x="405" y="148" class="label" text-anchor="middle">Node Exporter</text>
+  <text x="405" y="166" class="code" text-anchor="middle">:9100/metrics</text>
+  <text x="405" y="184" class="label-soft" text-anchor="middle">CPU · 内存 · IO</text>
+
+  <rect x="490" y="120" width="130" height="80" rx="6" class="exporter"/>
+  <text x="555" y="148" class="label" text-anchor="middle">Redis</text>
+  <text x="555" y="166" class="code" text-anchor="middle">redis_exporter</text>
+  <text x="555" y="184" class="label-soft" text-anchor="middle">命中率 · 延迟</text>
+
+  <rect x="640" y="120" width="130" height="80" rx="6" class="exporter"/>
+  <text x="705" y="148" class="label" text-anchor="middle">Nginx</text>
+  <text x="705" y="166" class="code" text-anchor="middle">nginx-prom</text>
+  <text x="705" y="184" class="label-soft" text-anchor="middle">请求 · 状态码</text>
+
+  <rect x="280" y="250" width="320" height="80" rx="8" class="prom"/>
+  <text x="440" y="278" class="label" text-anchor="middle">Prometheus</text>
+  <text x="440" y="296" class="code" text-anchor="middle">TSDB · PromQL · scrape_interval 15s</text>
+  <text x="440" y="314" class="label-soft" text-anchor="middle">主动拉取(pull)</text>
+
+  <rect x="40" y="370" width="200" height="80" rx="8" class="grafana"/>
+  <text x="140" y="398" class="label" text-anchor="middle">Grafana</text>
+  <text x="140" y="416" class="code" text-anchor="middle">数据源:Prometheus</text>
+  <text x="140" y="434" class="label-soft" text-anchor="middle">Dashboard · 告警</text>
+
+  <rect x="280" y="370" width="320" height="80" rx="8" class="alert"/>
+  <text x="440" y="398" class="label" text-anchor="middle">Alertmanager</text>
+  <text x="440" y="416" class="code" text-anchor="middle">routes · group · inhibit</text>
+  <text x="440" y="434" class="label-soft" text-anchor="middle">告警去重 · 静默 · 分组</text>
+
+  <rect x="640" y="370" width="130" height="80" rx="6" fill="none" stroke="#d1d5db" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="705" y="398" class="label" text-anchor="middle">通知</text>
+  <text x="705" y="416" class="code" text-anchor="middle">钉钉 / 邮件</text>
+  <text x="705" y="434" class="label-soft" text-anchor="middle">Slack / 企业微信</text>
+
+  <line x1="105" y1="200" x2="380" y2="248" class="line-arrow" stroke="#f59e0b" marker-end="url(#pg-arrow-1)"/>
+  <line x1="255" y1="200" x2="420" y2="248" class="line-arrow" stroke="#f59e0b" marker-end="url(#pg-arrow-1)"/>
+  <line x1="405" y1="200" x2="440" y2="248" class="line-arrow" stroke="#f59e0b" marker-end="url(#pg-arrow-1)"/>
+  <line x1="555" y1="200" x2="480" y2="248" class="line-arrow" stroke="#f59e0b" marker-end="url(#pg-arrow-1)"/>
+  <line x1="705" y1="200" x2="500" y2="248" class="line-arrow" stroke="#f59e0b" marker-end="url(#pg-arrow-1)"/>
+
+  <line x1="440" y1="330" x2="180" y2="368" class="line-arrow" stroke="#10b981" marker-end="url(#pg-arrow-3)"/>
+  <line x1="440" y1="330" x2="440" y2="368" class="line-arrow" stroke="#ef4444" marker-end="url(#pg-arrow-4)"/>
+
+  <line x1="600" y1="410" x2="638" y2="410" class="line" marker-end="url(#pg-arrow-4)" stroke="#ef4444" stroke-width="2"/>
+  <text x="710" y="468" class="label-soft" text-anchor="middle">告警送达</text>
+
+  <text x="40" y="200" class="label-soft" text-anchor="middle">暴露 /metrics 端点</text>
+  <text x="280" y="488" class="label-soft">PromQL 查询 · 记录规则 · 告警规则</text>
+</svg>

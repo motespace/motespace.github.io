@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+      }
+    }
+    .title { fill: var(--c-text); font-size: 20px; font-weight: 700; }
+    .subtitle { fill: var(--c-text-soft); font-size: 13px; }
+    .label { fill: var(--c-text); font-size: 13px; font-weight: 600; }
+    .label-soft { fill: var(--c-text-soft); font-size: 12px; }
+    .code { font-family: 'SFMono-Regular', Consolas, monospace; fill: var(--c-text); font-size: 13px; }
+    .box-master { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .box-slave { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+    .box-log { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
+    .subbox { fill: none; stroke-width: 1.5; }
+    .line { stroke: var(--c-border); stroke-width: 1; fill: none; }
+    .line-brand { stroke: var(--c-brand); stroke-width: 2; fill: none; }
+    .line-success { stroke: var(--c-success); stroke-width: 2; fill: none; }
+  </style>
+  <defs>
+    <marker id="r-arrow-brand" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3451b2"/>
+    </marker>
+    <marker id="r-arrow-success" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">MySQL 主从复制架构</text>
+  <text x="40" y="62" class="subtitle">Master 写 binlog → Slave 拉取 → 回放</text>
+
+  <rect x="60" y="100" width="280" height="340" rx="8" class="box-master"/>
+  <text x="200" y="130" class="label" text-anchor="middle">Master (主库)</text>
+  <text x="200" y="150" class="label-soft" text-anchor="middle">接收所有写请求</text>
+
+  <rect x="80" y="170" width="240" height="50" rx="4" class="subbox" stroke="#3451b2"/>
+  <text x="200" y="190" class="label" text-anchor="middle">事务执行</text>
+  <text x="200" y="206" class="label-soft" text-anchor="middle">INSERT / UPDATE / DELETE</text>
+
+  <rect x="80" y="240" width="240" height="50" rx="4" class="box-log"/>
+  <text x="200" y="260" class="label" text-anchor="middle">binlog (归档日志)</text>
+  <text x="200" y="276" class="code" text-anchor="middle">mysql-bin.000001</text>
+
+  <rect x="80" y="310" width="240" height="50" rx="4" class="subbox" stroke="#3451b2"/>
+  <text x="200" y="330" class="label" text-anchor="middle">Dump Thread</text>
+  <text x="200" y="346" class="label-soft" text-anchor="middle">响应 Slave IO 请求</text>
+
+  <rect x="80" y="380" width="240" height="50" rx="4" class="subbox" stroke="#3451b2"/>
+  <text x="200" y="400" class="label" text-anchor="middle">数据文件</text>
+  <text x="200" y="416" class="code" text-anchor="middle">ibd / ibdata</text>
+
+  <rect x="540" y="100" width="280" height="340" rx="8" class="box-slave"/>
+  <text x="680" y="130" class="label" text-anchor="middle">Slave (从库)</text>
+  <text x="680" y="150" class="label-soft" text-anchor="middle">承担读请求</text>
+
+  <rect x="560" y="170" width="240" height="50" rx="4" class="subbox" stroke="#10b981"/>
+  <text x="680" y="190" class="label" text-anchor="middle">IO Thread</text>
+  <text x="680" y="206" class="label-soft" text-anchor="middle">连 Master 拉 binlog</text>
+
+  <rect x="560" y="240" width="240" height="50" rx="4" class="box-log"/>
+  <text x="680" y="260" class="label" text-anchor="middle">Relay Log (中继日志)</text>
+  <text x="680" y="276" class="code" text-anchor="middle">relay-bin.000001</text>
+
+  <rect x="560" y="310" width="240" height="50" rx="4" class="subbox" stroke="#10b981"/>
+  <text x="680" y="330" class="label" text-anchor="middle">SQL Thread</text>
+  <text x="680" y="346" class="label-soft" text-anchor="middle">回放 relay log 到数据</text>
+
+  <rect x="560" y="380" width="240" height="50" rx="4" class="subbox" stroke="#10b981"/>
+  <text x="680" y="400" class="label" text-anchor="middle">数据文件</text>
+  <text x="680" y="416" class="code" text-anchor="middle">ibd / ibdata</text>
+
+  <line x1="320" y1="265" x2="558" y2="195" class="line-brand" marker-end="url(#r-arrow-brand)"/>
+  <text x="395" y="220" class="label-soft" text-anchor="middle">① Master 推 binlog 到 Slave</text>
+
+  <line x1="680" y1="222" x2="680" y2="238" class="line-success"/>
+  <line x1="680" y1="292" x2="680" y2="308" class="line-success"/>
+  <line x1="560" y1="335" x2="680" y2="265" class="line-success" marker-end="url(#r-arrow-success)"/>
+  <text x="450" y="345" class="label-soft" text-anchor="end">② SQL Thread 回放 relay log</text>
+</svg>

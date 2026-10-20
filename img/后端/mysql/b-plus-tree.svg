@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 620" width="880" height="620"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+      }
+    }
+    .title { fill: var(--c-text); font-size: 20px; font-weight: 700; }
+    .subtitle { fill: var(--c-text-soft); font-size: 13px; }
+    .label { fill: var(--c-text); font-size: 13px; font-weight: 600; }
+    .label-soft { fill: var(--c-text-soft); font-size: 12px; }
+    .key-val { fill: var(--c-text); font-size: 14px; font-weight: 600; }
+    .node-internal { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
+    .node-leaf { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    .line-brand { stroke: var(--c-brand); stroke-width: 1.5; fill: none; }
+    .line-success { stroke: var(--c-success); stroke-width: 2; fill: none; }
+  </style>
+  <defs>
+    <marker id="leaf-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">B+ 树:InnoDB 索引的底层结构</text>
+  <text x="40" y="62" class="subtitle">非叶子节点只存键值,叶子节点存数据 + 链表串联</text>
+
+  <rect x="340" y="100" width="200" height="50" rx="6" class="node-internal"/>
+  <text x="395" y="132" class="key-val" text-anchor="middle">50</text>
+  <text x="445" y="132" class="key-val" text-anchor="middle">100</text>
+
+  <rect x="100" y="200" width="180" height="50" rx="6" class="node-internal"/>
+  <text x="140" y="232" class="key-val" text-anchor="middle">10</text>
+  <text x="200" y="232" class="key-val" text-anchor="middle">30</text>
+
+  <rect x="350" y="200" width="180" height="50" rx="6" class="node-internal"/>
+  <text x="395" y="232" class="key-val" text-anchor="middle">50</text>
+  <text x="455" y="232" class="key-val" text-anchor="middle">70</text>
+
+  <rect x="600" y="200" width="180" height="50" rx="6" class="node-internal"/>
+  <text x="650" y="232" class="key-val" text-anchor="middle">90</text>
+  <text x="710" y="232" class="key-val" text-anchor="middle">110</text>
+
+  <line x1="440" y1="150" x2="190" y2="198" class="line-brand"/>
+  <line x1="440" y1="150" x2="440" y2="198" class="line-brand"/>
+  <line x1="440" y1="150" x2="690" y2="198" class="line-brand"/>
+
+  <rect x="60" y="300" width="160" height="60" rx="6" class="node-leaf"/>
+  <text x="85" y="324" class="label" text-anchor="middle">10</text>
+  <text x="115" y="324" class="label" text-anchor="middle">20</text>
+  <text x="145" y="324" class="label" text-anchor="middle">30</text>
+  <text x="140" y="346" class="label-soft" text-anchor="middle">[完整行数据]</text>
+
+  <rect x="260" y="300" width="160" height="60" rx="6" class="node-leaf"/>
+  <text x="285" y="324" class="label" text-anchor="middle">50</text>
+  <text x="315" y="324" class="label" text-anchor="middle">60</text>
+  <text x="345" y="324" class="label" text-anchor="middle">70</text>
+  <text x="340" y="346" class="label-soft" text-anchor="middle">[完整行数据]</text>
+
+  <rect x="460" y="300" width="160" height="60" rx="6" class="node-leaf"/>
+  <text x="485" y="324" class="label" text-anchor="middle">80</text>
+  <text x="515" y="324" class="label" text-anchor="middle">90</text>
+  <text x="545" y="324" class="label" text-anchor="middle">100</text>
+  <text x="540" y="346" class="label-soft" text-anchor="middle">[完整行数据]</text>
+
+  <rect x="660" y="300" width="160" height="60" rx="6" class="node-leaf"/>
+  <text x="685" y="324" class="label" text-anchor="middle">110</text>
+  <text x="715" y="324" class="label" text-anchor="middle">120</text>
+  <text x="745" y="324" class="label" text-anchor="middle">130</text>
+  <text x="740" y="346" class="label-soft" text-anchor="middle">[完整行数据]</text>
+
+  <line x1="190" y1="250" x2="140" y2="298" class="line-brand"/>
+  <line x1="190" y1="250" x2="220" y2="298" class="line-brand"/>
+  <line x1="440" y1="250" x2="340" y2="298" class="line-brand"/>
+  <line x1="440" y1="250" x2="420" y2="298" class="line-brand"/>
+  <line x1="690" y1="250" x2="540" y2="298" class="line-brand"/>
+  <line x1="690" y1="250" x2="740" y2="298" class="line-brand"/>
+
+  <line x1="220" y1="330" x2="258" y2="330" class="line-success" marker-end="url(#leaf-arrow)"/>
+  <line x1="420" y1="330" x2="458" y2="330" class="line-success" marker-end="url(#leaf-arrow)"/>
+  <line x1="620" y1="330" x2="658" y2="330" class="line-success" marker-end="url(#leaf-arrow)"/>
+
+  <text x="40" y="395" class="label">非叶子节点:</text>
+  <text x="40" y="415" class="label-soft">只存 [索引键值, 子节点指针], 不存数据</text>
+  <text x="40" y="432" class="label-soft">一页能装更多指针 → 树更矮 → IO 更少(通常 3-4 层)</text>
+
+  <text x="40" y="465" class="label">叶子节点:</text>
+  <text x="40" y="485" class="label-soft">聚簇索引:叶子存完整行数据</text>
+  <text x="40" y="502" class="label-soft">二级索引:叶子存主键值(回表查询时用)</text>
+
+  <text x="460" y="465" class="label">链表串联:</text>
+  <text x="460" y="485" class="label-soft">叶子用双向链表连起来</text>
+  <text x="460" y="502" class="label-soft">范围查询不用回上层 → ORDER BY / BETWEEN 极快</text>
+
+  <text x="460" y="535" class="label">查询路径:</text>
+  <text x="460" y="555" class="label-soft">SELECT * WHERE id = 90:</text>
+  <text x="460" y="572" class="label-soft">root(100) → 内部(90) → 叶子(90) → 完整行</text>
+  <text x="460" y="589" class="label-soft">3 层 B+ 树 = 3 次磁盘 IO 找到数据</text>
+</svg>

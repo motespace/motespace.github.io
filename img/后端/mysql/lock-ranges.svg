@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+      --c-danger: #ef4444; --c-danger-soft: #fee2e2;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+        --c-danger: #f87171; --c-danger-soft: #7f1d1d;
+      }
+    }
+    .title { fill: var(--c-text); font-size: 20px; font-weight: 700; }
+    .subtitle { fill: var(--c-text-soft); font-size: 13px; }
+    .label { fill: var(--c-text); font-size: 13px; font-weight: 600; }
+    .label-soft { fill: var(--c-text-soft); font-size: 12px; }
+    .code { font-family: 'SFMono-Regular', Consolas, monospace; fill: var(--c-text); font-size: 13px; }
+    .axis { stroke: var(--c-border); stroke-width: 1.5; }
+    .tick { fill: var(--c-text); font-size: 13px; font-weight: 600; }
+    .record { fill: var(--c-danger); opacity: 0.7; }
+    .gap { fill: var(--c-warning); opacity: 0.4; }
+    .nextkey { fill: var(--c-brand); opacity: 0.5; }
+    .frame { fill: none; stroke: var(--c-border); stroke-width: 1; stroke-dasharray: 3,3; }
+  </style>
+
+  <text x="40" y="40" class="title">InnoDB 三种行锁的范围</text>
+  <text x="40" y="62" class="subtitle">索引上的锁不是"行"而是"区间"</text>
+
+  <line x1="80" y1="120" x2="800" y2="120" class="axis"/>
+  <text x="60" y="125" class="tick" text-anchor="end">-∞</text>
+  <text x="820" y="125" class="tick">+∞</text>
+
+  <line x1="180" y1="115" x2="180" y2="125" class="axis"/>
+  <text x="180" y="148" class="tick" text-anchor="middle">5</text>
+  <line x1="320" y1="115" x2="320" y2="125" class="axis"/>
+  <text x="320" y="148" class="tick" text-anchor="middle">10</text>
+  <line x1="460" y1="115" x2="460" y2="125" class="axis"/>
+  <text x="460" y="148" class="tick" text-anchor="middle">15</text>
+  <line x1="600" y1="115" x2="600" y2="125" class="axis"/>
+  <text x="600" y="148" class="tick" text-anchor="middle">20</text>
+  <line x1="740" y1="115" x2="740" y2="125" class="axis"/>
+  <text x="740" y="148" class="tick" text-anchor="middle">25</text>
+
+  <rect x="40" y="190" width="800" height="80" rx="6" class="frame"/>
+  <text x="60" y="215" class="label">Record Lock(记录锁)</text>
+  <text x="60" y="234" class="code">SELECT * FROM t WHERE id = 15 FOR UPDATE;</text>
+  <rect x="455" y="250" width="10" height="14" class="record"/>
+  <text x="60" y="262" class="label-soft">只锁 id=15 这条记录</text>
+
+  <rect x="40" y="290" width="800" height="80" rx="6" class="frame"/>
+  <text x="60" y="315" class="label">Gap Lock(间隙锁)</text>
+  <text x="60" y="334" class="code">SELECT * FROM t WHERE id BETWEEN 10 AND 20 FOR UPDATE;</text>
+  <rect x="323" y="350" width="134" height="14" class="gap"/>
+  <text x="60" y="362" class="label-soft">锁住 (10, 20) 这个间隙,别人不能插 id=11~19</text>
+
+  <rect x="40" y="390" width="800" height="80" rx="6" class="frame"/>
+  <text x="60" y="415" class="label">Next-Key Lock(临键锁,默认)</text>
+  <text x="60" y="434" class="code">SELECT * FROM t WHERE id = 15 FOR UPDATE;  (REPEATABLE READ 默认)</text>
+  <rect x="323" y="450" width="134" height="14" class="nextkey"/>
+  <rect x="455" y="450" width="10" height="14" class="record"/>
+  <text x="60" y="462" class="label-soft">Record(15) + 左 Gap(10, 15),左开右闭区间 [10, 15]</text>
+</svg>

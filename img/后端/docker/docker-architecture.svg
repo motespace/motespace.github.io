@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+      }
+    }
+    .title { fill: var(--c-text); font-size: 20px; font-weight: 700; }
+    .subtitle { fill: var(--c-text-soft); font-size: 13px; }
+    .label { fill: var(--c-text); font-size: 13px; font-weight: 600; }
+    .label-soft { fill: var(--c-text-soft); font-size: 12px; }
+    .code { font-family: 'SFMono-Regular', Consolas, monospace; fill: var(--c-text); font-size: 13px; }
+    .box-client { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 2; }
+    .box-host { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .box-registry { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+    .subbox { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .line { stroke: var(--c-border); stroke-width: 1; fill: none; }
+    .line-brand { stroke: var(--c-brand); stroke-width: 2; fill: none; }
+  </style>
+  <defs>
+    <marker id="d-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3451b2"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">Docker 整体架构</text>
+  <text x="40" y="62" class="subtitle">客户端 / Docker Host / Registry 三层关系</text>
+
+  <rect x="60" y="100" width="200" height="340" rx="8" class="box-client"/>
+  <text x="160" y="130" class="label" text-anchor="middle">Docker Client</text>
+  <text x="160" y="150" class="label-soft" text-anchor="middle">客户端</text>
+
+  <rect x="80" y="180" width="160" height="40" rx="4" class="subbox"/>
+  <text x="160" y="206" class="code" text-anchor="middle">docker build</text>
+
+  <rect x="80" y="232" width="160" height="40" rx="4" class="subbox"/>
+  <text x="160" y="258" class="code" text-anchor="middle">docker pull</text>
+
+  <rect x="80" y="284" width="160" height="40" rx="4" class="subbox"/>
+  <text x="160" y="310" class="code" text-anchor="middle">docker run</text>
+
+  <rect x="80" y="336" width="160" height="40" rx="4" class="subbox"/>
+  <text x="160" y="362" class="code" text-anchor="middle">docker compose</text>
+
+  <rect x="320" y="100" width="280" height="340" rx="8" class="box-host"/>
+  <text x="460" y="130" class="label" text-anchor="middle">Docker Host (宿主机)</text>
+
+  <rect x="340" y="160" width="240" height="50" rx="4" fill="none" stroke="#3451b2" stroke-width="1.5"/>
+  <text x="460" y="180" class="label" text-anchor="middle">Docker Daemon (dockerd)</text>
+  <text x="460" y="196" class="label-soft" text-anchor="middle">REST API · 守护进程</text>
+
+  <rect x="340" y="220" width="115" height="40" rx="4" class="subbox"/>
+  <text x="397" y="244" class="code" text-anchor="middle">Images</text>
+
+  <rect x="465" y="220" width="115" height="40" rx="4" class="subbox"/>
+  <text x="522" y="244" class="code" text-anchor="middle">Containers</text>
+
+  <rect x="340" y="270" width="115" height="40" rx="4" class="subbox"/>
+  <text x="397" y="294" class="code" text-anchor="middle">Networks</text>
+
+  <rect x="465" y="270" width="115" height="40" rx="4" class="subbox"/>
+  <text x="522" y="294" class="code" text-anchor="middle">Volumes</text>
+
+  <rect x="340" y="320" width="240" height="50" rx="4" fill="none" stroke="#3451b2" stroke-width="1.5"/>
+  <text x="460" y="340" class="label" text-anchor="middle">containerd / runc</text>
+  <text x="460" y="356" class="label-soft" text-anchor="middle">容器运行时</text>
+
+  <rect x="340" y="380" width="240" height="50" rx="4" fill="none" stroke="#3451b2" stroke-width="1.5"/>
+  <text x="460" y="400" class="label" text-anchor="middle">Linux Kernel</text>
+  <text x="460" y="416" class="label-soft" text-anchor="middle">cgroups · namespaces · unionfs</text>
+
+  <rect x="660" y="100" width="160" height="340" rx="8" class="box-registry"/>
+  <text x="740" y="130" class="label" text-anchor="middle">Registry</text>
+  <text x="740" y="150" class="label-soft" text-anchor="middle">镜像仓库</text>
+
+  <rect x="680" y="180" width="120" height="40" rx="4" class="subbox"/>
+  <text x="740" y="206" class="code" text-anchor="middle">Docker Hub</text>
+
+  <rect x="680" y="240" width="120" height="40" rx="4" class="subbox"/>
+  <text x="740" y="266" class="code" text-anchor="middle">阿里云 ACR</text>
+
+  <rect x="680" y="300" width="120" height="40" rx="4" class="subbox"/>
+  <text x="740" y="326" class="code" text-anchor="middle">Harbor</text>
+
+  <rect x="680" y="360" width="120" height="40" rx="4" class="subbox"/>
+  <text x="740" y="386" class="code" text-anchor="middle">私有仓库</text>
+
+  <line x1="260" y1="200" x2="338" y2="185" class="line-brand" marker-end="url(#d-arrow)"/>
+  <text x="295" y="190" class="label-soft" text-anchor="middle">REST API</text>
+
+  <line x1="600" y1="200" x2="678" y2="200" class="line-brand" marker-end="url(#d-arrow)"/>
+  <text x="640" y="195" class="label-soft" text-anchor="middle">pull</text>
+
+  <line x1="678" y1="320" x2="600" y2="320" class="line-brand" marker-end="url(#d-arrow)"/>
+  <text x="640" y="315" class="label-soft" text-anchor="middle">push</text>
+
+  <text x="40" y="475" class="label-soft">"docker build" 流程:Client → Daemon 构建 → 本地 Images;   "docker run" 流程:本地 Images → Daemon → Container</text>
+</svg>

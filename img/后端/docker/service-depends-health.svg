@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+      --c-danger: #ef4444; --c-danger-soft: #fee2e2;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+        --c-danger: #f87171; --c-danger-soft: #7f1d1d;
+      }
+    }
+    .title { fill: var(--c-text); font-size: 20px; font-weight: 700; }
+    .subtitle { fill: var(--c-text-soft); font-size: 13px; }
+    .label { fill: var(--c-text); font-size: 13px; font-weight: 600; }
+    .label-soft { fill: var(--c-text-soft); font-size: 12px; }
+    .code { font-family: 'SFMono-Regular', Consolas, monospace; fill: var(--c-text); font-size: 13px; }
+    .service { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .lifecycle-starting { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
+    .lifecycle-healthy { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    .lifecycle-unhealthy { fill: var(--c-danger-soft); stroke: var(--c-danger); stroke-width: 1.5; }
+    .line { stroke: var(--c-border); stroke-width: 1; fill: none; }
+    .line-success { stroke: var(--c-success); stroke-width: 2; fill: none; }
+    .line-brand { stroke: var(--c-brand); stroke-width: 2; fill: none; }
+  </style>
+  <defs>
+    <marker id="sh-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3451b2"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">服务依赖 + 健康检查时序</text>
+  <text x="40" y="62" class="subtitle">depends_on + condition: service_healthy 的真实时序</text>
+
+  <rect x="60" y="100" width="180" height="50" rx="6" class="service"/>
+  <text x="150" y="130" class="label" text-anchor="middle">db (MySQL)</text>
+
+  <rect x="60" y="170" width="180" height="50" rx="6" class="service"/>
+  <text x="150" y="200" class="label" text-anchor="middle">cache (Redis)</text>
+
+  <rect x="60" y="240" width="180" height="50" rx="6" class="service"/>
+  <text x="150" y="270" class="label" text-anchor="middle">web (应用)</text>
+
+  <line x1="240" y1="125" x2="800" y2="125" class="line" stroke-dasharray="3,3"/>
+  <line x1="240" y1="195" x2="800" y2="195" class="line" stroke-dasharray="3,3"/>
+  <line x1="240" y1="265" x2="800" y2="265" class="line" stroke-dasharray="3,3"/>
+
+  <!-- db timeline -->
+  <rect x="280" y="100" width="60" height="50" rx="4" class="lifecycle-starting"/>
+  <text x="310" y="120" class="code" text-anchor="middle">starting</text>
+  <text x="310" y="138" class="label-soft" text-anchor="middle">5s</text>
+
+  <rect x="340" y="100" width="200" height="50" rx="4" class="lifecycle-healthy"/>
+  <text x="440" y="120" class="code" text-anchor="middle">healthy ✓</text>
+  <text x="440" y="138" class="label-soft" text-anchor="middle">mysqladmin ping 通了</text>
+
+  <rect x="540" y="100" width="240" height="50" rx="4" class="service"/>
+  <text x="660" y="120" class="code" text-anchor="middle">running</text>
+  <text x="660" y="138" class="label-soft" text-anchor="middle">持续接收连接</text>
+
+  <!-- cache timeline -->
+  <rect x="280" y="170" width="120" height="50" rx="4" class="lifecycle-starting"/>
+  <text x="340" y="190" class="code" text-anchor="middle">starting → ready</text>
+  <text x="340" y="208" class="label-soft" text-anchor="middle">~ 3s</text>
+
+  <rect x="400" y="170" width="380" height="50" rx="4" class="service"/>
+  <text x="590" y="190" class="code" text-anchor="middle">running</text>
+  <text x="590" y="208" class="label-soft" text-anchor="middle">Redis 启动极快</text>
+
+  <!-- web timeline -->
+  <rect x="540" y="240" width="60" height="50" rx="4" class="lifecycle-starting"/>
+  <text x="570" y="260" class="code" text-anchor="middle">waiting</text>
+  <text x="570" y="278" class="label-soft" text-anchor="middle">等 db</text>
+
+  <rect x="600" y="240" width="180" height="50" rx="4" class="lifecycle-healthy"/>
+  <text x="690" y="260" class="code" text-anchor="middle">starting → ready</text>
+  <text x="690" y="278" class="label-soft" text-anchor="middle">db healthy 后才起</text>
+
+  <text x="290" y="335" class="label">时序关键点:</text>
+  <text x="290" y="355" class="label-soft">1. db / cache 同时启动(无依赖)</text>
+  <text x="290" y="372" class="label-soft">2. web 启动被"卡住",等 db healthy(depends_on + condition)</text>
+  <text x="290" y="389" class="label-soft">3. cache 没设 healthcheck,service_started 就放行</text>
+  <text x="290" y="406" class="label-soft">4. web 启动后,docker compose up 完成</text>
+
+  <text x="40" y="450" class="label">典型配置:</text>
+  <text x="40" y="470" class="code">depends_on:</text>
+  <text x="40" y="486" class="code">  db:</text>
+  <text x="40" y="500" class="code">    condition: service_healthy   ← 关键</text>
+</svg>

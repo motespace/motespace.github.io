@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 620" width="880" height="620"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+      --c-danger: #ef4444; --c-danger-soft: #fee2e2;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+        --c-danger: #f87171; --c-danger-soft: #7f1d1d;
+      }
+    }
+    .title { fill: var(--c-text); font-size: 20px; font-weight: 700; }
+    .subtitle { fill: var(--c-text-soft); font-size: 13px; }
+    .label { fill: var(--c-text); font-size: 13px; font-weight: 600; }
+    .label-cn { fill: var(--c-text); font-size: 14px; font-weight: 600; }
+    .label-soft { fill: var(--c-text-soft); font-size: 12px; }
+    .code { font-family: 'SFMono-Regular', Consolas, monospace; fill: var(--c-text); font-size: 13px; }
+    .box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
+    .box-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
+    .box-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    .box-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
+    .box-danger { fill: var(--c-danger-soft); stroke: var(--c-danger); stroke-width: 1.5; }
+    .line-brand { stroke: var(--c-brand); stroke-width: 2; fill: none; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3451b2"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">MySQL 整体架构</text>
+  <text x="40" y="62" class="subtitle">从连接器到磁盘的四层结构</text>
+
+  <rect x="40" y="90" width="800" height="60" rx="6" class="box"/>
+  <text x="60" y="115" class="label-cn">客户端连接器 (Connectors)</text>
+  <text x="60" y="138" class="label-soft">JDBC · ODBC · mysqlclient · mysql2 · PyMySQL · mysql-connector</text>
+
+  <rect x="40" y="180" width="800" height="190" rx="6" class="box-brand"/>
+  <text x="60" y="205" class="label-cn">SQL 层 (Server Layer)</text>
+
+  <rect x="60" y="222" width="148" height="62" rx="4" class="box"/>
+  <text x="134" y="248" class="label" text-anchor="middle">连接池</text>
+  <text x="134" y="268" class="label-soft" text-anchor="middle">Conn Pool</text>
+
+  <rect x="218" y="222" width="148" height="62" rx="4" class="box"/>
+  <text x="292" y="248" class="label" text-anchor="middle">SQL 接口</text>
+  <text x="292" y="268" class="label-soft" text-anchor="middle">SQL Interface</text>
+
+  <rect x="376" y="222" width="148" height="62" rx="4" class="box"/>
+  <text x="450" y="248" class="label" text-anchor="middle">解析器</text>
+  <text x="450" y="268" class="label-soft" text-anchor="middle">Parser</text>
+
+  <rect x="534" y="222" width="148" height="62" rx="4" class="box"/>
+  <text x="608" y="248" class="label" text-anchor="middle">优化器</text>
+  <text x="608" y="268" class="label-soft" text-anchor="middle">Optimizer</text>
+
+  <rect x="692" y="222" width="148" height="62" rx="4" class="box"/>
+  <text x="766" y="248" class="label" text-anchor="middle">执行器</text>
+  <text x="766" y="268" class="label-soft" text-anchor="middle">Executor</text>
+
+  <text x="60" y="308" class="label-soft">Buffer Pool · Change Buffer · Redo Log Buffer · 自适应哈希索引</text>
+  <text x="60" y="328" class="label-soft">日志:binlog(归档) · error log · slow query log · relay log(从库)</text>
+  <text x="60" y="350" class="label-soft">"8.0 起查询缓存已移除,buffer pool 是主要缓存"</text>
+
+  <rect x="40" y="400" width="800" height="90" rx="6" class="box-success"/>
+  <text x="60" y="425" class="label-cn">存储引擎层 (Pluggable Storage Engines)</text>
+
+  <rect x="60" y="440" width="240" height="40" rx="4" class="box"/>
+  <text x="180" y="466" class="label" text-anchor="middle">InnoDB(默认)</text>
+
+  <rect x="320" y="440" width="240" height="40" rx="4" class="box"/>
+  <text x="440" y="466" class="label" text-anchor="middle">MyISAM</text>
+
+  <rect x="580" y="440" width="240" height="40" rx="4" class="box"/>
+  <text x="700" y="466" class="label" text-anchor="middle">Memory · CSV · Archive</text>
+
+  <rect x="40" y="520" width="390" height="80" rx="6" class="box-warning"/>
+  <text x="60" y="545" class="label-cn">数据文件</text>
+  <text x="60" y="568" class="code">/var/lib/mysql/</text>
+  <text x="60" y="588" class="label-soft">ibdata1 · *.ibd · *.frm</text>
+
+  <rect x="450" y="520" width="390" height="80" rx="6" class="box-danger"/>
+  <text x="470" y="545" class="label-cn">日志文件</text>
+  <text x="470" y="568" class="code">/var/log/mysql/</text>
+  <text x="470" y="588" class="label-soft">redo.log · binlog.* · slow.log</text>
+
+  <line x1="440" y1="150" x2="440" y2="178" class="line-brand" marker-end="url(#arrow)"/>
+  <line x1="440" y1="370" x2="440" y2="398" class="line-brand" marker-end="url(#arrow)"/>
+  <line x1="440" y1="490" x2="440" y2="518" class="line-brand" marker-end="url(#arrow)"/>
+</svg>

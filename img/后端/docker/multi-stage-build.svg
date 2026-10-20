@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+      --c-danger: #ef4444; --c-danger-soft: #fee2e2;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+        --c-danger: #f87171; --c-danger-soft: #7f1d1d;
+      }
+    }
+    .title { fill: var(--c-text); font-size: 20px; font-weight: 700; }
+    .subtitle { fill: var(--c-text-soft); font-size: 13px; }
+    .label { fill: var(--c-text); font-size: 13px; font-weight: 600; }
+    .label-soft { fill: var(--c-text-soft); font-size: 12px; }
+    .code { font-family: 'SFMono-Regular', Consolas, monospace; fill: var(--c-text); font-size: 12px; }
+    .layer-base { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
+    .layer-deps { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
+    .layer-source { fill: var(--c-danger-soft); stroke: var(--c-danger); stroke-width: 1.5; }
+    .layer-build { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
+    .layer-final { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    .frame { fill: none; stroke: var(--c-border); stroke-width: 1; stroke-dasharray: 3,3; }
+    .line-brand { stroke: var(--c-brand); stroke-width: 2; fill: none; }
+    .line-success { stroke: var(--c-success); stroke-width: 2; fill: none; }
+  </style>
+  <defs>
+    <marker id="ms-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">Docker 多阶段构建</text>
+  <text x="40" y="62" class="subtitle">构建用大镜像,运行时只拷产物 → 镜像小 10x</text>
+
+  <rect x="40" y="90" width="380" height="370" rx="6" class="frame"/>
+  <text x="230" y="115" class="label" text-anchor="middle">阶段 1:builder (临时)</text>
+  <text x="230" y="135" class="label-soft" text-anchor="middle">"FROM node:20-alpine AS builder"</text>
+
+  <rect x="60" y="160" width="340" height="50" rx="4" class="layer-base"/>
+  <text x="80" y="184" class="label">node:20-alpine</text>
+  <text x="80" y="200" class="label-soft">~ 50 MB · 包含 Node 运行时</text>
+
+  <rect x="60" y="220" width="340" height="50" rx="4" class="layer-deps"/>
+  <text x="80" y="244" class="label">node_modules</text>
+  <text x="80" y="260" class="label-soft">~ 200 MB · 全部开发依赖</text>
+
+  <rect x="60" y="280" width="340" height="50" rx="4" class="layer-source"/>
+  <text x="80" y="304" class="label">源代码 + 构建工具</text>
+  <text x="80" y="320" class="label-soft">~ 100 MB · src/ · tsconfig · webpack</text>
+
+  <rect x="60" y="340" width="340" height="50" rx="4" class="layer-build"/>
+  <text x="80" y="364" class="label">dist/(构建产物)</text>
+  <text x="80" y="380" class="label-soft">~ 5 MB · 编译后的 JS + 资源</text>
+
+  <text x="60" y="420" class="label">阶段 1 镜像大小:</text>
+  <text x="180" y="420" class="label-soft" fill="#ef4444">~ 355 MB(但不用,被丢弃)</text>
+
+  <rect x="460" y="90" width="380" height="370" rx="6" class="frame"/>
+  <text x="650" y="115" class="label" text-anchor="middle">阶段 2:runtime (最终)</text>
+  <text x="650" y="135" class="label-soft" text-anchor="middle">"FROM node:20-alpine"</text>
+
+  <rect x="480" y="160" width="340" height="50" rx="4" class="layer-base"/>
+  <text x="500" y="184" class="label">node:20-alpine</text>
+  <text x="500" y="200" class="label-soft">~ 50 MB · 运行时基础</text>
+
+  <rect x="480" y="220" width="340" height="50" rx="4" class="layer-base" fill-opacity="0.5" stroke-dasharray="5,5"/>
+  <text x="500" y="244" class="label-soft">-- 空层(node_modules 不拷 --</text>
+
+  <rect x="480" y="280" width="340" height="50" rx="4" class="layer-final"/>
+  <text x="500" y="304" class="label">COPY --from=builder /app/dist</text>
+  <text x="500" y="320" class="label-soft">~ 5 MB · 只拷构建产物</text>
+
+  <rect x="480" y="340" width="340" height="50" rx="4" class="layer-final"/>
+  <text x="500" y="364" class="label">package.json</text>
+  <text x="500" y="380" class="label-soft">~ 1 KB · 启动信息</text>
+
+  <text x="480" y="420" class="label">最终镜像大小:</text>
+  <text x="600" y="420" class="label-soft" fill="#10b981">~ 55 MB(节省 ~85%)</text>
+
+  <line x1="400" y1="365" x2="478" y2="305" class="line-success" marker-end="url(#ms-arrow)"/>
+  <text x="438" y="330" class="label-soft" text-anchor="middle">COPY</text>
+  <text x="438" y="348" class="label-soft" text-anchor="middle">--from=builder</text>
+
+  <text x="40" y="488" class="label-soft">关键指令:每个 FROM 开始新阶段,只有最后一个阶段会进最终镜像</text>
+</svg>

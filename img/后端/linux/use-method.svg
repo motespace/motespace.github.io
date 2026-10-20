@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+      --c-danger: #ef4444; --c-danger-soft: #fee2e2;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+        --c-danger: #f87171; --c-danger-soft: #7f1d1d;
+      }
+    }
+    .title { fill: var(--c-text); font-size: 20px; font-weight: 700; }
+    .subtitle { fill: var(--c-text-soft); font-size: 13px; }
+    .label { fill: var(--c-text); font-size: 13px; font-weight: 600; }
+    .label-soft { fill: var(--c-text-soft); font-size: 12px; }
+    .code { font-family: 'SFMono-Regular', Consolas, monospace; fill: var(--c-text); font-size: 13px; }
+    .frame { fill: none; stroke: var(--c-border); stroke-width: 1; stroke-dasharray: 3,3; }
+    .box-u { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .box-s { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 2; }
+    .box-e { fill: var(--c-danger-soft); stroke: var(--c-danger); stroke-width: 2; }
+  </style>
+
+  <text x="40" y="40" class="title">USE 方法:性能诊断三件套</text>
+  <text x="40" y="62" class="subtitle">Brendan Gregg 的性能诊断框架,所有资源通用</text>
+
+  <rect x="40" y="90" width="260" height="320" rx="8" class="frame"/>
+  <text x="170" y="120" class="label" text-anchor="middle">U - Utilization</text>
+  <text x="170" y="140" class="label-soft" text-anchor="middle">使用率</text>
+  <text x="60" y="170" class="label">含义:</text>
+  <text x="60" y="190" class="label-soft">资源被占用的时间比例</text>
+  <text x="60" y="220" class="label">典型指标:</text>
+  <text x="60" y="240" class="label-soft">· CPU 使用率(%us + %sy)</text>
+  <text x="60" y="257" class="label-soft">· 内存已用 / 总内存</text>
+  <text x="60" y="274" class="label-soft">· 磁盘 IO 利用率</text>
+  <text x="60" y="291" class="label-soft">· 网卡带宽利用率</text>
+  <text x="60" y="320" class="label">检查命令:</text>
+  <text x="60" y="340" class="code">top / htop</text>
+  <text x="60" y="356" class="code">iostat -xz 1</text>
+  <text x="60" y="372" class="code">nethogs / iftop</text>
+
+  <rect x="310" y="90" width="260" height="320" rx="8" class="frame"/>
+  <text x="440" y="120" class="label" text-anchor="middle">S - Saturation</text>
+  <text x="440" y="140" class="label-soft" text-anchor="middle">饱和度</text>
+  <text x="60" y="170" class="label">含义:</text>
+  <text x="300" y="190" class="label-soft">资源被排队等待的程度</text>
+  <text x="300" y="220" class="label">典型指标:</text>
+  <text x="300" y="240" class="label-soft">· run queue 长度(load)</text>
+  <text x="300" y="257" class="label-soft">· IO 队列(await 时间)</text>
+  <text x="300" y="274" class="label-soft">· 网络 socket buffer 积压</text>
+  <text x="300" y="291" class="label-soft">· 线程池 / 连接池排队</text>
+  <text x="300" y="320" class="label">检查命令:</text>
+  <text x="300" y="340" class="code">vmstat 1</text>
+  <text x="300" y="356" class="code">iostat -xz 1(看 await)</text>
+  <text x="300" y="372" class="code">ss -tan | grep TIME-WAIT</text>
+
+  <rect x="580" y="90" width="260" height="320" rx="8" class="frame"/>
+  <text x="710" y="120" class="label" text-anchor="middle">E - Errors</text>
+  <text x="710" y="140" class="label-soft" text-anchor="middle">错误数</text>
+  <text x="600" y="170" class="label">含义:</text>
+  <text x="600" y="190" class="label-soft">错误事件的计数 / 类型</text>
+  <text x="600" y="220" class="label">典型指标:</text>
+  <text x="600" y="240" class="label-soft">· 网卡丢包 / 错误包</text>
+  <text x="600" y="257" class="label-soft">· 磁盘 IO 错误(硬件)</text>
+  <text x="600" y="274" class="label-soft">· 应用错误率 / 5xx</text>
+  <text x="600" y="291" class="label-soft">· OOM / segfault</text>
+  <text x="600" y="320" class="label">检查命令:</text>
+  <text x="600" y="340" class="code">dmesg | grep -i error</text>
+  <text x="600" y="356" class="code">netstat -s / ss -s</text>
+  <text x="600" y="372" class="code">应用日志 + metrics</text>
+
+  <text x="40" y="450" class="label">使用顺序:</text>
+  <text x="40" y="470" class="label-soft">先 Utilization 看出哪儿忙 → 再 Saturation 看队列多深 → 最后 Errors 看有没有失败</text>
+  <text x="40" y="487" class="label-soft">任何资源(CPU / 内存 / 磁盘 / 网络 / 应用)都能套这套</text>
+</svg>

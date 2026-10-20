@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+      --c-danger: #ef4444; --c-danger-soft: #fee2e2;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+        --c-danger: #f87171; --c-danger-soft: #7f1d1d;
+      }
+    }
+    .title { fill: var(--c-text); font-size: 20px; font-weight: 700; }
+    .subtitle { fill: var(--c-text-soft); font-size: 13px; }
+    .label { fill: var(--c-text); font-size: 13px; font-weight: 600; }
+    .label-soft { fill: var(--c-text-soft); font-size: 12px; }
+    .code { font-family: 'SFMono-Regular', Consolas, monospace; fill: var(--c-text); font-size: 12px; }
+    .circle-a { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .circle-b { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+    .inner-highlight { fill: var(--c-warning); opacity: 0.6; }
+    .left-highlight { fill: var(--c-success); opacity: 0.5; }
+    .right-highlight { fill: var(--c-danger); opacity: 0.5; }
+    .frame { fill: none; stroke: var(--c-border); stroke-width: 1; stroke-dasharray: 3,3; }
+  </style>
+
+  <text x="40" y="40" class="title">三种 JOIN 关系图</text>
+  <text x="40" y="62" class="subtitle">不同 JOIN 返回的"高亮区域"不一样</text>
+
+  <rect x="40" y="90" width="240" height="320" rx="6" class="frame"/>
+  <text x="160" y="115" class="label" text-anchor="middle">INNER JOIN</text>
+  <text x="160" y="135" class="code" text-anchor="middle">只返回交集</text>
+  <circle cx="130" cy="220" r="60" class="circle-a"/>
+  <circle cx="190" cy="220" r="60" class="circle-b"/>
+  <ellipse cx="160" cy="220" rx="18" ry="40" class="inner-highlight"/>
+  <text x="130" y="225" class="label" text-anchor="middle">A</text>
+  <text x="190" y="225" class="label" text-anchor="middle">B</text>
+  <text x="160" y="306" class="label-soft" text-anchor="middle">返回行:A ∩ B</text>
+  <text x="160" y="326" class="label-soft" text-anchor="middle">"两边都匹配才返回"</text>
+  <text x="160" y="360" class="code" text-anchor="middle">FROM a JOIN b</text>
+  <text x="160" y="376" class="code" text-anchor="middle">ON a.id = b.id</text>
+
+  <rect x="320" y="90" width="240" height="320" rx="6" class="frame"/>
+  <text x="440" y="115" class="label" text-anchor="middle">LEFT JOIN</text>
+  <text x="440" y="135" class="code" text-anchor="middle">左表全保留</text>
+  <circle cx="410" cy="220" r="60" class="circle-a"/>
+  <circle cx="470" cy="220" r="60" class="circle-b"/>
+  <path d="M 410 160 A 60 60 0 0 1 410 280 Z" class="left-highlight"/>
+  <ellipse cx="440" cy="220" rx="18" ry="40" class="inner-highlight"/>
+  <text x="410" y="225" class="label" text-anchor="middle">A</text>
+  <text x="470" y="225" class="label" text-anchor="middle">B</text>
+  <text x="440" y="306" class="label-soft" text-anchor="middle">返回行:A ∪ (A∩B)</text>
+  <text x="440" y="326" class="label-soft" text-anchor="middle">"右表没匹配的填 NULL"</text>
+  <text x="440" y="360" class="code" text-anchor="middle">FROM a LEFT JOIN b</text>
+  <text x="440" y="376" class="code" text-anchor="middle">ON a.id = b.id</text>
+
+  <rect x="600" y="90" width="240" height="320" rx="6" class="frame"/>
+  <text x="720" y="115" class="label" text-anchor="middle">RIGHT JOIN</text>
+  <text x="720" y="135" class="code" text-anchor="middle">右表全保留</text>
+  <circle cx="690" cy="220" r="60" class="circle-a"/>
+  <circle cx="750" cy="220" r="60" class="circle-b"/>
+  <path d="M 750 160 A 60 60 0 0 0 750 280 Z" class="right-highlight"/>
+  <ellipse cx="720" cy="220" rx="18" ry="40" class="inner-highlight"/>
+  <text x="690" y="225" class="label" text-anchor="middle">A</text>
+  <text x="750" y="225" class="label" text-anchor="middle">B</text>
+  <text x="720" y="306" class="label-soft" text-anchor="middle">返回行:B ∪ (A∩B)</text>
+  <text x="720" y="326" class="label-soft" text-anchor="middle">"左表没匹配的填 NULL"</text>
+  <text x="720" y="360" class="code" text-anchor="middle">FROM a RIGHT JOIN b</text>
+  <text x="720" y="376" class="code" text-anchor="middle">ON a.id = b.id</text>
+
+  <text x="40" y="450" class="label-soft">实战经验:</text>
+  <text x="40" y="470" class="label-soft">· 业务上"包含未关联"的场景用 LEFT JOIN(RIGHT JOIN 罕用,习惯把主表放左边)</text>
+  <text x="40" y="487" class="label-soft">· FULL OUTER JOIN MySQL 不直接支持,需要 UNION 模拟</text>
+</svg>

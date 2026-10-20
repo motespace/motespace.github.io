@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <style>
+    :root {
+      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+      }
+    }
+    .title { fill: var(--c-text); font-size: 20px; font-weight: 700; }
+    .subtitle { fill: var(--c-text-soft); font-size: 13px; }
+    .label { fill: var(--c-text); font-size: 13px; font-weight: 600; }
+    .label-soft { fill: var(--c-text-soft); font-size: 12px; }
+    .code { font-family: 'SFMono-Regular', Consolas, monospace; fill: var(--c-text); font-size: 13px; }
+    .local { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .bastion { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 2; }
+    .internal { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+    .line { stroke: var(--c-border); stroke-width: 1; fill: none; }
+    .line-arrow { stroke-width: 2; fill: none; }
+  </style>
+  <defs>
+    <marker id="ssh-arrow-1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3451b2"/>
+    </marker>
+    <marker id="ssh-arrow-2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="40" class="title">SSH ProxyJump 跳板路径</text>
+  <text x="40" y="62" class="subtitle">本地 → 堡垒机 → 内网服务器,SSH 自动串联</text>
+
+  <rect x="60" y="120" width="180" height="200" rx="8" class="local"/>
+  <text x="150" y="150" class="label" text-anchor="middle">本地机器</text>
+  <text x="150" y="170" class="code" text-anchor="middle">developer</text>
+  <text x="150" y="195" class="label-soft" text-anchor="middle">~/.ssh/config</text>
+  <text x="80" y="220" class="code">Host internal-web</text>
+  <text x="80" y="236" class="code">  ProxyJump bastion</text>
+  <text x="80" y="252" class="code">  HostName 10.0.1.10</text>
+  <text x="150" y="290" class="label-soft" text-anchor="middle">$ ssh internal-web</text>
+
+  <rect x="350" y="120" width="180" height="200" rx="8" class="bastion"/>
+  <text x="440" y="150" class="label" text-anchor="middle">堡垒机</text>
+  <text x="440" y="170" class="code" text-anchor="middle">bastion.example.com</text>
+  <text x="440" y="195" class="label-soft" text-anchor="middle">公网可访问</text>
+  <text x="440" y="215" class="label-soft" text-anchor="middle">端口 22 开放</text>
+  <text x="440" y="235" class="label-soft" text-anchor="middle">不允许直接出公网</text>
+  <text x="440" y="265" class="code" text-anchor="middle">jump host</text>
+  <text x="440" y="290" class="label-soft" text-anchor="middle">中转 + 审计</text>
+
+  <rect x="640" y="120" width="180" height="200" rx="8" class="internal"/>
+  <text x="730" y="150" class="label" text-anchor="middle">内网服务器</text>
+  <text x="730" y="170" class="code" text-anchor="middle">10.0.1.10</text>
+  <text x="730" y="195" class="label-soft" text-anchor="middle">仅内网可达</text>
+  <text x="730" y="215" class="label-soft" text-anchor="middle">生产应用 / DB</text>
+  <text x="730" y="245" class="label-soft" text-anchor="middle">不开公网端口</text>
+  <text x="730" y="265" class="code" text-anchor="middle">internal-web</text>
+  <text x="730" y="290" class="label-soft" text-anchor="middle">真实工作环境</text>
+
+  <line x1="240" y1="220" x2="348" y2="220" class="line-arrow" stroke="#3451b2" marker-end="url(#ssh-arrow-1)"/>
+  <text x="295" y="210" class="label-soft" text-anchor="middle">① TCP 22(SSH)</text>
+
+  <line x1="530" y1="220" x2="638" y2="220" class="line-arrow" stroke="#10b981" marker-end="url(#ssh-arrow-2)"/>
+  <text x="585" y="210" class="label-soft" text-anchor="middle">② TCP 22(SSH)</text>
+
+  <text x="60" y="370" class="label">多级跳板(可选):</text>
+  <text x="60" y="390" class="code">Host deep-server</text>
+  <text x="60" y="406" class="code">  ProxyJump bastion,internal-web</text>
+
+  <text x="60" y="445" class="label">效果:</text>
+  <text x="60" y="465" class="label-soft">一条 ssh 命令直接到内网,中间跳板透明</text>
+  <text x="60" y="482" class="label-soft">scp / rsync 同样适用(scp file internal-web:/path/)</text>
+</svg>
