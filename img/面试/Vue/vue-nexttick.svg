@@ -1,8 +1,10 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="-94 0 957 523" width="957" height="523"
      font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="-94" y="0" width="957" height="523" fill="var(--c-bg)"/>
+
   <style>
-    :root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; }
-    @media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; } }
+    :root { --c-text: #1f2937; --c-bg: #ffffff; --c-on-brand: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; }
+    @media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-on-brand: #ffffff; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; } }
     .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
     .subtitle { font-size: 14px; fill: var(--c-text-soft); }
     .queue-box { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
@@ -10,53 +12,53 @@
     .flush-box { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
     .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
     .label { font-size: 13px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
-    .code { font-family: Consolas, Monaco, monospace; font-size: 12px; fill: var(--c-text); }
-    .time-tick { font-size: 12px; fill: var(--c-text-soft); text-anchor: middle; }
-    .item { font-size: 12px; fill: var(--c-text); }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 13px; fill: var(--c-text); }
+    .time-tick { font-size: 13px; fill: var(--c-text-soft); text-anchor: middle; }
+    .item { font-size: 13px; fill: var(--c-text); }
   </style>
   <defs>
     <marker id="ax-v10" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-text-soft)"/>
     </marker>
   </defs>
 
   <text x="40" y="40" class="title">Vue nextTick 异步批处理机制</text>
   <text x="40" y="62" class="subtitle">同一事件循环内的多次数据变化，合并为一次 DOM 更新</text>
 
-  <line x1="60" y1="105" x2="820" y2="105" stroke="#d1d5db" stroke-width="1.5"/>
+  <line x1="60" y1="105" x2="820" y2="105" stroke="var(--c-border)" stroke-width="1.5"/>
 
   <g>
-    <line x1="100" y1="100" x2="100" y2="110" stroke="#6b7280" stroke-width="1.5"/>
+    <line x1="100" y1="100" x2="100" y2="110" stroke="var(--c-text-soft)" stroke-width="1.5"/>
     <text x="100" y="130" class="time-tick">t1</text>
 
-    <line x1="260" y1="100" x2="260" y2="110" stroke="#6b7280" stroke-width="1.5"/>
+    <line x1="260" y1="100" x2="260" y2="110" stroke="var(--c-text-soft)" stroke-width="1.5"/>
     <text x="260" y="130" class="time-tick">t2</text>
 
-    <line x1="420" y1="100" x2="420" y2="110" stroke="#6b7280" stroke-width="1.5"/>
+    <line x1="420" y1="100" x2="420" y2="110" stroke="var(--c-text-soft)" stroke-width="1.5"/>
     <text x="420" y="130" class="time-tick">t3</text>
 
-    <line x1="650" y1="100" x2="650" y2="110" stroke="#6b7280" stroke-width="1.5"/>
+    <line x1="650" y1="100" x2="650" y2="110" stroke="var(--c-text-soft)" stroke-width="1.5"/>
     <text x="650" y="130" class="time-tick">事件循环</text>
 
-    <line x1="820" y1="100" x2="820" y2="110" stroke="#6b7280" stroke-width="1.5"/>
+    <line x1="820" y1="100" x2="820" y2="110" stroke="var(--c-text-soft)" stroke-width="1.5"/>
     <text x="820" y="130" class="time-tick">flush</text>
   </g>
 
   <g>
     <rect x="60" y="155" width="80" height="50" class="queue-box" rx="4"/>
-    <text x="100" y="178" class="label" style="font-size: 11px;">this.msg = 'a'</text>
+    <text x="100" y="178" class="label" style="font-size: 13px;">this.msg = 'a'</text>
     <text x="100" y="195" class="code" text-anchor="middle">推到 watcher 队列</text>
   </g>
 
   <g>
     <rect x="220" y="155" width="80" height="50" class="queue-box" rx="4"/>
-    <text x="260" y="178" class="label" style="font-size: 11px;">this.msg = 'b'</text>
+    <text x="260" y="178" class="label" style="font-size: 13px;">this.msg = 'b'</text>
     <text x="260" y="195" class="code" text-anchor="middle">合并到同一 watcher</text>
   </g>
 
   <g>
     <rect x="380" y="155" width="80" height="50" class="queue-box" rx="4"/>
-    <text x="420" y="178" class="label" style="font-size: 11px;">this.msg = 'c'</text>
+    <text x="420" y="178" class="label" style="font-size: 13px;">this.msg = 'c'</text>
     <text x="420" y="195" class="code" text-anchor="middle">不再触发更新</text>
   </g>
 

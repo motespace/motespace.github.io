@@ -1,15 +1,17 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540"
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 542" width="880" height="542"
      font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="542" fill="var(--c-bg)"/>
+
   <style>
     :root {
-      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-text: #1f2937; --c-bg: #ffffff; --c-on-brand: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db;
       --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
       --c-success: #10b981; --c-success-soft: #d1fae5;
       --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-on-brand: #ffffff; --c-text-soft: #9ca3af; --c-border: #4b5563;
         --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
         --c-success: #34d399; --c-success-soft: #064e3b;
         --c-warning: #fbbf24; --c-warning-soft: #451a03;
@@ -22,21 +24,21 @@
     .stage-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
     .stage-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
     .stage-title { font-size: 14px; font-weight: 700; fill: var(--c-text); }
-    .stage-text { font-size: 12px; fill: var(--c-text); }
-    .code { font-family: Consolas, Monaco, monospace; font-size: 12px; fill: var(--c-text); }
+    .stage-text { font-size: 13px; fill: var(--c-text); }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 13px; fill: var(--c-text); }
     .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
     .arrow-brand { stroke: var(--c-brand); stroke-width: 2; fill: none; }
     .arrow-success { stroke: var(--c-success); stroke-width: 2; fill: none; }
   </style>
   <defs>
     <marker id="ax-q62" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-text-soft)"/>
     </marker>
     <marker id="ax-q62-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#3451b2"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-brand)"/>
     </marker>
     <marker id="ax-q62-s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-success)"/>
     </marker>
   </defs>
 
@@ -48,7 +50,7 @@
     <rect x="40" y="100" width="180" height="70" class="stage-warning" rx="6"/>
     <text x="130" y="125" class="stage-title" text-anchor="middle">① 用户输入</text>
     <text x="130" y="148" class="stage-text" text-anchor="middle">"上周异常设备"</text>
-    <text x="130" y="163" class="stage-text" text-anchor="middle" style="font-size: 10px;">语音 / 文字</text>
+    <text x="130" y="163" class="stage-text" text-anchor="middle" style="font-size: 13px;">语音 / 文字</text>
   </g>
 
   <!-- 箭头 -->
@@ -59,7 +61,7 @@
     <rect x="265" y="100" width="140" height="70" class="stage-box" rx="6"/>
     <text x="335" y="125" class="stage-title" text-anchor="middle">② Whisper</text>
     <text x="335" y="148" class="stage-text" text-anchor="middle">语音 → 文字</text>
-    <text x="335" y="163" class="code" text-anchor="middle" style="font-size: 10px;">（可选）</text>
+    <text x="335" y="163" class="code" text-anchor="middle" style="font-size: 13px;">（可选）</text>
   </g>
 
   <line x1="405" y1="135" x2="445" y2="135" class="arrow-brand" marker-end="url(#ax-q62-b)"/>
@@ -69,7 +71,7 @@
     <rect x="450" y="100" width="200" height="70" class="stage-brand" rx="6"/>
     <text x="550" y="125" class="stage-title" text-anchor="middle">③ LLM 提取意图</text>
     <text x="550" y="148" class="stage-text" text-anchor="middle">Function Calling</text>
-    <text x="550" y="163" class="code" text-anchor="middle" style="font-size: 10px;">tools: [queryDevices]</text>
+    <text x="550" y="163" class="code" text-anchor="middle" style="font-size: 13px;">tools: [queryDevices]</text>
   </g>
 
   <line x1="650" y1="135" x2="690" y2="135" class="arrow-brand" marker-end="url(#ax-q62-b)"/>
@@ -117,7 +119,7 @@
   <path d="M 540,275 Q 540,310 540,330" class="arrow" fill="none" marker-end="url(#ax-q62)"/>
   <rect x="430" y="330" width="220" height="50" class="stage-warning" rx="4"/>
   <text x="540" y="352" class="stage-title" text-anchor="middle" style="font-size: 13px;">流式输出（边生成边展示）</text>
-  <text x="540" y="370" class="code" text-anchor="middle" style="font-size: 11px;">stream: true + SSE / WebSocket</text>
+  <text x="540" y="370" class="code" text-anchor="middle" style="font-size: 13px;">stream: true + SSE / WebSocket</text>
 
   <!-- 关键注意事项 -->
   <g>

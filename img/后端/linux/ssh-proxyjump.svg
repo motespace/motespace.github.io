@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 507" width="880" height="507"
      font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="507" fill="var(--c-bg)"/>
+
   <style>
     :root {
-      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-text: #1f2937; --c-bg: #ffffff; --c-on-brand: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db;
       --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
       --c-success: #10b981; --c-success-soft: #d1fae5;
       --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-on-brand: #ffffff; --c-text-soft: #9ca3af; --c-border: #4b5563;
         --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
         --c-success: #34d399; --c-success-soft: #064e3b;
         --c-warning: #fbbf24; --c-warning-soft: #451a03;
@@ -19,7 +21,7 @@
     .title { fill: var(--c-text); font-size: 20px; font-weight: 700; }
     .subtitle { fill: var(--c-text-soft); font-size: 13px; }
     .label { fill: var(--c-text); font-size: 13px; font-weight: 600; }
-    .label-soft { fill: var(--c-text-soft); font-size: 12px; }
+    .label-soft { fill: var(--c-text-soft); font-size: 13px; }
     .code { font-family: 'SFMono-Regular', Consolas, monospace; fill: var(--c-text); font-size: 13px; }
     .local { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
     .bastion { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 2; }
@@ -29,10 +31,10 @@
   </style>
   <defs>
     <marker id="ssh-arrow-1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#3451b2"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-brand)"/>
     </marker>
     <marker id="ssh-arrow-2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-success)"/>
     </marker>
   </defs>
 
@@ -66,10 +68,10 @@
   <text x="730" y="265" class="code" text-anchor="middle">internal-web</text>
   <text x="730" y="290" class="label-soft" text-anchor="middle">真实工作环境</text>
 
-  <line x1="240" y1="220" x2="348" y2="220" class="line-arrow" stroke="#3451b2" marker-end="url(#ssh-arrow-1)"/>
+  <line x1="240" y1="220" x2="348" y2="220" class="line-arrow" stroke="var(--c-brand)" marker-end="url(#ssh-arrow-1)"/>
   <text x="295" y="210" class="label-soft" text-anchor="middle">① TCP 22(SSH)</text>
 
-  <line x1="530" y1="220" x2="638" y2="220" class="line-arrow" stroke="#10b981" marker-end="url(#ssh-arrow-2)"/>
+  <line x1="530" y1="220" x2="638" y2="220" class="line-arrow" stroke="var(--c-success)" marker-end="url(#ssh-arrow-2)"/>
   <text x="585" y="210" class="label-soft" text-anchor="middle">② TCP 22(SSH)</text>
 
   <text x="60" y="370" class="label">多级跳板(可选):</text>

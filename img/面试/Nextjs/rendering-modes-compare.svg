@@ -1,7 +1,9 @@
 ﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="540" fill="var(--c-bg)"/>
+
 <style>
-:root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; --c-warning: #f59e0b; --c-warning-soft: #fffbeb; }
-@media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; --c-warning: #fbbf24; --c-warning-soft: #451a03; } }
+:root { --c-text: #1f2937; --c-bg: #ffffff; --c-on-brand: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; --c-warning: #f59e0b; --c-warning-soft: #fffbeb; }
+@media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-on-brand: #ffffff; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; --c-warning: #fbbf24; --c-warning-soft: #451a03; } }
 .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
 .subtitle { font-size: 14px; fill: var(--c-text-soft); }
 .col-bg { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
@@ -11,7 +13,7 @@
 .col-title { font-size: 18px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
 .row-label { font-size: 13px; font-weight: 700; fill: var(--c-text-soft); }
 .cell-text { font-size: 13px; fill: var(--c-text); }
-.code { font-family: Consolas, Monaco, monospace; font-size: 11px; fill: var(--c-text); }
+.code { font-family: Consolas, Monaco, monospace; font-size: 13px; fill: var(--c-text); }
 </style>
 <text x="40" y="40" class="title">Next.js 渲染模式对比（SSG / SSR / ISR / CSR）</text>
 <text x="40" y="62" class="subtitle">不同场景选不同方案</text>
@@ -34,7 +36,7 @@
 <text x="350" y="230" class="cell-text" text-anchor="middle" style="fill: var(--c-success); font-weight: 700;">极低</text>
 <text x="350" y="265" class="cell-text" text-anchor="middle" style="fill: var(--c-success); font-weight: 700;">极快</text>
 <text x="350" y="300" class="cell-text" text-anchor="middle" style="fill: var(--c-warning);">需重新构建</text>
-<text x="350" y="335" class="cell-text" text-anchor="middle" style="font-size: 11px;">博客 / 营销页</text>
+<text x="350" y="335" class="cell-text" text-anchor="middle" style="font-size: 13px;">博客 / 营销页</text>
 <text x="350" y="375" class="code" text-anchor="middle">getStaticProps</text>
 <text x="350" y="415" class="code" text-anchor="middle">/docs/intro</text>
 <text x="350" y="460" class="cell-text" text-anchor="middle" style="fill: var(--c-success); font-weight: 700;">静态内容</text>
@@ -46,7 +48,7 @@
 <text x="560" y="230" class="cell-text" text-anchor="middle" style="fill: var(--c-warning); font-weight: 700;">高</text>
 <text x="560" y="265" class="cell-text" text-anchor="middle" style="fill: var(--c-success);">快</text>
 <text x="560" y="300" class="cell-text" text-anchor="middle" style="fill: var(--c-success); font-weight: 700;">实时</text>
-<text x="560" y="335" class="cell-text" text-anchor="middle" style="font-size: 11px;">用户个性化页</text>
+<text x="560" y="335" class="cell-text" text-anchor="middle" style="font-size: 13px;">用户个性化页</text>
 <text x="560" y="375" class="code" text-anchor="middle">getServerSideProps</text>
 <text x="560" y="415" class="code" text-anchor="middle">/user/profile</text>
 <text x="560" y="460" class="cell-text" text-anchor="middle" style="fill: var(--c-success); font-weight: 700;">强个性化</text>
@@ -58,7 +60,7 @@
 <text x="755" y="230" class="cell-text" text-anchor="middle">中</text>
 <text x="755" y="265" class="cell-text" text-anchor="middle" style="fill: var(--c-success); font-weight: 700;">快</text>
 <text x="755" y="300" class="cell-text" text-anchor="middle">延迟更新</text>
-<text x="755" y="335" class="cell-text" text-anchor="middle" style="font-size: 11px;">商品页 / 文章</text>
+<text x="755" y="335" class="cell-text" text-anchor="middle" style="font-size: 13px;">商品页 / 文章</text>
 <text x="755" y="375" class="code" text-anchor="middle">revalidate: 60</text>
 <text x="755" y="415" class="code" text-anchor="middle">/products/[id]</text>
 <text x="755" y="460" class="cell-text" text-anchor="middle" style="fill: var(--c-success); font-weight: 700;">推荐</text>

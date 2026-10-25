@@ -1,8 +1,10 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="-121 0 984 500" width="984" height="500"
      font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="-121" y="0" width="984" height="500" fill="var(--c-bg)"/>
+
   <style>
-    :root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; }
-    @media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; } }
+    :root { --c-text: #1f2937; --c-bg: #ffffff; --c-on-brand: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; }
+    @media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-on-brand: #ffffff; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; } }
     .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
     .subtitle { font-size: 14px; fill: var(--c-text-soft); }
     .stage-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
@@ -10,13 +12,13 @@
     .stage-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
     .stage-num { font-size: 26px; font-weight: 700; fill: var(--c-brand); text-anchor: middle; }
     .stage-title { font-size: 15px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
-    .stage-text { font-size: 12px; fill: var(--c-text); text-anchor: middle; }
+    .stage-text { font-size: 13px; fill: var(--c-text); text-anchor: middle; }
     .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
-    .code { font-family: Consolas, Monaco, monospace; font-size: 12px; fill: var(--c-text); text-anchor: middle; }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 13px; fill: var(--c-text); text-anchor: middle; }
   </style>
   <defs>
     <marker id="ax-v3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-text-soft)"/>
     </marker>
   </defs>
 
@@ -38,7 +40,7 @@
     <text x="320" y="125" class="stage-num">②</text>
     <text x="320" y="148" class="stage-title">parse</text>
     <text x="320" y="168" class="stage-text">HTML parser</text>
-    <text x="320" y="185" class="stage-text" style="font-size: 11px;">解析为 AST（抽象语法树）</text>
+    <text x="320" y="185" class="stage-text" style="font-size: 13px;">解析为 AST（抽象语法树）</text>
   </g>
 
   <line x1="400" y1="150" x2="440" y2="150" class="arrow" marker-end="url(#ax-v3)"/>
@@ -48,7 +50,7 @@
     <text x="520" y="125" class="stage-num">③</text>
     <text x="520" y="148" class="stage-title">optimize</text>
     <text x="520" y="168" class="stage-text">静态节点标记</text>
-    <text x="520" y="185" class="stage-text" style="font-size: 11px;">标记静态节点，diff 跳过</text>
+    <text x="520" y="185" class="stage-text" style="font-size: 13px;">标记静态节点，diff 跳过</text>
   </g>
 
   <line x1="600" y1="150" x2="640" y2="150" class="arrow" marker-end="url(#ax-v3)"/>

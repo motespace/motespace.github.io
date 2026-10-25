@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
      font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="500" fill="var(--c-bg)"/>
+
   <style>
     :root {
-      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-text: #1f2937; --c-bg: #ffffff; --c-on-brand: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db;
       --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
       --c-success: #10b981; --c-success-soft: #d1fae5;
       --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
@@ -11,7 +13,7 @@
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-on-brand: #ffffff; --c-text-soft: #9ca3af; --c-border: #4b5563;
         --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
         --c-success: #34d399; --c-success-soft: #064e3b;
         --c-warning: #fbbf24; --c-warning-soft: #451a03;
@@ -21,7 +23,7 @@
     .title { fill: var(--c-text); font-size: 20px; font-weight: 700; }
     .subtitle { fill: var(--c-text-soft); font-size: 13px; }
     .label { fill: var(--c-text); font-size: 13px; font-weight: 600; }
-    .label-soft { fill: var(--c-text-soft); font-size: 12px; }
+    .label-soft { fill: var(--c-text-soft); font-size: 13px; }
     .code { font-family: 'SFMono-Regular', Consolas, monospace; fill: var(--c-text); font-size: 13px; }
     .axis { stroke: var(--c-border); stroke-width: 1.5; }
     .tick { fill: var(--c-text); font-size: 13px; font-weight: 600; }

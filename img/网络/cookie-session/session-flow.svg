@@ -1,7 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 620" width="880" height="620" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="620" fill="var(--c-bg)"/>
+
   <style>
     :root {
-      --c-text: #1f2937;
+      --c-text: #1f2937; --c-bg: #ffffff; --c-on-brand: #ffffff;
       --c-text-2: #374151;
       --c-text-soft: #6b7280;
       --c-border: #d1d5db;
@@ -17,7 +19,7 @@
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --c-text: #f3f4f6;
+        --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-on-brand: #ffffff;
         --c-text-2: #d1d5db;
         --c-text-soft: #9ca3af;
         --c-border: #4b5563;
@@ -43,10 +45,10 @@
     .msg-back { stroke: var(--c-success-2); stroke-width: 2; fill: none; marker-end: url(#arrow-g); }
     .self-arrow { stroke: var(--c-warning-2); stroke-width: 2; fill: none; marker-end: url(#arrow-w); }
     .msg-label { font-size: 14px; font-weight: 600; fill: var(--c-text); }
-    .msg-detail { font-size: 12px; fill: var(--c-text-soft); font-family: 'Consolas', 'Monaco', monospace; }
+    .msg-detail { font-size: 13px; fill: var(--c-text-soft); font-family: 'Consolas', 'Monaco', monospace; }
     .store-box { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
-    .store-title { font-size: 12px; font-weight: 700; fill: var(--c-success-2); }
-    .store-row { font-size: 12px; fill: var(--c-text); font-family: 'Consolas', 'Monaco', monospace; }
+    .store-title { font-size: 13px; font-weight: 700; fill: var(--c-success-2); }
+    .store-row { font-size: 13px; fill: var(--c-text); font-family: 'Consolas', 'Monaco', monospace; }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     .step { opacity: 0; animation: fadeUp 0.4s ease-out forwards; }
@@ -121,7 +123,7 @@
     <!-- Session Store 内容显示(增高到 76px,4 行全在框内) -->
     <g transform="translate(680, 305)">
       <rect x="0" y="0" width="120" height="76" rx="4" class="store-box"/>
-      <text x="10" y="18" class="store-title" font-size="11">Redis 存储:</text>
+      <text x="10" y="18" class="store-title" font-size="13">Redis 存储:</text>
       <text x="10" y="36" class="store-row">abc123 →</text>
       <text x="10" y="52" class="store-row">  {uid: 1001,</text>
       <text x="10" y="68" class="store-row">  exp: 3600s}</text>

@@ -1,26 +1,28 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 548" width="880" height="548" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="548" fill="var(--c-bg)"/>
+
 <style>
-:root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; --c-warning: #f59e0b; --c-warning-soft: #fffbeb; }
-@media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; --c-warning: #fbbf24; --c-warning-soft: #451a03; } }
+:root { --c-text: #1f2937; --c-bg: #ffffff; --c-on-brand: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; --c-warning: #f59e0b; --c-warning-soft: #fffbeb; }
+@media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-on-brand: #ffffff; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; --c-warning: #fbbf24; --c-warning-soft: #451a03; } }
 .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
 .subtitle { font-size: 14px; fill: var(--c-text-soft); }
 .cache-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
 .cache-hit { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
 .label { font-size: 13px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
-.code { font-family: Consolas, Monaco, monospace; font-size: 11px; fill: var(--c-text); }
+.code { font-family: Consolas, Monaco, monospace; font-size: 13px; fill: var(--c-text); }
 .step-num { font-size: 14px; font-weight: 700; fill: var(--c-brand); }
-.step-text { font-size: 12px; fill: var(--c-text); }
+.step-text { font-size: 13px; fill: var(--c-text); }
 .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
 .arrow-success { stroke: var(--c-success); stroke-width: 2; fill: none; }
 .section-title { font-size: 14px; font-weight: 700; fill: var(--c-text); }
-.item { font-size: 12px; fill: var(--c-text); }
+.item { font-size: 13px; fill: var(--c-text); }
 </style>
 <defs>
 <marker id="ax-net2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-<path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+<path d="M0,0 L10,5 L0,10 z" fill="var(--c-text-soft)"/>
 </marker>
 <marker id="ax-net2-s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-<path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+<path d="M0,0 L10,5 L0,10 z" fill="var(--c-success)"/>
 </marker>
 </defs>
 <text x="40" y="40" class="title">DNS 域名解析完整流程</text>
@@ -29,34 +31,34 @@
 <rect x="60" y="115" width="120" height="30" class="cache-hit" rx="3"/>
 <text x="120" y="135" class="label" style="fill: var(--c-success);">① 浏览器缓存</text>
 <text x="200" y="135" class="step-text">命中 → 直接返回（chrome://net-internals/#dns）</text>
-<text x="500" y="135" class="code" style="font-size: 10px;">TTL 60s</text>
+<text x="500" y="135" class="code" style="font-size: 13px;">TTL 60s</text>
 <line x1="100" y1="160" x2="100" y2="180" class="arrow"/>
 <rect x="40" y="180" width="800" height="60" class="cache-box" rx="4"/>
 <rect x="60" y="195" width="120" height="30" class="cache-hit" rx="3"/>
 <text x="120" y="215" class="label" style="fill: var(--c-success);">② 系统缓存</text>
 <text x="200" y="215" class="step-text">hosts 文件 / OS 缓存命中 → 返回</text>
-<text x="500" y="215" class="code" style="font-size: 10px;">C:\Windows\System32\drivers\etc\hosts</text>
+<text x="500" y="215" class="code" style="font-size: 13px;">C:\Windows\System32\drivers\etc\hosts</text>
 <line x1="100" y1="240" x2="100" y2="260" class="arrow"/>
 <rect x="40" y="260" width="800" height="60" class="cache-box" rx="4"/>
 <rect x="60" y="275" width="160" height="30" class="cache-hit" rx="3"/>
 <text x="140" y="295" class="label" style="fill: var(--c-success);">③ 本地域名服务器</text>
 <text x="240" y="295" class="step-text">运营商 DNS（如 8.8.8.8 / 114.114.114.114）</text>
-<text x="500" y="295" class="code" style="font-size: 10px;">递归查询</text>
+<text x="500" y="295" class="code" style="font-size: 13px;">递归查询</text>
 <line x1="100" y1="320" x2="100" y2="340" class="arrow"/>
 <rect x="40" y="340" width="800" height="100" style="fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5;" rx="6"/>
 <text x="60" y="365" class="section-title" style="fill: var(--c-warning);">④ 权威服务器查询（迭代）</text>
 <rect x="60" y="380" width="180" height="50" class="cache-box" rx="4"/>
 <text x="150" y="400" class="label">根域名服务器</text>
-<text x="150" y="418" class="code" style="font-size: 10px;">13 台全球分布</text>
-<text x="60" y="425" class="step-text" style="font-size: 11px;">→ 返回 .com 服务器</text>
+<text x="150" y="418" class="code" style="font-size: 13px;">13 台全球分布</text>
+<text x="60" y="425" class="step-text" style="font-size: 13px;">→ 返回 .com 服务器</text>
 <rect x="260" y="380" width="180" height="50" class="cache-box" rx="4"/>
 <text x="350" y="400" class="label">顶级域名服务器</text>
-<text x="350" y="418" class="code" style="font-size: 10px;">.com 顶级域</text>
-<text x="260" y="425" class="step-text" style="font-size: 11px;">→ 返回 example.com NS</text>
+<text x="350" y="418" class="code" style="font-size: 13px;">.com 顶级域</text>
+<text x="260" y="425" class="step-text" style="font-size: 13px;">→ 返回 example.com NS</text>
 <rect x="460" y="380" width="180" height="50" class="cache-box" rx="4"/>
 <text x="550" y="400" class="label">权威域名服务器</text>
-<text x="550" y="418" class="code" style="font-size: 10px;">example.com 真实 IP</text>
-<text x="460" y="425" class="step-text" style="font-size: 11px;">→ 返回 A 记录</text>
+<text x="550" y="418" class="code" style="font-size: 13px;">example.com 真实 IP</text>
+<text x="460" y="425" class="step-text" style="font-size: 13px;">→ 返回 A 记录</text>
 <line x1="140" y1="455" x2="100" y2="475" class="arrow-success" marker-end="url(#ax-net2-s)"/>
 <rect x="40" y="465" width="800" height="60" class="cache-hit" rx="6"/>
 <text x="80" y="490" class="section-title" style="fill: var(--c-success); font-weight: 700;">⑤ 浏览器发起 HTTP 请求 → example.com 真实 IP</text>

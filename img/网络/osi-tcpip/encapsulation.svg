@@ -1,7 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 490" width="880" height="490" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 501" width="880" height="501" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="501" fill="var(--c-bg)"/>
+
   <style>
     :root {
-      --c-text: #1f2937;
+      --c-text: #1f2937; --c-bg: #1b1b1f; --c-on-brand: #ffffff;
       --c-text-2: #374151;
       --c-text-soft: #6b7280;
       --c-border: #d1d5db;
@@ -16,7 +18,7 @@
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --c-text: #f3f4f6;
+        --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-on-brand: #ffffff;
         --c-text-2: #d1d5db;
         --c-text-soft: #9ca3af;
         --c-border: #4b5563;
@@ -33,7 +35,7 @@
 
     .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
     .subtitle { font-size: 15px; fill: var(--c-text-soft); }
-    .header-text { font-size: 13px; font-weight: 700; fill: #ffffff; }
+    .header-text { font-size: 13px; font-weight: 700; fill: var(--c-on-brand); }
     .payload-text { font-size: 13px; font-weight: 600; fill: var(--c-text-2); }
     .layer-label { font-size: 15px; font-weight: 700; fill: var(--c-text); }
     .layer-en { font-size: 13px; fill: var(--c-text-soft); }

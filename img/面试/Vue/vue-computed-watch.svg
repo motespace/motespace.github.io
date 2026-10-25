@@ -1,8 +1,10 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540"
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 553" width="880" height="553"
      font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="553" fill="var(--c-bg)"/>
+
   <style>
-    :root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; }
-    @media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; } }
+    :root { --c-text: #1f2937; --c-bg: #ffffff; --c-on-brand: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; }
+    @media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-on-brand: #ffffff; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; } }
     .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
     .subtitle { font-size: 14px; fill: var(--c-text-soft); }
     .col-bg { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
@@ -11,7 +13,7 @@
     .col-title { font-size: 18px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
     .row-label { font-size: 13px; font-weight: 700; fill: var(--c-text-soft); }
     .cell-text { font-size: 13px; fill: var(--c-text); }
-    .code { font-family: Consolas, Monaco, monospace; font-size: 12px; fill: var(--c-text); }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 13px; fill: var(--c-text); }
   </style>
 
   <text x="40" y="40" class="title">computed vs watch vs methods 对比</text>

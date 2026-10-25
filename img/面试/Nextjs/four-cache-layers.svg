@@ -1,16 +1,18 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 518" width="880" height="518" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="518" fill="var(--c-bg)"/>
+
 <style>
-:root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; }
-@media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; } }
+:root { --c-text: #1f2937; --c-bg: #ffffff; --c-on-brand: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; }
+@media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-on-brand: #ffffff; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; } }
 .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
 .subtitle { font-size: 14px; fill: var(--c-text-soft); }
 .cache-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
 .cache-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
 .cache-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
 .label { font-size: 14px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
-.code { font-family: Consolas, Monaco, monospace; font-size: 11px; fill: var(--c-text); }
+.code { font-family: Consolas, Monaco, monospace; font-size: 13px; fill: var(--c-text); }
 .section-title { font-size: 14px; font-weight: 700; fill: var(--c-text); }
-.item { font-size: 12px; fill: var(--c-text); }
+.item { font-size: 13px; fill: var(--c-text); }
 .layer-name { font-size: 14px; font-weight: 700; fill: var(--c-text); }
 </style>
 <text x="40" y="40" class="title">Next.js 四层缓存架构</text>
@@ -19,30 +21,30 @@
 <g>
 <rect x="60" y="120" width="760" height="60" class="cache-brand" rx="4"/>
 <text x="80" y="145" class="layer-name">① Request Memoization</text>
-<text x="80" y="165" class="item" style="font-size: 11px;">作用域：单次请求内的相同 fetch / db 查询</text>
-<text x="80" y="180" class="item" style="font-size: 11px;">⚡ 自动生效，无需配置（仅 React Server Components）</text>
+<text x="80" y="165" class="item" style="font-size: 13px;">作用域：单次请求内的相同 fetch / db 查询</text>
+<text x="80" y="180" class="item" style="font-size: 13px;">⚡ 自动生效，无需配置（仅 React Server Components）</text>
 </g>
-<line x1="100" y1="180" x2="100" y2="200" stroke="#6b7280" stroke-width="2"/>
+<line x1="100" y1="180" x2="100" y2="200" stroke="var(--c-text-soft)" stroke-width="2"/>
 <g>
 <rect x="60" y="205" width="760" height="60" class="cache-success" rx="4"/>
 <text x="80" y="230" class="layer-name">② Data Cache</text>
 <text x="80" y="248" class="code">fetch('...', { next: { revalidate: 60 } })</text>
-<text x="80" y="263" class="item" style="font-size: 11px;">作用域：跨请求共享，文件系统持久化</text>
+<text x="80" y="263" class="item" style="font-size: 13px;">作用域：跨请求共享，文件系统持久化</text>
 </g>
-<line x1="100" y1="265" x2="100" y2="285" stroke="#6b7280" stroke-width="2"/>
+<line x1="100" y1="265" x2="100" y2="285" stroke="var(--c-text-soft)" stroke-width="2"/>
 <g>
 <rect x="60" y="290" width="760" height="60" class="cache-brand" rx="4"/>
 <text x="80" y="315" class="layer-name">③ Full Route Cache</text>
 <text x="80" y="333" class="code">静态渲染 → HTML + RSC Payload 缓存</text>
-<text x="80" y="348" class="item" style="font-size: 11px;">构建时生成，请求直接返回（最快）</text>
+<text x="80" y="348" class="item" style="font-size: 13px;">构建时生成，请求直接返回（最快）</text>
 </g>
-<line x1="100" y1="350" x2="100" y2="370" stroke="#6b7280" stroke-width="2"/>
+<line x1="100" y1="350" x2="100" y2="370" stroke="var(--c-text-soft)" stroke-width="2"/>
 <g>
 <rect x="60" y="375" width="760" height="60" class="cache-success" rx="4"/>
 <text x="80" y="400" class="layer-name">④ Router Cache</text>
 <text x="80" y="418" class="code">客户端路由缓存（in-memory）</text>
-<text x="80" y="433" class="item" style="font-size: 11px;">页面切换瞬间显示缓存（无 loading）</text>
+<text x="80" y="433" class="item" style="font-size: 13px;">页面切换瞬间显示缓存（无 loading）</text>
 </g>
 <rect x="40" y="475" width="800" height="20" style="fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1;" rx="4"/>
-<text x="440" y="490" class="label" style="font-size: 12px;">⚡ 优先级：①②③ 在服务端生效，④ 在客户端生效</text>
+<text x="440" y="490" class="label" style="font-size: 13px;">⚡ 优先级：①②③ 在服务端生效，④ 在客户端生效</text>
 </svg>

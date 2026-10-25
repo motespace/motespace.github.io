@@ -1,14 +1,16 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540"
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 555" width="880" height="555"
      font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="555" fill="var(--c-bg)"/>
+
   <style>
     :root {
-      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-text: #1f2937; --c-bg: #ffffff; --c-on-brand: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db;
       --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
       --c-success: #10b981; --c-success-soft: #d1fae5;
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-on-brand: #ffffff; --c-text-soft: #9ca3af; --c-border: #4b5563;
         --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
         --c-success: #34d399; --c-success-soft: #064e3b;
       }
@@ -25,7 +27,7 @@
     .msg-label-bg { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 0.5; }
     .step-num { font-size: 15px; font-weight: 700; fill: var(--c-brand); }
     .step-text { font-size: 13px; fill: var(--c-text); }
-    .code { font-family: Consolas, Monaco, monospace; font-size: 12px; fill: var(--c-text); }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 13px; fill: var(--c-text); }
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
@@ -42,10 +44,10 @@
   </style>
   <defs>
     <marker id="ax-q11-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#3451b2"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-brand)"/>
     </marker>
     <marker id="ax-q11-s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-success)"/>
     </marker>
   </defs>
 

@@ -1,8 +1,10 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 503" width="880" height="503"
      font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="503" fill="var(--c-bg)"/>
+
   <style>
     :root {
-      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-text: #1f2937; --c-bg: #ffffff; --c-on-brand: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db;
       --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
       --c-success: #10b981; --c-success-soft: #d1fae5;
       --c-danger: #ef4444; --c-danger-soft: #fee2e2;
@@ -10,7 +12,7 @@
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-on-brand: #ffffff; --c-text-soft: #9ca3af; --c-border: #4b5563;
         --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
         --c-success: #34d399; --c-success-soft: #064e3b;
         --c-danger: #f87171; --c-danger-soft: #7f1d1d;
@@ -30,7 +32,7 @@
     .time-label { font-size: 13px; fill: var(--c-text-soft); text-anchor: middle; }
     .legend-text { font-size: 13px; fill: var(--c-text); }
     .note { font-size: 13px; fill: var(--c-text-soft); }
-    .code { font-family: Consolas, Monaco, monospace; font-size: 12px; fill: var(--c-text); }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 13px; fill: var(--c-text); }
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
@@ -87,7 +89,7 @@
     <rect x="100" y="190" width="140" height="40" class="retry-bar" rx="4"/>
     <text x="170" y="180" class="bar-num">第 1 次重试</text>
     <text x="170" y="208" class="bar-text">等待 1s</text>
-    <text x="170" y="225" class="bar-text" style="font-size: 11px;">连接失败</text>
+    <text x="170" y="225" class="bar-text" style="font-size: 13px;">连接失败</text>
   </g>
 
   <!-- 第 2 次重试 -->
@@ -95,7 +97,7 @@
     <rect x="220" y="190" width="140" height="40" class="retry-bar" rx="4"/>
     <text x="290" y="180" class="bar-num">第 2 次重试</text>
     <text x="290" y="208" class="bar-text">等待 2s</text>
-    <text x="290" y="225" class="bar-text" style="font-size: 11px;">连接失败</text>
+    <text x="290" y="225" class="bar-text" style="font-size: 13px;">连接失败</text>
   </g>
 
   <!-- 第 3 次重试 -->
@@ -103,7 +105,7 @@
     <rect x="340" y="190" width="140" height="40" class="retry-bar" rx="4"/>
     <text x="410" y="180" class="bar-num">第 3 次重试</text>
     <text x="410" y="208" class="bar-text">等待 4s</text>
-    <text x="410" y="225" class="bar-text" style="font-size: 11px;">连接失败</text>
+    <text x="410" y="225" class="bar-text" style="font-size: 13px;">连接失败</text>
   </g>
 
   <!-- 第 4 次重试 -->
@@ -111,7 +113,7 @@
     <rect x="470" y="190" width="140" height="40" class="retry-bar" rx="4"/>
     <text x="540" y="180" class="bar-num">第 4 次重试</text>
     <text x="540" y="208" class="bar-text">等待 8s</text>
-    <text x="540" y="225" class="bar-text" style="font-size: 11px;">连接失败</text>
+    <text x="540" y="225" class="bar-text" style="font-size: 13px;">连接失败</text>
   </g>
 
   <!-- 第 5 次重试（封顶 30s） -->
@@ -119,15 +121,15 @@
     <rect x="600" y="190" width="160" height="40" class="retry-bar" rx="4"/>
     <text x="680" y="180" class="bar-num">第 5 次重试</text>
     <text x="680" y="208" class="bar-text">等待 16s</text>
-    <text x="680" y="225" class="bar-text" style="font-size: 11px;">连接成功 ✓</text>
+    <text x="680" y="225" class="bar-text" style="font-size: 13px;">连接成功 ✓</text>
   </g>
 
   <!-- 成功提示 -->
   <g class="step step-5">
     <rect x="760" y="190" width="80" height="40" class="success-bar" rx="4"/>
     <text x="800" y="180" class="bar-num-success">重置</text>
-    <text x="800" y="208" class="bar-text" style="font-size: 11px;">attempts=0</text>
-    <text x="800" y="225" class="bar-text" style="font-size: 11px;">正常通信</text>
+    <text x="800" y="208" class="bar-text" style="font-size: 13px;">attempts=0</text>
+    <text x="800" y="225" class="bar-text" style="font-size: 13px;">正常通信</text>
   </g>
 
   <!-- 公式说明 -->

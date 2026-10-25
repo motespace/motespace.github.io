@@ -1,7 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="540" fill="var(--c-bg)"/>
+
   <style>
     :root {
-      --c-text: #1f2937;
+      --c-text: #1f2937; --c-bg: #ffffff; --c-on-brand: #ffffff;
       --c-text-2: #374151;
       --c-text-soft: #6b7280;
       --c-border: #d1d5db;
@@ -18,7 +20,7 @@
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --c-text: #f3f4f6;
+        --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-on-brand: #ffffff;
         --c-text-2: #d1d5db;
         --c-text-soft: #9ca3af;
         --c-border: #4b5563;
@@ -37,14 +39,14 @@
 
     .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
     .subtitle { font-size: 15px; fill: var(--c-text-soft); }
-    .layer-num { font-size: 18px; font-weight: 700; fill: #ffffff; }
+    .layer-num { font-size: 18px; font-weight: 700; fill: var(--c-on-brand); }
     .layer-name { font-size: 15px; font-weight: 700; fill: var(--c-text); }
     .layer-desc { font-size: 13px; fill: var(--c-text-2); }
-    .layer-time { font-size: 12px; font-weight: 600; fill: var(--c-text-soft); }
+    .layer-time { font-size: 13px; font-weight: 600; fill: var(--c-text-soft); }
     .arrow-down { stroke: var(--c-text-soft); stroke-width: 1.5; fill: none; marker-end: url(#arrow-d); }
     .arrow-rec { stroke: var(--c-warning-2); stroke-width: 1.5; fill: none; marker-end: url(#arrow-y); }
-    .hit { font-size: 12px; font-weight: 700; fill: var(--c-success-2); }
-    .miss { font-size: 12px; font-weight: 700; fill: var(--c-warning-2); }
+    .hit { font-size: 13px; font-weight: 700; fill: var(--c-success-2); }
+    .miss { font-size: 13px; font-weight: 700; fill: var(--c-warning-2); }
     .box-cache-1 { fill: var(--c-success-soft); stroke: var(--c-success-2); stroke-width: 1.5; }
     .box-cache-4 { fill: var(--c-warning-soft); stroke: var(--c-warning-2); stroke-width: 1.5; }
     .box-server { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }

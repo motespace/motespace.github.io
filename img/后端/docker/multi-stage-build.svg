@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 513" width="880" height="513"
      font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="513" fill="var(--c-bg)"/>
+
   <style>
     :root {
-      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-text: #1f2937; --c-bg: #ffffff; --c-on-brand: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db;
       --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
       --c-success: #10b981; --c-success-soft: #d1fae5;
       --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
@@ -11,7 +13,7 @@
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-on-brand: #ffffff; --c-text-soft: #9ca3af; --c-border: #4b5563;
         --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
         --c-success: #34d399; --c-success-soft: #064e3b;
         --c-warning: #fbbf24; --c-warning-soft: #451a03;
@@ -21,8 +23,8 @@
     .title { fill: var(--c-text); font-size: 20px; font-weight: 700; }
     .subtitle { fill: var(--c-text-soft); font-size: 13px; }
     .label { fill: var(--c-text); font-size: 13px; font-weight: 600; }
-    .label-soft { fill: var(--c-text-soft); font-size: 12px; }
-    .code { font-family: 'SFMono-Regular', Consolas, monospace; fill: var(--c-text); font-size: 12px; }
+    .label-soft { fill: var(--c-text-soft); font-size: 13px; }
+    .code { font-family: 'SFMono-Regular', Consolas, monospace; fill: var(--c-text); font-size: 13px; }
     .layer-base { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
     .layer-deps { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
     .layer-source { fill: var(--c-danger-soft); stroke: var(--c-danger); stroke-width: 1.5; }
@@ -34,7 +36,7 @@
   </style>
   <defs>
     <marker id="ms-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-success)"/>
     </marker>
   </defs>
 
@@ -62,7 +64,7 @@
   <text x="80" y="380" class="label-soft">~ 5 MB · 编译后的 JS + 资源</text>
 
   <text x="60" y="420" class="label">阶段 1 镜像大小:</text>
-  <text x="180" y="420" class="label-soft" fill="#ef4444">~ 355 MB(但不用,被丢弃)</text>
+  <text x="180" y="420" class="label-soft" fill="var(--c-danger)">~ 355 MB(但不用,被丢弃)</text>
 
   <rect x="460" y="90" width="380" height="370" rx="6" class="frame"/>
   <text x="650" y="115" class="label" text-anchor="middle">阶段 2:runtime (最终)</text>
@@ -84,7 +86,7 @@
   <text x="500" y="380" class="label-soft">~ 1 KB · 启动信息</text>
 
   <text x="480" y="420" class="label">最终镜像大小:</text>
-  <text x="600" y="420" class="label-soft" fill="#10b981">~ 55 MB(节省 ~85%)</text>
+  <text x="600" y="420" class="label-soft" fill="var(--c-success)">~ 55 MB(节省 ~85%)</text>
 
   <line x1="400" y1="365" x2="478" y2="305" class="line-success" marker-end="url(#ms-arrow)"/>
   <text x="438" y="330" class="label-soft" text-anchor="middle">COPY</text>

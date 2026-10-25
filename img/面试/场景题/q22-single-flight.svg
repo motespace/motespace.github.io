@@ -1,15 +1,17 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 515" width="880" height="515"
      font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="515" fill="var(--c-bg)"/>
+
   <style>
     :root {
-      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-text: #1f2937; --c-bg: #ffffff; --c-on-brand: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db;
       --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
       --c-success: #10b981; --c-success-soft: #d1fae5;
       --c-danger: #ef4444; --c-danger-soft: #fee2e2;
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-on-brand: #ffffff; --c-text-soft: #9ca3af; --c-border: #4b5563;
         --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
         --c-success: #34d399; --c-success-soft: #064e3b;
         --c-danger: #f87171; --c-danger-soft: #7f1d1d;
@@ -31,7 +33,7 @@
     .msg-label-bg { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 0.5; }
     .step-text { font-size: 13px; fill: var(--c-text); }
     .step-num { font-size: 15px; font-weight: 700; fill: var(--c-brand); }
-    .code { font-family: Consolas, Monaco, monospace; font-size: 12px; fill: var(--c-text); }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 13px; fill: var(--c-text); }
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
@@ -47,13 +49,13 @@
   </style>
   <defs>
     <marker id="ax-q22-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#3451b2"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-brand)"/>
     </marker>
     <marker id="ax-q22-s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-success)"/>
     </marker>
     <marker id="ax-q22-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#ef4444"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-danger)"/>
     </marker>
   </defs>
 
@@ -96,7 +98,7 @@
     <rect x="395" y="210" width="210" height="60" class="shared-box" rx="4"/>
     <text x="410" y="230" class="step-text" style="font-weight: 700; fill: var(--c-success);">pendingRequests</text>
     <text x="410" y="248" class="code">"user-123" → ⏳ Promise</text>
-    <text x="410" y="262" class="code" style="font-size: 11px;">（已存在，直接共享）</text>
+    <text x="410" y="262" class="code" style="font-size: 13px;">（已存在，直接共享）</text>
   </g>
 
   <!-- Step 3: 第一个调用发请求，其他共享 -->

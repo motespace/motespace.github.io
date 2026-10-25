@@ -1,8 +1,10 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 514" width="880" height="514"
      font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="514" fill="var(--c-bg)"/>
+
   <style>
     :root {
-      --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-text: #1f2937; --c-bg: #ffffff; --c-on-brand: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db;
       --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
       --c-success: #10b981; --c-success-soft: #d1fae5;
       --c-danger: #ef4444; --c-danger-soft: #fee2e2;
@@ -10,7 +12,7 @@
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-on-brand: #ffffff; --c-text-soft: #9ca3af; --c-border: #4b5563;
         --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
         --c-success: #34d399; --c-success-soft: #064e3b;
         --c-danger: #f87171; --c-danger-soft: #7f1d1d;
@@ -24,7 +26,7 @@
     .success-block { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
     .wait-block { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1.5; stroke-dasharray: 3 2; }
     .bar-label { font-size: 13px; fill: var(--c-text); text-anchor: middle; font-weight: 600; }
-    .bar-sub { font-size: 11px; fill: var(--c-text-soft); text-anchor: middle; }
+    .bar-sub { font-size: 13px; fill: var(--c-text-soft); text-anchor: middle; }
     .time-tick { font-size: 13px; fill: var(--c-text-soft); text-anchor: middle; }
     .time-axis { stroke: var(--c-text-soft); stroke-width: 1; }
     .code { font-family: Consolas, Monaco, monospace; font-size: 13px; fill: var(--c-text); }

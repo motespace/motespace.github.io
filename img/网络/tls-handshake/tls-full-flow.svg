@@ -1,7 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 760" width="880" height="760" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="760" fill="var(--c-bg)"/>
+
   <style>
     :root {
-      --c-text: #1f2937;
+      --c-text: #1f2937; --c-bg: #ffffff; --c-on-brand: #ffffff;
       --c-text-2: #374151;
       --c-text-soft: #6b7280;
       --c-border: #d1d5db;
@@ -18,7 +20,7 @@
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --c-text: #f3f4f6;
+        --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-on-brand: #ffffff;
         --c-text-2: #d1d5db;
         --c-text-soft: #9ca3af;
         --c-border: #4b5563;
@@ -44,7 +46,7 @@
     .msg-back { stroke: var(--c-warning); stroke-width: 2; fill: none; marker-end: url(#arrow-w); }
     .msg-label { font-size: 15px; font-weight: 600; fill: var(--c-text); }
     .msg-detail { font-size: 13px; fill: var(--c-text-soft); }
-    .phase-tag { font-size: 10px; font-weight: 700; fill: #ffffff; }
+    .phase-tag { font-size: 13px; font-weight: 700; fill: var(--c-on-brand); }
     .phase-1 { fill: var(--c-text-soft); }
     .phase-2 { fill: var(--c-warning-2); }
     .phase-3 { fill: var(--c-success); }
@@ -52,7 +54,7 @@
     .note { font-size: 13px; fill: var(--c-text-2); }
     .key { font-size: 13px; font-weight: 600; fill: var(--c-brand); }
     .info-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
-    .step-cmt { font-size: 10px; fill: var(--c-text-soft); font-style: italic; }
+    .step-cmt { font-size: 13px; fill: var(--c-text-soft); font-style: italic; }
 
     @keyframes drawIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
     .msg-step { opacity: 0; animation: drawIn 0.35s ease-out forwards; }

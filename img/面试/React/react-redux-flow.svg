@@ -1,8 +1,10 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 883 503" width="883" height="503"
      font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="883" height="503" fill="var(--c-bg)"/>
+
   <style>
-    :root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; --c-warning: #f59e0b; --c-warning-soft: #fffbeb; }
-    @media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; --c-warning: #fbbf24; --c-warning-soft: #451a03; } }
+    :root { --c-text: #1f2937; --c-bg: #ffffff; --c-on-brand: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; --c-warning: #f59e0b; --c-warning-soft: #fffbeb; }
+    @media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-on-brand: #ffffff; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; --c-warning: #fbbf24; --c-warning-soft: #451a03; } }
     .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
     .subtitle { font-size: 14px; fill: var(--c-text-soft); }
     .stage-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
@@ -10,16 +12,16 @@
     .stage-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
     .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
     .label { font-size: 13px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
-    .code { font-family: Consolas, Monaco, monospace; font-size: 11px; fill: var(--c-text); }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 13px; fill: var(--c-text); }
     .section-title { font-size: 14px; font-weight: 700; fill: var(--c-text); }
-    .item { font-size: 12px; fill: var(--c-text); }
+    .item { font-size: 13px; fill: var(--c-text); }
   </style>
   <defs>
     <marker id="ax-r7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#3451b2"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-brand)"/>
     </marker>
     <marker id="ax-r7-s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-success)"/>
     </marker>
   </defs>
 
@@ -49,7 +51,7 @@
   <text x="800" y="125" class="label">Store</text>
   <text x="800" y="148" class="code" text-anchor="middle">新 state</text>
 
-  <path d="M 800,170 Q 800,260 120,260 Q 120,170 60,170" class="arrow" stroke="#10b981" fill="none" marker-end="url(#ax-r7-s)"/>
+  <path d="M 800,170 Q 800,260 120,260 Q 120,170 60,170" class="arrow" stroke="var(--c-success)" fill="none" marker-end="url(#ax-r7-s)"/>
   <text x="430" y="290" class="item" text-anchor="middle">subscribe → View 重渲染</text>
 
   <rect x="40" y="320" width="800" height="160" style="fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5;" rx="6"/>

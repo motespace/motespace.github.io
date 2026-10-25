@@ -1,23 +1,25 @@
 ﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540"
      font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="540" fill="var(--c-bg)"/>
+
   <style>
-    :root { --c-text: #1f2937; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; }
-    @media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; } }
+    :root { --c-text: #1f2937; --c-bg: #ffffff; --c-on-brand: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; }
+    @media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-on-brand: #ffffff; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; } }
     .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
     .subtitle { font-size: 14px; fill: var(--c-text-soft); }
     .stage-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1; }
     .stage-create { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
     .stage-mount { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
     .stage-text { font-size: 13px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
-    .stage-sub { font-size: 11px; fill: var(--c-text-soft); text-anchor: middle; }
+    .stage-sub { font-size: 13px; fill: var(--c-text-soft); text-anchor: middle; }
     .arrow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
     .section-title { font-size: 14px; font-weight: 700; fill: var(--c-text); }
-    .hook { font-size: 12px; fill: var(--c-text); font-family: Consolas, Monaco, monospace; }
-    .note { font-size: 12px; fill: var(--c-text-soft); }
+    .hook { font-size: 13px; fill: var(--c-text); font-family: Consolas, Monaco, monospace; }
+    .note { font-size: 13px; fill: var(--c-text-soft); }
   </style>
   <defs>
     <marker id="ax-v2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--c-text-soft)"/>
     </marker>
   </defs>
 
@@ -28,7 +30,7 @@
     <rect x="40" y="100" width="100" height="60" class="stage-create" rx="6"/>
     <text x="90" y="125" class="stage-text">beforeCreate</text>
     <text x="90" y="143" class="stage-sub">初始化前</text>
-    <text x="90" y="155" class="stage-sub" style="font-size: 9px;">data/methods 未挂载</text>
+    <text x="90" y="155" class="stage-sub" style="font-size: 13px;">data/methods 未挂载</text>
   </g>
 
   <line x1="140" y1="130" x2="180" y2="130" class="arrow" marker-end="url(#ax-v2)"/>
@@ -37,7 +39,7 @@
     <rect x="180" y="100" width="100" height="60" class="stage-create" rx="6"/>
     <text x="230" y="125" class="stage-text">created</text>
     <text x="230" y="143" class="stage-sub">初始化完成</text>
-    <text x="230" y="155" class="stage-sub" style="font-size: 9px;">可访问 data/methods</text>
+    <text x="230" y="155" class="stage-sub" style="font-size: 13px;">可访问 data/methods</text>
   </g>
 
   <line x1="280" y1="130" x2="320" y2="130" class="arrow" marker-end="url(#ax-v2)"/>
@@ -46,7 +48,7 @@
     <rect x="320" y="100" width="100" height="60" class="stage-create" rx="6"/>
     <text x="370" y="125" class="stage-text">beforeMount</text>
     <text x="370" y="143" class="stage-sub">挂载前</text>
-    <text x="370" y="155" class="stage-sub" style="font-size: 9px;">template → render</text>
+    <text x="370" y="155" class="stage-sub" style="font-size: 13px;">template → render</text>
   </g>
 
   <line x1="420" y1="130" x2="460" y2="130" class="arrow" marker-end="url(#ax-v2)"/>
@@ -55,7 +57,7 @@
     <rect x="460" y="100" width="100" height="60" class="stage-mount" rx="6"/>
     <text x="510" y="125" class="stage-text">mounted</text>
     <text x="510" y="143" class="stage-sub">挂载完成</text>
-    <text x="510" y="155" class="stage-sub" style="font-size: 9px;">DOM 已渲染</text>
+    <text x="510" y="155" class="stage-sub" style="font-size: 13px;">DOM 已渲染</text>
   </g>
 
   <line x1="560" y1="160" x2="560" y2="220" class="arrow" marker-end="url(#ax-v2)"/>

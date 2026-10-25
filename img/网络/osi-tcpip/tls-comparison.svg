@@ -1,7 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 548" width="880" height="548" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="548" fill="var(--c-bg)"/>
+
   <style>
     :root {
-      --c-text: #1f2937;
+      --c-text: #1f2937; --c-bg: #ffffff; --c-on-brand: #ffffff;
       --c-text-2: #374151;
       --c-text-soft: #6b7280;
       --c-border: #d1d5db;
@@ -17,7 +19,7 @@
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --c-text: #f3f4f6;
+        --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-on-brand: #ffffff;
         --c-text-2: #d1d5db;
         --c-text-soft: #9ca3af;
         --c-border: #4b5563;
@@ -35,7 +37,7 @@
 
     .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
     .subtitle { font-size: 15px; fill: var(--c-text-soft); }
-    .col-title { font-size: 16px; font-weight: 700; fill: #ffffff; }
+    .col-title { font-size: 16px; font-weight: 700; fill: var(--c-on-brand); }
     .actor { font-size: 15px; font-weight: 700; fill: var(--c-text); }
     .actor-bg-old { fill: var(--c-warning-soft); stroke: var(--c-warning-2); stroke-width: 1.5; }
     .actor-bg-new { fill: var(--c-success-soft); stroke: var(--c-success-2); stroke-width: 1.5; }
