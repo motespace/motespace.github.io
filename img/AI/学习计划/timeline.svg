@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 440" width="880" height="440"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="440" fill="var(--c-bg)"/>
+
+  <style>
+    :root {
+      --c-text: #1f2937; --c-bg: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .layer-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1.5; }
+    .layer-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
+    .layer-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    .layer-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
+    .layer-title { font-size: 16px; font-weight: 700; fill: var(--c-text); }
+    .layer-sub { font-size: 13px; fill: var(--c-text); }
+    .layer-sub-soft { font-size: 13px; fill: var(--c-text-soft); }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 13px; fill: var(--c-text); }
+    .flow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    .flow-head { fill: var(--c-text-soft); }
+    .phase { font-size: 15px; font-weight: 700; fill: var(--c-brand); }
+    .lifeline { stroke: var(--c-border); stroke-width: 1.5; stroke-dasharray: 5 5; }
+    .msg { font-size: 13px; fill: var(--c-text); }
+    .msg-soft { font-size: 13px; fill: var(--c-text-soft); }
+    .node { stroke-width: 2; }
+  </style>
+
+  <text x="40" y="42" class="title">30 天学习时间轴</text>
+  <text x="40" y="66" class="subtitle">四周一个完整循环:基础 → 检索 → 编排 → 交付</text>
+
+  <line x1="90" y1="230" x2="790" y2="230" class="flow"/>
+
+  <g transform="translate(150, 110)">
+    <rect x="-90" y="0" width="180" height="80" class="layer-brand" rx="8"/>
+    <text x="0" y="28" class="layer-title" text-anchor="middle">Week 1</text>
+    <text x="0" y="52" class="layer-sub" text-anchor="middle">Python 基础 + AI 环境</text>
+    <text x="0" y="70" class="layer-sub-soft" text-anchor="middle">进入下一阶段</text>
+  </g>
+
+  <circle cx="150" cy="230" r="10" fill="var(--c-brand)"/>
+  <circle cx="150" cy="230" r="4" fill="var(--c-bg)"/>
+
+  <g transform="translate(150, 268)">
+    <rect x="-90" y="0" width="180" height="80" class="layer-box" rx="8"/>
+    <text x="0" y="28" class="layer-title" text-anchor="middle">Day 7</text>
+    <text x="0" y="52" class="layer-sub" text-anchor="middle">环境搭建完成</text>
+    <text x="0" y="70" class="layer-sub-soft" text-anchor="middle">对应一个可交付物</text>
+  </g>
+
+  <line x1="212" y1="230" x2="280" y2="230" class="flow"/>
+  <path d="M 280 224 L 288 230 L 280 236 Z" class="flow-head"/>
+
+  <g transform="translate(350, 110)">
+    <rect x="-90" y="0" width="180" height="80" class="layer-success" rx="8"/>
+    <text x="0" y="28" class="layer-title" text-anchor="middle">Week 2</text>
+    <text x="0" y="52" class="layer-sub" text-anchor="middle">LLM 核心 + RAG 实战</text>
+    <text x="0" y="70" class="layer-sub-soft" text-anchor="middle">进入下一阶段</text>
+  </g>
+
+  <circle cx="350" cy="230" r="10" fill="var(--c-success)"/>
+  <circle cx="350" cy="230" r="4" fill="var(--c-bg)"/>
+
+  <g transform="translate(350, 268)">
+    <rect x="-90" y="0" width="180" height="80" class="layer-box" rx="8"/>
+    <text x="0" y="28" class="layer-title" text-anchor="middle">Day 14</text>
+    <text x="0" y="52" class="layer-sub" text-anchor="middle">项目 A 完成</text>
+    <text x="0" y="70" class="layer-sub-soft" text-anchor="middle">对应一个可交付物</text>
+  </g>
+
+  <line x1="412" y1="230" x2="480" y2="230" class="flow"/>
+  <path d="M 480 224 L 488 230 L 480 236 Z" class="flow-head"/>
+
+  <g transform="translate(550, 110)">
+    <rect x="-90" y="0" width="180" height="80" class="layer-warning" rx="8"/>
+    <text x="0" y="28" class="layer-title" text-anchor="middle">Week 3</text>
+    <text x="0" y="52" class="layer-sub" text-anchor="middle">LangGraph 编排</text>
+    <text x="0" y="70" class="layer-sub-soft" text-anchor="middle">进入下一阶段</text>
+  </g>
+
+  <circle cx="550" cy="230" r="10" fill="var(--c-warning)"/>
+  <circle cx="550" cy="230" r="4" fill="var(--c-bg)"/>
+
+  <g transform="translate(550, 268)">
+    <rect x="-90" y="0" width="180" height="80" class="layer-box" rx="8"/>
+    <text x="0" y="28" class="layer-title" text-anchor="middle">Day 22</text>
+    <text x="0" y="52" class="layer-sub" text-anchor="middle">项目 B 完成</text>
+    <text x="0" y="70" class="layer-sub-soft" text-anchor="middle">对应一个可交付物</text>
+  </g>
+
+  <line x1="612" y1="230" x2="680" y2="230" class="flow"/>
+  <path d="M 680 224 L 688 230 L 680 236 Z" class="flow-head"/>
+
+  <g transform="translate(750, 110)">
+    <rect x="-90" y="0" width="180" height="80" class="layer-success" rx="8"/>
+    <text x="0" y="28" class="layer-title" text-anchor="middle">Week 4</text>
+    <text x="0" y="52" class="layer-sub" text-anchor="middle">端到端工程化</text>
+    <text x="0" y="70" class="layer-sub-soft" text-anchor="middle">进入下一阶段</text>
+  </g>
+
+  <circle cx="750" cy="230" r="10" fill="var(--c-success)"/>
+  <circle cx="750" cy="230" r="4" fill="var(--c-bg)"/>
+
+  <g transform="translate(750, 268)">
+    <rect x="-90" y="0" width="180" height="80" class="layer-box" rx="8"/>
+    <text x="0" y="28" class="layer-title" text-anchor="middle">Day 30</text>
+    <text x="0" y="52" class="layer-sub" text-anchor="middle">项目 C 完成</text>
+    <text x="0" y="70" class="layer-sub-soft" text-anchor="middle">对应一个可交付物</text>
+  </g>
+
+  <text x="40" y="404" class="subtitle">📁 每周产出一个能跑的东西,而不是「看完一章」</text>
+</svg>

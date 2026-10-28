@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 740" width="880" height="740"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="740" fill="var(--c-bg)"/>
+
+  <style>
+    :root {
+      --c-text: #1f2937; --c-bg: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .layer-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1.5; }
+    .layer-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
+    .layer-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    .layer-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
+    .layer-title { font-size: 16px; font-weight: 700; fill: var(--c-text); }
+    .layer-sub { font-size: 13px; fill: var(--c-text); }
+    .layer-sub-soft { font-size: 13px; fill: var(--c-text-soft); }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 13px; fill: var(--c-text); }
+    .flow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    .flow-head { fill: var(--c-text-soft); }
+    .phase { font-size: 15px; font-weight: 700; fill: var(--c-brand); }
+    .lifeline { stroke: var(--c-border); stroke-width: 1.5; stroke-dasharray: 5 5; }
+    .msg { font-size: 13px; fill: var(--c-text); }
+    .msg-soft { font-size: 13px; fill: var(--c-text-soft); }
+    .node { stroke-width: 2; }
+  </style>
+
+  <text x="40" y="42" class="title">AI Agent 技术栈全景图</text>
+  <text x="40" y="66" class="subtitle">从 Python 基础到工程化交付的六层能力栈,自下而上逐层叠加</text>
+
+  <g transform="translate(40, 96)">
+    <rect x="0" y="0" width="800" height="80" class="layer-brand" rx="8"/>
+    <text x="20" y="28" class="layer-title">🐍 Python 进阶</text>
+    <text x="20" y="52" class="layer-sub">类型提示 · dataclass · asyncio · uv</text>
+    <text x="20" y="70" class="layer-sub-soft">用 uv 管理虚拟环境与依赖;类型提示是 LangChain 链式调用的基础</text>
+  </g>
+
+  <line x1="440" y1="180" x2="440" y2="188" class="flow"/>
+  <path d="M 434 188 L 440 196 L 446 188 Z" class="flow-head"/>
+
+  <g transform="translate(40, 202)">
+    <rect x="0" y="0" width="800" height="80" class="layer-brand" rx="8"/>
+    <text x="20" y="28" class="layer-title">🤖 LLM 基础</text>
+    <text x="20" y="52" class="layer-sub">Token · Prompt · Function Calling</text>
+    <text x="20" y="70" class="layer-sub-soft">模型选型:MiniMax / DeepSeek / OpenAI,按场景权衡能力与成本</text>
+  </g>
+
+  <line x1="440" y1="286" x2="440" y2="294" class="flow"/>
+  <path d="M 434 294 L 440 302 L 446 294 Z" class="flow-head"/>
+
+  <g transform="translate(40, 308)">
+    <rect x="0" y="0" width="800" height="80" class="layer-success" rx="8"/>
+    <text x="20" y="28" class="layer-title">📚 RAG 体系</text>
+    <text x="20" y="52" class="layer-sub">Embedding · 向量库 · 分块 · Reranking</text>
+    <text x="20" y="70" class="layer-sub-soft">向量库演进:ChromaDB(简单上手) → pgvector(复用 Postgres)</text>
+  </g>
+
+  <line x1="440" y1="392" x2="440" y2="400" class="flow"/>
+  <path d="M 434 400 L 440 408 L 446 400 Z" class="flow-head"/>
+
+  <g transform="translate(40, 414)">
+    <rect x="0" y="0" width="800" height="80" class="layer-brand" rx="8"/>
+    <text x="20" y="28" class="layer-title">🔗 LangChain + LangGraph</text>
+    <text x="20" y="52" class="layer-sub">LCEL · Output Parser · Memory · Agent</text>
+    <text x="20" y="70" class="layer-sub-soft">StateGraph · Conditional Edge · Checkpoint · Human-in-the-Loop</text>
+  </g>
+
+  <line x1="440" y1="498" x2="440" y2="506" class="flow"/>
+  <path d="M 434 506 L 440 514 L 446 506 Z" class="flow-head"/>
+
+  <g transform="translate(40, 520)">
+    <rect x="0" y="0" width="800" height="80" class="layer-warning" rx="8"/>
+    <text x="20" y="28" class="layer-title">🛠 Agent 设计模式</text>
+    <text x="20" y="52" class="layer-sub">ReAct · Plan-Execute · Reflection</text>
+    <text x="20" y="70" class="layer-sub-soft">Multi-Agent 分工 · MCP 协议标准化工具接入</text>
+  </g>
+
+  <line x1="440" y1="604" x2="440" y2="612" class="flow"/>
+  <path d="M 434 612 L 440 620 L 446 612 Z" class="flow-head"/>
+
+  <g transform="translate(40, 626)">
+    <rect x="0" y="0" width="800" height="80" class="layer-success" rx="8"/>
+    <text x="20" y="28" class="layer-title">🚀 工程化交付</text>
+    <text x="20" y="52" class="layer-sub">FastAPI · Next.js · PostgreSQL · Docker</text>
+    <text x="20" y="70" class="layer-sub-soft">GitHub Actions CI/CD · 监控与日志 · 成本治理</text>
+  </g>
+
+  <text x="40" y="722" class="subtitle">⚠ 上层依赖下层:没有向量库谈不上 RAG,没有工具协议谈不上多 Agent</text>
+</svg>

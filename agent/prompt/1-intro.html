@@ -8,12 +8,12 @@
     <meta name="generator" content="VitePress v1.6.4">
     <link rel="preload stylesheet" href="/assets/style.Bnq_oepK.css" as="style">
     <link rel="preload stylesheet" href="/vp-icons.css" as="style">
-    <script type="module" src="/assets/chunks/metadata.9acf5727.js"></script>
-    <script type="module" src="/assets/app.D7KEtUmI.js"></script>
+    <script type="module" src="/assets/chunks/metadata.13887709.js"></script>
+    <script type="module" src="/assets/app.DgibChQp.js"></script>
     <link rel="preload" href="/assets/inter-roman-latin.Di8DUHzh.woff2" as="font" type="font/woff2" crossorigin="">
-    <link rel="modulepreload" href="/assets/chunks/theme.DrEP4A2D.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.CuPAlef1.js">
     <link rel="modulepreload" href="/assets/chunks/framework.BXzK3EA4.js">
-    <link rel="modulepreload" href="/assets/agent_prompt_1-intro.md.HhEaugZh.lean.js">
+    <link rel="modulepreload" href="/assets/agent_prompt_1-intro.md.umh7HkNN.lean.js">
     <link rel="icon" href="/img/sun.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script id="check-dark-mode">(()=>{const e=localStorage.getItem("vitepress-theme-appearance")||"auto",a=window.matchMedia("(prefers-color-scheme: dark)").matches;(!e||e==="auto"?a:e==="dark")&&document.documentElement.classList.add("dark")})();</script>
@@ -237,11 +237,25 @@
 <span class="line"><span></span></span>
 <span class="line"><span>**结论**:**90% 的场景用 Prompt 就够了**,只有当 Prompt 效果始终不达标时才考虑微调。</span></span>
 <span class="line"><span></span></span>
+<span class="line"><span>## 🎯 面试常考</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**Q1：Prompt 的四要素是什么?**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>角色(Role)、任务(Task)、上下文(Context)、输出格式(Output Format)。写 Prompt 时逐项确认,比反复调措辞高效得多。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**Q2：怎么让模型稳定输出 JSON?**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>① 在指令里明确 schema;② 用 `response_format={&#39;type&#39;:&#39;json_object&#39;}` 或结构化输出能力;③ 解析时做容错(去 markdown 代码块包裹、失败重试)。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**Q3：Prompt 怎么迭代?**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>先写最小可用版本,拿真实样例跑,记录失败案例,再针对失败改 Prompt。改一次只动一个变量,否则无法归因。</span></span>
+<span class="line"><span></span></span>
 <span class="line"><span>## 🎯 实战清单</span></span></code></pre></div><p>✅ Prompt = 角色 + 任务 + 约束 + 示例(4 要素) ✅ 角色要具体专业,任务要单一清晰 ✅ 约束要明确说&quot;不能做什么&quot;和&quot;不知道怎么办&quot; ✅ 示例比描述更有效(Few-shot) ✅ 由简到繁,迭代优化 ✅ 90% 场景 Prompt 足够,不要一上来就微调</p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span></span></span>
 <span class="line"><span>## 🔗 下一步</span></span>
 <span class="line"><span></span></span>
 <span class="line"><span>- 高级技巧 → [`2-techniques`](./2-techniques)</span></span>
-<span class="line"><span>- 系统提示词设计 → [`3-system-prompt`](./3-system-prompt)</span></span></code></pre></div></div></div></main><footer class="VPDocFooter" data-v-4033fac0 data-v-3790a33b><!--[--><!--]--><div class="edit-info" data-v-3790a33b><!----><div class="last-updated" data-v-3790a33b><p class="VPLastUpdated" data-v-3790a33b data-v-a33d6038>上次更新：: <time datetime="2026-10-27T15:01:08.000Z" data-v-a33d6038></time></p></div></div><nav class="prev-next" aria-labelledby="doc-footer-aria-label" data-v-3790a33b><span class="visually-hidden" id="doc-footer-aria-label" data-v-3790a33b>Pager</span><div class="pager" data-v-3790a33b><a class="VPLink link pager-link prev" href="/agent/prompt/" data-v-3790a33b><!--[--><span class="desc" data-v-3790a33b>上一篇</span><span class="title" data-v-3790a33b>Prompt 工程</span><!--]--></a></div><div class="pager" data-v-3790a33b><a class="VPLink link pager-link next" href="/agent/prompt/2-techniques" data-v-3790a33b><!--[--><span class="desc" data-v-3790a33b>下一篇</span><span class="title" data-v-3790a33b>2. Prompt 高级技巧(CoT / Few-shot / ReAct)</span><!--]--></a></div></nav></footer><!--[--><!--]--></div></div></div><!--[--><!--]--></div></div><footer class="VPFooter has-sidebar" data-v-434f9b96 data-v-51df2cdb><div class="container" data-v-51df2cdb><p class="message" data-v-51df2cdb>Released under the MIT License.</p><p class="copyright" data-v-51df2cdb>Copyright © 2024 微尘</p></div></footer><!--[--><!--]--></div></div>
+<span class="line"><span>- 系统提示词设计 → [`3-system-prompt`](./3-system-prompt)</span></span></code></pre></div></div></div></main><footer class="VPDocFooter" data-v-4033fac0 data-v-3790a33b><!--[--><!--]--><div class="edit-info" data-v-3790a33b><!----><div class="last-updated" data-v-3790a33b><p class="VPLastUpdated" data-v-3790a33b data-v-a33d6038>上次更新：: <time datetime="2026-10-28T16:00:21.000Z" data-v-a33d6038></time></p></div></div><nav class="prev-next" aria-labelledby="doc-footer-aria-label" data-v-3790a33b><span class="visually-hidden" id="doc-footer-aria-label" data-v-3790a33b>Pager</span><div class="pager" data-v-3790a33b><a class="VPLink link pager-link prev" href="/agent/prompt/" data-v-3790a33b><!--[--><span class="desc" data-v-3790a33b>上一篇</span><span class="title" data-v-3790a33b>Prompt 工程</span><!--]--></a></div><div class="pager" data-v-3790a33b><a class="VPLink link pager-link next" href="/agent/prompt/2-techniques" data-v-3790a33b><!--[--><span class="desc" data-v-3790a33b>下一篇</span><span class="title" data-v-3790a33b>2. Prompt 高级技巧(CoT / Few-shot / ReAct)</span><!--]--></a></div></nav></footer><!--[--><!--]--></div></div></div><!--[--><!--]--></div></div><footer class="VPFooter has-sidebar" data-v-434f9b96 data-v-51df2cdb><div class="container" data-v-51df2cdb><p class="message" data-v-51df2cdb>Released under the MIT License.</p><p class="copyright" data-v-51df2cdb>Copyright © 2024 微尘</p></div></footer><!--[--><!--]--></div></div>
     
     
   </body>

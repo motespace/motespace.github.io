@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 430" width="880" height="430"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="430" fill="var(--c-bg)"/>
+
+  <style>
+    :root {
+      --c-text: #1f2937; --c-bg: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .layer-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1.5; }
+    .layer-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
+    .layer-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    .layer-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
+    .layer-title { font-size: 16px; font-weight: 700; fill: var(--c-text); }
+    .layer-sub { font-size: 13px; fill: var(--c-text); }
+    .layer-sub-soft { font-size: 13px; fill: var(--c-text-soft); }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 13px; fill: var(--c-text); }
+    .flow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    .flow-head { fill: var(--c-text-soft); }
+    .phase { font-size: 15px; font-weight: 700; fill: var(--c-brand); }
+    .lifeline { stroke: var(--c-border); stroke-width: 1.5; stroke-dasharray: 5 5; }
+    .msg { font-size: 13px; fill: var(--c-text); }
+    .msg-soft { font-size: 13px; fill: var(--c-text-soft); }
+  </style>
+
+  <text x="40" y="40" class="title">TCP 四次挥手</text>
+  <text x="40" y="62" class="subtitle">关闭连接 · 两次 FIN + 两次 ACK,客户端最后进入 TIME_WAIT</text>
+
+  <g transform="translate(200, 84)">
+    <rect x="0" y="0" width="160" height="36" class="layer-brand" rx="6"/>
+    <text x="80" y="24" class="layer-title" text-anchor="middle">客户端</text>
+  </g>
+  <g transform="translate(520, 84)">
+    <rect x="0" y="0" width="160" height="36" class="layer-success" rx="6"/>
+    <text x="80" y="24" class="layer-title" text-anchor="middle">服务端</text>
+  </g>
+
+  <line x1="280" y1="120" x2="280" y2="392" class="lifeline"/>
+  <line x1="600" y1="120" x2="600" y2="392" class="lifeline"/>
+  <line x1="280" y1="145" x2="600" y2="145" class="flow"/>
+  <path d="M 592 139 L 600 145 L 592 151 Z" class="flow-head"/>
+  <text x="440" y="137" class="msg" text-anchor="middle">① FIN</text>
+  <text x="440" y="161" class="msg-soft" text-anchor="middle">seq = u</text>
+  <text x="440" y="177" class="msg-soft" text-anchor="middle">客户端主动关闭,进入 FIN_WAIT_1</text>
+  <line x1="600" y1="205" x2="280" y2="205" class="flow"/>
+  <path d="M 608 199 L 600 205 L 608 211 Z" class="flow-head"/>
+  <text x="440" y="197" class="msg" text-anchor="middle">② ACK</text>
+  <text x="440" y="221" class="msg-soft" text-anchor="middle">ack = u+1</text>
+  <text x="440" y="237" class="msg-soft" text-anchor="middle">服务端确认收到,但连接还没关(半关闭)</text>
+  <line x1="600" y1="265" x2="280" y2="265" class="flow"/>
+  <path d="M 608 259 L 600 265 L 608 271 Z" class="flow-head"/>
+  <text x="440" y="257" class="msg" text-anchor="middle">③ FIN</text>
+  <text x="440" y="281" class="msg-soft" text-anchor="middle">seq = w</text>
+  <text x="440" y="297" class="msg-soft" text-anchor="middle">服务端数据发完了,再发 FIN</text>
+  <line x1="280" y1="325" x2="600" y2="325" class="flow"/>
+  <path d="M 592 319 L 600 325 L 592 331 Z" class="flow-head"/>
+  <text x="440" y="317" class="msg" text-anchor="middle">④ ACK</text>
+  <text x="440" y="341" class="msg-soft" text-anchor="middle">seq = u+1, ack = w+1</text>
+  <text x="440" y="357" class="msg-soft" text-anchor="middle">客户端回最后一个 ACK</text>
+  <text x="150" y="150" class="msg-soft">ESTABLISHED</text>
+  <text x="150" y="210" class="msg-soft">FIN_WAIT_1</text>
+  <text x="150" y="270" class="msg-soft">FIN_WAIT_2</text>
+  <text x="150" y="330" class="msg-soft">TIME_WAIT</text>
+  <text x="690" y="210" class="msg-soft">CLOSE_WAIT</text>
+  <text x="690" y="270" class="msg-soft">LAST_ACK</text>
+  <text x="690" y="330" class="msg-soft">CLOSED</text>
+  <text x="40" y="414" class="subtitle">⚠ 为什么是 4 次:服务端可能还有数据要发,ACK 和 FIN 不能合并;客户端的 TIME_WAIT 要等 2MSL 才彻底关闭</text>
+</svg>

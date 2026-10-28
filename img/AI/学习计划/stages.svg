@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 690" width="880" height="690"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="690" fill="var(--c-bg)"/>
+
+  <style>
+    :root {
+      --c-text: #1f2937; --c-bg: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .layer-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1.5; }
+    .layer-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
+    .layer-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    .layer-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
+    .layer-title { font-size: 16px; font-weight: 700; fill: var(--c-text); }
+    .layer-sub { font-size: 13px; fill: var(--c-text); }
+    .layer-sub-soft { font-size: 13px; fill: var(--c-text-soft); }
+    .code { font-family: Consolas, Monaco, monospace; font-size: 13px; fill: var(--c-text); }
+    .flow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    .flow-head { fill: var(--c-text-soft); }
+    .phase { font-size: 15px; font-weight: 700; fill: var(--c-brand); }
+    .lifeline { stroke: var(--c-border); stroke-width: 1.5; stroke-dasharray: 5 5; }
+    .msg { font-size: 13px; fill: var(--c-text); }
+    .msg-soft { font-size: 13px; fill: var(--c-text-soft); }
+    .node { stroke-width: 2; }
+  </style>
+
+  <text x="40" y="42" class="title">AI 开发四阶段</text>
+  <text x="40" y="66" class="subtitle">按依赖顺序推进,每一阶段都能独立跑通再进下一步</text>
+
+  <g transform="translate(40, 96)">
+    <rect x="0" y="0" width="800" height="112" class="layer-brand" rx="8"/>
+    <text x="20" y="30" class="layer-title">第一阶段</text>
+    <text x="130" y="30" class="layer-sub">先把「能调通」打通</text>
+    <text x="20" y="54" class="layer-sub-soft">类型提示、虚拟环境、第一个 /chat/completions 调用</text>
+    <rect x="20" y="70" width="230" height="30" class="chip" rx="15"/>
+    <text x="135" y="90" class="code" text-anchor="middle">Python</text>
+    <rect x="280" y="70" width="230" height="30" class="chip" rx="15"/>
+    <text x="395" y="90" class="code" text-anchor="middle">LLM API</text>
+    <rect x="540" y="70" width="230" height="30" class="chip" rx="15"/>
+    <text x="655" y="90" class="code" text-anchor="middle">FastAPI</text>
+  </g>
+
+  <line x1="440" y1="212" x2="440" y2="222" class="flow"/>
+  <path d="M 434 222 L 440 230 L 446 222 Z" class="flow-head"/>
+
+  <g transform="translate(40, 246)">
+    <rect x="0" y="0" width="800" height="112" class="layer-success" rx="8"/>
+    <text x="20" y="30" class="layer-title">第二阶段</text>
+    <text x="130" y="30" class="layer-sub">再做「能检索」</text>
+    <text x="20" y="54" class="layer-sub-soft">文档切分、向量化、入库,再把检索结果拼进 Prompt</text>
+    <rect x="20" y="70" width="230" height="30" class="chip" rx="15"/>
+    <text x="135" y="90" class="code" text-anchor="middle">RAG</text>
+    <rect x="280" y="70" width="230" height="30" class="chip" rx="15"/>
+    <text x="395" y="90" class="code" text-anchor="middle">Embedding</text>
+    <rect x="540" y="70" width="230" height="30" class="chip" rx="15"/>
+    <text x="655" y="90" class="code" text-anchor="middle">pgvector</text>
+  </g>
+
+  <line x1="440" y1="362" x2="440" y2="372" class="flow"/>
+  <path d="M 434 372 L 440 380 L 446 372 Z" class="flow-head"/>
+
+  <g transform="translate(40, 396)">
+    <rect x="0" y="0" width="800" height="112" class="layer-warning" rx="8"/>
+    <text x="20" y="30" class="layer-title">第三阶段</text>
+    <text x="130" y="30" class="layer-sub">然后做「能行动」</text>
+    <text x="20" y="54" class="layer-sub-soft">模型自己决定调哪个工具,再把结果喂回去继续推理</text>
+    <rect x="20" y="70" width="230" height="30" class="chip" rx="15"/>
+    <text x="135" y="90" class="code" text-anchor="middle">Agent</text>
+    <rect x="280" y="70" width="230" height="30" class="chip" rx="15"/>
+    <text x="395" y="90" class="code" text-anchor="middle">Tool Calling</text>
+    <rect x="540" y="70" width="230" height="30" class="chip" rx="15"/>
+    <text x="655" y="90" class="code" text-anchor="middle">MCP</text>
+  </g>
+
+  <line x1="440" y1="512" x2="440" y2="522" class="flow"/>
+  <path d="M 434 522 L 440 530 L 446 522 Z" class="flow-head"/>
+
+  <g transform="translate(40, 546)">
+    <rect x="0" y="0" width="800" height="112" class="layer-brand" rx="8"/>
+    <text x="20" y="30" class="layer-title">最后</text>
+    <text x="130" y="30" class="layer-sub">把本地模型也接进来</text>
+    <text x="20" y="54" class="layer-sub-soft">主流程仍走 API,敏感场景切本地模型</text>
+    <rect x="20" y="70" width="230" height="30" class="chip" rx="15"/>
+    <text x="135" y="90" class="code" text-anchor="middle">Ollama</text>
+    <rect x="280" y="70" width="230" height="30" class="chip" rx="15"/>
+    <text x="395" y="90" class="code" text-anchor="middle">本地推理</text>
+    <rect x="540" y="70" width="230" height="30" class="chip" rx="15"/>
+    <text x="655" y="90" class="code" text-anchor="middle">降本与隐私</text>
+  </g>
+
+  <text x="40" y="672" class="subtitle">💡 不要跳阶段:RAG 之前把 API 调不通,后面每一层都会卡在同一个地方</text>
+</svg>
