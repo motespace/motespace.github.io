@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 750" width="880" height="750"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="880" height="750" fill="var(--c-bg)"/>
+
+  <style>
+    :root {
+      --c-text: #1f2937; --c-bg: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db;
+      --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff;
+      --c-success: #10b981; --c-success-soft: #d1fae5;
+      --c-warning: #f59e0b; --c-warning-soft: #fffbeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-text-soft: #9ca3af; --c-border: #4b5563;
+        --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81;
+        --c-success: #34d399; --c-success-soft: #064e3b;
+        --c-warning: #fbbf24; --c-warning-soft: #451a03;
+      }
+    }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .layer-box { fill: var(--c-bg-soft); stroke: var(--c-border); stroke-width: 1.5; }
+    .layer-brand { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 1.5; }
+    .layer-success { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 1.5; }
+    .layer-warning { fill: var(--c-warning-soft); stroke: var(--c-warning); stroke-width: 1.5; }
+    .layer-title { font-size: 16px; font-weight: 700; fill: var(--c-text); }
+    .layer-sub { font-size: 13px; fill: var(--c-text-soft); }
+    .chip { fill: var(--c-bg); stroke: var(--c-border); stroke-width: 1; }
+    .chip-text { font-size: 13px; fill: var(--c-text); }
+    .flow { stroke: var(--c-text-soft); stroke-width: 2; fill: none; }
+    .flow-head { fill: var(--c-text-soft); }
+    .note { font-size: 13px; fill: var(--c-text-soft); }
+  </style>
+
+  <text x="40" y="42" class="title">AI 短剧生产平台 · 五层结构</text>
+  <text x="40" y="66" class="subtitle">门槛不在单次生成质量,在于一致性 · 产能 · 成本</text>
+
+  <text x="40" y="113" class="note">内容层级</text>
+  <rect x="130" y="94" width="110" height="28" class="chip" rx="14"/>
+  <text x="185" y="113" class="chip-text" text-anchor="middle">项目</text>
+  <line x1="244" y1="108" x2="254" y2="108" class="flow"/>
+  <path d="M 254 108 L 247 104 L 247 112 Z" class="flow-head"/>
+  <rect x="260" y="94" width="110" height="28" class="chip" rx="14"/>
+  <text x="315" y="113" class="chip-text" text-anchor="middle">集</text>
+  <line x1="374" y1="108" x2="384" y2="108" class="flow"/>
+  <path d="M 384 108 L 377 104 L 377 112 Z" class="flow-head"/>
+  <rect x="390" y="94" width="110" height="28" class="chip" rx="14"/>
+  <text x="445" y="113" class="chip-text" text-anchor="middle">场</text>
+  <line x1="504" y1="108" x2="514" y2="108" class="flow"/>
+  <path d="M 514 108 L 507 104 L 507 112 Z" class="flow-head"/>
+  <rect x="520" y="94" width="140" height="28" class="chip" rx="14"/>
+  <text x="590" y="113" class="chip-text" text-anchor="middle">镜头</text>
+  <text x="676" y="113" class="note">所有功能都挂在这棵树上</text>
+
+  <g transform="translate(40, 148)">
+    <rect x="0" y="0" width="800" height="80" class="layer-box" rx="8"/>
+    <text x="20" y="32" class="layer-title">剧本层</text>
+    <text x="20" y="58" class="layer-sub">大纲 → 分集剧本 → 分场 → 分镜</text>
+    <rect x="310" y="27" width="150" height="26" class="chip" rx="13"/>
+    <text x="385" y="45" class="chip-text" text-anchor="middle">分集剧本</text>
+    <rect x="475" y="27" width="150" height="26" class="chip" rx="13"/>
+    <text x="550" y="45" class="chip-text" text-anchor="middle">分镜脚本</text>
+    <rect x="640" y="27" width="150" height="26" class="chip" rx="13"/>
+    <text x="715" y="45" class="chip-text" text-anchor="middle">景别 · 运镜 · 口型</text>
+  </g>
+
+  <g transform="translate(40, 242)">
+    <rect x="0" y="0" width="800" height="80" class="layer-brand" rx="8"/>
+    <text x="20" y="32" class="layer-title">一致性层</text>
+    <text x="20" y="58" class="layer-sub">角色与场景沉淀为可绑定的资产</text>
+    <rect x="310" y="27" width="150" height="26" class="chip" rx="13"/>
+    <text x="385" y="45" class="chip-text" text-anchor="middle">多视角参考图</text>
+    <rect x="475" y="27" width="150" height="26" class="chip" rx="13"/>
+    <text x="550" y="45" class="chip-text" text-anchor="middle">版本历史</text>
+    <rect x="640" y="27" width="150" height="26" class="chip" rx="13"/>
+    <text x="715" y="45" class="chip-text" text-anchor="middle">风格锁定</text>
+  </g>
+
+  <g transform="translate(40, 336)">
+    <rect x="0" y="0" width="800" height="80" class="layer-success" rx="8"/>
+    <text x="20" y="32" class="layer-title">生成层</text>
+    <text x="20" y="58" class="layer-sub">批量派发任务,失败重试,挑选候选</text>
+    <rect x="310" y="27" width="150" height="26" class="chip" rx="13"/>
+    <text x="385" y="45" class="chip-text" text-anchor="middle">文生图 · 图生视频</text>
+    <rect x="475" y="27" width="150" height="26" class="chip" rx="13"/>
+    <text x="550" y="45" class="chip-text" text-anchor="middle">首尾帧 · 运镜</text>
+    <rect x="640" y="27" width="150" height="26" class="chip" rx="13"/>
+    <text x="715" y="45" class="chip-text" text-anchor="middle">超分</text>
+  </g>
+
+  <g transform="translate(40, 430)">
+    <rect x="0" y="0" width="800" height="80" class="layer-box" rx="8"/>
+    <text x="20" y="32" class="layer-title">资产层</text>
+    <text x="20" y="58" class="layer-sub">候选版本与素材的统一管理</text>
+    <rect x="310" y="27" width="150" height="26" class="chip" rx="13"/>
+    <text x="385" y="45" class="chip-text" text-anchor="middle">版本树</text>
+    <rect x="475" y="27" width="150" height="26" class="chip" rx="13"/>
+    <text x="550" y="45" class="chip-text" text-anchor="middle">并排对比</text>
+    <rect x="640" y="27" width="150" height="26" class="chip" rx="13"/>
+    <text x="715" y="45" class="chip-text" text-anchor="middle">素材库</text>
+  </g>
+
+  <g transform="translate(40, 524)">
+    <rect x="0" y="0" width="800" height="80" class="layer-box" rx="8"/>
+    <text x="20" y="32" class="layer-title">成片层</text>
+    <text x="20" y="58" class="layer-sub">竖屏时间线、字幕音轨与导出</text>
+    <rect x="310" y="27" width="150" height="26" class="chip" rx="13"/>
+    <text x="385" y="45" class="chip-text" text-anchor="middle">字幕 · 音轨</text>
+    <rect x="475" y="27" width="150" height="26" class="chip" rx="13"/>
+    <text x="550" y="45" class="chip-text" text-anchor="middle">封面 · 片头片尾</text>
+    <rect x="640" y="27" width="150" height="26" class="chip" rx="13"/>
+    <text x="715" y="45" class="chip-text" text-anchor="middle">AIGC 标识</text>
+  </g>
+
+  <g transform="translate(40, 618)">
+    <rect x="0" y="0" width="800" height="82" class="layer-warning" rx="8"/>
+    <text x="20" y="32" class="layer-title">算力调度层 · 横向贯穿所有层</text>
+    <text x="20" y="58" class="layer-sub">队列 · 配额 · 成本 · 优先级</text>
+    <rect x="308" y="28" width="112" height="26" class="chip" rx="13"/>
+    <text x="364" y="46" class="chip-text" text-anchor="middle">批量队列</text>
+    <rect x="432" y="28" width="112" height="26" class="chip" rx="13"/>
+    <text x="488" y="46" class="chip-text" text-anchor="middle">GPU 配额</text>
+    <rect x="556" y="28" width="112" height="26" class="chip" rx="13"/>
+    <text x="612" y="46" class="chip-text" text-anchor="middle">卡时成本</text>
+    <rect x="680" y="28" width="112" height="26" class="chip" rx="13"/>
+    <text x="736" y="46" class="chip-text" text-anchor="middle">优先级</text>
+  </g>
+
+  <text x="40" y="716" class="note">界面战场在剧本 / 一致性 / 资产 / 成片四层,生成层交给模型,底部一层决定成本</text>
+</svg>
