@@ -1,0 +1,725 @@
+<!DOCTYPE html><html lang="zh-CN" dir="ltr" data-theme="dark" data-has-toc data-has-sidebar class="astro-6h2o7xok"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>七、逐字稿与模拟追问 | 微尘</title><link rel="canonical" href="https://motespace.github.io/%E5%89%AF%E4%B8%9A/%E4%BF%9D%E9%99%A9%E5%B1%95%E4%B8%9A/07-%E9%80%90%E5%AD%97%E7%A8%BF/"/><link rel="sitemap" href="/sitemap-index.xml"/><link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml"/><meta name="generator" content="Astro v7.4.10"/><meta name="generator" content="Starlight v0.42.10"/><meta property="og:title" content="七、逐字稿与模拟追问"/><meta property="og:type" content="article"/><meta property="og:url" content="https://motespace.github.io/%E5%89%AF%E4%B8%9A/%E4%BF%9D%E9%99%A9%E5%B1%95%E4%B8%9A/07-%E9%80%90%E5%AD%97%E7%A8%BF/"/><meta property="og:locale" content="zh-CN"/><meta property="og:description" content="本篇是 三面准备 的练习版。"/><meta property="og:site_name" content="微尘"/><meta name="twitter:card" content="summary_large_image"/><meta name="description" content="本篇是 三面准备 的练习版。"/><script>
+	window.StarlightThemeProvider = (() => {
+		const storedTheme =
+			typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme');
+		const theme =
+			storedTheme ||
+			(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+		document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark';
+		return {
+			updatePickers(theme = storedTheme || 'auto') {
+				document.querySelectorAll('starlight-theme-select').forEach((picker) => {
+					const select = picker.querySelector('select');
+					if (select) select.value = theme;
+					/** @type {HTMLTemplateElement | null} */
+					const tmpl = document.querySelector(`#theme-icons`);
+					const newIcon = tmpl && tmpl.content.querySelector('.' + theme);
+					if (newIcon) {
+						const oldIcon = picker.querySelector('svg.label-icon');
+						if (oldIcon) {
+							oldIcon.replaceChildren(...newIcon.cloneNode(true).childNodes);
+						}
+					}
+				});
+			},
+		};
+	})();
+</script><template id="theme-icons"><svg aria-hidden="true" class="light astro-ls36bpzw" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg><svg aria-hidden="true" class="dark astro-ls36bpzw" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg><svg aria-hidden="true" class="auto astro-ls36bpzw" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg></template><link rel="stylesheet" href="/_astro/print.C9eyqPGL.css" media="print"><link rel="stylesheet" href="/_astro/middleware.DmY2A1aQ.css"><script type="module" src="/_astro/page.cNngjUgL.js"></script></head><body class="astro-6h2o7xok"><a class="sl-skip-link astro-kijz75vm" href="#_top">跳转到内容</a><div class="page sl-flex astro-nyzovwux"><header class="header astro-nyzovwux"><div class="header sl-flex astro-nen7h5rs"><div class="title-wrapper sl-flex astro-nen7h5rs"><a href="/" class="site-title sl-flex astro-5bc6j6xm"><span class="astro-5bc6j6xm" translate="no">微尘</span></a></div><nav class="nav-menu print:hidden astro-ksnnumvq" aria-label="主导航"><details class="nav-item astro-ksnnumvq"><summary class="nav-trigger astro-ksnnumvq">前端<span class="nav-caret astro-ksnnumvq" aria-hidden="true"></span></summary><div class="nav-panel astro-ksnnumvq"><div class="nav-section astro-ksnnumvq"><ul class="astro-ksnnumvq"><li class="astro-ksnnumvq"><a href="/前端/" class="astro-ksnnumvq">总览</a></li></ul></div><div class="nav-section astro-ksnnumvq"><p class="nav-section-title astro-ksnnumvq">语言基础</p><ul class="astro-ksnnumvq"><li class="astro-ksnnumvq"><a href="/前端/html5/" class="astro-ksnnumvq">HTML5</a></li><li class="astro-ksnnumvq"><a href="/前端/css/" class="astro-ksnnumvq">CSS</a></li><li class="astro-ksnnumvq"><a href="/前端/javascript/" class="astro-ksnnumvq">JavaScript</a></li><li class="astro-ksnnumvq"><a href="/前端/es6/" class="astro-ksnnumvq">ES6+</a></li><li class="astro-ksnnumvq"><a href="/前端/typescript/" class="astro-ksnnumvq">TypeScript</a></li></ul></div><div class="nav-section astro-ksnnumvq"><p class="nav-section-title astro-ksnnumvq">框架与跨端</p><ul class="astro-ksnnumvq"><li class="astro-ksnnumvq"><a href="/前端/vue/" class="astro-ksnnumvq">Vue</a></li><li class="astro-ksnnumvq"><a href="/前端/react/" class="astro-ksnnumvq">React</a></li><li class="astro-ksnnumvq"><a href="/前端/nextjs/" class="astro-ksnnumvq">Next.js</a></li><li class="astro-ksnnumvq"><a href="/前端/uniapp/" class="astro-ksnnumvq">UniApp</a></li><li class="astro-ksnnumvq"><a href="/前端/cross-platform/" class="astro-ksnnumvq">跨端对比</a></li></ul></div><div class="nav-section astro-ksnnumvq"><p class="nav-section-title astro-ksnnumvq">工程与架构</p><ul class="astro-ksnnumvq"><li class="astro-ksnnumvq"><a href="/前端/design-patterns/" class="astro-ksnnumvq">设计模式</a></li><li class="astro-ksnnumvq"><a href="/前端/architecture/" class="astro-ksnnumvq">架构专题</a></li><li class="astro-ksnnumvq"><a href="/前端/engineering/" class="astro-ksnnumvq">工程实践</a></li><li class="astro-ksnnumvq"><a href="/前端/node-bff/" class="astro-ksnnumvq">Node.js BFF</a></li><li class="astro-ksnnumvq"><a href="/前端/monitoring/" class="astro-ksnnumvq">监控与稳定性</a></li><li class="astro-ksnnumvq"><a href="/前端/visualization/" class="astro-ksnnumvq">数据可视化</a></li><li class="astro-ksnnumvq"><a href="/前端/ai-integration/" class="astro-ksnnumvq">前端 + AI</a></li></ul></div></div></details><details class="nav-item astro-ksnnumvq"><summary class="nav-trigger astro-ksnnumvq">后端<span class="nav-caret astro-ksnnumvq" aria-hidden="true"></span></summary><div class="nav-panel astro-ksnnumvq"><div class="nav-section astro-ksnnumvq"><ul class="astro-ksnnumvq"><li class="astro-ksnnumvq"><a href="/后端/" class="astro-ksnnumvq">总览</a></li><li class="astro-ksnnumvq"><a href="/后端/node/" class="astro-ksnnumvq">Node.js</a></li><li class="astro-ksnnumvq"><a href="/后端/python/" class="astro-ksnnumvq">Python</a></li><li class="astro-ksnnumvq"><a href="/后端/mysql/" class="astro-ksnnumvq">MySQL</a></li><li class="astro-ksnnumvq"><a href="/后端/docker/" class="astro-ksnnumvq">Docker</a></li><li class="astro-ksnnumvq"><a href="/后端/linux/" class="astro-ksnnumvq">Linux</a></li><li class="astro-ksnnumvq"><a href="/后端/python-workflow/" class="astro-ksnnumvq">Python 工作流</a></li><li class="astro-ksnnumvq"><a href="/后端/python-rpa/" class="astro-ksnnumvq">Python RPA</a></li><li class="astro-ksnnumvq"><a href="/后端/python-ecommerce/" class="astro-ksnnumvq">跨境电商自动化</a></li></ul></div></div></details><details class="nav-item astro-ksnnumvq"><summary class="nav-trigger astro-ksnnumvq">面试<span class="nav-caret astro-ksnnumvq" aria-hidden="true"></span></summary><div class="nav-panel astro-ksnnumvq"><div class="nav-section astro-ksnnumvq"><ul class="astro-ksnnumvq"><li class="astro-ksnnumvq"><a href="/面试/" class="astro-ksnnumvq">总览</a></li><li class="astro-ksnnumvq"><a href="/面试/2-复习清单/" class="astro-ksnnumvq">复习清单 ⭐</a></li><li class="astro-ksnnumvq"><a href="/面试/项目/" class="astro-ksnnumvq">项目复盘</a></li><li class="astro-ksnnumvq"><a href="/面试/手写题/" class="astro-ksnnumvq">手写题</a></li><li class="astro-ksnnumvq"><a href="/面试/场景面试题/" class="astro-ksnnumvq">场景面试题</a></li><li class="astro-ksnnumvq"><a href="/面试/工作经历/" class="astro-ksnnumvq">工作经历</a></li><li class="astro-ksnnumvq"><a href="/面试/面试技巧/15线下面试技巧/" class="astro-ksnnumvq">面试技巧</a></li><li class="astro-ksnnumvq"><a href="/面试/0-简历-前端求职版/" class="astro-ksnnumvq">简历模板</a></li></ul></div><div class="nav-section astro-ksnnumvq"><p class="nav-section-title astro-ksnnumvq">技术题库</p><ul class="astro-ksnnumvq"><li class="astro-ksnnumvq"><a href="/面试/vue/" class="astro-ksnnumvq">Vue</a></li><li class="astro-ksnnumvq"><a href="/面试/react/" class="astro-ksnnumvq">React</a></li><li class="astro-ksnnumvq"><a href="/面试/typescript/" class="astro-ksnnumvq">TypeScript</a></li><li class="astro-ksnnumvq"><a href="/面试/nextjs/" class="astro-ksnnumvq">Next.js</a></li><li class="astro-ksnnumvq"><a href="/面试/uniapp/" class="astro-ksnnumvq">UniApp / 小程序</a></li><li class="astro-ksnnumvq"><a href="/面试/performance/" class="astro-ksnnumvq">性能</a></li><li class="astro-ksnnumvq"><a href="/面试/网络/" class="astro-ksnnumvq">网络</a></li></ul></div></div></details><details class="nav-item astro-ksnnumvq"><summary class="nav-trigger astro-ksnnumvq">AI Agent<span class="nav-caret astro-ksnnumvq" aria-hidden="true"></span></summary><div class="nav-panel astro-ksnnumvq"><div class="nav-section astro-ksnnumvq"><ul class="astro-ksnnumvq"><li class="astro-ksnnumvq"><a href="/agent/" class="astro-ksnnumvq">总览</a></li><li class="astro-ksnnumvq"><a href="/agent/学习计划/1-ai-agent-应用开发-30天学习路线/" class="astro-ksnnumvq">30 天学习路线</a></li><li class="astro-ksnnumvq"><a href="/agent/学习计划/9-学习进度跟踪/" class="astro-ksnnumvq">进度看板</a></li><li class="astro-ksnnumvq"><a href="/agent/llm/" class="astro-ksnnumvq">LLM 基础</a></li><li class="astro-ksnnumvq"><a href="/agent/prompt/" class="astro-ksnnumvq">Prompt 工程</a></li><li class="astro-ksnnumvq"><a href="/agent/rag/" class="astro-ksnnumvq">RAG 检索增强</a></li><li class="astro-ksnnumvq"><a href="/agent/langchain/" class="astro-ksnnumvq">LangChain</a></li><li class="astro-ksnnumvq"><a href="/agent/langgraph/" class="astro-ksnnumvq">LangGraph</a></li><li class="astro-ksnnumvq"><a href="/agent/projects/" class="astro-ksnnumvq">实战项目合集</a></li><li class="astro-ksnnumvq"><a href="/agent/agent-advanced/" class="astro-ksnnumvq">Agent 进阶</a></li><li class="astro-ksnnumvq"><a href="/agent/deployment/" class="astro-ksnnumvq">部署与运维</a></li><li class="astro-ksnnumvq"><a href="/agent/security/" class="astro-ksnnumvq">AI 安全</a></li></ul></div></div></details><details class="nav-item astro-ksnnumvq"><summary class="nav-trigger astro-ksnnumvq">通用基础<span class="nav-caret astro-ksnnumvq" aria-hidden="true"></span></summary><div class="nav-panel astro-ksnnumvq"><div class="nav-section astro-ksnnumvq"><ul class="astro-ksnnumvq"><li class="astro-ksnnumvq"><a href="/网络/" class="astro-ksnnumvq">网络协议</a></li><li class="astro-ksnnumvq"><a href="/browser/" class="astro-ksnnumvq">浏览器原理</a></li><li class="astro-ksnnumvq"><a href="/performance/" class="astro-ksnnumvq">性能优化</a></li><li class="astro-ksnnumvq"><a href="/security/" class="astro-ksnnumvq">前端安全</a></li><li class="astro-ksnnumvq"><a href="/工程化/" class="astro-ksnnumvq">前端工程化</a></li><li class="astro-ksnnumvq"><a href="/计算机基础/" class="astro-ksnnumvq">计算机基础</a></li><li class="astro-ksnnumvq"><a href="/计算机基础/algorithms/" class="astro-ksnnumvq">算法与数据结构</a></li><li class="astro-ksnnumvq"><a href="/计算机基础/design-patterns/" class="astro-ksnnumvq">设计模式</a></li><li class="astro-ksnnumvq"><a href="/工具/" class="astro-ksnnumvq">工具（Git）</a></li></ul></div></div></details><details class="nav-item astro-ksnnumvq"><summary class="nav-trigger astro-ksnnumvq">方案与生活<span class="nav-caret astro-ksnnumvq" aria-hidden="true"></span></summary><div class="nav-panel astro-ksnnumvq"><div class="nav-section astro-ksnnumvq"><ul class="astro-ksnnumvq"><li class="astro-ksnnumvq"><a href="/解决方案/" class="astro-ksnnumvq">解决方案总览</a></li><li class="astro-ksnnumvq"><a href="/生活/" class="astro-ksnnumvq">生活</a></li><li class="astro-ksnnumvq"><a href="/生活/远程/" class="astro-ksnnumvq">远程工作</a></li><li class="astro-ksnnumvq"><a href="/生活/自考/" class="astro-ksnnumvq">自学考试</a></li><li class="astro-ksnnumvq"><a href="/副业/" class="astro-ksnnumvq">副业</a></li><li class="astro-ksnnumvq"><a href="/旅游/" class="astro-ksnnumvq">旅游记录</a></li></ul></div></div></details><a class="nav-link astro-ksnnumvq" href="/all/">全部文章</a></nav><script type="module">var e=window.matchMedia(`(min-width: 64rem)`),t=[...document.querySelectorAll(`details.nav-item`)],n=0,r=e=>e.removeAttribute(`open`),i=e=>{clearTimeout(n);for(let n of t)n!==e&&r(n);e.setAttribute(`open`,``)},a=e=>{clearTimeout(n),n=window.setTimeout(()=>r(e),180)};for(let n of t)n.addEventListener(`mouseenter`,()=>{e.matches&&i(n)}),n.addEventListener(`mouseleave`,()=>{e.matches&&a(n)}),n.addEventListener(`focusin`,()=>i(n)),n.addEventListener(`focusout`,e=>{n.contains(e.relatedTarget)||r(n)});document.addEventListener(`click`,e=>{for(let n of t)n.hasAttribute(`open`)&&!n.contains(e.target)&&r(n)}),document.addEventListener(`keydown`,e=>{if(e.key===`Escape`){clearTimeout(n);for(let e of t)r(e)}});</script><div class="search sl-flex print:hidden astro-nen7h5rs"><site-search class="astro-nen7h5rs astro-xanr6cfo" data-translations="{&quot;placeholder&quot;:&quot;搜索&quot;}"><button data-open-modal disabled aria-label="搜索" aria-keyshortcuts="Control+K" class="astro-xanr6cfo"><svg aria-hidden="true" class="astro-xanr6cfo astro-ls36bpzw" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21.71 20.29 18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z"/></svg><span class="sl-hidden md:sl-block astro-xanr6cfo" aria-hidden="true">搜索</span><kbd class="sl-hidden md:sl-flex astro-xanr6cfo" style="display: none"><kbd class="astro-xanr6cfo">Ctrl</kbd><kbd class="astro-xanr6cfo">K</kbd></kbd></button><dialog style="padding: 0" aria-label="搜索" class="astro-xanr6cfo"><div class="dialog-frame sl-flex astro-xanr6cfo"><button data-close-modal class="sl-flex md:sl-hidden astro-xanr6cfo">取消</button><div class="search-container astro-xanr6cfo"><div id="starlight__search" class="astro-xanr6cfo"></div></div></div></dialog></site-search><script>
+	(() => {
+		const openBtn = document.querySelector('button[data-open-modal]');
+		const shortcut = openBtn?.querySelector('kbd');
+		if (!openBtn || !(shortcut instanceof HTMLElement)) return;
+		const platformKey = shortcut.querySelector('kbd');
+		if (platformKey && /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
+			platformKey.textContent = '⌘';
+			openBtn.setAttribute('aria-keyshortcuts', 'Meta+K');
+		}
+		shortcut.style.display = '';
+	})();
+</script><script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.y6iDvYgE.js"></script></div><div class="sl-hidden md:sl-flex print:hidden right-group astro-nen7h5rs"><div class="sl-flex social-icons astro-nen7h5rs"><a href="https://github.com/motespace" rel="me" class="sl-flex astro-dtoyqerx"><span class="sr-only astro-dtoyqerx">GitHub</span><svg aria-hidden="true" class="astro-dtoyqerx astro-ls36bpzw" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select><label style="--sl-select-width: 6.25em" class="astro-4flro6s6"><span class="sr-only astro-4flro6s6">选择主题</span><svg aria-hidden="true" class="icon label-icon astro-4flro6s6 astro-ls36bpzw" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg><select autocomplete="off" class="astro-4flro6s6"><option value="dark" class="astro-4flro6s6">深色</option><option value="light" class="astro-4flro6s6">浅色</option><option value="auto" selected class="astro-4flro6s6">自动</option></select><svg aria-hidden="true" class="icon caret astro-4flro6s6 astro-ls36bpzw" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>
+	StarlightThemeProvider.updatePickers();
+</script><script type="module">var e=`starlight-theme`,t=e=>e===`auto`||e===`dark`||e===`light`?e:`auto`,n=()=>t(typeof localStorage<`u`&&localStorage.getItem(e));function r(t){typeof localStorage<`u`&&localStorage.setItem(e,t===`light`||t===`dark`?t:``)}var i=()=>matchMedia(`(prefers-color-scheme: light)`).matches?`light`:`dark`;function a(e){StarlightThemeProvider.updatePickers(e),document.documentElement.dataset.theme=e===`auto`?i():e,r(e)}matchMedia(`(prefers-color-scheme: light)`).addEventListener(`change`,()=>{n()===`auto`&&a(`auto`)});var o=class extends HTMLElement{constructor(){super(),a(n()),this.querySelector(`select`)?.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&a(t(e.currentTarget.value))})}};customElements.define(`starlight-theme-select`,o);</script></div></div></header><nav class="sidebar print:hidden astro-nyzovwux" aria-label="主要"><button popovertarget="starlight__sidebar" class="sl-menu-button sl-flex md:sl-hidden print:hidden astro-oel4atgl"><svg aria-hidden="true" class="open-menu astro-oel4atgl astro-ls36bpzw" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M3 8h18a1 1 0 1 0 0-2H3a1 1 0 0 0 0 2Zm18 8H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Zm0-5H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Z"/></svg><svg aria-hidden="true" class="close-menu astro-oel4atgl astro-ls36bpzw" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="m13.41 12 6.3-6.29a1.004 1.004 0 1 0-1.42-1.42L12 10.59l-6.29-6.3a1.004 1.004 0 0 0-1.42 1.42l6.3 6.29-6.3 6.29a1 1 0 0 0 0 1.42.998.998 0 0 0 1.42 0l6.29-6.3 6.29 6.3a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.42L13.41 12Z"/></svg><span class="sr-only astro-oel4atgl">菜单</span></button><script type="module">var e=class extends HTMLElement{constructor(){super();let e=matchMedia(`(min-width: 50em)`),t=()=>{this.popover=e.matches?null:`auto`};t(),e.addEventListener(`change`,()=>t()),this.addEventListener(`toggle`,({newState:e})=>this.trapFocus(e===`open`))}trapFocus(e){document.querySelectorAll(`.main-frame, .sl-skip-link`).forEach(t=>{t.toggleAttribute(`inert`,e)})}};customElements.define(`sl-sidebar-pane`,e);</script><script type="module">var e=class extends HTMLElement{constructor(){super();let e=this.querySelector(`select`);e&&(e.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&(window.location.pathname=e.currentTarget.value)}),window.addEventListener(`pageshow`,t=>{if(!t.persisted)return;let n=e.querySelector(`option[selected]`)?.index;n!==e.selectedIndex&&(e.selectedIndex=n??0)}))}};customElements.define(`starlight-lang-select`,e);</script><sl-sidebar-pane popover id="starlight__sidebar" class="sidebar-pane astro-nyzovwux"><div class="sidebar-content sl-flex astro-nyzovwux"><sl-sidebar-state-persist data-hash="1hbqxub" class="astro-75xynkug"><script aria-hidden="true">
+		(() => {
+			try {
+				if (!matchMedia('(min-width: 50em)').matches) return;
+				/** @type {HTMLElement | null} */
+				const target = document.querySelector('sl-sidebar-state-persist');
+				const state = JSON.parse(sessionStorage.getItem('sl-sidebar-state') || '0');
+				if (!target || !state || target.dataset.hash !== state.hash) return;
+				window._starlightScrollRestore = state.scroll;
+				customElements.define(
+					'sl-sidebar-restore',
+					class SidebarRestore extends HTMLElement {
+						connectedCallback() {
+							try {
+								const idx = parseInt(this.dataset.index || '');
+								const details = this.closest('details');
+								if (details && typeof state.open[idx] === 'boolean') details.open = state.open[idx];
+							} catch {}
+						}
+					}
+				);
+			} catch {}
+		})();
+	</script><details class="cat-switcher astro-wv7whodv"><summary class="astro-wv7whodv"><span class="group-label astro-wv7whodv"><span class="large astro-wv7whodv">全部领域</span></span></summary><ul class="astro-wv7whodv"><li class="astro-wv7whodv"><a href="/前端/" class="link astro-wv7whodv"><span class="astro-wv7whodv">前端</span></a></li><li class="astro-wv7whodv"><a href="/后端/" class="link astro-wv7whodv"><span class="astro-wv7whodv">后端</span></a></li><li class="astro-wv7whodv"><a href="/面试/" class="link astro-wv7whodv"><span class="astro-wv7whodv">面试</span></a></li><li class="astro-wv7whodv"><a href="/agent/" class="link astro-wv7whodv"><span class="astro-wv7whodv">AI Agent</span></a></li><li class="astro-wv7whodv"><a href="/网络/" class="link astro-wv7whodv"><span class="astro-wv7whodv">网络协议</span></a></li><li class="astro-wv7whodv"><a href="/browser/" class="link astro-wv7whodv"><span class="astro-wv7whodv">浏览器原理</span></a></li><li class="astro-wv7whodv"><a href="/performance/" class="link astro-wv7whodv"><span class="astro-wv7whodv">性能优化</span></a></li><li class="astro-wv7whodv"><a href="/security/" class="link astro-wv7whodv"><span class="astro-wv7whodv">前端安全</span></a></li><li class="astro-wv7whodv"><a href="/工程化/" class="link astro-wv7whodv"><span class="astro-wv7whodv">工程化</span></a></li><li class="astro-wv7whodv"><a href="/计算机基础/" class="link astro-wv7whodv"><span class="astro-wv7whodv">计算机基础</span></a></li><li class="astro-wv7whodv"><a href="/解决方案/" class="link astro-wv7whodv"><span class="astro-wv7whodv">解决方案</span></a></li><li class="astro-wv7whodv"><a href="/工具/" class="link astro-wv7whodv"><span class="astro-wv7whodv">工具</span></a></li><li class="astro-wv7whodv"><a href="/生活/" class="link astro-wv7whodv"><span class="astro-wv7whodv">生活</span></a></li><li class="astro-wv7whodv"><a href="/副业/" aria-current="page" class="link astro-wv7whodv"><span class="astro-wv7whodv">副业</span></a></li><li class="astro-wv7whodv"><a href="/旅游/" class="link astro-wv7whodv"><span class="astro-wv7whodv">旅游</span></a></li><li class="astro-wv7whodv"><a href="/主题/" class="link astro-wv7whodv"><span class="astro-wv7whodv">主题索引</span></a></li></ul></details><ul class="top-level astro-sppemuzx"><li class="astro-sppemuzx"><details open class="astro-sppemuzx"><summary class="astro-sppemuzx"><span class="group-label astro-sppemuzx"><span class="large astro-sppemuzx">副业</span></span><svg aria-hidden="true" class="caret astro-sppemuzx astro-ls36bpzw" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="0"></sl-sidebar-restore><ul class="astro-sppemuzx"><li class="astro-sppemuzx"><a href="/副业/" class="astro-sppemuzx"><span class="astro-sppemuzx">副业</span></a></li><li class="astro-sppemuzx"><details open class="astro-sppemuzx"><summary class="astro-sppemuzx"><span class="group-label astro-sppemuzx"><span class="large astro-sppemuzx">保险展业</span></span><svg aria-hidden="true" class="caret astro-sppemuzx astro-ls36bpzw" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="1"></sl-sidebar-restore><ul class="astro-sppemuzx"><li class="astro-sppemuzx"><a href="/副业/保险展业/" class="astro-sppemuzx"><span class="astro-sppemuzx">总览</span></a></li><li class="astro-sppemuzx"><a href="/副业/保险展业/01-酒会活动/" class="astro-sppemuzx"><span class="astro-sppemuzx">一、酒会活动</span></a></li><li class="astro-sppemuzx"><a href="/副业/保险展业/02-客户面谈/" class="astro-sppemuzx"><span class="astro-sppemuzx">二、客户面谈</span></a></li><li class="astro-sppemuzx"><a href="/副业/保险展业/03-保障方案/" class="astro-sppemuzx"><span class="astro-sppemuzx">三、保障方案</span></a></li><li class="astro-sppemuzx"><a href="/副业/保险展业/04-促成成交/" class="astro-sppemuzx"><span class="astro-sppemuzx">四、促成成交</span></a></li><li class="astro-sppemuzx"><a href="/副业/保险展业/05-获客转介绍/" class="astro-sppemuzx"><span class="astro-sppemuzx">五、获客与转介绍</span></a></li><li class="astro-sppemuzx"><a href="/副业/保险展业/06-三面准备/" class="astro-sppemuzx"><span class="astro-sppemuzx">六、三面准备（友邦 AIA）</span></a></li><li class="astro-sppemuzx"><a href="/副业/保险展业/07-逐字稿/" aria-current="page" class="astro-sppemuzx"><span class="astro-sppemuzx">七、逐字稿与模拟追问</span></a></li></ul></details></li><li class="astro-sppemuzx"><details class="astro-sppemuzx"><summary class="astro-sppemuzx"><span class="group-label astro-sppemuzx"><span class="large astro-sppemuzx">线上副业</span></span><svg aria-hidden="true" class="caret astro-sppemuzx astro-ls36bpzw" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="2"></sl-sidebar-restore><ul class="astro-sppemuzx"><li class="astro-sppemuzx"><a href="/副业/线上副业/" class="astro-sppemuzx"><span class="astro-sppemuzx">总览</span></a></li></ul></details></li></ul></details></li></ul><div class="md:sl-hidden astro-wv7whodv"><div class="mobile-preferences sl-flex astro-w42wwrgp"><div class="social-icons astro-w42wwrgp"><a href="https://github.com/motespace" rel="me" class="sl-flex astro-dtoyqerx"><span class="sr-only astro-dtoyqerx">GitHub</span><svg aria-hidden="true" class="astro-dtoyqerx astro-ls36bpzw" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select><label style="--sl-select-width: 6.25em" class="astro-4flro6s6"><span class="sr-only astro-4flro6s6">选择主题</span><svg aria-hidden="true" class="icon label-icon astro-4flro6s6 astro-ls36bpzw" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg><select autocomplete="off" class="astro-4flro6s6"><option value="dark" class="astro-4flro6s6">深色</option><option value="light" class="astro-4flro6s6">浅色</option><option value="auto" selected class="astro-4flro6s6">自动</option></select><svg aria-hidden="true" class="icon caret astro-4flro6s6 astro-ls36bpzw" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>
+	StarlightThemeProvider.updatePickers();
+</script></div></div><script aria-hidden="true">
+		(() => {
+			const scroller = document.getElementById('starlight__sidebar');
+			if (!window._starlightScrollRestore || !scroller) return;
+			scroller.scrollTop = window._starlightScrollRestore;
+			delete window._starlightScrollRestore;
+		})();
+	</script></sl-sidebar-state-persist></div></sl-sidebar-pane></nav><div class="main-frame astro-nyzovwux"><script type="module">var e=document.getElementById(`starlight__sidebar`),t=e?.querySelector(`sl-sidebar-state-persist`),n=`sl-sidebar-state`,r=()=>{let r=[],i=t?.dataset.hash||``;try{let e=sessionStorage.getItem(n),t=JSON.parse(e||`{}`);Array.isArray(t.open)&&t.hash===i&&(r=t.open)}catch{}return{hash:i,open:r,scroll:e?.scrollTop||0}},i=e=>{try{sessionStorage.setItem(n,JSON.stringify(e))}catch{}},a=()=>i(r()),o=(e,t)=>{let n=r();n.open[t]=e,i(n)};t?.addEventListener(`click`,e=>{if(!(e.target instanceof Element))return;let t=e.target.closest(`summary`)?.closest(`details`);if(!t)return;let n=t.querySelector(`sl-sidebar-restore`),r=parseInt(n?.dataset.index||``);isNaN(r)||o(!t.open,r)}),addEventListener(`visibilitychange`,()=>{document.visibilityState===`hidden`&&a()});</script><div class="lg:sl-flex astro-ulpdhvhz"><aside class="right-sidebar-container print:hidden astro-ulpdhvhz"><div class="right-sidebar astro-ulpdhvhz"><div class="lg:sl-hidden astro-i7vmneuw"><mobile-starlight-toc data-min-h="2" data-max-h="3" class="astro-ktforoyi"><nav aria-labelledby="starlight__on-this-page--mobile" class="astro-ktforoyi"><details id="starlight__mobile-toc" class="astro-ktforoyi"><summary id="starlight__on-this-page--mobile" class="sl-flex astro-ktforoyi"><span class="toggle sl-flex astro-ktforoyi">本页内容<svg aria-hidden="true" class="caret astro-ktforoyi astro-ls36bpzw" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></span><span class="display-current astro-ktforoyi"></span></summary><div class="dropdown astro-ktforoyi"><ul class="isMobile astro-wzp4n5ja" style="--depth: 0;"><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#_top" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">概述</span></a></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#0-怎么用这篇" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">0. 怎么用这篇</span></a></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#1-q1-自我介绍2-分钟逐字稿" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">1. Q1 自我介绍（2 分钟逐字稿）</span></a><ul class="isMobile astro-wzp4n5ja" style="--depth: 1;"><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#逐字稿" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">逐字稿</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#时长" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">时长</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#记忆锚点记这-4-个词就够" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">记忆锚点（记这 4 个词就够）</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#-这稿的三个设计" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">💡 这稿的三个设计</span></a></li></ul></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#2-q2-你和引荐人怎么认识的逐字稿" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">2. Q2 你和引荐人怎么认识的？（逐字稿）</span></a><ul class="isMobile astro-wzp4n5ja" style="--depth: 1;"><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#逐字稿-1" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">逐字稿</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#️-关键三个数字必须是真的" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">⚠️ 关键：三个数字必须是真的</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#-拔高逻辑这题的核心得分点" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">💡 拔高逻辑（这题的核心得分点）</span></a></li></ul></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#3-q3-介绍你了解的友邦逐字稿" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">3. Q3 介绍你了解的友邦（逐字稿）</span></a><ul class="isMobile astro-wzp4n5ja" style="--depth: 1;"><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#-上场前必须核对的事" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">🚨 上场前必须核对的事</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#逐字稿-2" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">逐字稿</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#-杀手锏把吸引和选择分开答" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">💡 杀手锏：把“吸引”和“选择”分开答</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#时间紧--只给-30-秒时" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">时间紧 / 只给 30 秒时</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#-不要说" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">❌ 不要说</span></a></li></ul></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#4-q4-怎么看保险销售优势挑战逐字稿" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">4. Q4 怎么看保险销售？优势？挑战？（逐字稿）</span></a><ul class="isMobile astro-wzp4n5ja" style="--depth: 1;"><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#41-观点段" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">4.1 观点段</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#42-优势段只说-3-个" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">4.2 优势段：只说 3 个</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#43-挑战段本题得分点" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">4.3 挑战段：本题得分点</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#可替换的挑战选一个你真认同的" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">可替换的挑战（选一个你真认同的）</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#-不要说-1" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">❌ 不要说</span></a></li></ul></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#5-q5-三个月收入目标逐字稿--最高权重" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">5. Q5 三个月收入目标（逐字稿 · 最高权重）</span></a><ul class="isMobile astro-wzp4n5ja" style="--depth: 1;"><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#51-先算别猜" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">5.1 先算，别猜</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#52-目标三档报" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">5.2 目标：三档报</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#53-逐月拆解主管最爱听" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">5.3 逐月拆解（主管最爱听）</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#54-准备好了吗要答三层" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">5.4 “准备好了吗”要答三层</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#55--杀手锏第一周做什么" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">5.5 💡 杀手锏：第一周做什么</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#-不要说-2" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">❌ 不要说</span></a></li></ul></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#6-q6-工作模式怎么拓客逐字稿" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">6. Q6 工作模式？怎么拓客？（逐字稿）</span></a><ul class="isMobile astro-wzp4n5ja" style="--depth: 1;"><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#61-工作模式说主管的内部语言" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">6.1 工作模式（说主管的内部语言）</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#62-拓客四条渠道--数量" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">6.2 拓客四条渠道 + 数量</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#63-动作指标" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">6.3 动作指标</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#-不要说-3" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">❌ 不要说</span></a></li></ul></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#7-q7-家人支持吗逐字稿--最容易翻车" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">7. Q7 家人支持吗？（逐字稿 · 最容易翻车）</span></a><ul class="isMobile astro-wzp4n5ja" style="--depth: 1;"><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#-上场前必须和家里人对齐-4-件事" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">🚨 上场前必须和家里人对齐 4 件事</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#逐字稿-3" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">逐字稿</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#-为什么这样说有效" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">💡 为什么这样说有效</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#️-万一确实有困难" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">⚠️ 万一确实有困难</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#-不要说-4" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">❌ 不要说</span></a></li></ul></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#8-三个必须改掉的说话习惯" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">8. 三个必须改掉的说话习惯</span></a></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#9-模拟压力追问真正的分水印" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">9. 模拟压力追问（真正的分水印）</span></a><ul class="isMobile astro-wzp4n5ja" style="--depth: 1;"><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#q8-0-️-最危险的一问你说想做副业--那你是想好了还是技术干不下去了" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">Q8-0 ⚠️ 最危险的一问：「你说想做副业 —— 那你是想好了，还是技术干不下去了？」</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#q8你技术做了-7-年凭什么觉得能做好保险" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">Q8「你技术做了 7 年，凭什么觉得能做好保险？」</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#q9你说三个月能签x单签不到怎么办" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">Q9「你说三个月能签【X】单，签不到怎么办？」</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#q10保险行业留存率很低很多人干半年就走了你凭什么不一样" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">Q10「保险行业留存率很低，很多人干半年就走了，你凭什么不一样？」</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#q11家里真的支持吗你家里人怎么看" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">Q11「家里真的支持吗？你家里人怎么看？」</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#q12你觉得引荐人怎么评价你" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">Q12「你觉得引荐人怎么评价你？」</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#q13你还有什么想问的" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">Q13「你还有什么想问的？」</span></a></li></ul></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#10-临场一页速记" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">10. 临场一页速记</span></a></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#-相关文章" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">🔗 相关文章</span></a></li></ul></div></details></nav></mobile-starlight-toc><script type="module" src="/_astro/MobileTableOfContents.astro_astro_type_script_index_0_lang.C3fM4Kra.js"></script></div><div class="right-sidebar-panel sl-hidden lg:sl-block astro-i7vmneuw"><div class="sl-container astro-i7vmneuw"><starlight-toc data-min-h="2" data-max-h="3"><nav aria-labelledby="starlight__on-this-page"><h2 id="starlight__on-this-page">本页内容</h2><ul class="astro-wzp4n5ja" style="--depth: 0;"><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#_top" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">概述</span></a></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#0-怎么用这篇" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">0. 怎么用这篇</span></a></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#1-q1-自我介绍2-分钟逐字稿" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">1. Q1 自我介绍（2 分钟逐字稿）</span></a><ul class="astro-wzp4n5ja" style="--depth: 1;"><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#逐字稿" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">逐字稿</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#时长" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">时长</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#记忆锚点记这-4-个词就够" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">记忆锚点（记这 4 个词就够）</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#-这稿的三个设计" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">💡 这稿的三个设计</span></a></li></ul></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#2-q2-你和引荐人怎么认识的逐字稿" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">2. Q2 你和引荐人怎么认识的？（逐字稿）</span></a><ul class="astro-wzp4n5ja" style="--depth: 1;"><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#逐字稿-1" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">逐字稿</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#️-关键三个数字必须是真的" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">⚠️ 关键：三个数字必须是真的</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#-拔高逻辑这题的核心得分点" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">💡 拔高逻辑（这题的核心得分点）</span></a></li></ul></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#3-q3-介绍你了解的友邦逐字稿" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">3. Q3 介绍你了解的友邦（逐字稿）</span></a><ul class="astro-wzp4n5ja" style="--depth: 1;"><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#-上场前必须核对的事" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">🚨 上场前必须核对的事</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#逐字稿-2" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">逐字稿</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#-杀手锏把吸引和选择分开答" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">💡 杀手锏：把“吸引”和“选择”分开答</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#时间紧--只给-30-秒时" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">时间紧 / 只给 30 秒时</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#-不要说" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">❌ 不要说</span></a></li></ul></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#4-q4-怎么看保险销售优势挑战逐字稿" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">4. Q4 怎么看保险销售？优势？挑战？（逐字稿）</span></a><ul class="astro-wzp4n5ja" style="--depth: 1;"><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#41-观点段" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">4.1 观点段</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#42-优势段只说-3-个" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">4.2 优势段：只说 3 个</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#43-挑战段本题得分点" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">4.3 挑战段：本题得分点</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#可替换的挑战选一个你真认同的" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">可替换的挑战（选一个你真认同的）</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#-不要说-1" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">❌ 不要说</span></a></li></ul></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#5-q5-三个月收入目标逐字稿--最高权重" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">5. Q5 三个月收入目标（逐字稿 · 最高权重）</span></a><ul class="astro-wzp4n5ja" style="--depth: 1;"><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#51-先算别猜" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">5.1 先算，别猜</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#52-目标三档报" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">5.2 目标：三档报</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#53-逐月拆解主管最爱听" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">5.3 逐月拆解（主管最爱听）</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#54-准备好了吗要答三层" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">5.4 “准备好了吗”要答三层</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#55--杀手锏第一周做什么" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">5.5 💡 杀手锏：第一周做什么</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#-不要说-2" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">❌ 不要说</span></a></li></ul></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#6-q6-工作模式怎么拓客逐字稿" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">6. Q6 工作模式？怎么拓客？（逐字稿）</span></a><ul class="astro-wzp4n5ja" style="--depth: 1;"><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#61-工作模式说主管的内部语言" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">6.1 工作模式（说主管的内部语言）</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#62-拓客四条渠道--数量" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">6.2 拓客四条渠道 + 数量</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#63-动作指标" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">6.3 动作指标</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#-不要说-3" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">❌ 不要说</span></a></li></ul></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#7-q7-家人支持吗逐字稿--最容易翻车" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">7. Q7 家人支持吗？（逐字稿 · 最容易翻车）</span></a><ul class="astro-wzp4n5ja" style="--depth: 1;"><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#-上场前必须和家里人对齐-4-件事" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">🚨 上场前必须和家里人对齐 4 件事</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#逐字稿-3" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">逐字稿</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#-为什么这样说有效" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">💡 为什么这样说有效</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#️-万一确实有困难" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">⚠️ 万一确实有困难</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#-不要说-4" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">❌ 不要说</span></a></li></ul></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#8-三个必须改掉的说话习惯" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">8. 三个必须改掉的说话习惯</span></a></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#9-模拟压力追问真正的分水印" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">9. 模拟压力追问（真正的分水印）</span></a><ul class="astro-wzp4n5ja" style="--depth: 1;"><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#q8-0-️-最危险的一问你说想做副业--那你是想好了还是技术干不下去了" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">Q8-0 ⚠️ 最危险的一问：「你说想做副业 —— 那你是想好了，还是技术干不下去了？」</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#q8你技术做了-7-年凭什么觉得能做好保险" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">Q8「你技术做了 7 年，凭什么觉得能做好保险？」</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#q9你说三个月能签x单签不到怎么办" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">Q9「你说三个月能签【X】单，签不到怎么办？」</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#q10保险行业留存率很低很多人干半年就走了你凭什么不一样" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">Q10「保险行业留存率很低，很多人干半年就走了，你凭什么不一样？」</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#q11家里真的支持吗你家里人怎么看" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">Q11「家里真的支持吗？你家里人怎么看？」</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#q12你觉得引荐人怎么评价你" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">Q12「你觉得引荐人怎么评价你？」</span></a></li><li style="--depth: 1;" class="astro-wzp4n5ja"><a href="#q13你还有什么想问的" style="--depth: 1;" class="astro-wzp4n5ja"><span style="--depth: 1;" class="astro-wzp4n5ja">Q13「你还有什么想问的？」</span></a></li></ul></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#10-临场一页速记" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">10. 临场一页速记</span></a></li><li style="--depth: 0;" class="astro-wzp4n5ja"><a href="#-相关文章" style="--depth: 0;" class="astro-wzp4n5ja"><span style="--depth: 0;" class="astro-wzp4n5ja">🔗 相关文章</span></a></li></ul></nav></starlight-toc><script type="module" src="/_astro/TableOfContents.astro_astro_type_script_index_0_lang.BpJaGz7G.js"></script></div></div></div></aside><div class="main-pane astro-ulpdhvhz"><main data-pagefind-body class="astro-6h2o7xok" lang="zh-CN" dir="ltr"><div class="content-panel astro-g4wgz75n"><div class="sl-container astro-g4wgz75n"><h1 id="_top" class="astro-t3dmnxuq">七、逐字稿与模拟追问</h1></div></div><div class="content-panel astro-g4wgz75n"><div class="sl-container astro-g4wgz75n"><div class="sl-markdown-content"><blockquote>
+<p>本篇是 <a href="./06-%E4%B8%89%E9%9D%A2%E5%87%86%E5%A4%87.md">三面准备</a> 的<strong>练习版</strong>。
+上一篇给的是框架和要点，这一篇是可以直接开口念的完整句子。</p>
+</blockquote>
+<hr>
+<div class="sl-heading-wrapper level-h2"><h2 id="0-怎么用这篇">0. 怎么用这篇</h2><a class="sl-anchor-link" href="#0-怎么用这篇"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “0. 怎么用这篇”</span></a></div>
+<ol>
+<li><strong>先填空</strong>：把所有 <code dir="auto">【】</code> 换成你的真实数字和事实</li>
+<li><strong>再掐表练</strong>：Q1 必须卡在 1:50–2:10，其余题目不用计时</li>
+<li><strong>最后练追问</strong>：第 9 章的压力追问才是真正的分水岭</li>
+</ol>
+<blockquote>
+<p>⚠️ <code dir="auto">【】</code> 没填完之前不要上场 —— 带着占位符说话会露怯。</p>
+</blockquote>
+<hr>
+<div class="sl-heading-wrapper level-h2"><h2 id="1-q1-自我介绍2-分钟逐字稿">1. Q1 自我介绍（2 分钟逐字稿）</h2><a class="sl-anchor-link" href="#1-q1-自我介绍2-分钟逐字稿"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “1. Q1 自我介绍（2 分钟逐字稿）”</span></a></div>
+<div class="sl-heading-wrapper level-h3"><h3 id="逐字稿">逐字稿</h3><a class="sl-anchor-link" href="#逐字稿"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “逐字稿”</span></a></div>
+<blockquote>
+<p>“面试官好，我是【名字】，【年龄】岁，【学历】，做前端开发已经 7 年。</p>
+<p>这 7 年我感受很明显：<strong>前端在往下走</strong>，岗位在缩、要求越来越高；<strong>AI 在往上走</strong>，以前一个需求要五个人做，现在两个人加上 AI 就够了。与其继续在一条收缩的赛道上硬拼，不如去一条看得见在长的赛道上。</p>
+<p>前几年我其实有点沉迷技术，觉得只要把技术学得够好，就能一直走下去。但这两年我也慢慢意识到，单靠一条技术线未必是全部。工资之外，我一直在想<strong>再拓展一份能长期做、还能慢慢积累的副业</strong>，而不是随便做点什么。</p>
+<p>后来通过朋友介绍了解到友邦，也了解到<strong>保险这几年是在上行期的</strong>：老龄化在走，家庭保障意识在提高，头部公司还在扩。而代理人的时间是自己的、门槛靠积累，正好是我想要的那份副业。</p>
+<p>这也是我来做保险的原因。”</p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="时长">时长</h3><a class="sl-anchor-link" href="#时长"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “时长”</span></a></div>
+<p>全文约 270 字，正常语速约 <strong>1 分 25 秒</strong>。
+练的时候<strong>控制在 1 分 30 秒以内</strong>，剩下的余量留给主管追问。</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="记忆锚点记这-4-个词就够">记忆锚点（记这 4 个词就够）</h3><a class="sl-anchor-link" href="#记忆锚点记这-4-个词就够"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “记忆锚点（记这 4 个词就够）”</span></a></div>
+<blockquote>
+<p><strong>下行 + AI 上行 → 副业诉求 → 保险上行期 → 这就是原因</strong></p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="-这稿的三个设计">💡 这稿的三个设计</h3><a class="sl-anchor-link" href="#-这稿的三个设计"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “💡 这稿的三个设计”</span></a></div>
+<table>
+<thead>
+<tr>
+<th>设计</th>
+<th>为什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>先讲行业周期，不先讲自己</td>
+<td>主管先听判断力，再听你的经历</td>
+</tr>
+<tr>
+<td>承认想搞副业，但说成“能长期做、能积累”</td>
+<td>副业动机是加分项，说成随便做做直接踩投入度</td>
+</tr>
+<tr>
+<td>结尾收在一句结论上</td>
+<td>不要停在“我还想再学学”，要停在决定</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class="sl-heading-wrapper level-h2"><h2 id="2-q2-你和引荐人怎么认识的逐字稿">2. Q2 你和引荐人怎么认识的？（逐字稿）</h2><a class="sl-anchor-link" href="#2-q2-你和引荐人怎么认识的逐字稿"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “2. Q2 你和引荐人怎么认识的？（逐字稿）”</span></a></div>
+<div class="sl-heading-wrapper level-h3"><h3 id="逐字稿-1">逐字稿</h3><a class="sl-anchor-link" href="#逐字稿-1"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “逐字稿”</span></a></div>
+<blockquote>
+<p>“我是通过【引荐人姓名】认识他/她的，到现在<strong>一年半</strong>。真正开始了解友邦也是这一年多里，前前后后参加了 <strong>3 场活动</strong>。</p>
+<p>印象最深的是其中一场<strong>星享会</strong>，做介绍的是**【陈静总助】**。她是总助，位置不低，但我留意到一个细节——<strong>她已经 7 年没发过朋友圈了</strong>，说明靠朋友圈能触达的人其实很有限。可她还是在拓客，切口也很朴素：<strong>发自己孩子鸡娃的视频，从生活话题切进去</strong>，再自然地聊到家庭。</p>
+<p>那场之后我意识到一件事：<strong>做这行不是拼谁人脉多，是拼谁敢不敢从最小的话题开始</strong>。而这件事我现在就可以开始练，不需要等什么大机会。”</p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="️-关键三个数字必须是真的">⚠️ 关键：三个数字必须是真的</h3><a class="sl-anchor-link" href="#️-关键三个数字必须是真的"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “⚠️ 关键：三个数字必须是真的”</span></a></div>
+<table>
+<thead>
+<tr>
+<th>数字</th>
+<th>你的答案</th>
+<th>注意</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>认识引荐人</td>
+<td><strong>一年半</strong></td>
+<td>说具体，别说过多久</td>
+</tr>
+<tr>
+<td>参加活动</td>
+<td><strong>3 场</strong></td>
+<td>说之前先数一遍，主管追问细节你得答得出</td>
+</tr>
+<tr>
+<td>印象最深的一场</td>
+<td><strong>星享会 · 陈静总助</strong></td>
+<td>名字、时间、细节都要对得上</td>
+</tr>
+</tbody>
+</table>
+<div class="sl-heading-wrapper level-h3"><h3 id="-拔高逻辑这题的核心得分点">💡 拔高逻辑（这题的核心得分点）</h3><a class="sl-anchor-link" href="#-拔高逻辑这题的核心得分点"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “💡 拔高逻辑（这题的核心得分点）”</span></a></div>
+<p>主管不关心活动好不好玩，他关心<strong>你有没有在观察和思考</strong>。</p>
+<div class="expressive-code"><link rel="stylesheet" href="/_astro/ec.w36nc.css"><script type="module" src="/_astro/ec.0vx5m.js"></script><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="plaintext"><code><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">平庸版：参加了星享会，氛围很好，讲解很专业 → 一般</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">拔高版：观察到"总助 7 年不发朋友圈却还在拓客"</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53">        </span></span><span style="--0:#d6deeb;--1:#403f53">→ 推出"拓客拼切口不拼人脉基数"</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53">        </span></span><span style="--0:#d6deeb;--1:#403f53">→ 落到我自己现在就能开始练 → 强</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="复制到剪贴板" data-copied="复制成功！" data-code="平庸版：参加了星享会，氛围很好，讲解很专业 → 一般拔高版：观察到&quot;总助 7 年不发朋友圈却还在拓客&quot;        → 推出&quot;拓客拼切口不拼人脉基数&quot;        → 落到我自己现在就能开始练 → 强"><div></div></button></div></figure></div>
+<blockquote>
+<p>🎯 这个细节为什么好：一个位置不低的人也在从零拓客，
+说明这行不是拼资源，是拼敢不敢开口 —— 而这恰恰是新人的第一关。</p>
+</blockquote>
+<hr>
+<div class="sl-heading-wrapper level-h2"><h2 id="3-q3-介绍你了解的友邦逐字稿">3. Q3 介绍你了解的友邦（逐字稿）</h2><a class="sl-anchor-link" href="#3-q3-介绍你了解的友邦逐字稿"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “3. Q3 介绍你了解的友邦（逐字稿）”</span></a></div>
+<div class="sl-heading-wrapper level-h3"><h3 id="-上场前必须核对的事">🚨 上场前必须核对的事</h3><a class="sl-anchor-link" href="#-上场前必须核对的事"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “🚨 上场前必须核对的事”</span></a></div>
+<p>前面这几个数字<strong>以官网或官方渠道为准</strong>，不要用二手文章的版本。</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>内容</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1919 年于上海开启与中国的“世纪之缘”，后因战乱迁往境外</td>
+<td>✅ 已确认</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1992 年重回内地</td>
+<td>✅ 已确认</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2010 年在香港上市</td>
+<td>✅ 已确认</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2020 年获准将上海分公司改建为<strong>友邦人寿保险有限公司</strong>，成为内地首家外资独资人身保险公司</td>
+<td>✅ 已确认</td>
+</tr>
+<tr>
+<td>5</td>
+<td>使命「以专业、诚信和爱，助力家庭和企业健康长久好生活」/ 愿景「中国最受信赖的保险公司」</td>
+<td>✅ 已确认</td>
+</tr>
+<tr>
+<td>6</td>
+<td>中高端客群 + 高学历高素质代理人</td>
+<td>✅ 已确认</td>
+</tr>
+<tr>
+<td>7</td>
+<td>代理人福利保障、“双十”比例、团队晋升基本法</td>
+<td>☐ <strong>上场前问引荐人</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="sl-heading-wrapper level-h3"><h3 id="逐字稿-2">逐字稿</h3><a class="sl-anchor-link" href="#逐字稿-2"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “逐字稿”</span></a></div>
+<blockquote>
+<p>“我对友邦的了解是从一条时间线开始的。</p>
+<p><strong>1919 年</strong>，友邦在上海开启了它和中国的’世纪之缘’；后来因为战乱迁到了境外；<strong>1992 年</strong>重回内地；<strong>2010 年</strong>在香港上市；<strong>2020 年</strong>，友邦获准把上海分公司改建为’<strong>友邦人寿保险有限公司</strong>’，成为中国内地<strong>首家外资独资的人身保险公司</strong>，统一经营内地的寿险业务。</p>
+<p>它真正吸引我的，是三点。</p>
+<p><strong>一，角色跟我是匹配的。</strong> 它服务的是中高端客户，代理人是高学历、高素质的人才——不是到处卖保单，是顾问式的活：先专业，后产品。我做了七年技术，一直是先把事情搞懂再动手。</p>
+<p><strong>二，它的愿景是’最受信赖’。</strong> 信赖不是一次成交换来的，是很多年做下来才有的东西——这正是我想做的方向。</p>
+<p><strong>三，它 100 多年没有离开中国。</strong> 从 1919 到 2020，中间经历了战乱、开放和市场几次大变化，这种投入不是做短期能解释的。</p>
+<p>至于为什么选择友邦，我其实只看三条标准：<strong>扎根久、客群对、能续期</strong>。扎根久就是刚才那一百多年；客群对是中高端客户加高素质代理人；能续期，是代理人的收入里有续期，保障本身有周期——我愿意做的是跟着一个家庭很多年的事，不是一锤子买卖。”</p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="-杀手锏把吸引和选择分开答">💡 杀手锏：把“吸引”和“选择”分开答</h3><a class="sl-anchor-link" href="#-杀手锏把吸引和选择分开答"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “💡 杀手锏：把“吸引”和“选择”分开答”</span></a></div>
+<p>这题问的是<strong>两个不同的问题</strong>，混着答只能拿“一般”。</p>
+<div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="plaintext"><code><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">哪些吸引你（我的感受） → 角色匹配 / 最受信赖 / 100 多年没离开 → 强</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">为什么选择友邦（我的标准）→ 扎根久 · 客群对 · 能续期（三词版） → 强</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="复制到剪贴板" data-copied="复制成功！" data-code="哪些吸引你（我的感受） → 角色匹配 / 最受信赖 / 100 多年没离开 → 强为什么选择友邦（我的标准）→ 扎根久 · 客群对 · 能续期（三词版） → 强"><div></div></button></div></figure></div>
+<blockquote>
+<p>⚠️ <strong>最忌讳</strong>：把两条答案说成同一批优点。
+没有标准的“三条优点”只是优点，<strong>先立标准、再用事实印证</strong>才是决策能力。</p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="时间紧--只给-30-秒时">时间紧 / 只给 30 秒时</h3><a class="sl-anchor-link" href="#时间紧--只给-30-秒时"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “时间紧 / 只给 30 秒时”</span></a></div>
+<blockquote>
+<p>“我选友邦只看三条标准：<strong>扎根久</strong>——1919 年就在上海，2020 年拿下首家外资独资寿险资格；<strong>客群对</strong>——做中高端客户，代理人是高素质人才，跟我的背景匹配；<strong>能续期</strong>——收入里有续期，保障有周期。我不想只卖一份保单，我想做的是能跟着客户很多年的事。”</p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="-不要说">❌ 不要说</h3><a class="sl-anchor-link" href="#-不要说"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “❌ 不要说”</span></a></div>
+<ul>
+<li>❌ “友邦是世界五百强”（任何人都能说，等于没准备）</li>
+<li>❌ “友邦的保险挺划算的”（把保险公司说成便宜货，主管会反感）</li>
+<li>❌ “保险行业前景很好”（没有一句是你自己的判断）</li>
+<li>❌ 对牌照下自己没核实过的结论（比如“这说明它要长期做”）</li>
+<li>❌ 把他家制度和别家搞混（追问一句就露）</li>
+</ul>
+<hr>
+<div class="sl-heading-wrapper level-h2"><h2 id="4-q4-怎么看保险销售优势挑战逐字稿">4. Q4 怎么看保险销售？优势？挑战？（逐字稿）</h2><a class="sl-anchor-link" href="#4-q4-怎么看保险销售优势挑战逐字稿"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “4. Q4 怎么看保险销售？优势？挑战？（逐字稿）”</span></a></div>
+<div class="sl-heading-wrapper level-h3"><h3 id="41-观点段">4.1 观点段</h3><a class="sl-anchor-link" href="#41-观点段"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “4.1 观点段”</span></a></div>
+<blockquote>
+<p>“我觉得保险销售的本质不是卖产品，
+是帮一个家庭把它自己扛不住的那种最坏情况转移出去。</p>
+<p>很多人买保险，不是因为觉得保险公司好，
+是因为他清楚自己扛不住那个风险。</p>
+<p>所以代理人真正的价值是 ——
+<strong>让客户在还没出事的时候，也愿意做这个决定。</strong>
+难的是后半句。”</p>
+</blockquote>
+<blockquote>
+<p>💡 最后那句“难的是后半句”很关键：
+它证明你知道这行难在哪，而不是站着说话。</p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="42-优势段只说-3-个">4.2 优势段：只说 3 个</h3><a class="sl-anchor-link" href="#42-优势段只说-3-个"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “4.2 优势段：只说 3 个”</span></a></div>
+<p>主管记不住 5 个，只会觉得你背稿。挑 3 个，每个给证据。</p>
+<table>
+<thead>
+<tr>
+<th>你的标签</th>
+<th>证据（用你的真实经历替换）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>自学能力（可教性）</strong></td>
+<td>我这七年基本是靠自学往上走的，Vue 2 到 Vue 3、webpack 到 vite，都是自己啃文档啃下来的。保险的条款和责任免除是明文写着的，我一样能自己啃下来。</td>
+</tr>
+<tr>
+<td><strong>讲清楚的能力</strong></td>
+<td>我长期做技术讲解和方案评审，也一直在写博客，把复杂的东西讲成大白话是我的强项。而保险最难的恰恰是<strong>把复杂的条款讲成人话</strong>。</td>
+</tr>
+<tr>
+<td><strong>抗压（被拒绝的承受力）</strong></td>
+<td>我在一条收缩的赛道上待了七年，看得多的是业绩不达标和项目被砍。这套环境早就把“扛得住”这件事练出来了。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🎯 三个优势的顺序别换：<strong>先给能证明的（自学、讲清楚），最后给性格类的（抗压）</strong>。
+主管问优势时，前两个证明“可教性 + 表达能力”，第三个补“交际与抗压”。</p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="43-挑战段本题得分点">4.3 挑战段：<strong>本题得分点</strong></h3><a class="sl-anchor-link" href="#43-挑战段本题得分点"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “4.3 挑战段：本题得分点”</span></a></div>
+<p>说“我没挑战”直接判差。用三段式：<strong>认一个 → 说难在哪 → 说怎么应对</strong>。</p>
+<blockquote>
+<p>“我预判最大的挑战是<strong>前期从零开始拓客</strong>。</p>
+<p>我之前做技术是站在系统训练之上的 —— 有文档、有教程、有标准答案。
+但拓客没有标准答案，而且大部分时候，
+你连一个明确的拒绝都拿不到，对方只会说“暂时不需要”。</p>
+<p>我对这个有两个准备：</p>
+<p>一是<strong>降低对拒绝的敏感度</strong>。
+我准备把前三个月的每一次拒绝都当成数据记下来，做复盘，
+而不是当成对我个人的否定。</p>
+<p>二是<strong>先跑量再跑质</strong>。
+我给自己定了【X】次面谈的月度目标，用面谈量把成交率这个变量稀释掉 ——
+我不能保证每一单都成，但我能保证谈的人够多。”</p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="可替换的挑战选一个你真认同的">可替换的挑战（选一个你真认同的）</h3><a class="sl-anchor-link" href="#可替换的挑战选一个你真认同的"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “可替换的挑战（选一个你真认同的）”</span></a></div>
+<ul>
+<li><strong>收入前期波动</strong>：从确定工资到佣金制，需要缓冲</li>
+<li><strong>开口求助的心理关</strong>：主动麻烦别人是最难的一步</li>
+<li><strong>从熟人到陌生</strong>：熟人市场有限，长期要建陌生信任</li>
+<li><strong>知识门槛</strong>：保险、法律、税务、医学都得懂一点</li>
+</ul>
+<div class="sl-heading-wrapper level-h3"><h3 id="-不要说-1">❌ 不要说</h3><a class="sl-anchor-link" href="#-不要说-1"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “❌ 不要说”</span></a></div>
+<ul>
+<li>❌ “我觉得我没什么挑战”（= 差）</li>
+<li>❌ “我最大的挑战是我还没钱”（暴露动机）</li>
+<li>❌ 说挑战但不说怎么应对（说完必须接“我打算……”）</li>
+</ul>
+<hr>
+<div class="sl-heading-wrapper level-h2"><h2 id="5-q5-三个月收入目标逐字稿--最高权重">5. Q5 三个月收入目标（逐字稿 · 最高权重）</h2><a class="sl-anchor-link" href="#5-q5-三个月收入目标逐字稿--最高权重"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “5. Q5 三个月收入目标（逐字稿 · 最高权重）”</span></a></div>
+<blockquote>
+<p>🎯 主管在这里做最后判断：<strong>你是来玩票的，还是来换赛道的。</strong></p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="51-先算别猜">5.1 先算，别猜</h3><a class="sl-anchor-link" href="#51-先算别猜"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “5.1 先算，别猜”</span></a></div>
+<p>不要凭空想一个数字，用这个公式倒推：</p>
+<div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="plaintext"><code><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">三个月签单数 ≈ 月均面谈次数 × 面谈成交率</span></div></div><div class="ec-line"><div class="code">
+</div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">举例：每月 20 次面谈 × 成交率 15% ≈ 3 单/月</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="复制到剪贴板" data-copied="复制成功！" data-code="三个月签单数 ≈ 月均面谈次数 × 面谈成交率举例：每月 20 次面谈 × 成交率 15% ≈ 3 单/月"><div></div></button></div></figure></div>
+<blockquote>
+<p>你心里大概有个数：朋友圈有多少人可约、每月能跑几场活动。
+<strong>用它算出来的数字才站得住</strong>，主管追问“凭什么”你答得出来。</p>
+</blockquote>
+<blockquote>
+<p>⚠️ <strong>上场前必填</strong>：你的 A/B/C 名单实际有多少人、你朋友圈能约到的有多少、
+每月实际能跑几场活动。<strong>主管追问“这个数字怎么来的”，你要能当场算给他看。</strong>
+编一个够大又解释不了的数字，比报一个保守但算得清的数字危险得多。</p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="52-目标三档报">5.2 目标：三档报</h3><a class="sl-anchor-link" href="#52-目标三档报"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “5.2 目标：三档报”</span></a></div>
+<p>只报一个数，要么显得飘，要么显得不认真。</p>
+<table>
+<thead>
+<tr>
+<th>档</th>
+<th>单数</th>
+<th>保费</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>保底</strong></td>
+<td>【X】单</td>
+<td>【X】万</td>
+<td>最坏情况我也接受，因为前期重心是打底</td>
+</tr>
+<tr>
+<td><strong>目标</strong></td>
+<td>【X】单</td>
+<td>【X】万</td>
+<td>我真正奔着的</td>
+</tr>
+<tr>
+<td><strong>冲刺</strong></td>
+<td>【X】单</td>
+<td>【X】万</td>
+<td>状态好能摸到</td>
+</tr>
+</tbody>
+</table>
+<div class="sl-heading-wrapper level-h3"><h3 id="53-逐月拆解主管最爱听">5.3 逐月拆解（主管最爱听）</h3><a class="sl-anchor-link" href="#53-逐月拆解主管最爱听"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “5.3 逐月拆解（主管最爱听）”</span></a></div>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>目标</th>
+<th>关键动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>第 1 月</strong></td>
+<td>保底级 · 打底</td>
+<td>系统学完产品条款；盘点【X】个缘故市场的人分 A/B/C；跟引荐人跑【X】场活动；每周新增【X】好友</td>
+</tr>
+<tr>
+<td><strong>第 2 月</strong></td>
+<td>目标级 · 建面谈量</td>
+<td>独立参加【X】场活动；完成【X】次面谈；把每个客户的家庭情况建档</td>
+</tr>
+<tr>
+<td><strong>第 3 月</strong></td>
+<td>冲刺级 · 转化</td>
+<td>集中促成和追单；启动转介绍；做第一次完整复盘</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>三个月的收入目标档位与拆解逻辑 → <a href="./06-%E4%B8%89%E9%9D%A2%E5%87%86%E5%A4%87.md">三面准备</a> 的「三个月拆解模板」</p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="54-准备好了吗要答三层">5.4 “准备好了吗”要答三层</h3><a class="sl-anchor-link" href="#54-准备好了吗要答三层"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “5.4 “准备好了吗”要答三层”</span></a></div>
+<blockquote>
+<p>“准备分三块：</p>
+<p><strong>知识上</strong> —— 我已经能讲清楚重疾和医疗的区别、责任免除和现金价值是什么，
+能用大白话讲，不靠术语。</p>
+<p><strong>名单上</strong> —— 我已经列了【X】个人，分了三类：
+A 类是有需求有信任的，这周就约；B 类是关系一般需要维护的；
+C 类是只保持联系的。</p>
+<p><strong>节奏上</strong> —— 我下周【具体动作：约引荐人一起复盘 / 自己跑一场活动 / 约第一个客户喝咖啡】，
+不是等入职了才开始。”</p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="55--杀手锏第一周做什么">5.5 💡 杀手锏：第一周做什么</h3><a class="sl-anchor-link" href="#55--杀手锏第一周做什么"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “5.5 💡 杀手锏：第一周做什么”</span></a></div>
+<blockquote>
+<p>“如果我通过了，第一周我会这么排：
+<strong>第 1 天</strong> 跟您过一遍我那份 A/B/C 名单；
+<strong>第 2 到 3 天</strong> 把优先级最高的那【X】个人电话过一遍；
+<strong>第 4 到 5 天</strong> 约出第一个面谈；
+<strong>周末</strong> 跟引荐人跑一场活动。</p>
+<p>一周之内我要有第一次真实的客户面谈。”</p>
+</blockquote>
+<blockquote>
+<p>🎯 主管最怕新人“等安排”。你说“一周之内有第一次面谈”，
+等于告诉他<strong>你不用催我</strong>。</p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="-不要说-2">❌ 不要说</h3><a class="sl-anchor-link" href="#-不要说-2"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “❌ 不要说”</span></a></div>
+<ul>
+<li>❌ “三个月先保证温饱就行”（目标感 = 差）</li>
+<li>❌ “我没有具体目标，需要公司给我定”（直接踩投入度）</li>
+<li>❌ 只说目标不说拆解，或只说拆解不说准备</li>
+</ul>
+<hr>
+<div class="sl-heading-wrapper level-h2"><h2 id="6-q6-工作模式怎么拓客逐字稿">6. Q6 工作模式？怎么拓客？（逐字稿）</h2><a class="sl-anchor-link" href="#6-q6-工作模式怎么拓客逐字稿"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “6. Q6 工作模式？怎么拓客？（逐字稿）”</span></a></div>
+<div class="sl-heading-wrapper level-h3"><h3 id="61-工作模式说主管的内部语言">6.1 工作模式（说主管的内部语言）</h3><a class="sl-anchor-link" href="#61-工作模式说主管的内部语言"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “6.1 工作模式（说主管的内部语言）”</span></a></div>
+<blockquote>
+<p>“我理解这份工作的常态是被拒绝，产出靠的是稳定的动作量，不是灵感。</p>
+<p>所以时间上是自主管理，早上安排当天行程，晚间是活动和社交时段。
+主线是活动加转介绍双轮 ——
+活动负责拿到新面孔，转介绍负责拿到高意向的。
+每场活动结束之后，48 小时之内我会把在场的人全部跟进一遍。</p>
+<p>我把它变成日程表，靠系统出单，而不是靠某一单碰运气。”</p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="62-拓客四条渠道--数量">6.2 拓客四条渠道 + 数量</h3><a class="sl-anchor-link" href="#62-拓客四条渠道--数量"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “6.2 拓客四条渠道 + 数量”</span></a></div>
+<blockquote>
+<p>“我打算分四条渠道走。</p>
+<p><strong>第一，缘故市场。</strong> 我盘了【X】个熟人，按 A/B/C 分层，A 类这周就约。</p>
+<p><strong>第二，活动获客。</strong> 每月参加【X】场，每场之后 48 小时内全量跟进。</p>
+<p><strong>第三，线上内容。</strong> 每周发【X】条，不刷屏、不群发，讲的是具体的案例和条款细节。</p>
+<p><strong>第四，转介绍。</strong> 每成交一个、或者每服务完一个客户，我都会自然地提一次，
+而且会明确告诉对方：只是免费帮朋友做个分析，不买没关系。降低对方的压力。”</p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="63-动作指标">6.3 动作指标</h3><a class="sl-anchor-link" href="#63-动作指标"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “6.3 动作指标”</span></a></div>
+<blockquote>
+<p>“我的第一个月这样定：
+每周新增好友【X】个，
+每月参加活动【X】场，
+每月完成面谈【X】次，
+每周日晚上做一次复盘 —— 这周见了谁、卡在哪、下周做什么。”</p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="-不要说-3">❌ 不要说</h3><a class="sl-anchor-link" href="#-不要说-3"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “❌ 不要说”</span></a></div>
+<ul>
+<li>❌ “我先在公司学一学再说”（= 差，主管最怕这个）</li>
+<li>❌ “主要靠熟人”（主管会追问：那熟人用完了怎么办）</li>
+<li>❌ “我会多发朋友圈”（太低阶，要说内容和频次）</li>
+</ul>
+<hr>
+<div class="sl-heading-wrapper level-h2"><h2 id="7-q7-家人支持吗逐字稿--最容易翻车">7. Q7 家人支持吗？（逐字稿 · 最容易翻车）</h2><a class="sl-anchor-link" href="#7-q7-家人支持吗逐字稿--最容易翻车"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “7. Q7 家人支持吗？（逐字稿 · 最容易翻车）”</span></a></div>
+<div class="sl-heading-wrapper level-h3"><h3 id="-上场前必须和家里人对齐-4-件事">🚨 上场前必须和家里人对齐 4 件事</h3><a class="sl-anchor-link" href="#-上场前必须和家里人对齐-4-件事"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “🚨 上场前必须和家里人对齐 4 件事”</span></a></div>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>对齐什么</th>
+<th>为什么重要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>收入预期：前 3-6 个月可能不稳定</td>
+<td>最容易吵架的点</td>
+</tr>
+<tr>
+<td>2</td>
+<td>社保：自己交还是挂靠，别断缴</td>
+<td>现实问题，想细了是加分</td>
+</tr>
+<tr>
+<td>3</td>
+<td>时间：活动常在晚上和周末</td>
+<td>要落到具体分工</td>
+</tr>
+<tr>
+<td>4</td>
+<td>孩子：谁接送、谁做饭、谁辅导作业</td>
+<td>主管问的就是这个</td>
+</tr>
+</tbody>
+</table>
+<div class="sl-heading-wrapper level-h3"><h3 id="逐字稿-3">逐字稿</h3><a class="sl-anchor-link" href="#逐字稿-3"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “逐字稿”</span></a></div>
+<blockquote>
+<p>“家里<strong>支持</strong>。</p>
+<p>具体已经安排好了：</p>
+<ul>
+<li>【孩子 / 家人】这块由【谁】负责，接送和作业都已经定下来了；</li>
+<li>社保我确认过，会【自己交 / 转灵活就业】，不断缴；</li>
+<li>时间上我清楚这行的作息是早起加晚间和周末活动，家里也知道这个节奏；</li>
+<li>三个月收入目标我和家里沟通过，他们知道前期会有一个爬坡期。</li>
+</ul>
+<p>我这边没有牵绊，可以全投入。”</p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="-为什么这样说有效">💡 为什么这样说有效</h3><a class="sl-anchor-link" href="#-为什么这样说有效"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “💡 为什么这样说有效”</span></a></div>
+<table>
+<thead>
+<tr>
+<th>你说的</th>
+<th>主管听到的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“家里支持”（不犹豫）</td>
+<td>这个人想清楚了，不是头脑发热</td>
+</tr>
+<tr>
+<td>“社保不断缴”</td>
+<td>有责任感，不是只想赚快钱</td>
+</tr>
+<tr>
+<td>“目标沟通过”</td>
+<td>把这件事当正式决定在做</td>
+</tr>
+<tr>
+<td>“没有牵绊”</td>
+<td>我不用担心他中途走</td>
+</tr>
+</tbody>
+</table>
+<div class="sl-heading-wrapper level-h3"><h3 id="️-万一确实有困难">⚠️ 万一确实有困难</h3><a class="sl-anchor-link" href="#️-万一确实有困难"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “⚠️ 万一确实有困难”</span></a></div>
+<p>坦诚 + 有解法 + 明确边界：</p>
+<blockquote>
+<p>“孩子白天由【谁】带，晚上和周末我能保证。
+这块是我唯一需要协调的，我已经安排好了，不会影响展业时间。”</p>
+</blockquote>
+<p><strong>有困难但有解法 = 可信；只抛困难不给解法 = 差。</strong></p>
+<div class="sl-heading-wrapper level-h3"><h3 id="-不要说-4">❌ 不要说</h3><a class="sl-anchor-link" href="#-不要说-4"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “❌ 不要说”</span></a></div>
+<ul>
+<li>❌ “家里还不知道”（直接暴露你没准备）</li>
+<li>❌ “先干着看，家里有意见再说”</li>
+<li>❌ 犹豫、含糊、“这个……其实还好”（一听就是有问题）</li>
+<li>❌ 主动放大困难（“没人带孩子可能顾不上”——就算真这样，也要带上解法）</li>
+</ul>
+<hr>
+<div class="sl-heading-wrapper level-h2"><h2 id="8-三个必须改掉的说话习惯">8. 三个必须改掉的说话习惯</h2><a class="sl-anchor-link" href="#8-三个必须改掉的说话习惯"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “8. 三个必须改掉的说话习惯”</span></a></div>
+<table>
+<thead>
+<tr>
+<th>习惯</th>
+<th>改成</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“还在了解阶段”“熟悉熟悉就好”</td>
+<td>给具体数字和具体日期</td>
+</tr>
+<tr>
+<td>“我觉得这个应该可以”</td>
+<td>“我打算这么做，具体是……”</td>
+</tr>
+<tr>
+<td>“先干着看”</td>
+<td>“我的目标是……，达成的话……”</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🎯 <strong>含糊 = 差</strong>。这是评分表里最容易被忽略的规则。</p>
+</blockquote>
+<hr>
+<div class="sl-heading-wrapper level-h2"><h2 id="9-模拟压力追问真正的分水印">9. 模拟压力追问（真正的分水印）</h2><a class="sl-anchor-link" href="#9-模拟压力追问真正的分水印"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “9. 模拟压力追问（真正的分水印）”</span></a></div>
+<p>主管大概率会追问这些。<strong>这 7 题答不好，前面全白答。</strong>
+其中 <strong>Q8-0（副业 vs 干不下去）是必考题</strong> —— 你在 Q1 里主动提了“副业”，主管一定会追。</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="q8-0-️-最危险的一问你说想做副业--那你是想好了还是技术干不下去了">Q8-0 ⚠️ 最危险的一问：「你说想做副业 —— 那你是想好了，还是技术干不下去了？」</h3><a class="sl-anchor-link" href="#q8-0-️-最危险的一问你说想做副业--那你是想好了还是技术干不下去了"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Q8-0 ⚠️ 最危险的一问：「你说想做副业 —— 那你是想好了，还是技术干不下去了？」”</span></a></div>
+<blockquote>
+<p>主管一定会问这题，因为你在 Q1 里主动提了“副业”。
+<strong>答砸了，前面所有题都白答。</strong></p>
+</blockquote>
+<blockquote>
+<p>“我想先说清楚：我想做保险，是我自己判断出来的结果，不是因为我在现在的岗位上待不下去。</p>
+<p>这两年行业确实在下行，但我在做的是往一条在长的赛道上走，不是在逃离哪条赛道。
+如果只是干不下去才来，那我不会花一年半去了解、也不会去参加活动。</p>
+<p>至于形态，我想的是<strong>先以副业的方式切进来，把方法跑通</strong>——
+因为我不想在还没搞懂这件事的时候就做全职的决定。
+但我要说清楚：我不是来玩票的，这三件事我都能保证 ——
+<strong>一、社保不断缴</strong>；<strong>二、收入预期我提前和家里对齐过</strong>；
+<strong>三、一旦跑通，我会把它当长期的事做下去</strong>，而不是刚好做够三个月就算了。</p>
+<p>如果最后全职做，那是我验证完之后的升级，不是我一开始的退路。”</p>
+</blockquote>
+<blockquote>
+<p>🎯 这题的核心不是“解释副业”，是<strong>把“副业”翻译成“我有判断、有节奏、有退路”</strong>。
+三句护身符：<strong>不是待不下去 · 先验证再决定 · 跑通就长期做</strong>。</p>
+</blockquote>
+<hr>
+<div class="sl-heading-wrapper level-h3"><h3 id="q8你技术做了-7-年凭什么觉得能做好保险">Q8「你技术做了 7 年，凭什么觉得能做好保险？」</h3><a class="sl-anchor-link" href="#q8你技术做了-7-年凭什么觉得能做好保险"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Q8「你技术做了 7 年，凭什么觉得能做好保险？」”</span></a></div>
+<blockquote>
+<p>“我不觉得这是两个行当。</p>
+<p>我做技术的核心能力是快速搞懂一个陌生系统，
+然后找到规律把它讲给别人听。保险的条款、产品、责任，
+本质上也是一个复杂的系统。</p>
+<p>而且有一点是我的优势 ——
+保险是个信任生意，客户凭什么信我？
+他不会看我的职级，他只会看我这个人讲的东西有没有道理、
+有没有认真帮他看问题。这个恰恰是我一直擅长的事。”</p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="q9你说三个月能签x单签不到怎么办">Q9「你说三个月能签【X】单，签不到怎么办？」</h3><a class="sl-anchor-link" href="#q9你说三个月能签x单签不到怎么办"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Q9「你说三个月能签【X】单，签不到怎么办？」”</span></a></div>
+<blockquote>
+<p>“如果签不到，我会先看是哪一环断了。</p>
+<p>是面谈量不够，还是约到了但没需求，
+还是需求对了但方案没打动他 —— 这三个原因对应的动作完全不一样。</p>
+<p>面谈量不够就加活动；约不到人就是我的邀约话术要改；
+方案不打动人就回到需求挖掘，看是不是我讲错了重点。</p>
+<p>我会做月度复盘，把原因拆开看，而不是简单地觉得’这行真难’。”</p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="q10保险行业留存率很低很多人干半年就走了你凭什么不一样">Q10「保险行业留存率很低，很多人干半年就走了，你凭什么不一样？」</h3><a class="sl-anchor-link" href="#q10保险行业留存率很低很多人干半年就走了你凭什么不一样"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Q10「保险行业留存率很低，很多人干半年就走了，你凭什么不一样？」”</span></a></div>
+<blockquote>
+<p>“我不否认这个行业流动性高。</p>
+<p>走的人大概是因为两种原因：一种是业绩长期上不去，收入撑不住；
+另一种是没有意义感，不知道自己在积累什么。</p>
+<p>我给自己设了三个月的动作量指标，
+目标不是靠情绪撑着，而是靠日程表撑着 ——
+每天该加几个好友、该约几个人，是可以量化的，不靠当天状态好不好。</p>
+<p>而且我选了健康和长期储蓄这条线，本身就是可以持续做一辈子的生意，
+不是一锤子买卖。”</p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="q11家里真的支持吗你家里人怎么看">Q11「家里真的支持吗？你家里人怎么看？」</h3><a class="sl-anchor-link" href="#q11家里真的支持吗你家里人怎么看"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Q11「家里真的支持吗？你家里人怎么看？」”</span></a></div>
+<blockquote>
+<p>（<strong>不要犹豫，直接重复第 7 题的核心信息</strong>）</p>
+<p>“支持。家里知道我做的是长期的事业，
+收入前期的爬坡期我们提前谈过。
+孩子和社保这些具体安排我都落到位了，不会成为中途停下来的理由。”</p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="q12你觉得引荐人怎么评价你">Q12「你觉得引荐人怎么评价你？」</h3><a class="sl-anchor-link" href="#q12你觉得引荐人怎么评价你"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Q12「你觉得引荐人怎么评价你？」”</span></a></div>
+<blockquote>
+<p>“我觉得他会说我愿意学、肯下功夫。</p>
+<p>我承认我起步比有些新人慢一点 —— 我不是那种开口就自来熟的人，
+但我做事比较扎实，学过的东西是真的学进去了。</p>
+<p>我相信在这个行业里，前期扎实一点，后面会跑得更稳。”</p>
+</blockquote>
+<div class="sl-heading-wrapper level-h3"><h3 id="q13你还有什么想问的">Q13「你还有什么想问的？」</h3><a class="sl-anchor-link" href="#q13你还有什么想问的"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Q13「你还有什么想问的？」”</span></a></div>
+<p><strong>✅ 值得问的：</strong></p>
+<ol>
+<li>“您团队现在多少人？今年新人的留存情况怎么样？”
+→ 问留存 = 你想长期干</li>
+<li>“您觉得一个新人前三个月最关键的动作是什么？”
+→ <strong>顺便拿到主管对你的期望值</strong></li>
+<li>“团队里在家庭保障方向做得好的人是谁？我想去请教一下。”
+→ 谦逊 + 想融入</li>
+<li>“公司对新人的培训体系是怎样的？”
+→ 关心成长路径</li>
+</ol>
+<p><strong>❌ 不要问：</strong></p>
+<ul>
+<li>❌ 底薪、佣金（三面谈钱 = 减分，留到终面）</li>
+<li>❌ “我能只做兼职吗”（直接踩投入度）</li>
+<li>❌ “多久能出单”（把代理当投资，问法就错了）</li>
+</ul>
+<hr>
+<div class="sl-heading-wrapper level-h2"><h2 id="10-临场一页速记">10. 临场一页速记</h2><a class="sl-anchor-link" href="#10-临场一页速记"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “10. 临场一页速记”</span></a></div>
+<table>
+<thead>
+<tr>
+<th>题</th>
+<th>一句话核心</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Q8-0 副业追问</strong></td>
+<td><strong>不是待不下去 · 先验证再决定 · 跑通就长期做</strong></td>
+</tr>
+<tr>
+<td>Q1 自我介绍</td>
+<td>下行 + AI 上行 → 副业诉求 → 保险上行期 → 这就是原因</td>
+</tr>
+<tr>
+<td>Q2 引荐人</td>
+<td><strong>一年半 / 3 场 / 星享会</strong> + “7 年不发朋友圈也在拓客”</td>
+</tr>
+<tr>
+<td>Q3 友邦了解</td>
+<td>时间线四个年份 → 三点吸引力 → <strong>扎根久·客群对·能续期</strong></td>
+</tr>
+<tr>
+<td>Q4 销售观/挑战</td>
+<td>观点清晰 + 3 个优势 + 1 个真挑战带解法</td>
+</tr>
+<tr>
+<td>Q5 三个月目标</td>
+<td>三档 + 逐月拆解 + <strong>我第一周就有第一次面谈</strong></td>
+</tr>
+<tr>
+<td>Q6 拓客</td>
+<td>双轮 + 四渠道 + 数量 + 第一周动作清单</td>
+</tr>
+<tr>
+<td>Q7 家庭</td>
+<td>先说支持 + 社保不断缴 + 目标已沟通</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>三个致命词，烂熟于心：</strong>
+<strong>三个致命词,烂熟于心:</strong> <strong>数字</strong>(量化一切)· <strong>动作</strong>(落到可验证的下一步)· <strong>安排</strong>(家庭已谈妥) —— 原理见 <a href="./06-%E4%B8%89%E9%9D%A2%E5%87%86%E5%A4%87.md">三面准备</a> 的「答题通则」。</p>
+</blockquote>
+<hr>
+<div class="sl-heading-wrapper level-h2"><h2 id="-相关文章">🔗 相关文章</h2><a class="sl-anchor-link" href="#-相关文章"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “🔗 相关文章”</span></a></div>
+<ul>
+<li><a href="./06-%E4%B8%89%E9%9D%A2%E5%87%86%E5%A4%87.md">六、三面准备</a> —— 评分表拆解（框架篇，练习前先看）</li>
+<li><a href="./05-%E8%8E%B7%E5%AE%A2%E8%BD%AC%E4%BB%8B%E7%BB%8D.md">五、获客与转介绍</a> —— 拓客细节</li>
+<li><a href="./04-%E4%BF%83%E6%88%90%E6%88%90%E4%BA%A4.md">四、促成成交</a> —— 促成与转介绍话术</li>
+</ul>
+<blockquote>
+<p>💡 填完 <code dir="auto">【】</code> 之后，建议找个人对着录音念一遍 Q1，
+回放听有没有超过 2 分钟、有没有出现“这个”“大概”“应该”这些含糊词。</p>
+</blockquote>
+</div><script type="module">var e=`svg-zoom-overlay`;function t(t,n){let r=document.getElementById(e);r||(r=document.createElement(`div`),r.id=e,r.className=`svg-zoom`,r.innerHTML=`<button type="button" class="svg-zoom-close" aria-label="关闭">×</button><img class="svg-zoom-img" alt="" />`,document.body.appendChild(r),r.addEventListener(`click`,e=>{(e.target===r||e.target.classList.contains(`svg-zoom-close`))&&(r.classList.remove(`is-open`),document.removeEventListener(`keydown`,a))}));let i=r.querySelector(`.svg-zoom-img`);i.src=t,i.alt=n,r.classList.add(`is-open`),document.body.style.overflow=`hidden`;let a=e=>{e.key===`Escape`&&(r.classList.remove(`is-open`),document.body.style.overflow=``,document.removeEventListener(`keydown`,a))};document.addEventListener(`keydown`,a)}document.addEventListener(`click`,e=>{let n=e.target;if(n.tagName!==`IMG`)return;let r=n.getAttribute(`src`)??``;/\.svg(\?|$)/i.test(r)&&(e.preventDefault(),t(r,n.getAttribute(`alt`)??``))});</script><footer class="sl-flex astro-kamc3buv"><div class="meta sl-flex astro-kamc3buv"><a href="https://github.com/motespace/upward-path-manage/edit/main/docs/%E5%89%AF%E4%B8%9A/%E4%BF%9D%E9%99%A9%E5%B1%95%E4%B8%9A/07-%E9%80%90%E5%AD%97%E7%A8%BF.md" class="sl-flex print:hidden astro-qgiezycy"><svg aria-hidden="true" class="astro-qgiezycy astro-ls36bpzw" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.2em;"><path d="M22 7.24a1 1 0 0 0-.29-.71l-4.24-4.24a1 1 0 0 0-1.1-.22 1 1 0 0 0-.32.22l-2.83 2.83L2.29 16.05a1 1 0 0 0-.29.71V21a1 1 0 0 0 1 1h4.24a1 1 0 0 0 .76-.29l10.87-10.93L21.71 8c.1-.1.17-.2.22-.33a1 1 0 0 0 0-.24v-.14l.07-.05ZM6.83 20H4v-2.83l9.93-9.93 2.83 2.83L6.83 20ZM18.17 8.66l-2.83-2.83 1.42-1.41 2.82 2.82-1.41 1.42Z"/></svg>编辑此页</a></div><div class="pagination-links print:hidden astro-lkjjwzrl" dir="ltr"><a href="/副业/保险展业/06-三面准备/" rel="prev" class="astro-lkjjwzrl"><svg aria-hidden="true" class="astro-lkjjwzrl astro-ls36bpzw" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;"><path d="M17 11H9.41l3.3-3.29a1.004 1.004 0 1 0-1.42-1.42l-5 5a1 1 0 0 0-.21.33 1 1 0 0 0 0 .76 1 1 0 0 0 .21.33l5 5a1.002 1.002 0 0 0 1.639-.325 1 1 0 0 0-.219-1.095L9.41 13H17a1 1 0 0 0 0-2Z"/></svg><span class="astro-lkjjwzrl">上一页<br class="astro-lkjjwzrl"><span class="link-title astro-lkjjwzrl">六、三面准备（友邦 AIA）</span></span></a><a href="/副业/线上副业/" rel="next" class="astro-lkjjwzrl"><svg aria-hidden="true" class="astro-lkjjwzrl astro-ls36bpzw" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;"><path d="M17.92 11.62a1.001 1.001 0 0 0-.21-.33l-5-5a1.003 1.003 0 1 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1.002 1.002 0 0 0 .325 1.639 1 1 0 0 0 1.095-.219l5-5a1 1 0 0 0 .21-.33 1 1 0 0 0 0-.76Z"/></svg><span class="astro-lkjjwzrl">下一页<br class="astro-lkjjwzrl"><span class="link-title astro-lkjjwzrl">总览</span></span></a></div></footer><div class="rp-bar astro-jo6i4kqk" id="rp-bar" aria-hidden="true"></div><button type="button" class="rp-top astro-jo6i4kqk" id="rp-top" aria-label="回到顶部" title="回到顶部">↑</button><script type="module">var e=document.getElementById(`rp-bar`),t=document.getElementById(`rp-top`),n=0,r=()=>{n=0;let r=document.documentElement,i=r.scrollHeight-r.clientHeight,a=i>0?Math.min(100,Math.max(0,r.scrollTop/i*100)):0;e&&(e.style.width=`${a}%`),t?.classList.toggle(`is-visible`,r.scrollTop>420)},i=()=>{n||=requestAnimationFrame(r)};r(),window.addEventListener(`scroll`,i,{passive:!0}),window.addEventListener(`resize`,i,{passive:!0}),t?.addEventListener(`click`,()=>{window.scrollTo({top:0,behavior:`smooth`})});</script></div></div></main></div></div></div></div></body></html>
