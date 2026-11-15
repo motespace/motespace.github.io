@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 420" width="780" height="420"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="780" height="420" fill="var(--c-bg)"/>
+
+  <style>
+    :root { --c-text: #1f2937; --c-bg: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; }
+    @media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; } }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .outer { fill: var(--c-brand-soft); stroke: var(--c-brand); stroke-width: 2; }
+    .inner { fill: var(--c-bg); stroke: var(--c-text); stroke-width: 2; }
+    .label-lg { font-size: 20px; font-weight: 700; }
+    .label { font-size: 16px; font-weight: 600; fill: var(--c-text); }
+    .small { font-size: 13px; fill: var(--c-text-soft); }
+    .chip { fill: var(--c-bg); stroke: var(--c-brand); stroke-width: 1.5; }
+    .chip-text { font-size: 14px; fill: var(--c-text); text-anchor: middle; }
+    .out { fill: var(--c-success-soft); stroke: var(--c-success); stroke-width: 2; }
+    .arrow { fill: none; stroke: var(--c-text-soft); stroke-width: 2; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 15px; fill: var(--c-text); }
+  </style>
+
+  <text x="40" y="42" class="title">TypeScript 是 JavaScript 的超集</text>
+  <text x="40" y="66" class="subtitle">JS 的所有合法程序,都是合法的 TS;TS 多出来的那部分,编译时会被抹掉</text>
+
+  <rect x="40" y="96" width="700" height="190" rx="12" class="outer"/>
+  <text x="62" y="128" class="label-lg" fill="var(--c-brand)">TypeScript</text>
+  <text x="62" y="150" class="small">集合 A(超集)</text>
+
+  <rect x="62" y="168" width="360" height="100" rx="10" class="inner"/>
+  <text x="86" y="200" class="label">JavaScript</text>
+  <text x="86" y="224" class="small">集合 B(子集)—— B 的元素全在 A 里</text>
+  <text x="86" y="246" class="small">所以任何现有 JS 程序都能原样在 TS 下跑</text>
+
+  <text x="452" y="128" class="small">TS 额外增加的部分</text>
+  <rect x="452" y="142" width="128" height="30" rx="6" class="chip"/>
+  <text x="516" y="163" class="chip-text">类型注解</text>
+  <rect x="592" y="142" width="128" height="30" rx="6" class="chip"/>
+  <text x="656" y="163" class="chip-text">接口</text>
+  <rect x="452" y="182" width="128" height="30" rx="6" class="chip"/>
+  <text x="516" y="203" class="chip-text">泛型</text>
+  <rect x="592" y="182" width="128" height="30" rx="6" class="chip"/>
+  <text x="656" y="203" class="chip-text">枚举</text>
+  <rect x="452" y="222" width="128" height="30" rx="6" class="chip"/>
+  <text x="516" y="243" class="chip-text">装饰器</text>
+  <rect x="592" y="222" width="128" height="30" rx="6" class="chip"/>
+  <text x="656" y="243" class="chip-text">类型守卫</text>
+
+  <path d="M 390 292 L 390 330" class="arrow"/>
+  <path d="M 382 322 L 390 332 L 398 322" class="arrow"/>
+  <text x="404" y="316" class="small">tsc 编译 —— 类型信息全部被抹掉,输出纯 JS</text>
+
+  <rect x="240" y="338" width="300" height="52" rx="10" class="out"/>
+  <text x="390" y="370" class="label" text-anchor="middle" fill="var(--c-success)">浏览器 / Node 直接运行 JavaScript</text>
+</svg>

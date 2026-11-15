@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 196" width="820" height="196"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="820" height="196" fill="var(--c-bg)"/>
+
+  <style>
+    :root { --c-text: #1f2937; --c-bg: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-danger: #ef4444; --c-warning: #f59e0b; --c-success: #10b981; --c-brand: #3451b2; --c-purple: #7c3aed; --c-teal: #0891b2; }
+    @media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-danger: #f87171; --c-warning: #fbbf24; --c-success: #34d399; --c-brand: #818cf8; --c-purple: #a78bfa; --c-teal: #22d3ee; } }
+    .root-box { fill: var(--c-bg-soft); stroke: var(--c-text); stroke-width: 2; }
+    .root-text { font-size: 19px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+    .branch-box { fill: var(--c-bg); stroke: var(--c-stroke); stroke-width: 2; }
+    .branch-text { font-size: 16px; fill: var(--c-text); }
+    .link { stroke: var(--c-stroke); stroke-width: 2; fill: none; }
+    .cont { fill: none; stroke: var(--c-border); stroke-width: 1.5; stroke-dasharray: 7 5; }
+  </style>
+
+  <rect x="292" y="28" width="498" height="140" rx="14" class="cont"/>
+
+  <g>
+    <rect x="30" y="72" width="248" height="52" rx="10" class="root-box"/>
+      <text x="154" y="105" class="root-text">你有写过自定义指令吗</text>
+  </g>
+
+    <g>
+      <rect x="314" y="46" width="454" height="44" rx="8" class="branch-box" style="--c-stroke: var(--c-danger);"/>
+      <text x="330" y="74" class="branch-text">什么是指令</text>
+    </g>
+    <path d="M 278 98 C 312 98, 280 68, 314 68" class="link" style="--c-stroke: var(--c-danger);"/>
+    <g>
+      <rect x="314" y="106" width="454" height="44" rx="8" class="branch-box" style="--c-stroke: var(--c-warning);"/>
+      <text x="330" y="134" class="branch-text">应用场景</text>
+    </g>
+    <path d="M 278 98 C 312 98, 280 128, 314 128" class="link" style="--c-stroke: var(--c-warning);"/>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" width="760" height="400"
+     font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect class="canvas-bg" x="0" y="0" width="760" height="400" fill="var(--c-bg)"/>
+
+  <style>
+    :root { --c-text: #1f2937; --c-bg: #ffffff; --c-text-soft: #6b7280; --c-border: #d1d5db; --c-bg-soft: #f9fafb; --c-brand: #3451b2; --c-brand-soft: #eef2ff; --c-success: #10b981; --c-success-soft: #d1fae5; --c-danger: #ef4444; --c-danger-soft: #fee2e2; }
+    @media (prefers-color-scheme: dark) { :root { --c-text: #f3f4f6; --c-bg: #1b1b1f; --c-text-soft: #9ca3af; --c-border: #4b5563; --c-bg-soft: #1f2937; --c-brand: #818cf8; --c-brand-soft: #312e81; --c-success: #34d399; --c-success-soft: #064e3b; --c-danger: #f87171; --c-danger-soft: #450a0a; } }
+    .title { font-size: 22px; font-weight: 700; fill: var(--c-text); }
+    .subtitle { font-size: 14px; fill: var(--c-text-soft); }
+    .box { fill: var(--c-bg-soft); stroke-width: 2; rx: 10; }
+    .box-text { font-size: 18px; font-weight: 700; fill: var(--c-text); text-anchor: middle; }
+    .box-sub { font-size: 13px; fill: var(--c-text-soft); text-anchor: middle; }
+    .arrow { fill: none; stroke-width: 2; }
+    .arrow-label { font-size: 14px; font-weight: 600; }
+    .note { font-size: 14px; fill: var(--c-text-soft); }
+  </style>
+
+  <text x="40" y="42" class="title">Promise 的状态流转</text>
+  <text x="40" y="66" class="subtitle">三种状态,一次定型</text>
+
+  <rect x="60" y="170" width="170" height="68" class="box" fill="var(--c-brand-soft)" stroke="var(--c-brand)"/>
+  <text x="145" y="200" class="box-text" fill="var(--c-brand)">pending</text>
+  <text x="145" y="222" class="box-sub">进行中</text>
+
+  <rect x="460" y="90" width="220" height="68" class="box" fill="var(--c-success-soft)" stroke="var(--c-success)"/>
+  <text x="570" y="120" class="box-text" fill="var(--c-success)">fulfilled</text>
+  <text x="570" y="142" class="box-sub">已成功</text>
+
+  <rect x="460" y="250" width="220" height="68" class="box" fill="var(--c-danger-soft)" stroke="var(--c-danger)"/>
+  <text x="570" y="280" class="box-text" fill="var(--c-danger)">rejected</text>
+  <text x="570" y="302" class="box-sub">已失败</text>
+
+  <path d="M 230 204 C 320 204, 370 124, 460 124" class="arrow" stroke="var(--c-success)"/>
+  <text x="345" y="142" class="arrow-label" fill="var(--c-success)" text-anchor="middle">resolve(value)</text>
+
+  <path d="M 230 204 C 320 204, 370 284, 460 284" class="arrow" stroke="var(--c-danger)"/>
+  <text x="345" y="268" class="arrow-label" fill="var(--c-danger)" text-anchor="middle">reject(reason)</text>
+
+  <text x="40" y="368" class="note">状态一旦从 pending 改变,就不会再变 —— 之后无论成功还是失败,结果都固定下来。</text>
+</svg>
