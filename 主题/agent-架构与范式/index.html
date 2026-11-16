@@ -107,8 +107,8 @@
 <li><a href="../agent/agent-advanced/5-reflection.md">反思 + Human-in-the-Loop</a> — 生产场景中,某些决策必须人工确认。</li>
 <li><a href="../agent/projects/1-customer-service.md">项目 1:AI 客服系统(RAG + 工具调用)</a> — 核心是「检索 + 工具 + 转人工」:先用 RAG 找到知识库答案,需要订单状态就调工具查,置信度不足或用户不满就转人工。</li>
 <li><a href="../agent/projects/3-code-assistant.md">项目 3:AI 代码助手(类似 Cursor)</a> — 关键是「给上下文而不是猜」:先检索仓库里相关的文件、函数、类型定义,再让模型基于真实代码作答;编辑用 diff 补丁而不是重写整个文件。</li>
-<li><a href="../agent/projects/4-data-analyst.md">项目 4:数据分析 Agent(Text-to-SQL + 图表)</a> — 自然语言到数据可视化的完整链路:用户提问 → LLM 提取意图 → 生成查询 → 后端执行 → 大屏渲染</li>
-<li><a href="../agent/projects/5-ai-film-production.md">项目 5:AI 短剧生产平台(Agent 编排 + 批量生成 + 一致性资产)</a> — AI 短剧生产平台的五层结构:剧本层生成内容,一致性层沉淀角色资产,生成层并行跑任务,资产层管理候选版本,成片层做剪辑导出,横向由算力调度层统一排队与计费</li>
+<li><a href="../agent/projects/4-data-analyst.md">项目 4:数据分析 Agent(Text-to-SQL + 图表)</a> — 自然语言到数据可视化的完整链路：用户提问 → LLM 提取意图 → 生成查询 → 后端执行 → 大屏渲染</li>
+<li><a href="../agent/projects/5-ai-film-production.md">项目 5:AI 短剧生产平台(Agent 编排 + 批量生成 + 一致性资产)</a> — AI 短剧生产平台的五层结构：剧本层生成内容,一致性层沉淀角色资产,生成层并行跑任务,资产层管理候选版本,成片层做剪辑导出,横向由算力调度层统一排队与计费</li>
 <li><a href="../agent/projects/5-ai-film-production-agents.md">影视 Agent 流水线:六个 Agent 如何配合</a> — 这是把 Agent 和执行层分开的关键:调度 Agent 是「决策」,队列 worker 是「执行」。混在一起就没法异步、没法扩、没法单独重试。</li>
 <li><a href="../agent/agent-advanced/index.md">Agent 进阶</a> — LangGraph 之后,生产级 Agent 还需要的能力:</li>
 <li><a href="../agent/agent-advanced/exercises.md">Agent 进阶 练习题 + 踩坑指南</a> — &gt;参考解答&gt;</li>
@@ -125,24 +125,24 @@
 <div class="sl-heading-wrapper level-h2"><h2 id="前端21-篇">前端（21 篇）</h2><a class="sl-anchor-link" href="#前端21-篇"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “前端（21 篇）”</span></a></div>
 <ul>
 <li><a href="../%E5%89%8D%E7%AB%AF/engineering/ai-copilot/06-%E5%A4%9Aagent.md">06 多 Agent 协作</a> — 任务：重构 member-h5 的登录模块</li>
-<li><a href="../%E5%89%8D%E7%AB%AF/react/4-fiber.md">Fiber 架构（React 16+）</a> — React Fiber 架构:可中断的协调器、优先级调度与双缓冲</li>
+<li><a href="../%E5%89%8D%E7%AB%AF/react/4-fiber.md">Fiber 架构（React 16+）</a> — React Fiber 架构：可中断的协调器、优先级调度与双缓冲</li>
 <li><a href="../%E5%89%8D%E7%AB%AF/typescript/11-react.md">React + TypeScript（现代实战）</a> — &lt;!– knowledge-point:start –&gt;</li>
 <li><a href="../%E5%89%8D%E7%AB%AF/react/16-react18-19-features.md">React 18 / 19 新特性</a> — React 18 引入“并发渲染”,让 React 能中断渲染处理更高优先级任务。</li>
 <li><a href="../%E5%89%8D%E7%AB%AF/react/7-concurrent.md">React 18+ 并发模式（Concurrent Mode）</a> — &lt;!– knowledge-point:start –&gt;</li>
 <li><a href="../%E5%89%8D%E7%AB%AF/react/14-forms.md">React 表单:React Hook Form + Zod</a> — React Hook Form 默认非受控(用 ref):</li>
 <li><a href="../%E5%89%8D%E7%AB%AF/react/15-error-suspense.md">React 错误边界与 Suspense</a> — GraphQL 客户端对 Suspense 友好。</li>
 <li><a href="../%E5%89%8D%E7%AB%AF/react/20-ssr.md">React 服务端渲染体系</a> — React 树「接」到这个已有 DOM 上,这个过程叫 hydration(注水)。</li>
-<li><a href="../%E5%89%8D%E7%AB%AF/react/1-basics.md">React 基础</a> — React 生命周期对比:旧版 class 组件与新版 Hooks 的对应关系</li>
+<li><a href="../%E5%89%8D%E7%AB%AF/react/1-basics.md">React 基础</a> — React 生命周期对比：旧版 class 组件与新版 Hooks 的对应关系</li>
 <li><a href="../%E5%89%8D%E7%AB%AF/react/13-data-fetching.md">React 数据获取:TanStack Query / SWR</a> — &lt;!– knowledge-point:start –&gt;</li>
 <li><a href="../%E5%89%8D%E7%AB%AF/react/17-further-reading.md">React 推荐深入阅读</a> — 读完上述资料,这些问题都能答上来。</li>
 <li><a href="../%E5%89%8D%E7%AB%AF/react/19-performance.md">React 性能优化体系</a> — React DevTools → Profiler → 录制一次交互,看:</li>
-<li><a href="../%E5%89%8D%E7%AB%AF/react/8-render-flow.md">React 渲染流程全链路</a> — JSX 到真实 DOM 的渲染流程:编译、createElement、vnode、patch 到 DOM</li>
+<li><a href="../%E5%89%8D%E7%AB%AF/react/8-render-flow.md">React 渲染流程全链路</a> — JSX 到真实 DOM 的渲染流程：编译、createElement、vnode、patch 到 DOM</li>
 <li><a href="../%E5%89%8D%E7%AB%AF/react/9-real-project.md">React 在真实项目中的应用</a> — React SSR、SSG、CSR 三种渲染模式的对比与选型</li>
 <li><a href="../%E5%89%8D%E7%AB%AF/react/index.md">React 知识体系</a> — 20 篇体系讲解 + 27 篇面试题,按知识点重新组织。</li>
-<li><a href="../%E5%89%8D%E7%AB%AF/react/11-state-management.md">React 状态管理</a> — Redux 三大原则与单向数据流:State 只读,唯一改变方式是 dispatch</li>
+<li><a href="../%E5%89%8D%E7%AB%AF/react/11-state-management.md">React 状态管理</a> — Redux 三大原则与单向数据流：State 只读,唯一改变方式是 dispatch</li>
 <li><a href="../%E5%89%8D%E7%AB%AF/design-patterns/2-React%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md">React 组件设计模式</a> — 单据审批、订单状态这类“多状态 + 多流转”的场景， 会失控。</li>
 <li><a href="../%E5%89%8D%E7%AB%AF/react/10-component-lifecycle.md">React 组件设计与生命周期</a> — 判断标准:同一个组件在不同页面用法不一致时,往往说明状态放错位置了。</li>
-<li><a href="../%E5%89%8D%E7%AB%AF/react/3-diff.md">React Diff 算法（Reconciliation）</a> — React Diff 三层策略与 key 的作用:树对比、组件对比、元素对比</li>
+<li><a href="../%E5%89%8D%E7%AB%AF/react/3-diff.md">React Diff 算法（Reconciliation）</a> — React Diff 三层策略与 key 的作用：树对比、组件对比、元素对比</li>
 <li><a href="../%E5%89%8D%E7%AB%AF/react/12-router.md">React Router 完整指南</a> — &lt;!– knowledge-point:start –&gt;</li>
 <li><a href="../%E5%89%8D%E7%AB%AF/react/6-scheduler.md">React Scheduler 调度详解</a> — React 18+ 的 Concurrent Mode(并发模式)让 React 能主动中断渲染,优先处理更紧急的任务(如用户输入)。</li>
 </ul>

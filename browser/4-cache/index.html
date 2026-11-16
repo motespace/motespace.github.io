@@ -75,7 +75,7 @@
 <p>本篇聚焦浏览器侧 HTTP 缓存,涵盖强缓存、协商缓存、缓存位置、刷新行为、CDN 协作、实战配置与项目踩坑。</p>
 <p>配套阅读:网络篇《HTTP 缓存机制》关注协议层;本篇关注浏览器实现与工程落地。</p>
 </blockquote>
-<p><img src="/img/%E9%9D%A2%E8%AF%95/%E5%9C%BA%E6%99%AF%E9%A2%98/q44-http-cache-flow.svg" alt="HTTP 缓存决策流程"></p>
+<p><img src="/img/%E9%9D%A2%E8%AF%95/%E5%9C%BA%E6%99%AF%E9%A2%98/q44-http-cache-flow.svg" alt="HTTP 缓存决策流程：浏览器发起请求后如何命中强缓存或走协商缓存"></p>
 <div class="sl-heading-wrapper level-h2"><h2 id="一为什么-http-缓存是性能优化之首">一、为什么 HTTP 缓存是性能优化之首</h2><a class="sl-anchor-link" href="#一为什么-http-缓存是性能优化之首"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “一、为什么 HTTP 缓存是性能优化之首”</span></a></div>
 <p>浏览器加载一个页面的总耗时,网络往返往往占大头。HTTP 缓存的目标只有一个:<strong>让重复请求“几乎免费”</strong>。</p>
 <p>两个层面优化:</p>

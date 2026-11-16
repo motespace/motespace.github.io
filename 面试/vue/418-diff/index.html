@@ -89,26 +89,26 @@
 <ol>
 <li>比较只会在同层级进行, 不会跨层级比较</li>
 </ol>
-<img src="https://static001.infoq.cn/resource/image/91/54/91e9c9519a11caa0c5bf70714383f054.png" alt="img" style="zoom:50%;" />
+<p><img src="/img/%E9%9D%A2%E8%AF%95/Vue/418-diff-1.png" alt="diff 同层比较：只比较同级节点,不跨层级"></p>
 <ol start="2">
 <li>比较的过程中，循环从两边向中间收拢</li>
 </ol>
-<img src="https://static001.infoq.cn/resource/image/2d/ec/2dcd6ad5cf82c65b9cfc43a27ba1e4ec.png" alt="img" style="zoom:50%;" />
+<p><img src="/img/%E9%9D%A2%E8%AF%95/Vue/418-diff-2.png" alt="diff 比较时循环从两边向中间收拢"></p>
 <p>下面举个<code dir="auto">vue</code>通过<code dir="auto">diff</code>算法更新的例子：</p>
 <p>新旧<code dir="auto">VNode</code>节点如下图所示：</p>
-<p><img src="/img/%E9%9D%A2%E8%AF%95/Vue/418-diff-1.png" alt="418-diff 配图 1"></p>
+<p><img src="/img/%E9%9D%A2%E8%AF%95/Vue/418-diff-3.png" alt="diff 之前：新旧两棵 VNode 树"></p>
 <p>第一次循环后，发现旧节点D与新节点D相同，直接复用旧节点D作为<code dir="auto">diff</code>后的第一个真实节点，同时旧节点<code dir="auto">endIndex</code>移动到C，新节点的 <code dir="auto">startIndex</code> 移动到了 C</p>
-<p><img src="/img/%E9%9D%A2%E8%AF%95/Vue/418-diff-2.png" alt="418-diff 配图 2"></p>
+<p><img src="/img/%E9%9D%A2%E8%AF%95/Vue/418-diff-4.png" alt="第一次循环：旧节点 D 与新节点 D 相同,直接复用"></p>
 <p>第二次循环后，同样是旧节点的末尾和新节点的开头(都是 C)相同，同理，<code dir="auto">diff</code> 后创建了 C 的真实节点插入到第一次创建的 D 节点后面。同时旧节点的 <code dir="auto">endIndex</code> 移动到了 B，新节点的 <code dir="auto">startIndex</code> 移动到了 E</p>
-<p><img src="/img/%E9%9D%A2%E8%AF%95/Vue/418-diff-3.png" alt="418-diff 配图 3"></p>
+<p><img src="/img/%E9%9D%A2%E8%AF%95/Vue/418-diff-5.png" alt="第二次循环：旧节点末尾 C 与新节点开头 C 相同,创建 C"></p>
 <p>第三次循环中，发现E没有找到，这时候只能直接创建新的真实节点 E，插入到第二次创建的 C 节点之后。同时新节点的 <code dir="auto">startIndex</code> 移动到了 A。旧节点的 <code dir="auto">startIndex</code> 和 <code dir="auto">endIndex</code> 都保持不动</p>
-<p><img src="/img/%E9%9D%A2%E8%AF%95/Vue/418-diff-4.png" alt="418-diff 配图 4"></p>
+<p><img src="/img/%E9%9D%A2%E8%AF%95/Vue/418-diff-6.png" alt="第三次循环：新节点 E 没找到,直接创建 E"></p>
 <p>第四次循环中，发现了新旧节点的开头(都是 A)相同，于是 <code dir="auto">diff</code> 后创建了 A 的真实节点，插入到前一次创建的 E 节点后面。同时旧节点的 <code dir="auto">startIndex</code> 移动到了 B，新节点的<code dir="auto"> startIndex</code> 移动到了 B</p>
-<p><img src="/img/%E9%9D%A2%E8%AF%95/Vue/418-diff-5.png" alt="418-diff 配图 5"></p>
+<p><img src="/img/%E9%9D%A2%E8%AF%95/Vue/418-diff-7.png" alt="第四次循环：新旧开头都是 A,创建 A"></p>
 <p>第五次循环中，情形同第四次循环一样，因此 <code dir="auto">diff</code> 后创建了 B 真实节点 插入到前一次创建的 A 节点后面。同时旧节点的 <code dir="auto">startIndex </code>移动到了 C，新节点的 startIndex 移动到了 F</p>
-<p><img src="/img/%E9%9D%A2%E8%AF%95/Vue/418-diff-6.png" alt="418-diff 配图 6"></p>
+<p><img src="/img/%E9%9D%A2%E8%AF%95/Vue/418-diff-8.png" alt="第五次循环：同第四次,创建 B"></p>
 <p>新节点的 <code dir="auto">startIndex</code> 已经大于 <code dir="auto">endIndex</code> 了，需要创建 <code dir="auto">newStartIdx</code> 和 <code dir="auto">newEndIdx</code> 之间的所有节点，也就是节点F，直接创建 F 节点对应的真实节点放到 B 节点后面</p>
-<p><img src="/img/%E9%9D%A2%E8%AF%95/Vue/418-diff-7.png" alt="418-diff 配图 7"></p>
+<p><img src="/img/%E9%9D%A2%E8%AF%95/Vue/418-diff-9.png" alt="新节点 startIndex 超过 endIndex,补创建 F 节点"></p>
 <div class="sl-heading-wrapper level-h2"><h2 id="三原理分析">三、原理分析</h2><a class="sl-anchor-link" href="#三原理分析"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “三、原理分析”</span></a></div>
 <p>当数据发生改变时，<code dir="auto">set</code>方法会调用<code dir="auto">Dep.notify</code>通知所有订阅者<code dir="auto">Watcher</code>，订阅者就会调用<code dir="auto">patch</code>给真实的<code dir="auto">DOM</code>打补丁，更新相应的视图</p>
 <p>源码位置：src/core/vdom/patch.js</p>
